@@ -4,8 +4,10 @@ AI FX研究所 - 本日のAIシグナル 自動計算スクリプト
 
 やっていること（概要）:
   1. Yahoo Finance の公開チャートAPI（無料・キー不要）から
-     USD/JPY の価格（5分足・15分足・1時間足）を取得する。
+     USD/JPY の価格（5分足・15分足・1時間足）を取得する。毎回実行時に取得。
   2. Alpha Vantage（無料枠）から米10年債利回り・WTI原油（いずれも日足）を取得する。
+     ただし元データが日足のため、当日分をすでに取得済みなら再取得せず使い回す
+    （無料枠が1日25回までのため、頻繁な実行でも枠を消費しないようにするため）。
   3. 各時間足について「線形回帰チャネル」を計算し、直近の価格が
      チャネルのどこに位置するかで SELL / BUY / WAIT / GATE を判定する。
   4. 4つの時間足の判定を集計して、総合バイアス・信頼度・相場モードを決める。
@@ -17,14 +19,15 @@ AI FX研究所 - 本日のAIシグナル 自動計算スクリプト
   - ブラックボックスなAI予測ではなく、「なぜその判定になったか」を
     誰でも追える単純な統計ルール（回帰チャネル）にしている。
   - 実際のトレード成績を保証するものではない。あくまで
-    「参考情報を毎日自動更新する」ためのツール。
+    「参考情報を自動更新する」ためのツール。
   - 為替の分足・時間足データは、Alpha Vantageの無料枠が2026年時点で
     「historical intraday」を有料化してしまったため、Yahoo Financeの
     非公式だが広く使われているチャートAPI（yfinance等でも使われているもの）
     を利用している。公式サポートのAPIではないため、将来URLの仕様が
     変わって取得できなくなる可能性はゼロではない（その場合はエラーとして
     検知され、既存の静的表示のまま維持される）。
-  - 米10年債・WTIはAlpha Vantageの無料枠（日足データ）で取得。
+  - 米10年債・WTIはAlpha Vantageの無料枠（日足データ）で取得。1日1回だけ
+    実際にAPIを呼び、それ以外の実行では前回のsignal.jsonの値を使い回す。
     JP10Y・DXY・GOLDはAlpha Vantage無料枠では取得できないため、
     このスクリプトの計算には使っていない
     （サイト上ではTradingViewのライブティッカーで別途表示のみ）。
@@ -209,19 +212,54 @@ def trend_direction(values, days=5):
     return "up" if change > 0 else "down"
 
 
-def build_signal():
+def load_previous_signal(out_path):
+    """前回書き出したsignal.jsonを読む（無ければNone）。"""
+    try:
+        with open(out_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return None
+
+
+def is_same_utc_date(iso_ts, now):
+    """iso_ts（ISO形式の日時文字列）がnowと同じUTC日付かどうか。"""
+    if not iso_ts:
+        return False
+    try:
+        dt = datetime.fromisoformat(iso_ts)
+    except ValueError:
+        return False
+    return dt.date() == now.date()
+
+
+def build_signal(out_path=None):
     if not ALPHA_VANTAGE_KEY:
         raise RuntimeError("環境変数 ALPHA_VANTAGE_KEY が設定されていません")
 
-    # --- 為替データ: Yahoo Finance（無料・キー不要） ---
+    now = datetime.now(timezone.utc)
+
+    # --- 為替データ: Yahoo Finance（無料・キー不要・毎回取得） ---
     m5 = fetch_fx_intraday("5m", "5d")
     m15 = fetch_fx_intraday("15m", "5d")
     h1 = fetch_fx_intraday("60m", "60d")
 
-    # --- 米10年債・WTI: Alpha Vantage（無料枠、5リクエスト/分のため間隔をあける） ---
-    us10y = fetch_treasury_yield_10y()
-    time.sleep(13)
-    wti = fetch_wti_daily()
+    # --- 米10年債・WTI: Alpha Vantage（無料枠 25回/日のため、1日1回だけ取得して使い回す） ---
+    # そもそもTREASURY_YIELD/WTIは日足データなので、1日に何度呼んでも値は変わらない。
+    prev = load_previous_signal(out_path) if out_path else None
+    prev_macro = (prev or {}).get("macro", {})
+    reuse_macro = prev and is_same_utc_date(prev.get("generated_at_utc"), now) and prev_macro.get("us10y_latest") is not None
+
+    if reuse_macro:
+        yield_trend = prev_macro.get("us10y_trend", "flat")
+        us10y_latest = prev_macro.get("us10y_latest")
+        wti_trend = prev_macro.get("wti_trend", "flat")
+    else:
+        us10y = fetch_treasury_yield_10y()
+        time.sleep(13)
+        wti = fetch_wti_daily()
+        yield_trend = trend_direction(us10y)
+        us10y_latest = us10y[-1][1] if us10y else None
+        wti_trend = trend_direction(wti)
 
     closes_5m = [c for _, c in m5]
     closes_15m = [c for _, c in m15]
@@ -263,10 +301,6 @@ def build_signal():
     else:
         confidence = 50
         stars = 2
-
-    yield_trend = trend_direction(us10y)
-    wti_trend = trend_direction(wti)
-    us10y_latest = us10y[-1][1] if us10y else None
 
     directional_tfs = sell_count + buy_count
     if directional_tfs >= 3:
@@ -321,8 +355,6 @@ def build_signal():
     }
     commentary = comments.get(bias, comments["WAIT"])[0]
 
-    now = datetime.now(timezone.utc)
-
     return {
         "generated_at_utc": now.isoformat(),
         "pair": "USD/JPY",
@@ -362,14 +394,15 @@ def build_signal():
 
 
 def main():
+    out_path = os.path.join(os.path.dirname(__file__), "..", "signal.json")
+    out_path = os.path.abspath(out_path)
+
     try:
-        signal = build_signal()
+        signal = build_signal(out_path=out_path)
     except Exception as e:  # noqa: BLE001
         print(f"[ERROR] シグナル計算に失敗しました: {e}", file=sys.stderr)
         sys.exit(1)
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "signal.json")
-    out_path = os.path.abspath(out_path)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(signal, f, ensure_ascii=False, indent=2)
     print(f"書き出し完了: {out_path}")
