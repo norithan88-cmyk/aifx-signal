@@ -2,8 +2,10 @@ name: Update AI FX Signal
 
 on:
   schedule:
-    # 毎日 06:30 JST (= 前日 21:30 UTC) に実行。米国市場が動き出す少し前の時間帯。
-    - cron: "30 21 * * *"
+    # 毎時0分に実行（例：0:00, 1:00, 2:00 UTC...）。
+    # USD/JPYの価格・回帰チャネルは毎回更新されるが、米10年債・WTIは
+    # 元データが日足のため1日1回しか実際にはAPIを呼ばない（スクリプト側で制御）。
+    - cron: "0 * * * *"
   workflow_dispatch: {}  # GitHubの画面から手動実行もできるようにする
 
 permissions:
