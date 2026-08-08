@@ -1,0 +1,49 @@
+{
+  "generated_at_utc": "2026-08-08T17:40:08.496552+00:00",
+  "pair": "USD/JPY",
+  "latest_price": 157.745,
+  "day_change_pct": -0.44,
+  "signal": {
+    "bias": "WAIT",
+    "bias_label": "方向感なし",
+    "stars": 2,
+    "confidence": 50
+  },
+  "intervention_risk": "MID",
+  "market_mode": "RANGE",
+  "market_mode_note": "多くの時間足が中央付近で推移しており、方向感に乏しいレンジ地合い。",
+  "priority_trade": {
+    "lead": "様子見 ― チャネル中央で方向感なし",
+    "entry": null,
+    "take_profit": null,
+    "stop_loss": null
+  },
+  "regression_channels": [
+    {
+      "label": "5分足",
+      "state": "WAIT",
+      "position_sigma": 0.33
+    },
+    {
+      "label": "15分足",
+      "state": "SELL",
+      "position_sigma": 1.53
+    },
+    {
+      "label": "1時間足",
+      "state": "WAIT",
+      "position_sigma": -1.04
+    },
+    {
+      "label": "4時間足",
+      "state": "BUY",
+      "position_sigma": -1.64
+    }
+  ],
+  "macro": {
+    "us10y_trend": "down",
+    "wti_trend": "up"
+  },
+  "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
+  "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。"
+}
