@@ -265,6 +265,7 @@ def build_signal():
         stars = 2
 
     yield_trend = trend_direction(us10y)
+    us10y_latest = us10y[-1][1] if us10y else None
     wti_trend = trend_direction(wti)
 
     directional_tfs = sell_count + buy_count
@@ -352,6 +353,7 @@ def build_signal():
         ],
         "macro": {
             "us10y_trend": yield_trend,
+         　 "us10y_latest": round(us10y_latest, 2) if us10y_latest is not None else None,
             "wti_trend": wti_trend,
         },
         "commentary": commentary,
