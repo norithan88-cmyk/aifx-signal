@@ -80,8 +80,8 @@ def http_get_json(params, retries=3, wait_sec=15):
 
 def fetch_fx_intraday(interval, range_):
     """
-    Yahoo Financeの公開チャートAPIからUSD/JPYの分足・時間足データを取得し、
-    [(timestamp, close), ...] を古い順（null値を除く）で返す。
+    Yahoo Financeの公開チャートAPIからUSD/JPYの分足・時間足データ（ローソク足）を取得し、
+    [{"t":timestamp,"o":始値,"h":高値,"l":安値,"c":終値}, ...] を古い順（null値を除く）で返す。
     interval例: "5m" "15m" "60m" / range例: "5d" "60d"
     """
     url = f"{YAHOO_CHART_URL}?interval={interval}&range={range_}"
@@ -96,11 +96,23 @@ def fetch_fx_intraday(interval, range_):
                 raise RuntimeError(f"USD/JPY {interval} のデータが取得できませんでした: {data.get('chart', {}).get('error')}")
             r = result[0]
             timestamps = r.get("timestamp") or []
-            closes = r["indicators"]["quote"][0].get("close") or []
-            pairs = [(ts, c) for ts, c in zip(timestamps, closes) if c is not None]
-            if not pairs:
+            quote = r["indicators"]["quote"][0]
+            opens = quote.get("open") or []
+            highs = quote.get("high") or []
+            lows = quote.get("low") or []
+            closes = quote.get("close") or []
+            bars = []
+            for i, ts in enumerate(timestamps):
+                c = closes[i] if i < len(closes) else None
+                if c is None:
+                    continue
+                o = opens[i] if i < len(opens) and opens[i] is not None else c
+                h = highs[i] if i < len(highs) and highs[i] is not None else max(o, c)
+                low = lows[i] if i < len(lows) and lows[i] is not None else min(o, c)
+                bars.append({"t": ts, "o": o, "h": h, "l": low, "c": c})
+            if not bars:
                 raise RuntimeError(f"USD/JPY {interval} のデータが空でした")
-            return pairs
+            return bars
         except (urllib.error.URLError, TimeoutError, RuntimeError) as e:
             last_err = e
             time.sleep(5)
@@ -137,14 +149,19 @@ def fetch_wti_daily():
     return values
 
 
-def aggregate_to_4h(hourly_closes):
-    """1時間足の終値リストから、4本ごとにまとめた4時間足の終値リストを作る。"""
-    closes = [c for _, c in hourly_closes]
+def aggregate_to_4h(hourly_bars):
+    """1時間足のローソク足リストから、4本ごとにまとめた4時間足のローソク足リストを作る。"""
     grouped = []
-    for i in range(0, len(closes), 4):
-        chunk = closes[i:i + 4]
+    for i in range(0, len(hourly_bars), 4):
+        chunk = hourly_bars[i:i + 4]
         if chunk:
-            grouped.append(chunk[-1])  # 4本の最後の終値を4時間足の終値として採用
+            grouped.append({
+                "t": chunk[0]["t"],
+                "o": chunk[0]["o"],
+                "h": max(b["h"] for b in chunk),
+                "l": min(b["l"] for b in chunk),
+                "c": chunk[-1]["c"],
+            })
     return grouped
 
 
@@ -182,7 +199,8 @@ def linear_regression_channel(closes, lookback=LOOKBACK):
 
     return {
         "mid": mid, "upper": upper, "lower": lower, "sigma": sigma,
-        "position": position, "slope": slope, "latest": latest,
+        "position": position, "slope": slope, "intercept": intercept, "n": n,
+        "latest": latest,
     }
 
 
@@ -296,21 +314,18 @@ def build_signal(out_path=None):
         us10y_latest = us10y[-1][1] if us10y else None
         wti_trend = trend_direction(wti)
 
-    closes_5m = [c for _, c in m5]
-    closes_15m = [c for _, c in m15]
-    closes_1h = [c for _, c in h1]
-    closes_4h = aggregate_to_4h(h1)
+    bars_4h = aggregate_to_4h(h1)
 
-    ch_5m = linear_regression_channel(closes_5m)
-    ch_15m = linear_regression_channel(closes_15m)
-    ch_1h = linear_regression_channel(closes_1h)
-    ch_4h = linear_regression_channel(closes_4h, lookback=30)
+    ch_5m = linear_regression_channel([b["c"] for b in m5])
+    ch_15m = linear_regression_channel([b["c"] for b in m15])
+    ch_1h = linear_regression_channel([b["c"] for b in h1])
+    ch_4h = linear_regression_channel([b["c"] for b in bars_4h], lookback=30)
 
     timeframes = [
-        {"label": "5分足", "key": "m5", "channel": ch_5m},
-        {"label": "15分足", "key": "m15", "channel": ch_15m},
-        {"label": "1時間足", "key": "h1", "channel": ch_1h},
-        {"label": "4時間足", "key": "h4", "channel": ch_4h},
+        {"label": "5分足", "key": "m5", "channel": ch_5m, "bars": m5, "lookback": LOOKBACK},
+        {"label": "15分足", "key": "m15", "channel": ch_15m, "bars": m15, "lookback": LOOKBACK},
+        {"label": "1時間足", "key": "h1", "channel": ch_1h, "bars": h1, "lookback": LOOKBACK},
+        {"label": "4時間足", "key": "h4", "channel": ch_4h, "bars": bars_4h, "lookback": 30},
     ]
     for tf in timeframes:
         tf["state"] = classify_state(tf["channel"]["position"])
@@ -348,10 +363,10 @@ def build_signal(out_path=None):
         market_mode = "RANGE"
         market_mode_note = "多くの時間足が中央付近で推移しており、方向感に乏しいレンジ地合い。"
 
-    latest_price = closes_5m[-1] if closes_5m else ch_1h["latest"]
+    latest_price = m5[-1]["c"] if m5 else ch_1h["latest"]
     day_change_pct = 0.0
-    if len(closes_1h) >= 24:
-        base = closes_1h[-24]
+    if len(h1) >= 24:
+        base = h1[-24]["c"]
         if base:
             day_change_pct = (latest_price - base) / base * 100
 
@@ -419,6 +434,25 @@ def build_signal(out_path=None):
                 "label": tf["label"],
                 "state": tf["state"],
                 "position_sigma": round(tf["channel"]["position"], 2),
+            }
+            for tf in timeframes
+        ],
+        "charts": [
+            {
+                "label": tf["label"],
+                "state": tf["state"],
+                "bars": [
+                    {
+                        "o": round(b["o"], 3), "h": round(b["h"], 3),
+                        "l": round(b["l"], 3), "c": round(b["c"], 3),
+                    }
+                    for b in tf["bars"][-tf["lookback"]:]
+                ],
+                "channel": {
+                    "intercept": round(tf["channel"]["intercept"], 4),
+                    "slope": round(tf["channel"]["slope"], 6),
+                    "sigma": round(tf["channel"]["sigma"], 4),
+                },
             }
             for tf in timeframes
         ],
