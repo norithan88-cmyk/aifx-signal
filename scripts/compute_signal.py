@@ -212,6 +212,41 @@ def trend_direction(values, days=5):
     return "up" if change > 0 else "down"
 
 
+TREND_JA = {"up": "上昇", "down": "低下", "flat": "横ばい"}
+
+
+def build_market_context(bias, sell_count, buy_count, gate_count, latest_price,
+                          day_change_pct, us10y_trend, wti_trend):
+    """
+    「直近の指標・報道まとめ」欄用の文章を、その時点の実データから自動生成する。
+    固定文ではなく、価格・トレンドという生きた数値を毎回埋め込むため、
+    時間が経っても内容が古びない（＝手動更新が要らない）設計にしている。
+    ここでは経済ニュースの見出しそのものは扱わず、あくまで「今の数値が
+    何を示しているか」の解説にとどめている（ニュース自体の自動取得は
+    別途 経済指標カレンダーAPIの導入が必要で、現状は未対応）。
+    """
+    change_txt = f"{day_change_pct:+.2f}%"
+    y = TREND_JA.get(us10y_trend, "横ばい")
+    w = TREND_JA.get(wti_trend, "横ばい")
+
+    if bias == "SELL":
+        stance = f"{sell_count}個の時間足が上値の重さを示しており、戻り売りが優勢な地合い"
+        outlook = "目先は上値の重い展開が想定され、高値を追わず戻りを待つスタンスが機能しやすい局面。"
+    elif bias == "BUY":
+        stance = f"{buy_count}個の時間足が下値の堅さを示しており、押し目買いが優勢な地合い"
+        outlook = "目先は下値の堅い展開が想定され、押し目を焦らず拾うスタンスが機能しやすい局面。"
+    else:
+        stance = f"時間足ごとの判定が割れており（SELL {sell_count}／BUY {buy_count}／GATE {gate_count}）、方向感に乏しいレンジ地合い"
+        outlook = "明確なブレイクが出るまでは、無理に取りにいかず様子見が無難な局面。"
+
+    return (
+        f"USD/JPYは現在{latest_price:.2f}円付近で推移（直近1時間比{change_txt}）。{stance}。"
+        f"米10年債利回りは{y}基調、WTI原油は{w}基調で推移している。{outlook}"
+        "※このまとめは実データから自動生成された定型解説です。個別の経済指標発表や"
+        "ニュース速報の内容までは反映していません。"
+    )
+
+
 def load_previous_signal(out_path):
     """前回書き出したsignal.jsonを読む（無ければNone）。"""
     try:
@@ -354,6 +389,10 @@ def build_signal(out_path=None):
         ],
     }
     commentary = comments.get(bias, comments["WAIT"])[0]
+    market_context = build_market_context(
+        bias, sell_count, buy_count, gate_count, latest_price, day_change_pct,
+        yield_trend, wti_trend,
+    )
 
     return {
         "generated_at_utc": now.isoformat(),
@@ -389,6 +428,7 @@ def build_signal(out_path=None):
             "wti_trend": wti_trend,
         },
         "commentary": commentary,
+        "market_context": market_context,
         "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
     }
 
