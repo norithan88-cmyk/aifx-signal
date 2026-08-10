@@ -35,10 +35,3 @@ jobs:
           git add signal.json
           git diff --cached --quiet && echo "変更なし。コミットをスキップします。" || git commit -m "chore: update signal.json ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git push
-
-      - name: Purge jsDelivr cache
-        # jsDelivr はファイルをキャッシュするため、更新のたびに明示的にパージして
-        # サイト側がすぐ新しい signal.json を取得できるようにする。
-        run: |
-          REPO="${GITHUB_REPOSITORY}"
-          curl -s "https://purge.jsdelivr.net/gh/${REPO}@main/signal.json" || true
