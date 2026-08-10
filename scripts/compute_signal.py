@@ -208,16 +208,42 @@ def linear_regression_channel(closes, lookback=LOOKBACK):
     }
 
 
-def classify_state(position):
+def classify_state(position, trend="FLAT"):
+    """
+    trend（"UP"/"DOWN"/"FLAT"）は移動平均クロスによるトレンド方向。
+    通常はチャネル逸脱＝逆張り（SELL/BUY）だが、±2.2σを超える極端な
+    突破（GATE）については、その方向にトレンドが伴っている場合のみ
+    「反転ではなく継続」とみなしてBUY/SELLに読み替える。
+    トレンドが伴わない突破は、これまで通りGATE（様子見）のまま。
+    """
     if position >= GATE_THRESHOLD:
-        return "GATE"
+        return "BUY" if trend == "UP" else "GATE"
     if position >= EDGE_THRESHOLD:
         return "SELL"
     if position <= -GATE_THRESHOLD:
-        return "GATE"
+        return "SELL" if trend == "DOWN" else "GATE"
     if position <= -EDGE_THRESHOLD:
         return "BUY"
     return "WAIT"
+
+
+def moving_average_trend(closes, short=10, long=30):
+    """
+    短期・長期の単純移動平均のクロスからトレンド方向を判定する。
+    差が0.05%未満なら方向感なし（FLAT）扱い。
+    """
+    if len(closes) < long:
+        return "FLAT"
+    short_ma = sum(closes[-short:]) / short
+    long_ma = sum(closes[-long:]) / long
+    if not long_ma:
+        return "FLAT"
+    diff_ratio = (short_ma - long_ma) / long_ma
+    if diff_ratio > 0.0005:
+        return "UP"
+    if diff_ratio < -0.0005:
+        return "DOWN"
+    return "FLAT"
 
 
 def build_chart_entry(tf):
@@ -367,7 +393,8 @@ def build_signal(out_path=None):
         {"label": "4時間足", "key": "h4", "channel": ch_4h, "bars": bars_4h, "lookback": 30},
     ]
     for tf in timeframes:
-        tf["state"] = classify_state(tf["channel"]["position"])
+        tf["trend"] = moving_average_trend([b["c"] for b in tf["bars"]])
+        tf["state"] = classify_state(tf["channel"]["position"], trend=tf["trend"])
 
     sell_count = sum(1 for tf in timeframes if tf["state"] == "SELL")
     buy_count = sum(1 for tf in timeframes if tf["state"] == "BUY")
@@ -473,6 +500,7 @@ def build_signal(out_path=None):
                 "label": tf["label"],
                 "state": tf["state"],
                 "position_sigma": round(tf["channel"]["position"], 2),
+                "trend": tf["trend"],
             }
             for tf in timeframes
         ],
