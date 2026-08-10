@@ -246,6 +246,143 @@ def moving_average_trend(closes, short=10, long=30):
     return "FLAT"
 
 
+# ==== テクニカル指標（1時間足を基準に計算） ====
+# エントリー/利確/損切りの基準にしている1時間足と同じ時間軸で統一し、
+# 「AI'S MARKET READ」等と並ぶ参考情報として表示する（売買判定ロジックには使わない）。
+
+def ema_series(values, period):
+    """
+    指数移動平均（EMA）の系列を返す。最初のperiod本は単純移動平均で初期化し、
+    以降はEMAの標準的な漸化式で計算する。戻り値はvalues[period-1:]に対応する。
+    """
+    if len(values) < period:
+        return []
+    k = 2 / (period + 1)
+    seed = sum(values[:period]) / period
+    out = [seed]
+    for v in values[period:]:
+        out.append(v * k + out[-1] * (1 - k))
+    return out
+
+
+def compute_macd(closes, fast=12, slow=26, signal=9):
+    """
+    MACD(12,26,9)。短期・長期EMAの差（MACD線）と、その9期間EMA（シグナル線）を比較し、
+    ゴールデンクロス/デッドクロスが直近で起きたかどうかも返す。
+    """
+    if len(closes) < slow + signal:
+        return None
+    ema_fast = ema_series(closes, fast)
+    ema_slow = ema_series(closes, slow)
+    ema_fast_aligned = ema_fast[slow - fast:]
+    macd_line = [f - s for f, s in zip(ema_fast_aligned, ema_slow)]
+    signal_line = ema_series(macd_line, signal)
+    if len(signal_line) < 2:
+        return None
+    macd_aligned = macd_line[signal - 1:]
+
+    macd_now, macd_prev = macd_aligned[-1], macd_aligned[-2]
+    signal_now, signal_prev = signal_line[-1], signal_line[-2]
+    histogram = macd_now - signal_now
+
+    if macd_prev <= signal_prev and macd_now > signal_now:
+        cross = "GOLDEN_CROSS"
+    elif macd_prev >= signal_prev and macd_now < signal_now:
+        cross = "DEAD_CROSS"
+    else:
+        cross = None
+
+    state = "BULLISH" if macd_now > signal_now else ("BEARISH" if macd_now < signal_now else "NEUTRAL")
+
+    return {
+        "macd": round(macd_now, 4),
+        "signal": round(signal_now, 4),
+        "histogram": round(histogram, 4),
+        "state": state,
+        "cross": cross,
+    }
+
+
+def compute_rsi(closes, period=14):
+    """RSI（Wilderの平滑化方式）。70以上でOVERBOUGHT、30以下でOVERSOLD。"""
+    if len(closes) < period + 1:
+        return None
+    gains, losses = [], []
+    for i in range(1, len(closes)):
+        change = closes[i] - closes[i - 1]
+        gains.append(max(change, 0.0))
+        losses.append(max(-change, 0.0))
+
+    avg_gain = sum(gains[:period]) / period
+    avg_loss = sum(losses[:period]) / period
+    for i in range(period, len(gains)):
+        avg_gain = (avg_gain * (period - 1) + gains[i]) / period
+        avg_loss = (avg_loss * (period - 1) + losses[i]) / period
+
+    if avg_loss == 0:
+        rsi = 100.0
+    else:
+        rs = avg_gain / avg_loss
+        rsi = 100 - (100 / (1 + rs))
+
+    state = "OVERBOUGHT" if rsi >= 70 else ("OVERSOLD" if rsi <= 30 else "NEUTRAL")
+    return {"value": round(rsi, 1), "state": state}
+
+
+def compute_moving_averages(closes):
+    """MA5/25/75/200と、価格を含めた並び順から「パーフェクトオーダー」を判定する。"""
+    periods = [5, 25, 75, 200]
+    if len(closes) < max(periods):
+        return None
+    mas = {p: sum(closes[-p:]) / p for p in periods}
+    price = closes[-1]
+
+    order = [price, mas[5], mas[25], mas[75], mas[200]]
+    if all(order[i] > order[i + 1] for i in range(len(order) - 1)):
+        perfect_order = "BULLISH"
+    elif all(order[i] < order[i + 1] for i in range(len(order) - 1)):
+        perfect_order = "BEARISH"
+    else:
+        perfect_order = None
+
+    return {
+        "ma5": round(mas[5], 3),
+        "ma25": round(mas[25], 3),
+        "ma75": round(mas[75], 3),
+        "ma200": round(mas[200], 3),
+        "price": round(price, 3),
+        "perfect_order": perfect_order,
+    }
+
+
+def compute_bollinger(closes, period=20, num_std=2):
+    """ボリンジャーバンド（20期間・±2σ）。現在値がバンドのどこにあるかも返す。"""
+    if len(closes) < period:
+        return None
+    window = closes[-period:]
+    mid = sum(window) / period
+    variance = sum((c - mid) ** 2 for c in window) / period
+    std = variance ** 0.5
+    upper = mid + num_std * std
+    lower = mid - num_std * std
+    price = closes[-1]
+    state = "UPPER_TOUCH" if price >= upper else ("LOWER_TOUCH" if price <= lower else "INSIDE")
+    return {
+        "mid": round(mid, 3), "upper": round(upper, 3), "lower": round(lower, 3),
+        "price": round(price, 3), "state": state,
+    }
+
+
+def compute_support_resistance(bars, lookback=50):
+    """直近lookback本の高値・安値から、単純なサポート/レジスタンスを算出する。"""
+    recent = bars[-lookback:] if len(bars) > lookback else bars
+    if not recent:
+        return None
+    resistance = max(b["h"] for b in recent)
+    support = min(b["l"] for b in recent)
+    return {"resistance": round(resistance, 3), "support": round(support, 3)}
+
+
 def build_chart_entry(tf):
     """
     チャート表示用のバー配列とチャネル係数を作る。
@@ -381,6 +518,16 @@ def build_signal(out_path=None):
 
     bars_4h = aggregate_to_4h(h1)
 
+    # --- テクニカル指標（1時間足基準・参考情報として表示するのみ、売買判定には使わない） ---
+    h1_closes = [b["c"] for b in h1]
+    technical = {
+        "macd": compute_macd(h1_closes),
+        "rsi": compute_rsi(h1_closes),
+        "moving_averages": compute_moving_averages(h1_closes),
+        "bollinger": compute_bollinger(h1_closes),
+        "support_resistance": compute_support_resistance(h1),
+    }
+
     ch_5m = linear_regression_channel([b["c"] for b in m5])
     ch_15m = linear_regression_channel([b["c"] for b in m15])
     ch_1h = linear_regression_channel([b["c"] for b in h1])
@@ -505,6 +652,7 @@ def build_signal(out_path=None):
             for tf in timeframes
         ],
         "charts": [build_chart_entry(tf) for tf in timeframes],
+        "technical": technical,
         "macro": {
             "us10y_trend": yield_trend,
             "us10y_latest": round(us10y_latest, 2) if us10y_latest is not None else None,
