@@ -48,8 +48,8 @@ ALPHA_VANTAGE_KEY = os.environ.get("ALPHA_VANTAGE_KEY", "").strip()
 BASE_URL = "https://www.alphavantage.co/query"
 YAHOO_CHART_URL = "https://query1.finance.yahoo.com/v8/finance/chart/JPY=X"
 
-# 回帰チャネル計算に使う直近バーの本数
-LOOKBACK = 50
+# 回帰チャネル計算に使う直近バーの本数（4時間足は別途30本のまま据え置き）
+LOOKBACK = 100
 
 # チャネル内での位置（sigma単位）による状態判定のしきい値
 GATE_THRESHOLD = 2.2   # これを超えたら「GATE」（チャネルを突破。継続か反転か見極め）
