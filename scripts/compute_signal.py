@@ -51,6 +51,10 @@ YAHOO_CHART_URL = "https://query1.finance.yahoo.com/v8/finance/chart/JPY=X"
 # 回帰チャネル計算に使う直近バーの本数（4時間足は別途30本のまま据え置き）
 LOOKBACK = 100
 
+# チャート表示に使うローソク足の本数（計算自体はLOOKBACK本で行うが、
+# 表示本数が多いとチャネル帯が見た目上細く見えてしまうため、表示だけ絞る）
+DISPLAY_BARS = 50
+
 # チャネル内での位置（sigma単位）による状態判定のしきい値
 GATE_THRESHOLD = 2.2   # これを超えたら「GATE」（チャネルを突破。継続か反転か見極め）
 EDGE_THRESHOLD = 1.3   # これを超えたら「SELL」または「BUY」（バンド際、逆張り優勢）
@@ -214,6 +218,41 @@ def classify_state(position):
     if position <= -EDGE_THRESHOLD:
         return "BUY"
     return "WAIT"
+
+
+def build_chart_entry(tf):
+    """
+    チャート表示用のバー配列とチャネル係数を作る。
+    回帰チャネルの計算自体はtf["lookback"]本（例:100本）で行っているが、
+    そのまま全部表示すると強いトレンド時にチャネル帯（2σ幅）が見た目上
+    細く見えてしまうため、表示するローソク足はDISPLAY_BARS本に絞る。
+    その際、回帰直線は元々「表示前の全期間の先頭」を基準（x=0）にしているので、
+    表示本数を絞った分だけ基準点がずれる。interceptをslope分だけ
+    平行移動させることで、絞った後のローソク足配列に対しても
+    回帰直線・チャネル帯の位置が正しく一致するようにしている。
+    """
+    lookback = tf["lookback"]
+    display_count = min(DISPLAY_BARS, lookback)
+    index_shift = lookback - display_count
+    ch = tf["channel"]
+    display_intercept = ch["intercept"] + ch["slope"] * index_shift
+
+    return {
+        "label": tf["label"],
+        "state": tf["state"],
+        "bars": [
+            {
+                "o": round(b["o"], 3), "h": round(b["h"], 3),
+                "l": round(b["l"], 3), "c": round(b["c"], 3),
+            }
+            for b in tf["bars"][-display_count:]
+        ],
+        "channel": {
+            "intercept": round(display_intercept, 4),
+            "slope": round(ch["slope"], 6),
+            "sigma": round(ch["sigma"], 4),
+        },
+    }
 
 
 def trend_direction(values, days=5):
@@ -437,25 +476,7 @@ def build_signal(out_path=None):
             }
             for tf in timeframes
         ],
-        "charts": [
-            {
-                "label": tf["label"],
-                "state": tf["state"],
-                "bars": [
-                    {
-                        "o": round(b["o"], 3), "h": round(b["h"], 3),
-                        "l": round(b["l"], 3), "c": round(b["c"], 3),
-                    }
-                    for b in tf["bars"][-tf["lookback"]:]
-                ],
-                "channel": {
-                    "intercept": round(tf["channel"]["intercept"], 4),
-                    "slope": round(tf["channel"]["slope"], 6),
-                    "sigma": round(tf["channel"]["sigma"], 4),
-                },
-            }
-            for tf in timeframes
-        ],
+        "charts": [build_chart_entry(tf) for tf in timeframes],
         "macro": {
             "us10y_trend": yield_trend,
             "us10y_latest": round(us10y_latest, 2) if us10y_latest is not None else None,
