@@ -46,7 +46,18 @@ from datetime import datetime, timezone
 
 ALPHA_VANTAGE_KEY = os.environ.get("ALPHA_VANTAGE_KEY", "").strip()
 BASE_URL = "https://www.alphavantage.co/query"
-YAHOO_CHART_URL = "https://query1.finance.yahoo.com/v8/finance/chart/JPY=X"
+YAHOO_CHART_BASE = "https://query1.finance.yahoo.com/v8/finance/chart"
+
+# 通貨強弱（簡易版）の算出に使う補助ペア。(Yahoo Financeシンボル, base通貨, quote通貨)
+# USD/JPY自体は既存のh1データを流用するのでここには含めない。
+STRENGTH_PAIRS = [
+    ("EURUSD=X", "EUR", "USD"),
+    ("GBPUSD=X", "GBP", "USD"),
+    ("AUDUSD=X", "AUD", "USD"),
+    ("NZDUSD=X", "NZD", "USD"),
+    ("USDCHF=X", "USD", "CHF"),
+    ("USDCAD=X", "USD", "CAD"),
+]
 
 # 回帰チャネル計算に使う直近バーの本数（4時間足は別途30本のまま据え置き）
 LOOKBACK = 100
@@ -82,13 +93,13 @@ def http_get_json(params, retries=3, wait_sec=15):
     raise RuntimeError(f"API呼び出しに失敗しました: {params.get('function')} ({last_err})")
 
 
-def fetch_fx_intraday(interval, range_):
+def fetch_fx_intraday(symbol, interval, range_):
     """
-    Yahoo Financeの公開チャートAPIからUSD/JPYの分足・時間足データ（ローソク足）を取得し、
+    Yahoo Financeの公開チャートAPIから指定シンボルの分足・時間足データ（ローソク足）を取得し、
     [{"t":timestamp,"o":始値,"h":高値,"l":安値,"c":終値}, ...] を古い順（null値を除く）で返す。
-    interval例: "5m" "15m" "60m" / range例: "5d" "60d"
+    symbol例: "JPY=X"（USD/JPY） "EURUSD=X" / interval例: "5m" "15m" "60m" / range例: "5d" "60d"
     """
-    url = f"{YAHOO_CHART_URL}?interval={interval}&range={range_}"
+    url = f"{YAHOO_CHART_BASE}/{symbol}?interval={interval}&range={range_}"
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     last_err = None
     for attempt in range(3):
@@ -97,7 +108,7 @@ def fetch_fx_intraday(interval, range_):
                 data = json.loads(res.read().decode("utf-8"))
             result = data.get("chart", {}).get("result")
             if not result:
-                raise RuntimeError(f"USD/JPY {interval} のデータが取得できませんでした: {data.get('chart', {}).get('error')}")
+                raise RuntimeError(f"{symbol} {interval} のデータが取得できませんでした: {data.get('chart', {}).get('error')}")
             r = result[0]
             timestamps = r.get("timestamp") or []
             quote = r["indicators"]["quote"][0]
@@ -115,12 +126,61 @@ def fetch_fx_intraday(interval, range_):
                 low = lows[i] if i < len(lows) and lows[i] is not None else min(o, c)
                 bars.append({"t": ts, "o": o, "h": h, "l": low, "c": c})
             if not bars:
-                raise RuntimeError(f"USD/JPY {interval} のデータが空でした")
+                raise RuntimeError(f"{symbol} {interval} のデータが空でした")
             return bars
         except (urllib.error.URLError, TimeoutError, RuntimeError) as e:
             last_err = e
             time.sleep(5)
-    raise RuntimeError(f"Yahoo Financeからの取得に失敗しました: {interval} ({last_err})")
+    raise RuntimeError(f"Yahoo Financeからの取得に失敗しました: {symbol} {interval} ({last_err})")
+
+
+def pair_change_pct(bars, lookback_bars=24):
+    """
+    直近バーが lookback_bars 本前の終値からどれだけ%変化したかを返す。
+    1時間足で24本 = 約1日分の変化率、という使い方を想定。
+    """
+    if len(bars) < 2:
+        return 0.0
+    latest = bars[-1]["c"]
+    base_idx = -lookback_bars if len(bars) > lookback_bars else 0
+    base = bars[base_idx]["c"]
+    if not base:
+        return 0.0
+    return (latest - base) / base * 100
+
+
+def compute_currency_strength(usdjpy_bars):
+    """
+    通貨強弱（簡易版）。EUR/GBP/AUD/NZD/CHF/CADの主要6ペア＋USD/JPYの
+    1時間足の直近1日（24本）騰落率から、8通貨それぞれの強弱スコアを算出する。
+
+    設計上の割り切り: USDは7ペア全てに登場するため平均が取れて比較的信頼できるが、
+    JPY・EUR・GBP・AUD・NZD・CHF・CADはそれぞれ1ペアのみからの算出（真のクロス通貨網羅
+    ではない簡易版）。取得に失敗したペアは黙ってスキップし、成功した分だけで算出する
+    （全滅した場合は空リストを返し、呼び出し側でキー自体を省略する）。
+    """
+    contributions = {c: [] for c in ("USD", "EUR", "GBP", "JPY", "AUD", "CHF", "CAD", "NZD")}
+
+    usdjpy_change = pair_change_pct(usdjpy_bars)
+    contributions["USD"].append(usdjpy_change)
+    contributions["JPY"].append(-usdjpy_change)
+
+    for symbol, base, quote in STRENGTH_PAIRS:
+        try:
+            bars = fetch_fx_intraday(symbol, "60m", "5d")
+        except RuntimeError:
+            continue
+        change = pair_change_pct(bars)
+        contributions[base].append(change)
+        contributions[quote].append(-change)
+
+    result = []
+    for code, vals in contributions.items():
+        if not vals:
+            continue
+        result.append({"code": code, "change_pct": round(sum(vals) / len(vals), 2)})
+    result.sort(key=lambda x: x["change_pct"], reverse=True)
+    return result
 
 
 def fetch_treasury_yield_10y():
@@ -510,9 +570,15 @@ def build_signal(out_path=None):
     now = datetime.now(timezone.utc)
 
     # --- 為替データ: Yahoo Finance（無料・キー不要・毎回取得） ---
-    m5 = fetch_fx_intraday("5m", "5d")
-    m15 = fetch_fx_intraday("15m", "5d")
-    h1 = fetch_fx_intraday("60m", "60d")
+    m5 = fetch_fx_intraday("JPY=X", "5m", "5d")
+    m15 = fetch_fx_intraday("JPY=X", "15m", "5d")
+    h1 = fetch_fx_intraday("JPY=X", "60m", "60d")
+
+    # --- 通貨強弱（簡易版）: 主要6ペアを追加取得。失敗しても本体の計算は止めない ---
+    try:
+        currency_strength = compute_currency_strength(h1)
+    except Exception:  # noqa: BLE001
+        currency_strength = []
 
     # --- 米10年債・WTI: Alpha Vantage（無料枠 25回/日のため、1日1回だけ取得して使い回す） ---
     # そもそもTREASURY_YIELD/WTIは日足データなので、1日に何度呼んでも値は変わらない。
@@ -689,6 +755,8 @@ def build_signal(out_path=None):
     }
     if daily_analysis is not None:
         result["daily_analysis"] = daily_analysis
+    if currency_strength:
+        result["currency_strength"] = currency_strength
     return result
 
 
