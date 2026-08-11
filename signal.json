@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-11T19:45:30.545649+00:00",
+  "generated_at_utc": "2026-08-11T19:49:01.825301+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.263,
-  "day_change_pct": 0.03,
+  "latest_price": 159.26,
+  "day_change_pct": 0.02,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -23,31 +23,31 @@
       "key": "m5",
       "label": "5分足",
       "state": "WAIT",
-      "position_sigma": -1.0,
+      "position_sigma": -1.05,
       "trend": "FLAT",
-      "mid": 159.295,
-      "upper": 159.36,
-      "lower": 159.23,
+      "mid": 159.294,
+      "upper": 159.359,
+      "lower": 159.229,
       "is_primary": false
     },
     {
       "key": "m15",
       "label": "15分足",
       "state": "WAIT",
-      "position_sigma": -0.15,
+      "position_sigma": -0.18,
       "trend": "FLAT",
-      "mid": 159.27,
+      "mid": 159.271,
       "upper": 159.392,
-      "lower": 159.149,
+      "lower": 159.15,
       "is_primary": false
     },
     {
       "key": "h1",
       "label": "1時間足",
       "state": "WAIT",
-      "position_sigma": -0.22,
+      "position_sigma": -0.23,
       "trend": "FLAT",
-      "mid": 159.337,
+      "mid": 159.336,
       "upper": 160.0,
       "lower": 158.673,
       "is_primary": true
@@ -56,11 +56,11 @@
       "key": "h4",
       "label": "4時間足",
       "state": "WAIT",
-      "position_sigma": -0.18,
+      "position_sigma": -0.19,
       "trend": "UP",
       "mid": 159.317,
       "upper": 159.929,
-      "lower": 158.706,
+      "lower": 158.705,
       "is_primary": false
     }
   ],
@@ -69,12 +69,6 @@
       "label": "5分足",
       "state": "WAIT",
       "bars": [
-        {
-          "o": 159.298,
-          "h": 159.328,
-          "l": 159.289,
-          "c": 159.321
-        },
         {
           "o": 159.314,
           "h": 159.322,
@@ -364,28 +358,28 @@
           "c": 159.264
         },
         {
-          "o": 159.263,
-          "h": 159.263,
-          "l": 159.263,
-          "c": 159.263
+          "o": 159.262,
+          "h": 159.273,
+          "l": 159.258,
+          "c": 159.265
+        },
+        {
+          "o": 159.26,
+          "h": 159.26,
+          "l": 159.26,
+          "c": 159.26
         }
       ],
       "channel": {
-        "intercept": 159.2617,
-        "slope": 0.000688,
-        "sigma": 0.0325
+        "intercept": 159.2625,
+        "slope": 0.00064,
+        "sigma": 0.0323
       }
     },
     {
       "label": "15分足",
       "state": "WAIT",
       "bars": [
-        {
-          "o": 159.27,
-          "h": 159.323,
-          "l": 159.262,
-          "c": 159.313
-        },
         {
           "o": 159.31,
           "h": 159.377,
@@ -675,15 +669,21 @@
           "c": 159.264
         },
         {
-          "o": 159.261,
-          "h": 159.261,
-          "l": 159.261,
-          "c": 159.261
+          "o": 159.262,
+          "h": 159.273,
+          "l": 159.258,
+          "c": 159.265
+        },
+        {
+          "o": 159.26,
+          "h": 159.26,
+          "l": 159.26,
+          "c": 159.26
         }
       ],
       "channel": {
-        "intercept": 159.2446,
-        "slope": 0.000525,
+        "intercept": 159.2449,
+        "slope": 0.00053,
         "sigma": 0.0606
       }
     },
@@ -983,18 +983,18 @@
           "o": 159.26,
           "h": 159.297,
           "l": 159.245,
-          "c": 159.264
+          "c": 159.265
         },
         {
-          "o": 159.263,
-          "h": 159.263,
-          "l": 159.263,
-          "c": 159.263
+          "o": 159.26,
+          "h": 159.26,
+          "l": 159.26,
+          "c": 159.26
         }
       ],
       "channel": {
         "intercept": 158.4462,
-        "slope": 0.01817,
+        "slope": 0.018169,
         "sigma": 0.3317
       }
     },
@@ -1180,26 +1180,26 @@
           "o": 159.312,
           "h": 159.346,
           "l": 159.245,
-          "c": 159.263
+          "c": 159.26
         }
       ],
       "channel": {
-        "intercept": 157.386,
-        "slope": 0.066601,
+        "intercept": 157.3861,
+        "slope": 0.066581,
         "sigma": 0.3058
       }
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0913,
+      "macd": 0.0911,
       "signal": 0.12,
-      "histogram": -0.0287,
+      "histogram": -0.0289,
       "state": "BEARISH",
       "cross": null
     },
     "rsi": {
-      "value": 59.9,
+      "value": 59.5,
       "state": "NEUTRAL"
     },
     "moving_averages": {
@@ -1207,14 +1207,14 @@
       "ma25": 159.243,
       "ma75": 158.651,
       "ma200": 158.337,
-      "price": 159.263,
+      "price": 159.26,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.251,
+      "mid": 159.25,
       "upper": 159.347,
       "lower": 159.154,
-      "price": 159.263,
+      "price": 159.26,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -1228,7 +1228,7 @@
     "wti_trend": "up"
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.26円付近で推移（直近1時間比+0.03%）。時間足ごとの判定が割れており（SELL 0／BUY 0／GATE 0）、方向感に乏しいレンジ地合い。米10年債利回りは低下基調、WTI原油は上昇基調で推移している。明確なブレイクが出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.26円付近で推移（直近1時間比+0.02%）。時間足ごとの判定が割れており（SELL 0／BUY 0／GATE 0）、方向感に乏しいレンジ地合い。米10年債利回りは低下基調、WTI原油は上昇基調で推移している。明確なブレイクが出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-08-12",
@@ -1272,19 +1272,19 @@
   "currency_strength": [
     {
       "code": "CAD",
-      "change_pct": 0.11
+      "change_pct": 0.15
     },
     {
       "code": "AUD",
       "change_pct": 0.07
     },
     {
-      "code": "USD",
+      "code": "EUR",
       "change_pct": 0.01
     },
     {
-      "code": "EUR",
-      "change_pct": 0.01
+      "code": "USD",
+      "change_pct": -0.0
     },
     {
       "code": "NZD",
@@ -1296,11 +1296,11 @@
     },
     {
       "code": "JPY",
-      "change_pct": -0.03
+      "change_pct": -0.02
     },
     {
       "code": "CHF",
-      "change_pct": -0.18
+      "change_pct": -0.16
     }
   ]
 }
