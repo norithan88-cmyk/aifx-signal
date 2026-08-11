@@ -476,6 +476,22 @@ def load_previous_signal(out_path):
         return None
 
 
+def load_daily_analysis(base_dir):
+    """
+    daily_analysis.json（リポジトリ直下、signal.jsonと同じ階層）を読み込む。
+    このファイルはCIが自動生成するものではなく、Claude Codeとの会話の中で
+    人が都度書いて保存する「今日の詳しい分析」用の小さなファイル。
+    存在しない/壊れている場合はNoneを返し、signal.json側では
+    "daily_analysis" キー自体を省略する（詳細ページ側でフォールバック表示）。
+    """
+    path = os.path.join(base_dir, "daily_analysis.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return None
+
+
 def is_same_utc_date(iso_ts, now):
     """iso_ts（ISO形式の日時文字列）がnowと同じUTC日付かどうか。"""
     if not iso_ts:
@@ -622,7 +638,11 @@ def build_signal(out_path=None):
         yield_trend, wti_trend,
     )
 
-    return {
+    daily_analysis = None
+    if out_path:
+        daily_analysis = load_daily_analysis(os.path.dirname(out_path))
+
+    result = {
         "generated_at_utc": now.isoformat(),
         "pair": "USD/JPY",
         "latest_price": round(latest_price, 3),
@@ -644,10 +664,15 @@ def build_signal(out_path=None):
         },
         "regression_channels": [
             {
+                "key": tf["key"],
                 "label": tf["label"],
                 "state": tf["state"],
                 "position_sigma": round(tf["channel"]["position"], 2),
                 "trend": tf["trend"],
+                "mid": round(tf["channel"]["mid"], 3),
+                "upper": round(tf["channel"]["upper"], 3),
+                "lower": round(tf["channel"]["lower"], 3),
+                "is_primary": tf["key"] == "h1",
             }
             for tf in timeframes
         ],
@@ -662,6 +687,9 @@ def build_signal(out_path=None):
         "market_context": market_context,
         "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
     }
+    if daily_analysis is not None:
+        result["daily_analysis"] = daily_analysis
+    return result
 
 
 def main():
