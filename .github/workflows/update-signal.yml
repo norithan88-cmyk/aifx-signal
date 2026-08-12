@@ -37,3 +37,19 @@ jobs:
           git add signal.json
           git diff --cached --quiet && echo "変更なし。コミットをスキップします。" || git commit -m "chore: update signal.json ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git push
+
+      # EUR/USD側はUSD/JPY版とは別ファイル(signal_eurusd.json)への追加機能。
+      # continue-on-error: true にして、EUR/USD側で一時的な取得失敗が起きても
+      # ジョブ全体を失敗扱いにしない（USD/JPY側は上のステップで既にpush済みのため無関係）。
+      - name: Compute EUR/USD signal
+        env:
+          ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
+        run: python scripts/compute_signal_eurusd.py
+        continue-on-error: true
+
+      - name: Commit signal_eurusd.json
+        run: |
+          git add signal_eurusd.json
+          git diff --cached --quiet && echo "変更なし。コミットをスキップします。" || git commit -m "chore: update signal_eurusd.json ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          git push
+        continue-on-error: true
