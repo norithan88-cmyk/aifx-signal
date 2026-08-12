@@ -629,9 +629,14 @@ def build_signal(out_path=None):
     buy_count = sum(1 for tf in timeframes if tf["state"] == "BUY")
     gate_count = sum(1 for tf in timeframes if tf["state"] == "GATE")
 
-    if sell_count >= 2 and sell_count >= buy_count:
+    # Entry/TP/SLは常に1時間足チャネル基準で計算する（このページの説明文にも明記）ため、
+    # bias自体も「1時間足自身が同じ方向であること」を必須条件にする。これが無いと、
+    # 5分・15分足だけの短期的な振れで発動したのに、TPは1時間足の中心線を使う…という
+    # 時間足またぎの矛盾（TPがエントリーの反対側に来ることがある）が起きてしまうため。
+    h1_state = timeframes[2]["state"]  # {m5, m15, h1, h4}の順で並んでいる
+    if sell_count >= 2 and sell_count >= buy_count and h1_state == "SELL":
         bias = "SELL"
-    elif buy_count >= 2 and buy_count > sell_count:
+    elif buy_count >= 2 and buy_count > sell_count and h1_state == "BUY":
         bias = "BUY"
     else:
         bias = "WAIT"
@@ -669,17 +674,34 @@ def build_signal(out_path=None):
         "MID" if latest_price >= 155.0 else "LOW"
     )
 
+    # classify_stateは「±1.3〜2.2σの中心回帰(逆張り)」と「±2.2σ超・トレンド確認済みの
+    # ブレイク継続(順張り)」という性質が異なる2パターンを同じSELL/BUYラベルで返す。
+    # 後者(継続型)にtp=中心線を使うと、既にエントリーが中心線を通り過ぎた地点なので
+    # TPが最初からエントリーの反対側に来てしまう(=見せかけの即時「勝ち」でも実際は
+    # マイナスpipsという矛盾)。継続型はSLを中心線（＝継続シナリオが崩れる水準）、
+    # TPをエントリーからの距離を反対方向に同じだけ伸ばした「測定値幅」に変更する。
     ref_channel = ch_1h
+    is_gate_continuation = abs(ref_channel["position"]) >= GATE_THRESHOLD
     if bias == "SELL":
         entry = latest_price
-        tp = ref_channel["mid"]
-        sl = ref_channel["upper"] + 0.5 * ref_channel["sigma"]
-        trade_lead = "戻り売り ― ただし押し目を深追いしない"
+        if is_gate_continuation:
+            sl = ref_channel["mid"]
+            tp = 2 * entry - ref_channel["mid"]
+            trade_lead = "戻り売り継続 ― ブレイク方向についていく（順張り）"
+        else:
+            tp = ref_channel["mid"]
+            sl = ref_channel["upper"] + 0.5 * ref_channel["sigma"]
+            trade_lead = "戻り売り ― ただし押し目を深追いしない"
     elif bias == "BUY":
         entry = latest_price
-        tp = ref_channel["mid"]
-        sl = ref_channel["lower"] - 0.5 * ref_channel["sigma"]
-        trade_lead = "押し目買い ― ただし高値を深追いしない"
+        if is_gate_continuation:
+            sl = ref_channel["mid"]
+            tp = 2 * entry - ref_channel["mid"]
+            trade_lead = "押し目買い継続 ― ブレイク方向についていく（順張り）"
+        else:
+            tp = ref_channel["mid"]
+            sl = ref_channel["lower"] - 0.5 * ref_channel["sigma"]
+            trade_lead = "押し目買い ― ただし高値を深追いしない"
     else:
         entry = tp = sl = None
         trade_lead = "様子見 ― チャネル中央で方向感なし"
