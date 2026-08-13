@@ -250,6 +250,25 @@ def call_gemini(data_block):
     return json.loads(text)
 
 
+def list_available_models():
+    """
+    診断用: このAPIキーで実際に使えるモデル名の一覧をGemini APIから取得する。
+    call_geminiが404を返した場合（モデル名が存在しない等）に、次回実行時の
+    ログへ手がかりを残すために使う。取得に失敗しても例外は投げない。
+    """
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={GEMINI_API_KEY}"
+        with urllib.request.urlopen(url, timeout=30) as res:
+            payload = json.loads(res.read().decode("utf-8"))
+        names = [
+            m.get("name") for m in payload.get("models", [])
+            if "generateContent" in (m.get("supportedGenerationMethods") or [])
+        ]
+        return names
+    except Exception as e:  # noqa: BLE001
+        return [f"(モデル一覧の取得にも失敗: {e})"]
+
+
 def find_banned_word(obj):
     """objの中の全文字列を再帰的に走査し、禁止語を含む文字列があれば返す。無ければNone。"""
     if isinstance(obj, str):
@@ -342,6 +361,10 @@ def main():
         # 失敗時は既存のdaily_analysis.jsonに一切触れない
         # （直前の分析が残るだけで、サイトが空欄や壊れた状態になることはない）。
         print(f"[WARN] daily_analysis生成に失敗したため、既存ファイルを維持します: {e}", file=sys.stderr)
+        if "404" in str(e):
+            print("[DEBUG] このAPIキーで実際に使えるモデル一覧:", file=sys.stderr)
+            for name in list_available_models():
+                print(f"  - {name}", file=sys.stderr)
         sys.exit(0)
 
     with open(out_path, "w", encoding="utf-8") as f:
