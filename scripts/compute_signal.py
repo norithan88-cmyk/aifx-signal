@@ -28,13 +28,19 @@ AI FX研究所 - 本日のAIシグナル 自動計算スクリプト
     検知され、既存の静的表示のまま維持される）。
   - 米10年債・WTIはAlpha Vantageの無料枠（日足データ）で取得。1日1回だけ
     実際にAPIを呼び、それ以外の実行では前回のsignal.jsonの値を使い回す。
-    JP10Y・DXY・GOLDはAlpha Vantage無料枠では取得できないため、
-    このスクリプトの計算には使っていない
-    （サイト上ではTradingViewのライブティッカーで別途表示のみ）。
+    日本10年債は財務省が公開する金利情報CSV（無料・無制限、Shift-JIS）を
+    直接読み込んで取得し、これも日足データのため1日1回だけ取得する。
+    DXY（ドル指数）はYahoo Financeの同じ非公式チャートAPIで取得でき、
+    レート制限が無いため他のFXペアと同様に毎回取得する。
+    GOLDはAlpha Vantage無料枠では取得できないため、このスクリプトの
+    計算には使っていない（サイト上ではTradingViewのライブティッカーで
+    別途表示のみ）。
   - 経済指標カレンダー（今夜の重要指標）は無料で信頼できる自動取得先が
     見つからなかったため、今回は自動化していない（手動更新のまま）。
 """
 
+import csv
+import io
 import json
 import os
 import statistics
@@ -47,6 +53,7 @@ from datetime import datetime, timezone
 ALPHA_VANTAGE_KEY = os.environ.get("ALPHA_VANTAGE_KEY", "").strip()
 BASE_URL = "https://www.alphavantage.co/query"
 YAHOO_CHART_BASE = "https://query1.finance.yahoo.com/v8/finance/chart"
+MOF_JGB_CSV_URL = "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv"
 
 # 通貨強弱（簡易版）の算出に使う補助ペア。(Yahoo Financeシンボル, base通貨, quote通貨)
 # USD/JPY自体は既存のh1データを流用するのでここには含めない。
@@ -210,6 +217,44 @@ def fetch_wti_daily():
     values = [(row["date"], row["value"]) for row in series if row.get("value") not in (None, ".")]
     values = [(d, float(v)) for d, v in values]
     values.sort()
+    return values
+
+
+def fetch_dxy_daily():
+    """ドル指数（DXY）。Yahoo Financeの同じ非公式チャートAPIを使い回す（無料・キー不要）。"""
+    bars = fetch_fx_intraday("DX-Y.NYB", "1d", "1mo")
+    return [(b["t"], b["c"]) for b in bars]
+
+
+def fetch_jp10y_daily():
+    """
+    日本10年国債利回り。財務省が公開する金利情報CSV（Shift-JIS）を直接読み込む。
+    直近営業日数件分のみを含む小さなCSVで、末尾に「ダウンロードできない場合は
+    ブラウザのキャッシュを削除して…」という注意書きの行が数値なしで付いてくる
+    ことがあるため、数値としてパースできた行だけを採用する。
+    """
+    req = urllib.request.Request(MOF_JGB_CSV_URL, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=30) as res:
+        raw = res.read()
+    text = raw.decode("shift_jis", errors="replace")
+    rows = list(csv.reader(io.StringIO(text)))
+    if len(rows) < 3:
+        raise RuntimeError("財務省国債金利CSVの形式が想定と異なります")
+    header = rows[1]
+    try:
+        idx_10y = header.index("10年")
+    except ValueError:
+        raise RuntimeError("財務省国債金利CSVに「10年」列が見つかりません")
+    values = []
+    for row in rows[2:]:
+        if len(row) <= idx_10y:
+            continue
+        try:
+            values.append((row[0], float(row[idx_10y].strip())))
+        except ValueError:
+            continue
+    if not values:
+        raise RuntimeError("財務省国債金利CSVから10年債データを抽出できませんでした")
     return values
 
 
@@ -584,12 +629,19 @@ def build_signal(out_path=None):
     # そもそもTREASURY_YIELD/WTIは日足データなので、1日に何度呼んでも値は変わらない。
     prev = load_previous_signal(out_path) if out_path else None
     prev_macro = (prev or {}).get("macro", {})
-    reuse_macro = prev and is_same_utc_date(prev.get("generated_at_utc"), now) and prev_macro.get("us10y_latest") is not None
+    reuse_macro = (
+        prev
+        and is_same_utc_date(prev.get("generated_at_utc"), now)
+        and prev_macro.get("us10y_latest") is not None
+        and prev_macro.get("jp10y_latest") is not None
+    )
 
     if reuse_macro:
         yield_trend = prev_macro.get("us10y_trend", "flat")
         us10y_latest = prev_macro.get("us10y_latest")
         wti_trend = prev_macro.get("wti_trend", "flat")
+        jp10y_trend = prev_macro.get("jp10y_trend", "flat")
+        jp10y_latest = prev_macro.get("jp10y_latest")
     else:
         us10y = fetch_treasury_yield_10y()
         time.sleep(13)
@@ -597,6 +649,23 @@ def build_signal(out_path=None):
         yield_trend = trend_direction(us10y)
         us10y_latest = us10y[-1][1] if us10y else None
         wti_trend = trend_direction(wti)
+        try:
+            jp10y = fetch_jp10y_daily()
+            jp10y_trend = trend_direction(jp10y)
+            jp10y_latest = jp10y[-1][1] if jp10y else None
+        except Exception:  # noqa: BLE001
+            # 財務省サイト側の一時的な不調でも、シグナル計算全体は止めない。
+            jp10y_trend = prev_macro.get("jp10y_trend", "flat")
+            jp10y_latest = prev_macro.get("jp10y_latest")
+
+    # DXY（ドル指数）はYahoo Finance側にレート制限が無いため、他のFXペアと同様に毎回取得する。
+    try:
+        dxy = fetch_dxy_daily()
+        dxy_trend = trend_direction(dxy)
+        dxy_latest = dxy[-1][1] if dxy else None
+    except Exception:  # noqa: BLE001
+        dxy_trend = prev_macro.get("dxy_trend", "flat")
+        dxy_latest = prev_macro.get("dxy_latest")
 
     bars_4h = aggregate_to_4h(h1)
 
@@ -770,6 +839,10 @@ def build_signal(out_path=None):
             "us10y_trend": yield_trend,
             "us10y_latest": round(us10y_latest, 2) if us10y_latest is not None else None,
             "wti_trend": wti_trend,
+            "jp10y_trend": jp10y_trend,
+            "jp10y_latest": round(jp10y_latest, 3) if jp10y_latest is not None else None,
+            "dxy_trend": dxy_trend,
+            "dxy_latest": round(dxy_latest, 2) if dxy_latest is not None else None,
         },
         "commentary": commentary,
         "market_context": market_context,
