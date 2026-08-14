@@ -30,11 +30,9 @@ AI FX研究所 - 本日のAIシグナル 自動計算スクリプト
     実際にAPIを呼び、それ以外の実行では前回のsignal.jsonの値を使い回す。
     日本10年債は財務省が公開する金利情報CSV（無料・無制限、Shift-JIS）を
     直接読み込んで取得し、これも日足データのため1日1回だけ取得する。
-    DXY（ドル指数）はYahoo Financeの同じ非公式チャートAPIで取得でき、
-    レート制限が無いため他のFXペアと同様に毎回取得する。
-    GOLDはAlpha Vantage無料枠では取得できないため、このスクリプトの
-    計算には使っていない（サイト上ではTradingViewのライブティッカーで
-    別途表示のみ）。
+    DXY（ドル指数）・GOLD（金、シンボル"GC=F"）はYahoo Financeの同じ非公式
+    チャートAPIで取得でき、レート制限が無いため他のFXペアと同様に毎回取得する
+    （Alpha Vantage無料枠ではGOLDを取得できないため、こちらを使っている）。
   - 経済指標カレンダー（今夜の重要指標）は無料で信頼できる自動取得先が
     見つからなかったため、今回は自動化していない（手動更新のまま）。
 """
@@ -223,6 +221,15 @@ def fetch_wti_daily():
 def fetch_dxy_daily():
     """ドル指数（DXY）。Yahoo Financeの同じ非公式チャートAPIを使い回す（無料・キー不要）。"""
     bars = fetch_fx_intraday("DX-Y.NYB", "1d", "1mo")
+    return [(b["t"], b["c"]) for b in bars]
+
+
+def fetch_gold_daily():
+    """
+    金（GOLD、COMEX先物）。Alpha Vantage無料枠では取得できないため、DXYと同じ
+    Yahoo Finance非公式チャートAPI（レート制限なし）を使う。シンボルは"GC=F"。
+    """
+    bars = fetch_fx_intraday("GC=F", "1d", "1mo")
     return [(b["t"], b["c"]) for b in bars]
 
 
@@ -658,7 +665,7 @@ def build_signal(out_path=None):
             jp10y_trend = prev_macro.get("jp10y_trend", "flat")
             jp10y_latest = prev_macro.get("jp10y_latest")
 
-    # DXY（ドル指数）はYahoo Finance側にレート制限が無いため、他のFXペアと同様に毎回取得する。
+    # DXY（ドル指数）・GOLDはYahoo Finance側にレート制限が無いため、他のFXペアと同様に毎回取得する。
     try:
         dxy = fetch_dxy_daily()
         dxy_trend = trend_direction(dxy)
@@ -666,6 +673,14 @@ def build_signal(out_path=None):
     except Exception:  # noqa: BLE001
         dxy_trend = prev_macro.get("dxy_trend", "flat")
         dxy_latest = prev_macro.get("dxy_latest")
+
+    try:
+        gold = fetch_gold_daily()
+        gold_trend = trend_direction(gold)
+        gold_latest = gold[-1][1] if gold else None
+    except Exception:  # noqa: BLE001
+        gold_trend = prev_macro.get("gold_trend", "flat")
+        gold_latest = prev_macro.get("gold_latest")
 
     bars_4h = aggregate_to_4h(h1)
 
@@ -843,6 +858,8 @@ def build_signal(out_path=None):
             "jp10y_latest": round(jp10y_latest, 3) if jp10y_latest is not None else None,
             "dxy_trend": dxy_trend,
             "dxy_latest": round(dxy_latest, 2) if dxy_latest is not None else None,
+            "gold_trend": gold_trend,
+            "gold_latest": round(gold_latest, 2) if gold_latest is not None else None,
         },
         "commentary": commentary,
         "market_context": market_context,
