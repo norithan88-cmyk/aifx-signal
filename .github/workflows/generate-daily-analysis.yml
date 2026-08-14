@@ -2,10 +2,12 @@ name: Generate Daily Analysis (Gemini)
 
 on:
   schedule:
-    # 東京時間 8:00 と 22:00 の1日2回（UTC換算: 23:00と13:00。JSTはUTC+9）。
-    # 指標発表が集中する夜と、取引開始前の朝をカバーする。
-    - cron: "0 23 * * *"
-    - cron: "0 13 * * *"
+    # 15分おき（update-signal.ymlと同じ間隔）。サイト表示「15分おき自動更新」の
+    # 文言に実態を合わせるための設定。Gemini無料枠は1日1,500リクエストが目安のため、
+    # 1日96回（本ワークフロー分のみ）は十分余裕がある。
+    # ただしGitHub Actionsのスケジュール実行は指定間隔を厳密には守らないため、
+    # 実際には数十分単位の前後がある（update-signal.ymlと同じ既知の制約）。
+    - cron: "*/15 * * * *"
   workflow_dispatch: {}  # GitHubの画面から手動実行もできるようにする
 
 permissions:
