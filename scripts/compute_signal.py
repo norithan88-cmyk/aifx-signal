@@ -604,6 +604,98 @@ def load_daily_analysis(base_dir):
         return None
 
 
+def load_trade_log(base_dir):
+    """
+    trade_log.json（リポジトリ直下、signal.jsonと同じ階層）を読み込む。
+    過去のシグナル履歴（勝率・pips検証用）を蓄積するファイルで、signal.jsonとは
+    別ファイルにして肥大化を防いでいる。存在しない/壊れている場合は空の履歴から始める。
+    """
+    path = os.path.join(base_dir, "trade_log.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not isinstance(data.get("trades"), list):
+            raise ValueError("trade_log.jsonの形式が不正です")
+        return data
+    except (FileNotFoundError, json.JSONDecodeError, OSError, ValueError, AttributeError):
+        return {"trades": []}
+
+
+def pips_for(bias, entry, price):
+    """USD/JPYの1pips=0.01円として、bias方向での損益pipsを返す（正=利益、負=損失）。"""
+    diff = (entry - price) if bias == "SELL" else (price - entry)
+    return round(diff * 100, 1)
+
+
+def update_trade_log(trade_log, bias, priority_trade, latest_price, confidence, now_iso):
+    """
+    ①オープン中の取引があれば、現在値がTP/SLに到達していないか確認して決着させる。
+    ②オープン中の取引が無く、今回の判定がSELL/BUYであれば、新規にオープンとして記録する。
+    トレンド追随型・レンジ回帰型のどちらでも、SLは常にentryの逆側、TPは常にentry方向に
+    設定される設計（build_signal参照）なので、方向ごとの比較だけで両パターンに対応できる。
+    """
+    trades = trade_log.get("trades", [])
+    open_trade = trades[-1] if trades and trades[-1].get("status") == "OPEN" else None
+
+    if open_trade is not None:
+        ob = open_trade["bias"]
+        tp = open_trade["take_profit"]
+        sl = open_trade["stop_loss"]
+        hit_tp = (latest_price <= tp) if ob == "SELL" else (latest_price >= tp)
+        hit_sl = (latest_price >= sl) if ob == "SELL" else (latest_price <= sl)
+        if hit_tp or hit_sl:
+            open_trade["status"] = "WIN" if hit_tp else "LOSS"
+            open_trade["closed_at_utc"] = now_iso
+            open_trade["closed_price"] = round(latest_price, 3)
+            open_trade["pips"] = pips_for(ob, open_trade["entry"], latest_price)
+            open_trade = None  # 決着したので、この後の新規オープン判定に進める
+
+    if open_trade is None and bias in ("SELL", "BUY"):
+        entry = priority_trade.get("entry")
+        tp = priority_trade.get("take_profit")
+        sl = priority_trade.get("stop_loss")
+        if entry is not None and tp is not None and sl is not None:
+            trades.append({
+                "id": now_iso,
+                "opened_at_utc": now_iso,
+                "bias": bias,
+                "entry": entry,
+                "take_profit": tp,
+                "stop_loss": sl,
+                "confidence": confidence,
+                "status": "OPEN",
+                "closed_at_utc": None,
+                "closed_price": None,
+                "pips": None,
+            })
+
+    trade_log["trades"] = trades
+    return trade_log
+
+
+def compute_trade_stats(trades):
+    """勝率・平均pips・プロフィットファクターを、決着済み（WIN/LOSS）の取引から算出する。"""
+    closed = [t for t in trades if t.get("status") in ("WIN", "LOSS")]
+    wins = [t for t in closed if t["status"] == "WIN"]
+    losses = [t for t in closed if t["status"] == "LOSS"]
+    total_closed = len(closed)
+
+    gross_win = sum(t["pips"] for t in wins)
+    gross_loss = abs(sum(t["pips"] for t in losses))
+
+    return {
+        "total_closed": total_closed,
+        "wins": len(wins),
+        "losses": len(losses),
+        "win_rate_pct": round(len(wins) / total_closed * 100, 1) if total_closed else None,
+        "avg_win_pips": round(gross_win / len(wins), 1) if wins else None,
+        "avg_loss_pips": round(-gross_loss / len(losses), 1) if losses else None,
+        # 損失がまだ無い（＝分母ゼロ）場合はPF計算不能として扱い、無限大等の非JSON値を出さない。
+        "profit_factor": round(gross_win / gross_loss, 2) if gross_loss > 0 else None,
+        "total_pips": round(sum(t["pips"] for t in closed), 1) if closed else 0.0,
+    }
+
+
 def is_same_utc_date(iso_ts, now):
     """iso_ts（ISO形式の日時文字列）がnowと同じUTC日付かどうか。"""
     if not iso_ts:
@@ -869,6 +961,23 @@ def build_signal(out_path=None):
         result["daily_analysis"] = daily_analysis
     if currency_strength:
         result["currency_strength"] = currency_strength
+
+    # trade_log.json（実績ページ用の履歴）はsignal.jsonとは別ファイルに直接書き出す。
+    # ここで失敗しても、シグナル本体の計算・書き出しには影響させない。
+    if out_path:
+        try:
+            base_dir = os.path.dirname(out_path)
+            trade_log = load_trade_log(base_dir)
+            trade_log = update_trade_log(
+                trade_log, bias, result["priority_trade"], latest_price, confidence, now.isoformat(),
+            )
+            trade_log["stats"] = compute_trade_stats(trade_log["trades"])
+            trade_log["updated_at_utc"] = now.isoformat()
+            with open(os.path.join(base_dir, "trade_log.json"), "w", encoding="utf-8") as f:
+                json.dump(trade_log, f, ensure_ascii=False, indent=2)
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] trade_log.jsonの更新に失敗しました（シグナル本体は継続します）: {e}", file=sys.stderr)
+
     return result
 
 
