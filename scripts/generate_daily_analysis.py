@@ -54,7 +54,7 @@ BANNED_PATTERNS = [
 ]
 
 TREND_JA = {"up": "上昇", "down": "低下", "flat": "横ばい"}
-STATE_JA = {"SELL": "SELL（戻り売り優勢）", "BUY": "BUY（押し目買い優勢）", "WAIT": "WAIT（方向感なし）", "GATE": "GATE（チャネル突破・様子見）"}
+CHANNEL_TREND_JA = {"UP": "上昇", "DOWN": "下降", "FLAT": "横ばい"}
 
 RESPONSE_SCHEMA = {
     "type": "OBJECT",
@@ -177,10 +177,17 @@ def build_data_block(signal, events):
     lines.append(f"相場モード: {signal.get('market_mode')}（{signal.get('market_mode_note')}）")
 
     for ch in channels:
+        trend_ja = CHANNEL_TREND_JA.get(ch.get("trend"), ch.get("trend"))
         lines.append(
-            f"- {ch.get('label')}: {STATE_JA.get(ch.get('state'), ch.get('state'))}"
-            f"（中心線からの位置 {ch.get('position_sigma')}σ、トレンド{ch.get('trend')}、"
-            f"中心{ch.get('mid')}円/上限{ch.get('upper')}円/下限{ch.get('lower')}円）"
+            f"- {ch.get('label')}: 中心線からの位置 {ch.get('position_sigma')}σ、トレンド{trend_ja}、"
+            f"中心{ch.get('mid')}円/上限{ch.get('upper')}円/下限{ch.get('lower')}円"
+        )
+
+    reversal = signal.get("reversal_setup")
+    if reversal:
+        lines.append(
+            f"1分足の反発トリガー: 直近の谷/山{reversal.get('extreme')}円から"
+            f"{reversal.get('reverted_pips')}pips反発したタイミングでシグナル発動"
         )
 
     if sr:
