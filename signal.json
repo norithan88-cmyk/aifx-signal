@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-16T21:55:19.306853+00:00",
+  "generated_at_utc": "2026-08-16T22:16:15.043449+00:00",
   "pair": "USD/JPY",
   "latest_price": 159.305,
   "day_change_pct": -0.1,
@@ -36,7 +36,7 @@
       "trend": "UP",
       "mid": 159.143,
       "upper": 159.436,
-      "lower": 158.849
+      "lower": 158.85
     },
     {
       "key": "h1",
@@ -51,8 +51,8 @@
   "technical": {
     "macd": {
       "macd": -0.0041,
-      "signal": -0.0294,
-      "histogram": 0.0253,
+      "signal": -0.0293,
+      "histogram": 0.0252,
       "state": "BULLISH",
       "cross": null
     },
@@ -70,8 +70,8 @@
     },
     "bollinger": {
       "mid": 159.228,
-      "upper": 159.512,
-      "lower": 158.944,
+      "upper": 159.511,
+      "lower": 158.945,
       "price": 159.305,
       "state": "INSIDE"
     },
