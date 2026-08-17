@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-17T17:10:14.094337+00:00",
+  "generated_at_utc": "2026-08-17T17:46:32.293148+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.354,
-  "day_change_pct": -0.01,
+  "latest_price": 159.451,
+  "day_change_pct": 0.05,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -23,56 +23,56 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -0.78,
+      "position_sigma": 1.18,
       "trend": "FLAT",
-      "mid": 159.379,
-      "upper": 159.443,
-      "lower": 159.315
+      "mid": 159.415,
+      "upper": 159.485,
+      "lower": 159.345
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": 1.18,
-      "trend": "FLAT",
-      "mid": 159.189,
-      "upper": 159.468,
-      "lower": 158.909
+      "position_sigma": 1.64,
+      "trend": "UP",
+      "mid": 159.216,
+      "upper": 159.508,
+      "lower": 158.923
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.97,
+      "position_sigma": 1.61,
       "trend": "UP",
-      "mid": 159.216,
-      "upper": 159.5,
-      "lower": 158.931
+      "mid": 159.223,
+      "upper": 159.513,
+      "lower": 158.934
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0384,
-      "signal": 0.0064,
-      "histogram": 0.0319,
+      "macd": 0.0523,
+      "signal": 0.0104,
+      "histogram": 0.0419,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 60.7,
+      "value": 66.3,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.339,
-      "ma25": 159.205,
-      "ma75": 159.285,
-      "ma200": 158.801,
-      "price": 159.354,
+      "ma5": 159.378,
+      "ma25": 159.213,
+      "ma75": 159.287,
+      "ma200": 158.802,
+      "price": 159.456,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.172,
-      "upper": 159.431,
-      "lower": 158.913,
-      "price": 159.354,
+      "mid": 159.182,
+      "upper": 159.473,
+      "lower": 158.89,
+      "price": 159.456,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -87,12 +87,12 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.873,
     "dxy_trend": "flat",
-    "dxy_latest": 99.5,
+    "dxy_latest": 99.56,
     "gold_trend": "up",
-    "gold_latest": 4481.6
+    "gold_latest": 4473.8
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.35円付近で推移（直近1時間比-0.01%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.45円付近で推移（直近1時間比+0.05%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-08-18",
@@ -135,23 +135,23 @@
   "currency_strength": [
     {
       "code": "AUD",
-      "change_pct": 0.43
+      "change_pct": 0.34
     },
     {
       "code": "CHF",
-      "change_pct": 0.36
+      "change_pct": 0.24
     },
     {
       "code": "NZD",
-      "change_pct": 0.33
+      "change_pct": 0.24
     },
     {
       "code": "EUR",
-      "change_pct": 0.2
+      "change_pct": 0.13
     },
     {
       "code": "GBP",
-      "change_pct": 0.19
+      "change_pct": 0.11
     },
     {
       "code": "CAD",
@@ -159,11 +159,11 @@
     },
     {
       "code": "JPY",
-      "change_pct": 0.01
+      "change_pct": -0.05
     },
     {
       "code": "USD",
-      "change_pct": -0.22
+      "change_pct": -0.15
     }
   ]
 }
