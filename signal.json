@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-08-17T20:23:32.084496+00:00",
+  "generated_at_utc": "2026-08-17T20:25:25.773168+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.478,
+  "latest_price": 159.475,
   "day_change_pct": 0.11,
   "signal": {
     "bias": "WAIT",
@@ -23,7 +23,7 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -1.1,
+      "position_sigma": -1.15,
       "trend": "FLAT",
       "mid": 159.535,
       "upper": 159.639,
@@ -32,7 +32,7 @@
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": 0.84,
+      "position_sigma": 0.82,
       "trend": "UP",
       "mid": 159.351,
       "upper": 159.654,
@@ -41,7 +41,7 @@
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 1.49,
+      "position_sigma": 1.48,
       "trend": "UP",
       "mid": 159.25,
       "upper": 159.555,
@@ -50,14 +50,14 @@
   ],
   "technical": {
     "macd": {
-      "macd": 0.0802,
+      "macd": 0.0799,
       "signal": 0.0444,
-      "histogram": 0.0358,
+      "histogram": 0.0356,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 62.0,
+      "value": 61.8,
       "state": "NEUTRAL"
     },
     "moving_averages": {
@@ -65,14 +65,14 @@
       "ma25": 159.232,
       "ma75": 159.294,
       "ma200": 158.828,
-      "price": 159.478,
+      "price": 159.475,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.247,
-      "upper": 159.61,
+      "mid": 159.246,
+      "upper": 159.609,
       "lower": 158.883,
-      "price": 159.478,
+      "price": 159.475,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -87,9 +87,9 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.873,
     "dxy_trend": "flat",
-    "dxy_latest": 99.59,
+    "dxy_latest": 99.6,
     "gold_trend": "up",
-    "gold_latest": 4474.2
+    "gold_latest": 4474.1
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
   "market_context": "USD/JPYは現在159.48円付近で推移（直近1時間比+0.11%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
@@ -136,15 +136,15 @@
   "currency_strength": [
     {
       "code": "AUD",
-      "change_pct": 0.29
+      "change_pct": 0.28
     },
     {
       "code": "CHF",
-      "change_pct": 0.26
+      "change_pct": 0.25
     },
     {
       "code": "NZD",
-      "change_pct": 0.2
+      "change_pct": 0.19
     },
     {
       "code": "EUR",
@@ -152,11 +152,11 @@
     },
     {
       "code": "GBP",
-      "change_pct": 0.07
+      "change_pct": 0.06
     },
     {
       "code": "CAD",
-      "change_pct": -0.01
+      "change_pct": -0.02
     },
     {
       "code": "USD",
