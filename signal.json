@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-08-17T18:16:25.672421+00:00",
+  "generated_at_utc": "2026-08-17T18:17:15.959010+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.494,
+  "latest_price": 159.496,
   "day_change_pct": 0.09,
   "signal": {
     "bias": "WAIT",
@@ -23,7 +23,7 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": 1.19,
+      "position_sigma": 1.26,
       "trend": "FLAT",
       "mid": 159.448,
       "upper": 159.524,
@@ -32,7 +32,7 @@
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": 1.67,
+      "position_sigma": 1.68,
       "trend": "UP",
       "mid": 159.241,
       "upper": 159.545,
@@ -41,7 +41,7 @@
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 1.76,
+      "position_sigma": 1.73,
       "trend": "UP",
       "mid": 159.234,
       "upper": 159.53,
@@ -50,29 +50,29 @@
   ],
   "technical": {
     "macd": {
-      "macd": 0.0683,
+      "macd": 0.0681,
       "signal": 0.0233,
-      "histogram": 0.0451,
+      "histogram": 0.0448,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 67.9,
+      "value": 67.3,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.436,
+      "ma5": 159.435,
       "ma25": 159.221,
       "ma75": 159.292,
       "ma200": 158.81,
-      "price": 159.494,
+      "price": 159.489,
       "perfect_order": null
     },
     "bollinger": {
       "mid": 159.199,
-      "upper": 159.534,
+      "upper": 159.533,
       "lower": 158.865,
-      "price": 159.494,
+      "price": 159.489,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -89,10 +89,10 @@
     "dxy_trend": "flat",
     "dxy_latest": 99.59,
     "gold_trend": "up",
-    "gold_latest": 4469.4
+    "gold_latest": 4468.8
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.49円付近で推移（直近1時間比+0.09%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.50円付近で推移（直近1時間比+0.09%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-08-18",
@@ -151,7 +151,7 @@
     },
     {
       "code": "GBP",
-      "change_pct": 0.08
+      "change_pct": 0.09
     },
     {
       "code": "CAD",
@@ -159,7 +159,7 @@
     },
     {
       "code": "JPY",
-      "change_pct": -0.09
+      "change_pct": -0.08
     },
     {
       "code": "USD",
