@@ -49,17 +49,25 @@ import csv
 import io
 import json
 import os
+import smtplib
 import statistics
 import sys
 import time
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
+from email.message import EmailMessage
 
 ALPHA_VANTAGE_KEY = os.environ.get("ALPHA_VANTAGE_KEY", "").strip()
 BASE_URL = "https://www.alphavantage.co/query"
 YAHOO_CHART_BASE = "https://query1.finance.yahoo.com/v8/finance/chart"
 MOF_JGB_CSV_URL = "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv"
+
+# 新規シグナル(SELL/BUY)発生時のメール通知用（Gmailアプリパスワード方式）。
+# いずれかが未設定なら send_signal_email は何もしない（任意機能）。
+GMAIL_SENDER = os.environ.get("GMAIL_SENDER", "").strip()
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "").strip()
+NOTIFY_EMAIL_TO = os.environ.get("NOTIFY_EMAIL_TO", "").strip()
 
 # 通貨強弱（簡易版）の算出に使う補助ペア。(Yahoo Financeシンボル, base通貨, quote通貨)
 # USD/JPY自体は既存のh1データを流用するのでここには含めない。
@@ -629,6 +637,8 @@ def update_trade_log(trade_log, bias, priority_trade, latest_price, confidence, 
     """
     ①オープン中の取引があれば、現在値がTP/SLに到達していないか確認して決着させる。
     ②オープン中の取引が無く、今回の判定がSELL/BUYであれば、新規にオープンとして記録する。
+    戻り値は (trade_log, newly_opened)。newly_openedは②で実際に新規オープンした
+    場合だけTrueになり、メール通知（send_signal_email）を送るかどうかの判定に使う。
     """
     trades = trade_log.get("trades", [])
     open_trade = trades[-1] if trades and trades[-1].get("status") == "OPEN" else None
@@ -646,6 +656,7 @@ def update_trade_log(trade_log, bias, priority_trade, latest_price, confidence, 
             open_trade["pips"] = pips_for(ob, open_trade["entry"], latest_price)
             open_trade = None  # 決着したので、この後の新規オープン判定に進める
 
+    newly_opened = False
     if open_trade is None and bias in ("SELL", "BUY"):
         entry = priority_trade.get("entry")
         tp = priority_trade.get("take_profit")
@@ -664,9 +675,10 @@ def update_trade_log(trade_log, bias, priority_trade, latest_price, confidence, 
                 "closed_price": None,
                 "pips": None,
             })
+            newly_opened = True
 
     trade_log["trades"] = trades
-    return trade_log
+    return trade_log, newly_opened
 
 
 def compute_trade_stats(trades):
@@ -690,6 +702,41 @@ def compute_trade_stats(trades):
         "profit_factor": round(gross_win / gross_loss, 2) if gross_loss > 0 else None,
         "total_pips": round(sum(t["pips"] for t in closed), 1) if closed else 0.0,
     }
+
+
+def send_signal_email(bias, priority_trade, confidence, latest_price):
+    """
+    新規シグナル(SELL/BUY)が発動した瞬間（update_trade_logがnewly_opened=Trueを
+    返した時）だけメール通知する。GMAIL_SENDER・GMAIL_APP_PASSWORD・NOTIFY_EMAIL_TOの
+    いずれかが未設定なら何もしない（この機能を使わない運用でも既存の動作に影響を
+    与えないようにするため）。送信に失敗してもシグナル計算本体には影響させない。
+    """
+    if not (GMAIL_SENDER and GMAIL_APP_PASSWORD and NOTIFY_EMAIL_TO):
+        return
+    label = "戻り売り" if bias == "SELL" else "押し目買い"
+    subject = f"[AI FX研究所] {label}シグナル発生 - USD/JPY"
+    body = (
+        f"USD/JPYで{label}シグナルが発生しました。\n\n"
+        f"現在値: {latest_price}円\n"
+        f"ENTRY: {priority_trade.get('entry')}円\n"
+        f"TAKE PROFIT: {priority_trade.get('take_profit')}円\n"
+        f"STOP LOSS: {priority_trade.get('stop_loss')}円\n"
+        f"信頼度: {confidence}%\n\n"
+        "詳細: https://aifxlabo.com/\n\n"
+        "本メールはルールベースの自動計算による参考情報であり、投資成果を保証するものではありません。"
+    )
+    msg = EmailMessage()
+    msg["Subject"] = subject
+    msg["From"] = GMAIL_SENDER
+    msg["To"] = NOTIFY_EMAIL_TO
+    msg.set_content(body)
+    try:
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=20) as server:
+            server.starttls()
+            server.login(GMAIL_SENDER, GMAIL_APP_PASSWORD)
+            server.send_message(msg)
+    except Exception as e:  # noqa: BLE001
+        print(f"[WARN] メール通知の送信に失敗しました（シグナル本体は継続します）: {e}", file=sys.stderr)
 
 
 def is_same_utc_date(iso_ts, now):
@@ -949,13 +996,15 @@ def build_signal(out_path=None):
         try:
             base_dir = os.path.dirname(out_path)
             trade_log = load_trade_log(base_dir)
-            trade_log = update_trade_log(
+            trade_log, newly_opened = update_trade_log(
                 trade_log, bias, result["priority_trade"], latest_price, confidence, now.isoformat(),
             )
             trade_log["stats"] = compute_trade_stats(trade_log["trades"])
             trade_log["updated_at_utc"] = now.isoformat()
             with open(os.path.join(base_dir, "trade_log.json"), "w", encoding="utf-8") as f:
                 json.dump(trade_log, f, ensure_ascii=False, indent=2)
+            if newly_opened:
+                send_signal_email(bias, result["priority_trade"], confidence, latest_price)
         except Exception as e:  # noqa: BLE001
             print(f"[WARN] trade_log.jsonの更新に失敗しました（シグナル本体は継続します）: {e}", file=sys.stderr)
 
