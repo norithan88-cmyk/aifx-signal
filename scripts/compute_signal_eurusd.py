@@ -36,6 +36,48 @@ PAIR_LABEL = "EUR/USD"
 SYMBOL = "EURUSD=X"
 DECIMALS = 5
 
+# USD/JPY版(compute_signal.py)は2026-08-16の改編で4時間足・GATE/EDGE判定・
+# チャート表示ロジックを削除したため、このファイルはそれらに依存せず自己完結させる
+# (以前はcs.DISPLAY_BARS等をそのまま参照していたが、USD/JPY側の内部実装変更で
+# AttributeErrorになり、EUR/USD側のシグナル更新が止まる事故が実際に発生したため)。
+DISPLAY_BARS = 50
+GATE_THRESHOLD = 2.2
+EDGE_THRESHOLD = 1.3
+
+
+def aggregate_to_4h_eurusd(hourly_bars):
+    """1時間足のローソク足リストから、4本ごとにまとめた4時間足のローソク足リストを作る。"""
+    grouped = []
+    for i in range(0, len(hourly_bars), 4):
+        chunk = hourly_bars[i:i + 4]
+        if chunk:
+            grouped.append({
+                "t": chunk[0]["t"],
+                "o": chunk[0]["o"],
+                "h": max(b["h"] for b in chunk),
+                "l": min(b["l"] for b in chunk),
+                "c": chunk[-1]["c"],
+            })
+    return grouped
+
+
+def classify_state_eurusd(position, trend="FLAT"):
+    """
+    trend（"UP"/"DOWN"/"FLAT"）は移動平均クロスによるトレンド方向。
+    通常はチャネル逸脱＝逆張り（SELL/BUY）だが、±2.2σを超える極端な
+    突破（GATE）については、その方向にトレンドが伴っている場合のみ
+    「反転ではなく継続」とみなしてBUY/SELLに読み替える。
+    """
+    if position >= GATE_THRESHOLD:
+        return "BUY" if trend == "UP" else "GATE"
+    if position >= EDGE_THRESHOLD:
+        return "SELL"
+    if position <= -GATE_THRESHOLD:
+        return "SELL" if trend == "DOWN" else "GATE"
+    if position <= -EDGE_THRESHOLD:
+        return "BUY"
+    return "WAIT"
+
 
 def compute_moving_averages_eurusd(closes):
     """compute_signal.compute_moving_averagesの5桁精度版。ロジックは同一。"""
@@ -94,7 +136,7 @@ def compute_support_resistance_eurusd(bars, lookback=50):
 def build_chart_entry_eurusd(tf):
     """compute_signal.build_chart_entryの5桁精度版。ロジックは同一。"""
     lookback = tf["lookback"]
-    display_count = min(cs.DISPLAY_BARS, lookback)
+    display_count = min(DISPLAY_BARS, lookback)
     index_shift = lookback - display_count
     ch = tf["channel"]
     display_intercept = ch["intercept"] + ch["slope"] * index_shift
@@ -180,7 +222,7 @@ def build_signal(out_path=None):
         us10y_latest = us10y[-1][1] if us10y else None
         wti_trend = cs.trend_direction(wti)
 
-    bars_4h = cs.aggregate_to_4h(h1)
+    bars_4h = aggregate_to_4h_eurusd(h1)
 
     # --- テクニカル指標（1時間足基準・参考情報として表示するのみ） ---
     h1_closes = [b["c"] for b in h1]
@@ -205,7 +247,7 @@ def build_signal(out_path=None):
     ]
     for tf in timeframes:
         tf["trend"] = cs.moving_average_trend([b["c"] for b in tf["bars"]])
-        tf["state"] = cs.classify_state(tf["channel"]["position"], trend=tf["trend"])
+        tf["state"] = classify_state_eurusd(tf["channel"]["position"], trend=tf["trend"])
 
     sell_count = sum(1 for tf in timeframes if tf["state"] == "SELL")
     buy_count = sum(1 for tf in timeframes if tf["state"] == "BUY")
@@ -254,7 +296,7 @@ def build_signal(out_path=None):
     # USD/JPY版と同じ修正: GATE継続型(ブレイク継続・順張り)ではSL=中心線、
     # TP=測定値幅(エントリーから中心線までの距離を反対方向に伸ばした位置)に変更。
     ref_channel = ch_1h
-    is_gate_continuation = abs(ref_channel["position"]) >= cs.GATE_THRESHOLD
+    is_gate_continuation = abs(ref_channel["position"]) >= GATE_THRESHOLD
     if bias == "SELL":
         entry = latest_price
         if is_gate_continuation:
