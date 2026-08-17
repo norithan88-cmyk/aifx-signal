@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-08-17T21:36:04.900300+00:00",
+  "generated_at_utc": "2026-08-17T21:58:14.696433+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.371,
+  "latest_price": 159.372,
   "day_change_pct": 0.1,
   "signal": {
     "bias": "WAIT",
@@ -23,36 +23,36 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -2.05,
+      "position_sigma": -1.82,
       "trend": "FLAT",
-      "mid": 159.512,
-      "upper": 159.65,
-      "lower": 159.375
+      "mid": 159.504,
+      "upper": 159.649,
+      "lower": 159.359
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.21,
+      "position_sigma": -0.29,
       "trend": "FLAT",
-      "mid": 159.399,
-      "upper": 159.668,
-      "lower": 159.13
+      "mid": 159.41,
+      "upper": 159.671,
+      "lower": 159.15
     },
     {
       "key": "h1",
       "label": "1時間足",
       "position_sigma": 0.82,
       "trend": "UP",
-      "mid": 159.247,
-      "upper": 159.549,
+      "mid": 159.248,
+      "upper": 159.55,
       "lower": 158.945
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.064,
-      "signal": 0.0457,
-      "histogram": 0.0183,
+      "macd": 0.0649,
+      "signal": 0.0461,
+      "histogram": 0.0188,
       "state": "BULLISH",
       "cross": null
     },
@@ -61,18 +61,18 @@
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.441,
-      "ma25": 159.229,
+      "ma5": 159.443,
+      "ma25": 159.23,
       "ma75": 159.29,
       "ma200": 158.837,
-      "price": 159.371,
+      "price": 159.372,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.255,
-      "upper": 159.592,
+      "mid": 159.256,
+      "upper": 159.593,
       "lower": 158.918,
-      "price": 159.371,
+      "price": 159.372,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -135,31 +135,31 @@
   "currency_strength": [
     {
       "code": "AUD",
-      "change_pct": 0.28
+      "change_pct": 0.26
     },
     {
       "code": "CHF",
-      "change_pct": 0.25
+      "change_pct": 0.24
     },
     {
       "code": "NZD",
-      "change_pct": 0.19
+      "change_pct": 0.18
     },
     {
       "code": "EUR",
-      "change_pct": 0.05
-    },
-    {
-      "code": "GBP",
-      "change_pct": -0.01
+      "change_pct": 0.02
     },
     {
       "code": "CAD",
       "change_pct": -0.01
     },
     {
+      "code": "GBP",
+      "change_pct": -0.03
+    },
+    {
       "code": "USD",
-      "change_pct": -0.09
+      "change_pct": -0.08
     },
     {
       "code": "JPY",
