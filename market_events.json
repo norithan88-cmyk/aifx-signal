@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "8月18日のNY為替・原油概況",
+      "link": "https://zai.diamond.jp/articles/-/494163",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T19:40:06+00:00",
+      "detected_at_utc": "2026-08-18T19:50:24.598584+00:00",
+      "baseline": {
+        "t": "2026-08-18T19:50:24.598584+00:00",
+        "price": 159.613,
+        "dxy": 99.63,
+        "usd_strength_score": 6.9
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ニューヨーク外国為替市場概況・4時　ドル円、こう着",
       "link": "https://zai.diamond.jp/articles/-/494162",
       "source": "ザイFX！",
@@ -96,11 +114,18 @@
           "dxy": 99.67,
           "usd_strength_score": 8.9,
           "delta_price_pct": 0.001
+        },
+        "2h": {
+          "t": "2026-08-18T19:50:24.598584+00:00",
+          "price": 159.613,
+          "dxy": 99.63,
+          "usd_strength_score": 6.9,
+          "delta_price_pct": 0.004
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言」の報道後、USD/JPYは1時間で+0.00%。DXYは99.65から99.67へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言」の報道後、USD/JPYは2時間で+0.00%。DXYは99.65から99.63へ低下、USD強弱スコアも+7から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -129,11 +154,18 @@
           "dxy": 99.67,
           "usd_strength_score": 8.9,
           "delta_price_pct": 0.001
+        },
+        "2h": {
+          "t": "2026-08-18T19:50:24.598584+00:00",
+          "price": 159.613,
+          "dxy": 99.63,
+          "usd_strength_score": 6.9,
+          "delta_price_pct": 0.004
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは1時間で+0.00%。DXYは99.65から99.67へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは2時間で+0.00%。DXYは99.65から99.63へ低下、USD強弱スコアも+7から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -633,5 +665,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T19:25:36.142898+00:00"
+  "updated_at_utc": "2026-08-18T19:50:24.598584+00:00"
 }
