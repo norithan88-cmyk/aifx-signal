@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "title": "NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言",
+      "link": "https://zai.diamond.jp/articles/-/494159",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T17:20:11+00:00",
+      "detected_at_utc": "2026-08-18T17:36:09.323410+00:00",
+      "baseline": {
+        "t": "2026-08-18T17:36:09.323410+00:00",
+        "price": 159.607,
+        "dxy": 99.65,
+        "usd_strength_score": 7.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "ニューヨーク外国為替市場概況・2時　ドル円、小動き",
+      "link": "https://zai.diamond.jp/articles/-/494158",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T17:06:00+00:00",
+      "detected_at_utc": "2026-08-18T17:36:09.323410+00:00",
+      "baseline": {
+        "t": "2026-08-18T17:36:09.323410+00:00",
+        "price": 159.607,
+        "dxy": 99.65,
+        "usd_strength_score": 7.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "欧州主要株式指数、まちまち",
       "link": "https://zai.diamond.jp/articles/-/494157",
       "source": "ザイFX！",
@@ -12,10 +48,18 @@
         "dxy": 99.6,
         "usd_strength_score": 3.5
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T17:36:09.323410+00:00",
+          "price": 159.607,
+          "dxy": 99.65,
+          "usd_strength_score": 7.3,
+          "delta_price_pct": 0.022
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「欧州主要株式指数、まちまち」の報道後、USD/JPYは30分で+0.02%。DXYは99.60から99.65へ上昇、USD強弱スコアも+4から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +74,18 @@
         "dxy": 99.6,
         "usd_strength_score": 3.5
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T17:36:09.323410+00:00",
+          "price": 159.607,
+          "dxy": 99.65,
+          "usd_strength_score": 7.3,
+          "delta_price_pct": 0.022
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「NY市場動向（午後0時台）：ダウ47ドル安、原油先物0.54ドル高」の報道後、USD/JPYは30分で+0.02%。DXYは99.60から99.65へ上昇、USD強弱スコアも+4から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -95,11 +147,18 @@
           "dxy": 99.59,
           "usd_strength_score": 1.9,
           "delta_price_pct": -0.024
+        },
+        "2h": {
+          "t": "2026-08-18T17:36:09.323410+00:00",
+          "price": 159.607,
+          "dxy": 99.65,
+          "usd_strength_score": 7.3,
+          "delta_price_pct": 0.008
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・24時　ドル円、上値重い」の報道後、USD/JPYは1時間で-0.02%。DXYは99.57から99.59へ上昇、USD強弱スコアも+5から+2へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・24時　ドル円、上値重い」の報道後、USD/JPYは2時間で+0.01%。DXYは99.57から99.65へ上昇、USD強弱スコアも+5から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -128,11 +187,18 @@
           "dxy": 99.59,
           "usd_strength_score": 1.9,
           "delta_price_pct": -0.024
+        },
+        "2h": {
+          "t": "2026-08-18T17:36:09.323410+00:00",
+          "price": 159.607,
+          "dxy": 99.65,
+          "usd_strength_score": 7.3,
+          "delta_price_pct": 0.008
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY市場動向（午前10時台）：ダウ28ドル安、原油先物0.37ドル高」の報道後、USD/JPYは1時間で-0.02%。DXYは99.57から99.59へ上昇、USD強弱スコアも+5から+2へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「NY市場動向（午前10時台）：ダウ28ドル安、原油先物0.37ドル高」の報道後、USD/JPYは2時間で+0.01%。DXYは99.57から99.65へ上昇、USD強弱スコアも+5から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -376,5 +442,5 @@
       "finalized": false
     }
   ],
-  "updated_at_utc": "2026-08-18T16:58:58.232169+00:00"
+  "updated_at_utc": "2026-08-18T17:36:09.323410+00:00"
 }
