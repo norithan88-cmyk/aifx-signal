@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-18T14:00:22.782666+00:00",
+  "generated_at_utc": "2026-08-18T14:40:55.504967+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.571,
-  "day_change_pct": 0.15,
+  "latest_price": 159.516,
+  "day_change_pct": 0.1,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -23,61 +23,61 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -1.73,
-      "trend": "FLAT",
-      "mid": 159.639,
-      "upper": 159.718,
-      "lower": 159.56
+      "position_sigma": -1.45,
+      "trend": "DOWN",
+      "mid": 159.588,
+      "upper": 159.686,
+      "lower": 159.49
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -2.05,
+      "position_sigma": -2.26,
       "trend": "FLAT",
-      "mid": 159.735,
-      "upper": 159.894,
-      "lower": 159.575
+      "mid": 159.718,
+      "upper": 159.895,
+      "lower": 159.541
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.77,
+      "position_sigma": 0.43,
       "trend": "UP",
-      "mid": 159.436,
-      "upper": 159.806,
-      "lower": 159.067
+      "mid": 159.439,
+      "upper": 159.808,
+      "lower": 159.07
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0851,
-      "signal": 0.0979,
-      "histogram": -0.0129,
+      "macd": 0.0695,
+      "signal": 0.0918,
+      "histogram": -0.0223,
       "state": "BEARISH",
       "cross": null
     },
     "rsi": {
-      "value": 54.1,
+      "value": 50.2,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.643,
-      "ma25": 159.531,
-      "ma75": 159.34,
-      "ma200": 158.992,
-      "price": 159.578,
+      "ma5": 159.599,
+      "ma25": 159.539,
+      "ma75": 159.342,
+      "ma200": 159.0,
+      "price": 159.518,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.56,
-      "upper": 159.81,
-      "lower": 159.311,
-      "price": 159.578,
+      "mid": 159.562,
+      "upper": 159.808,
+      "lower": 159.316,
+      "price": 159.518,
       "state": "INSIDE"
     },
     "support_resistance": {
       "resistance": 159.779,
-      "support": 158.595
+      "support": 158.789
     }
   },
   "macro": {
@@ -87,48 +87,48 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.919,
     "dxy_trend": "flat",
-    "dxy_latest": 99.59,
+    "dxy_latest": 99.57,
     "gold_trend": "flat",
-    "gold_latest": 4451.3
+    "gold_latest": 4448.5
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.57円付近で推移（直近1時間比+0.15%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.52円付近で推移（直近1時間比+0.10%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
-      "title": "【まもなく】米・7月中古住宅販売成約指数の発表です（日本時間23：00）",
-      "link": "https://zai.diamond.jp/articles/-/494146",
-      "published_at_utc": "2026-08-18T13:54:46+00:00"
+      "title": "【市場反応】米7月中古住宅販売成約指数は予想外の2カ月連続マイナス、ドル売り優勢",
+      "link": "https://zai.diamond.jp/articles/-/494152",
+      "published_at_utc": "2026-08-18T14:36:09+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【トランプ米大統領】イランとの交渉はしておらず、予定もない",
-      "link": "https://zai.diamond.jp/articles/-/494145",
-      "published_at_utc": "2026-08-18T13:38:29+00:00"
+      "title": "ユーロドル、じり高　一時1.1588ドルと本日高値",
+      "link": "https://zai.diamond.jp/articles/-/494151",
+      "published_at_utc": "2026-08-18T14:28:00+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】UAE大統領、米トランプ大統領が中東情勢を電話協議",
-      "link": "https://zai.diamond.jp/articles/-/494144",
-      "published_at_utc": "2026-08-18T13:32:17+00:00"
+      "title": "【速報】ドル・円159.53円、ドル軟調、米・7月中古住宅販売成約指数が予想外の2カ月連続マイナス",
+      "link": "https://zai.diamond.jp/articles/-/494150",
+      "published_at_utc": "2026-08-18T14:07:12+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【市場反応】米7月住宅着工件数はパンデミック来の低水準、ドル上値抑制される",
-      "link": "https://zai.diamond.jp/articles/-/494143",
-      "published_at_utc": "2026-08-18T13:23:05+00:00"
+      "title": "【ＮＹ為替オープニング】米イラン混迷で原油高がドル下支え、住宅市場弱く上値を抑制も",
+      "link": "https://zai.diamond.jp/articles/-/494148",
+      "published_at_utc": "2026-08-18T14:04:05+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】米・7月設備稼働率は76.3％",
-      "link": "https://zai.diamond.jp/articles/-/494142",
-      "published_at_utc": "2026-08-18T13:18:40+00:00"
+      "title": "ドル円、159.54円付近まで小幅に下押し　低調な米住宅指標が重し",
+      "link": "https://zai.diamond.jp/articles/-/494149",
+      "published_at_utc": "2026-08-18T14:04:00+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】米・7月鉱工業生産は予想下回り＋0.2 ％",
-      "link": "https://zai.diamond.jp/articles/-/494141",
-      "published_at_utc": "2026-08-18T13:16:42+00:00"
+      "title": "【速報】米・7月中古住宅販売成約指数はー2.3％",
+      "link": "https://zai.diamond.jp/articles/-/494147",
+      "published_at_utc": "2026-08-18T14:01:33+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
@@ -177,39 +177,39 @@
       "strength_score": 5.9
     },
     {
-      "code": "AUD",
-      "change_pct": 0.04,
-      "strength_score": 1.4
+      "code": "EUR",
+      "change_pct": -0.05,
+      "strength_score": -1.9
     },
     {
       "code": "CAD",
-      "change_pct": -0.04,
-      "strength_score": -1.5
+      "change_pct": -0.05,
+      "strength_score": -2.1
     },
     {
-      "code": "EUR",
-      "change_pct": -0.08,
-      "strength_score": -3.2
+      "code": "AUD",
+      "change_pct": -0.09,
+      "strength_score": -3.7
     },
     {
       "code": "JPY",
-      "change_pct": -0.15,
-      "strength_score": -6.0
+      "change_pct": -0.1,
+      "strength_score": -3.9
     },
     {
       "code": "GBP",
-      "change_pct": -0.16,
-      "strength_score": -6.2
+      "change_pct": -0.12,
+      "strength_score": -5.0
     },
     {
       "code": "CHF",
-      "change_pct": -0.27,
-      "strength_score": -10.6
+      "change_pct": -0.23,
+      "strength_score": -9.2
     },
     {
       "code": "NZD",
-      "change_pct": -0.38,
-      "strength_score": -15.1
+      "change_pct": -0.39,
+      "strength_score": -15.5
     }
   ]
 }
