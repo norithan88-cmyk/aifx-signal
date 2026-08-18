@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "本日のスケジュール",
+      "link": "https://zai.diamond.jp/articles/-/494166",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T21:40:05+00:00",
+      "detected_at_utc": "2026-08-18T21:56:03.893776+00:00",
+      "baseline": {
+        "t": "2026-08-18T21:56:03.893776+00:00",
+        "price": 159.566,
+        "dxy": 99.65,
+        "usd_strength_score": 9.1
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ニューヨーク外国為替市場概況・18日　ドル円、小幅続伸",
       "link": "https://zai.diamond.jp/articles/-/494165",
       "source": "ザイFX！",
@@ -77,11 +95,18 @@
           "dxy": 99.67,
           "usd_strength_score": 7.8,
           "delta_price_pct": -0.009
+        },
+        "2h": {
+          "t": "2026-08-18T21:56:03.893776+00:00",
+          "price": 159.566,
+          "dxy": 99.65,
+          "usd_strength_score": 9.1,
+          "delta_price_pct": -0.029
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「8月18日のNY為替・原油概況」の報道後、USD/JPYは1時間で-0.01%。DXYは99.63から99.67へ上昇、USD強弱スコアも+7から+8へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「8月18日のNY為替・原油概況」の報道後、USD/JPYは2時間で-0.03%。DXYは99.63から99.65へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -237,12 +262,19 @@
           "dxy": 99.63,
           "usd_strength_score": 6.9,
           "delta_price_pct": 0.004
+        },
+        "4h": {
+          "t": "2026-08-18T21:56:03.893776+00:00",
+          "price": 159.566,
+          "dxy": 99.65,
+          "usd_strength_score": 9.1,
+          "delta_price_pct": -0.026
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言」の報道後、USD/JPYは2時間で+0.00%。DXYは99.65から99.63へ低下、USD強弱スコアも+7から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言」の報道後、USD/JPYは4時間で-0.03%。DXYは99.65から99.65へ横ばい、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ニューヨーク外国為替市場概況・2時　ドル円、小動き",
@@ -277,12 +309,19 @@
           "dxy": 99.63,
           "usd_strength_score": 6.9,
           "delta_price_pct": 0.004
+        },
+        "4h": {
+          "t": "2026-08-18T21:56:03.893776+00:00",
+          "price": 159.566,
+          "dxy": 99.65,
+          "usd_strength_score": 9.1,
+          "delta_price_pct": -0.026
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは2時間で+0.00%。DXYは99.65から99.63へ低下、USD強弱スコアも+7から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは4時間で-0.03%。DXYは99.65から99.65へ横ばい、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "欧州主要株式指数、まちまち",
@@ -802,5 +841,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T21:35:23.393749+00:00"
+  "updated_at_utc": "2026-08-18T21:56:03.893776+00:00"
 }
