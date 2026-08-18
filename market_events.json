@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "title": "[通貨オプション]短中期でOP売り、レンジ相場",
+      "link": "https://zai.diamond.jp/articles/-/494161",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T18:40:06+00:00",
+      "detected_at_utc": "2026-08-18T18:52:52.046251+00:00",
+      "baseline": {
+        "t": "2026-08-18T18:52:52.046251+00:00",
+        "price": 159.609,
+        "dxy": 99.67,
+        "usd_strength_score": 8.9
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "NY市場動向（午後2時台）：ダウ125ドル安、原油先物0.50ドル高",
+      "link": "https://zai.diamond.jp/articles/-/494160",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T18:22:06+00:00",
+      "detected_at_utc": "2026-08-18T18:52:52.046251+00:00",
+      "baseline": {
+        "t": "2026-08-18T18:52:52.046251+00:00",
+        "price": 159.609,
+        "dxy": 99.67,
+        "usd_strength_score": 8.9
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言",
       "link": "https://zai.diamond.jp/articles/-/494159",
       "source": "ザイFX！",
@@ -12,10 +48,25 @@
         "dxy": 99.65,
         "usd_strength_score": 7.3
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.001
+        },
+        "1h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.001
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「NY外為：ドル安値から反発、原油高に連れ、トランプ大統領はイランとの和平協議していないと断言」の報道後、USD/JPYは1時間で+0.00%。DXYは99.65から99.67へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +81,25 @@
         "dxy": 99.65,
         "usd_strength_score": 7.3
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.001
+        },
+        "1h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.001
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは1時間で+0.00%。DXYは99.65から99.67へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -255,12 +321,19 @@
           "dxy": 99.6,
           "usd_strength_score": 3.5,
           "delta_price_pct": 0.035
+        },
+        "4h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.058
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【市場反応】米7月中古住宅販売成約指数は予想外の2カ月連続マイナス、ドル売り優勢」の報道後、USD/JPYは2時間で+0.04%。DXYは99.57から99.60へ上昇、USD強弱スコアも+6から+4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【市場反応】米7月中古住宅販売成約指数は予想外の2カ月連続マイナス、ドル売り優勢」の報道後、USD/JPYは4時間で+0.06%。DXYは99.57から99.67へ上昇、USD強弱スコアも+6から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ユーロドル、じり高　一時1.1588ドルと本日高値",
@@ -295,12 +368,19 @@
           "dxy": 99.6,
           "usd_strength_score": 3.5,
           "delta_price_pct": 0.035
+        },
+        "4h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.058
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ユーロドル、じり高　一時1.1588ドルと本日高値」の報道後、USD/JPYは2時間で+0.04%。DXYは99.57から99.60へ上昇、USD強弱スコアも+6から+4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ユーロドル、じり高　一時1.1588ドルと本日高値」の報道後、USD/JPYは4時間で+0.06%。DXYは99.57から99.67へ上昇、USD強弱スコアも+6から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "【速報】ドル・円159.53円、ドル軟調、米・7月中古住宅販売成約指数が予想外の2カ月連続マイナス",
@@ -335,12 +415,19 @@
           "dxy": 99.6,
           "usd_strength_score": 3.5,
           "delta_price_pct": 0.035
+        },
+        "4h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.058
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【速報】ドル・円159.53円、ドル軟調、米・7月中古住宅販売成約指数が予想外の2カ月連続マイナス」の報道後、USD/JPYは2時間で+0.04%。DXYは99.57から99.60へ上昇、USD強弱スコアも+6から+4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【速報】ドル・円159.53円、ドル軟調、米・7月中古住宅販売成約指数が予想外の2カ月連続マイナス」の報道後、USD/JPYは4時間で+0.06%。DXYは99.57から99.67へ上昇、USD強弱スコアも+6から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "【ＮＹ為替オープニング】米イラン混迷で原油高がドル下支え、住宅市場弱く上値を抑制も",
@@ -375,12 +462,19 @@
           "dxy": 99.6,
           "usd_strength_score": 3.5,
           "delta_price_pct": 0.035
+        },
+        "4h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.058
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【ＮＹ為替オープニング】米イラン混迷で原油高がドル下支え、住宅市場弱く上値を抑制も」の報道後、USD/JPYは2時間で+0.04%。DXYは99.57から99.60へ上昇、USD強弱スコアも+6から+4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【ＮＹ為替オープニング】米イラン混迷で原油高がドル下支え、住宅市場弱く上値を抑制も」の報道後、USD/JPYは4時間で+0.06%。DXYは99.57から99.67へ上昇、USD強弱スコアも+6から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル円、159.54円付近まで小幅に下押し　低調な米住宅指標が重し",
@@ -415,12 +509,19 @@
           "dxy": 99.6,
           "usd_strength_score": 3.5,
           "delta_price_pct": 0.035
+        },
+        "4h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.058
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル円、159.54円付近まで小幅に下押し　低調な米住宅指標が重し」の報道後、USD/JPYは2時間で+0.04%。DXYは99.57から99.60へ上昇、USD強弱スコアも+6から+4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル円、159.54円付近まで小幅に下押し　低調な米住宅指標が重し」の報道後、USD/JPYは4時間で+0.06%。DXYは99.57から99.67へ上昇、USD強弱スコアも+6から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "【速報】米・7月中古住宅販売成約指数はー2.3％",
@@ -455,13 +556,20 @@
           "dxy": 99.6,
           "usd_strength_score": 3.5,
           "delta_price_pct": 0.035
+        },
+        "4h": {
+          "t": "2026-08-18T18:52:52.046251+00:00",
+          "price": 159.609,
+          "dxy": 99.67,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.058
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【速報】米・7月中古住宅販売成約指数はー2.3％」の報道後、USD/JPYは2時間で+0.04%。DXYは99.57から99.60へ上昇、USD強弱スコアも+6から+4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【速報】米・7月中古住宅販売成約指数はー2.3％」の報道後、USD/JPYは4時間で+0.06%。DXYは99.57から99.67へ上昇、USD強弱スコアも+6から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T18:00:42.369787+00:00"
+  "updated_at_utc": "2026-08-18T18:52:52.046251+00:00"
 }
