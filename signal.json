@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-18T08:57:53.211480+00:00",
+  "generated_at_utc": "2026-08-18T09:15:27.620779+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.639,
-  "day_change_pct": 0.29,
+  "latest_price": 159.669,
+  "day_change_pct": 0.27,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -23,56 +23,56 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -2.41,
+      "position_sigma": -1.84,
       "trend": "FLAT",
-      "mid": 159.778,
-      "upper": 159.893,
-      "lower": 159.663
+      "mid": 159.777,
+      "upper": 159.895,
+      "lower": 159.66
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.96,
+      "position_sigma": -0.62,
       "trend": "FLAT",
-      "mid": 159.713,
-      "upper": 159.866,
-      "lower": 159.559
+      "mid": 159.715,
+      "upper": 159.862,
+      "lower": 159.567
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 1.49,
+      "position_sigma": 1.54,
       "trend": "UP",
-      "mid": 159.373,
-      "upper": 159.73,
-      "lower": 159.016
+      "mid": 159.391,
+      "upper": 159.753,
+      "lower": 159.029
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.1104,
-      "signal": 0.0961,
-      "histogram": 0.0144,
+      "macd": 0.1126,
+      "signal": 0.1004,
+      "histogram": 0.0122,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 61.3,
+      "value": 63.6,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.673,
-      "ma25": 159.446,
-      "ma75": 159.321,
-      "ma200": 158.943,
-      "price": 159.639,
+      "ma5": 159.687,
+      "ma25": 159.469,
+      "ma75": 159.326,
+      "ma200": 158.953,
+      "price": 159.669,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.503,
-      "upper": 159.773,
-      "lower": 159.233,
-      "price": 159.639,
+      "mid": 159.525,
+      "upper": 159.79,
+      "lower": 159.26,
+      "price": 159.669,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -89,10 +89,48 @@
     "dxy_trend": "flat",
     "dxy_latest": 99.64,
     "gold_trend": "flat",
-    "gold_latest": 4451.4
+    "gold_latest": 4448.7
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.64円付近で推移（直近1時間比+0.29%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.67円付近で推移（直近1時間比+0.27%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "news": [
+    {
+      "source": "Investing.com",
+      "title": "Sterling today: Pound slips as dollar firms on energy, yields",
+      "link": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-dollar-firms-on-energy-yields-4864498",
+      "published_at_utc": "2026-08-18T08:32:48+00:00"
+    },
+    {
+      "source": "Investing.com",
+      "title": "Dollar steady with Fed outlook, U.S.-Iran tensions in focus; yen weakens",
+      "link": "https://www.investing.com/news/forex-news/asia-fx-lacks-direction-with-fed-outlook-usiran-tensions-in-focus-4864264",
+      "published_at_utc": "2026-08-18T06:28:38+00:00"
+    },
+    {
+      "source": "Investing.com",
+      "title": "Dollar slips on pared Fed rate hike bets, but losses capped by rising oil prices",
+      "link": "https://www.investing.com/news/forex-news/asia-fx-ticks-up-on-reduced-fed-hike-bets-yen-gains-despite-weak-japan-gdp-4862111",
+      "published_at_utc": "2026-08-17T20:18:03+00:00"
+    },
+    {
+      "source": "Investing.com",
+      "title": "Latin American currencies gain as Fed rate hike bets ease",
+      "link": "https://www.investing.com/news/forex-news/latin-american-currencies-gain-as-fed-rate-hike-bets-ease-93CH-4863871",
+      "published_at_utc": "2026-08-17T20:02:27+00:00"
+    },
+    {
+      "source": "Investing.com",
+      "title": "Canadian dollar rises as inflation exceeds expectations",
+      "link": "https://www.investing.com/news/forex-news/canadian-dollar-rises-as-inflation-exceeds-expectations-93CH-4863620",
+      "published_at_utc": "2026-08-17T15:26:59+00:00"
+    },
+    {
+      "source": "Investing.com",
+      "title": "Bond market holds range as dovish U.S. data clash with Persian Gulf supply risks",
+      "link": "https://www.investing.com/news/forex-news/german-bund-yields-hold-flat-near-multiday-highs-as-rate-hike-fears-recede-4862206",
+      "published_at_utc": "2026-08-17T11:53:19+00:00"
+    }
+  ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-08-18",
@@ -135,7 +173,7 @@
   "currency_strength": [
     {
       "code": "USD",
-      "change_pct": 0.25
+      "change_pct": 0.27
     },
     {
       "code": "CAD",
@@ -143,27 +181,27 @@
     },
     {
       "code": "EUR",
-      "change_pct": -0.12
-    },
-    {
-      "code": "CHF",
-      "change_pct": -0.12
+      "change_pct": -0.15
     },
     {
       "code": "GBP",
-      "change_pct": -0.17
+      "change_pct": -0.2
     },
     {
-      "code": "AUD",
-      "change_pct": -0.28
+      "code": "CHF",
+      "change_pct": -0.25
     },
     {
       "code": "JPY",
-      "change_pct": -0.29
+      "change_pct": -0.27
+    },
+    {
+      "code": "AUD",
+      "change_pct": -0.31
     },
     {
       "code": "NZD",
-      "change_pct": -0.72
+      "change_pct": -0.65
     }
   ]
 }
