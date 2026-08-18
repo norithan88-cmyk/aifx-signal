@@ -24,7 +24,7 @@ AI FX研究所 - 本日のAIシグナル 自動計算スクリプト
   - このロジック（5分・15分・1時間足の方向一致＋1分足の逆行からの戻り）は、
     2025-01〜2026-07の19ヶ月・実データでのwalk-forwardバックテストで検証済み
     （勝率70.3%・PF1.88・19ヶ月中18ヶ月がプラス）。ただし本番の自動実行は
-    15分おき設定でも実際は30分〜2時間おきになることがあり、1分単位の
+    5分おき設定でも実際は10分〜2時間おきになることがあり、1分単位の
     反発タイミングを毎回リアルタイムで捉えられるとは限らない点に留意。
   - 実際のトレード成績を保証するものではない。あくまで
     「参考情報を自動更新する」ためのツール。
@@ -55,6 +55,7 @@ import sys
 import time
 import urllib.request
 import urllib.error
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.message import EmailMessage
 
@@ -62,6 +63,11 @@ ALPHA_VANTAGE_KEY = os.environ.get("ALPHA_VANTAGE_KEY", "").strip()
 BASE_URL = "https://www.alphavantage.co/query"
 YAHOO_CHART_BASE = "https://query1.finance.yahoo.com/v8/finance/chart"
 MOF_JGB_CSV_URL = "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv"
+
+# 「LATEST NEWS」欄用。ForexLive・DailyFXはRSS取得が403でブロックされたため、
+# 動作確認できたInvesting.comの為替専門フィードのみを使う（重要度でのフィルタリングはしない）。
+FOREX_NEWS_RSS_URL = "https://www.investing.com/rss/news_1.rss"
+MAX_NEWS_AGE_HOURS = 24  # これより古い見出しは「今日のニュース」として不適切なので除外する
 
 # 新規シグナル(SELL/BUY)発生時のメール通知用（Gmailアプリパスワード方式）。
 # いずれかが未設定なら send_signal_email は何もしない（任意機能）。
@@ -278,6 +284,49 @@ def fetch_jp10y_daily():
     if not values:
         raise RuntimeError("財務省国債金利CSVから10年債データを抽出できませんでした")
     return values
+
+
+def fetch_news_headlines(limit=6):
+    """
+    Investing.comの為替専門RSSフィードから最新見出しを取得する。
+    重要度による絞り込みはせず、フィードに載っている見出しをそのまま新しい順に使う。
+    取得に失敗した場合は空リストを返し、シグナル本体の計算は止めない。
+    """
+    req = urllib.request.Request(FOREX_NEWS_RSS_URL, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=15) as res:
+        raw = res.read()
+    root = ET.fromstring(raw)
+    items = []
+    for item in root.findall(".//item"):
+        title_el = item.find("title")
+        link_el = item.find("link")
+        pubdate_el = item.find("pubDate")
+        if title_el is None or not title_el.text or link_el is None or not link_el.text:
+            continue
+        published_at = None
+        if pubdate_el is not None and pubdate_el.text:
+            # Investing.comのpubDateは"YYYY-MM-DD HH:MM:SS"形式（タイムゾーン表記なし、UTCとして扱う）
+            try:
+                dt = datetime.strptime(pubdate_el.text.strip(), "%Y-%m-%d %H:%M:%S")
+                published_at = dt.replace(tzinfo=timezone.utc)
+            except ValueError:
+                published_at = None
+        items.append({
+            "source": "Investing.com",
+            "title": title_el.text.strip(),
+            "link": link_el.text.strip(),
+            "published_at_utc": published_at.isoformat() if published_at else None,
+            "_dt": published_at,
+        })
+    items.sort(key=lambda it: it["published_at_utc"] or "", reverse=True)
+    now = datetime.now(timezone.utc)
+    fresh = [
+        it for it in items
+        if it["_dt"] is not None and (now - it["_dt"]).total_seconds() <= MAX_NEWS_AGE_HOURS * 3600
+    ]
+    for it in fresh:
+        del it["_dt"]
+    return fresh[:limit]
 
 
 def linear_regression_channel(closes, lookback=LOOKBACK):
@@ -817,6 +866,12 @@ def build_signal(out_path=None):
         gold_trend = prev_macro.get("gold_trend", "flat")
         gold_latest = prev_macro.get("gold_latest")
 
+    try:
+        news_headlines = fetch_news_headlines()
+    except Exception as e:  # noqa: BLE001
+        print(f"[WARN] ニュース見出しの取得に失敗しました（続行します）: {e}", file=sys.stderr)
+        news_headlines = []
+
     # --- テクニカル指標（1時間足基準・参考情報として表示するのみ、売買判定には使わない） ---
     h1_closes = [b["c"] for b in h1]
     technical = {
@@ -983,6 +1038,7 @@ def build_signal(out_path=None):
         },
         "commentary": commentary,
         "market_context": market_context,
+        "news": news_headlines,
         "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
     }
     if daily_analysis is not None:
