@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "ニューヨーク外国為替市場概況・4時　ドル円、こう着",
+      "link": "https://zai.diamond.jp/articles/-/494162",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T19:05:00+00:00",
+      "detected_at_utc": "2026-08-18T19:25:36.142898+00:00",
+      "baseline": {
+        "t": "2026-08-18T19:25:36.142898+00:00",
+        "price": 159.585,
+        "dxy": 99.64,
+        "usd_strength_score": 6.8
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "[通貨オプション]短中期でOP売り、レンジ相場",
       "link": "https://zai.diamond.jp/articles/-/494161",
       "source": "ザイFX！",
@@ -12,10 +30,18 @@
         "dxy": 99.67,
         "usd_strength_score": 8.9
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T19:25:36.142898+00:00",
+          "price": 159.585,
+          "dxy": 99.64,
+          "usd_strength_score": 6.8,
+          "delta_price_pct": -0.015
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「[通貨オプション]短中期でOP売り、レンジ相場」の報道後、USD/JPYは30分で-0.01%。DXYは99.67から99.64へ低下、USD強弱スコアも+9から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +56,18 @@
         "dxy": 99.67,
         "usd_strength_score": 8.9
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T19:25:36.142898+00:00",
+          "price": 159.585,
+          "dxy": 99.64,
+          "usd_strength_score": 6.8,
+          "delta_price_pct": -0.015
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「NY市場動向（午後2時台）：ダウ125ドル安、原油先物0.50ドル高」の報道後、USD/JPYは30分で-0.01%。DXYは99.67から99.64へ低下、USD強弱スコアも+9から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -128,11 +162,18 @@
           "dxy": 99.65,
           "usd_strength_score": 7.6,
           "delta_price_pct": 0.019
+        },
+        "2h": {
+          "t": "2026-08-18T19:25:36.142898+00:00",
+          "price": 159.585,
+          "dxy": 99.64,
+          "usd_strength_score": 6.8,
+          "delta_price_pct": 0.008
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州主要株式指数、まちまち」の報道後、USD/JPYは1時間で+0.02%。DXYは99.60から99.65へ上昇、USD強弱スコアも+4から+8へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「欧州主要株式指数、まちまち」の報道後、USD/JPYは2時間で+0.01%。DXYは99.60から99.64へ上昇、USD強弱スコアも+4から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -161,11 +202,18 @@
           "dxy": 99.65,
           "usd_strength_score": 7.6,
           "delta_price_pct": 0.019
+        },
+        "2h": {
+          "t": "2026-08-18T19:25:36.142898+00:00",
+          "price": 159.585,
+          "dxy": 99.64,
+          "usd_strength_score": 6.8,
+          "delta_price_pct": 0.008
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY市場動向（午後0時台）：ダウ47ドル安、原油先物0.54ドル高」の報道後、USD/JPYは1時間で+0.02%。DXYは99.60から99.65へ上昇、USD強弱スコアも+4から+8へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「NY市場動向（午後0時台）：ダウ47ドル安、原油先物0.54ドル高」の報道後、USD/JPYは2時間で+0.01%。DXYは99.60から99.64へ上昇、USD強弱スコアも+4から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -241,12 +289,19 @@
           "dxy": 99.65,
           "usd_strength_score": 7.3,
           "delta_price_pct": 0.008
+        },
+        "4h": {
+          "t": "2026-08-18T19:25:36.142898+00:00",
+          "price": 159.585,
+          "dxy": 99.64,
+          "usd_strength_score": 6.8,
+          "delta_price_pct": -0.006
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・24時　ドル円、上値重い」の報道後、USD/JPYは2時間で+0.01%。DXYは99.57から99.65へ上昇、USD強弱スコアも+5から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ニューヨーク外国為替市場概況・24時　ドル円、上値重い」の報道後、USD/JPYは4時間で-0.01%。DXYは99.57から99.64へ上昇、USD強弱スコアも+5から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NY市場動向（午前10時台）：ダウ28ドル安、原油先物0.37ドル高",
@@ -281,12 +336,19 @@
           "dxy": 99.65,
           "usd_strength_score": 7.3,
           "delta_price_pct": 0.008
+        },
+        "4h": {
+          "t": "2026-08-18T19:25:36.142898+00:00",
+          "price": 159.585,
+          "dxy": 99.64,
+          "usd_strength_score": 6.8,
+          "delta_price_pct": -0.006
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY市場動向（午前10時台）：ダウ28ドル安、原油先物0.37ドル高」の報道後、USD/JPYは2時間で+0.01%。DXYは99.57から99.65へ上昇、USD強弱スコアも+5から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY市場動向（午前10時台）：ダウ28ドル安、原油先物0.37ドル高」の報道後、USD/JPYは4時間で-0.01%。DXYは99.57から99.64へ上昇、USD強弱スコアも+5から+7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "【市場反応】米7月中古住宅販売成約指数は予想外の2カ月連続マイナス、ドル売り優勢",
@@ -571,5 +633,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T18:52:52.046251+00:00"
+  "updated_at_utc": "2026-08-18T19:25:36.142898+00:00"
 }
