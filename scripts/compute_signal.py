@@ -833,6 +833,181 @@ def is_same_utc_date(iso_ts, now):
     return dt.date() == now.date()
 
 
+# --- ニュース影響分析（market_events.json） ---
+# ニュース見出し検出時点の相場スナップショット(price/DXY/USD強弱スコア)を基準(baseline)として
+# 記録し、30分/1時間/2時間/4時間経過ごとに現在値と比較する。「因果関係の証明」ではなく、
+# あくまで数値の変化を機械的に並べて見せるだけの設計（要約文は実測値をf-stringに埋め込むだけの
+# テンプレート生成にし、AIに文章を書かせない＝ハルシネーションが原理的に発生しない構成）。
+# AI BTC研究所（bit.aifxlabo.com）に先行導入した同名機能をFX向けに移植したもの。
+# BTC版はFunding Rate・Fear & Greedを使ったが、FXにはそれらの概念が無いため、
+# 代わりに「毎回取得できる」DXY（ドル指数）とUSD強弱スコア（-100〜+100固定スケール）を使う。
+# 米10年債・WTIは1日1回しか取得しない（Alpha Vantage無料枠の制約）ため、数時間単位の
+# before/after比較には使えず、対象から外している。
+MARKET_EVENT_CHECKPOINTS = [("30m", 30 * 60), ("1h", 60 * 60), ("2h", 2 * 60 * 60), ("4h", 4 * 60 * 60)]
+MARKET_EVENT_CHECKPOINT_LABEL_JA = {"30m": "30分", "1h": "1時間", "2h": "2時間", "4h": "4時間"}
+MARKET_EVENTS_MAX_KEEP = 60  # 保持する最大イベント数（4時間分の決着を待つ間は必ず残し、それ以外は新しい順に間引く）
+
+PRICE_SWING_PCT_FX = 0.3      # USD/JPYがbaselineからこれ以上動いたら「価格急変」とみなす（%）
+DXY_SWING_PCT = 0.3           # DXYがbaselineからこれ以上動いたら「ドル全面高/安」とみなす（%）
+USD_STRENGTH_SWING = 15.0     # USD強弱スコア(-100〜+100)がbaselineからこれ以上動いたら「転換」とみなす（ポイント）
+
+
+def load_market_events(base_dir):
+    """
+    market_events.json（リポジトリ直下、signal.jsonと同じ階層）を読み込む。
+    trade_log.jsonと同様、signal.jsonとは別ファイルにして肥大化を防いでいる。
+    """
+    path = os.path.join(base_dir, "market_events.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not isinstance(data.get("events"), list):
+            raise ValueError("market_events.jsonの形式が不正です")
+        return data
+    except (FileNotFoundError, json.JSONDecodeError, OSError, ValueError, AttributeError):
+        return {"events": []}
+
+
+def classify_price_flag_fx(before, after):
+    if not before or after is None:
+        return None
+    pct = (after - before) / before * 100
+    if abs(pct) >= PRICE_SWING_PCT_FX:
+        return f"価格急変（{pct:+.2f}%）"
+    return None
+
+
+def classify_dxy_flag(before, after):
+    if not before or after is None:
+        return None
+    pct = (after - before) / before * 100
+    if pct >= DXY_SWING_PCT:
+        return "ドル全面高（DXY急伸）"
+    if pct <= -DXY_SWING_PCT:
+        return "ドル全面安（DXY急落）"
+    return None
+
+
+def classify_usd_strength_flag(before, after):
+    if before is None or after is None:
+        return None
+    delta = after - before
+    if delta >= USD_STRENGTH_SWING:
+        return "USD買い優勢への転換（強弱スコア急上昇）"
+    if delta <= -USD_STRENGTH_SWING:
+        return "USD売り優勢への転換（強弱スコア急低下）"
+    return None
+
+
+def build_event_summary(event, label, checkpoint):
+    """
+    実測値だけをf-stringに埋め込んだ定型文を生成する（LLMを使わないため、数値の
+    捏造や過度な断定が原理的に起こらない）。
+    「(見出し)後、USD/JPYは(経過時間)で(価格変化)%。DXYは(前)から(後)へ(方向)、
+      USD強弱スコアも(前)から(後)へ(方向)。(所見)。ただし因果関係は確定できません。」
+    """
+    baseline = event["baseline"]
+    elapsed_ja = MARKET_EVENT_CHECKPOINT_LABEL_JA[label]
+    parts = [f"「{event['title']}」の報道後、USD/JPYは{elapsed_ja}で{checkpoint['delta_price_pct']:+.2f}%。"]
+
+    bd, ad = baseline.get("dxy"), checkpoint.get("dxy")
+    if bd is not None and ad is not None:
+        trend = "上昇" if ad > bd else ("低下" if ad < bd else "横ばい")
+        parts.append(f"DXYは{bd:.2f}から{ad:.2f}へ{trend}、")
+
+    bs, as_ = baseline.get("usd_strength_score"), checkpoint.get("usd_strength_score")
+    if bs is not None and as_ is not None:
+        trend2 = "上昇" if as_ > bs else ("低下" if as_ < bs else "横ばい")
+        parts.append(f"USD強弱スコアも{bs:+.0f}から{as_:+.0f}へ{trend2}。")
+
+    if event.get("flags"):
+        parts.append("、".join(event["flags"]) + "の兆候が見られます。")
+
+    parts.append("ただし相関の一致であり、因果関係は確定できません。")
+    return "".join(parts)
+
+
+def update_market_events(events_data, now, snapshot, news_headlines):
+    """
+    ①未追跡のニュース見出しを新規イベントとして登録（検出時点のsnapshotをbaselineに）。
+    ②追跡中の各イベントについて、経過時間がチェックポイント(30分/1時間/2時間/4時間)を
+      超えていれば、現在のsnapshotとbaselineを比較してdelta・フラグ・要約文を更新する。
+    ③4時間チェックポイントまで埋まったイベントはfinalizedとし、保持件数の上限を超えた分は
+      古いfinalized済みイベントから間引く（未決着のイベントは常に残す）。
+    """
+    events = events_data.get("events", [])
+    known_links = {e["link"] for e in events}
+    for item in news_headlines:
+        if item["link"] in known_links:
+            continue
+        events.append({
+            "title": item["title"],
+            "link": item["link"],
+            "source": item["source"],
+            "published_at_utc": item["published_at_utc"],
+            "detected_at_utc": now.isoformat(),
+            "baseline": snapshot,
+            "checkpoints": {},
+            "flags": [],
+            "relevance": "unknown",
+            "summary": None,
+            "finalized": False,
+        })
+
+    for event in events:
+        if event.get("finalized"):
+            continue
+        detected_at = datetime.fromisoformat(event["detected_at_utc"])
+        elapsed_sec = (now - detected_at).total_seconds()
+        baseline = event["baseline"]
+
+        for label, threshold_sec in MARKET_EVENT_CHECKPOINTS:
+            if label in event["checkpoints"] or elapsed_sec < threshold_sec:
+                continue
+            checkpoint = dict(snapshot)
+            if baseline.get("price") and snapshot.get("price") is not None:
+                checkpoint["delta_price_pct"] = round((snapshot["price"] - baseline["price"]) / baseline["price"] * 100, 3)
+            else:
+                checkpoint["delta_price_pct"] = None
+            event["checkpoints"][label] = checkpoint
+
+            flags = []
+            for flag in (
+                classify_price_flag_fx(baseline.get("price"), snapshot.get("price")),
+                classify_dxy_flag(baseline.get("dxy"), snapshot.get("dxy")),
+                classify_usd_strength_flag(baseline.get("usd_strength_score"), snapshot.get("usd_strength_score")),
+            ):
+                if flag:
+                    flags.append(flag)
+            if flags:
+                event["flags"] = list(dict.fromkeys(event.get("flags", []) + flags))
+
+            if len(event["flags"]) >= 2:
+                event["relevance"] = "high"
+            elif len(event["flags"]) == 1:
+                event["relevance"] = "medium"
+            else:
+                event["relevance"] = event.get("relevance") if event.get("relevance") != "unknown" else "low"
+
+            if checkpoint["delta_price_pct"] is not None:
+                event["summary"] = build_event_summary(event, label, checkpoint)
+
+        if "4h" in event["checkpoints"]:
+            event["finalized"] = True
+
+    pending = [e for e in events if not e.get("finalized")]
+    finalized = sorted(
+        (e for e in events if e.get("finalized")),
+        key=lambda e: e["detected_at_utc"], reverse=True,
+    )
+    keep_finalized = finalized[: max(0, MARKET_EVENTS_MAX_KEEP - len(pending))]
+    events = pending + keep_finalized
+    events.sort(key=lambda e: e["detected_at_utc"], reverse=True)
+
+    events_data["events"] = events
+    return events_data
+
+
 def build_signal(out_path=None):
     if not ALPHA_VANTAGE_KEY:
         raise RuntimeError("環境変数 ALPHA_VANTAGE_KEY が設定されていません")
@@ -1083,8 +1258,8 @@ def build_signal(out_path=None):
     # trade_log.json（実績ページ用の履歴）はsignal.jsonとは別ファイルに直接書き出す。
     # ここで失敗しても、シグナル本体の計算・書き出しには影響させない。
     if out_path:
+        base_dir = os.path.dirname(out_path)
         try:
-            base_dir = os.path.dirname(out_path)
             trade_log = load_trade_log(base_dir)
             trade_log, newly_opened = update_trade_log(
                 trade_log, bias, result["priority_trade"], latest_price, confidence, now.isoformat(),
@@ -1097,6 +1272,27 @@ def build_signal(out_path=None):
                 send_signal_email(bias, result["priority_trade"], confidence, latest_price)
         except Exception as e:  # noqa: BLE001
             print(f"[WARN] trade_log.jsonの更新に失敗しました（シグナル本体は継続します）: {e}", file=sys.stderr)
+
+        # market_events.json（ニュース影響分析の履歴）も同様に、失敗してもシグナル本体には影響させない。
+        try:
+            usd_strength_score = None
+            for c in currency_strength:
+                if c.get("code") == "USD":
+                    usd_strength_score = c.get("strength_score")
+                    break
+            snapshot = {
+                "t": now.isoformat(),
+                "price": round(latest_price, 3),
+                "dxy": round(dxy_latest, 2) if dxy_latest is not None else None,
+                "usd_strength_score": usd_strength_score,
+            }
+            events_data = load_market_events(base_dir)
+            events_data = update_market_events(events_data, now, snapshot, news_headlines)
+            events_data["updated_at_utc"] = now.isoformat()
+            with open(os.path.join(base_dir, "market_events.json"), "w", encoding="utf-8") as f:
+                json.dump(events_data, f, ensure_ascii=False, indent=2)
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] market_events.jsonの更新に失敗しました（シグナル本体は継続します）: {e}", file=sys.stderr)
 
     return result
 
