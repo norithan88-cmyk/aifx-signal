@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "米7月住宅市場は凍結、住宅ローン金利の上昇や価格高がひびく",
+      "link": "https://zai.diamond.jp/articles/-/494164",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-18T20:10:09+00:00",
+      "detected_at_utc": "2026-08-18T20:13:54.860806+00:00",
+      "baseline": {
+        "t": "2026-08-18T20:13:54.860806+00:00",
+        "price": 159.654,
+        "dxy": 99.68,
+        "usd_strength_score": 8.8
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "8月18日のNY為替・原油概況",
       "link": "https://zai.diamond.jp/articles/-/494163",
       "source": "ザイFX！",
@@ -30,10 +48,18 @@
         "dxy": 99.64,
         "usd_strength_score": 6.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T20:13:54.860806+00:00",
+          "price": 159.654,
+          "dxy": 99.68,
+          "usd_strength_score": 8.8,
+          "delta_price_pct": 0.043
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ニューヨーク外国為替市場概況・4時　ドル円、こう着」の報道後、USD/JPYは30分で+0.04%。DXYは99.64から99.68へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -55,11 +81,18 @@
           "dxy": 99.64,
           "usd_strength_score": 6.8,
           "delta_price_pct": -0.015
+        },
+        "1h": {
+          "t": "2026-08-18T20:13:54.860806+00:00",
+          "price": 159.654,
+          "dxy": 99.68,
+          "usd_strength_score": 8.8,
+          "delta_price_pct": 0.028
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「[通貨オプション]短中期でOP売り、レンジ相場」の報道後、USD/JPYは30分で-0.01%。DXYは99.67から99.64へ低下、USD強弱スコアも+9から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「[通貨オプション]短中期でOP売り、レンジ相場」の報道後、USD/JPYは1時間で+0.03%。DXYは99.67から99.68へ上昇、USD強弱スコアも+9から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -81,11 +114,18 @@
           "dxy": 99.64,
           "usd_strength_score": 6.8,
           "delta_price_pct": -0.015
+        },
+        "1h": {
+          "t": "2026-08-18T20:13:54.860806+00:00",
+          "price": 159.654,
+          "dxy": 99.68,
+          "usd_strength_score": 8.8,
+          "delta_price_pct": 0.028
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY市場動向（午後2時台）：ダウ125ドル安、原油先物0.50ドル高」の報道後、USD/JPYは30分で-0.01%。DXYは99.67から99.64へ低下、USD強弱スコアも+9から+7へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「NY市場動向（午後2時台）：ダウ125ドル安、原油先物0.50ドル高」の報道後、USD/JPYは1時間で+0.03%。DXYは99.67から99.68へ上昇、USD強弱スコアも+9から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -281,12 +321,19 @@
           "dxy": 99.65,
           "usd_strength_score": 7.6,
           "delta_price_pct": 0.036
+        },
+        "4h": {
+          "t": "2026-08-18T20:13:54.860806+00:00",
+          "price": 159.654,
+          "dxy": 99.68,
+          "usd_strength_score": 8.8,
+          "delta_price_pct": 0.068
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY外為：カナダドル売り、米の対加報復追加関税を警戒、米加首脳は通商合意に達せず」の報道後、USD/JPYは2時間で+0.04%。DXYは99.62から99.65へ上昇、USD強弱スコアも+4から+8へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY外為：カナダドル売り、米の対加報復追加関税を警戒、米加首脳は通商合意に達せず」の報道後、USD/JPYは4時間で+0.07%。DXYは99.62から99.68へ上昇、USD強弱スコアも+4から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ニューヨーク外国為替市場概況・24時　ドル円、上値重い",
@@ -665,5 +712,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T19:50:24.598584+00:00"
+  "updated_at_utc": "2026-08-18T20:13:54.860806+00:00"
 }
