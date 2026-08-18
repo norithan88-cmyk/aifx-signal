@@ -58,15 +58,19 @@ import urllib.error
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.message import EmailMessage
+from email.utils import parsedate_to_datetime
 
 ALPHA_VANTAGE_KEY = os.environ.get("ALPHA_VANTAGE_KEY", "").strip()
 BASE_URL = "https://www.alphavantage.co/query"
 YAHOO_CHART_BASE = "https://query1.finance.yahoo.com/v8/finance/chart"
 MOF_JGB_CSV_URL = "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv"
 
-# 「LATEST NEWS」欄用。ForexLive・DailyFXはRSS取得が403でブロックされたため、
-# 動作確認できたInvesting.comの為替専門フィードのみを使う（重要度でのフィルタリングはしない）。
-FOREX_NEWS_RSS_URL = "https://www.investing.com/rss/news_1.rss"
+# 「LATEST NEWS」欄用。ForexLive・DailyFXはRSS取得が403でブロックされたため使えず、
+# 日本語サイトなので英語のInvesting.comから、日本語のザイFX！（ダイヤモンド社）に切り替えた。
+# （重要度でのフィルタリングはしない。フィードに載っている見出しをそのまま使う）
+NEWS_FEEDS = [
+    ("ザイFX！", "https://zai.diamond.jp/list/feed/rssfxnews"),
+]
 MAX_NEWS_AGE_HOURS = 24  # これより古い見出しは「今日のニュース」として不適切なので除外する
 
 # 新規シグナル(SELL/BUY)発生時のメール通知用（Gmailアプリパスワード方式）。
@@ -286,13 +290,9 @@ def fetch_jp10y_daily():
     return values
 
 
-def fetch_news_headlines(limit=6):
-    """
-    Investing.comの為替専門RSSフィードから最新見出しを取得する。
-    重要度による絞り込みはせず、フィードに載っている見出しをそのまま新しい順に使う。
-    取得に失敗した場合は空リストを返し、シグナル本体の計算は止めない。
-    """
-    req = urllib.request.Request(FOREX_NEWS_RSS_URL, headers={"User-Agent": "Mozilla/5.0"})
+def fetch_one_news_feed(source, url):
+    """1つのRSSフィードを取得し、[{"source","title","link","published_at_utc"}, ...]を返す。"""
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=15) as res:
         raw = res.read()
     root = ET.fromstring(raw)
@@ -305,27 +305,42 @@ def fetch_news_headlines(limit=6):
             continue
         published_at = None
         if pubdate_el is not None and pubdate_el.text:
-            # Investing.comのpubDateは"YYYY-MM-DD HH:MM:SS"形式（タイムゾーン表記なし、UTCとして扱う）
             try:
-                dt = datetime.strptime(pubdate_el.text.strip(), "%Y-%m-%d %H:%M:%S")
-                published_at = dt.replace(tzinfo=timezone.utc)
-            except ValueError:
+                published_at = parsedate_to_datetime(pubdate_el.text)
+                if published_at.tzinfo is None:
+                    published_at = published_at.replace(tzinfo=timezone.utc)
+            except (TypeError, ValueError):
                 published_at = None
         items.append({
-            "source": "Investing.com",
+            "source": source,
             "title": title_el.text.strip(),
             "link": link_el.text.strip(),
-            "published_at_utc": published_at.isoformat() if published_at else None,
-            "_dt": published_at,
+            "published_at_utc": published_at.astimezone(timezone.utc).isoformat() if published_at else None,
         })
-    items.sort(key=lambda it: it["published_at_utc"] or "", reverse=True)
+    return items
+
+
+def fetch_news_headlines(limit=6):
+    """
+    NEWS_FEEDSのRSSフィードから最新見出しをまとめて取得する（重要度による絞り込みはしない）。
+    1つが失敗しても他のフィードだけで続行し、全て失敗した場合は空リストを返す
+    （本体のシグナル計算は止めない設計）。MAX_NEWS_AGE_HOURSより古い見出しは除外する。
+    """
+    all_items = []
+    for source, url in NEWS_FEEDS:
+        try:
+            all_items.extend(fetch_one_news_feed(source, url))
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] {source}のRSS取得に失敗しました（続行します）: {e}", file=sys.stderr)
+    all_items.sort(key=lambda it: it["published_at_utc"] or "", reverse=True)
     now = datetime.now(timezone.utc)
-    fresh = [
-        it for it in items
-        if it["_dt"] is not None and (now - it["_dt"]).total_seconds() <= MAX_NEWS_AGE_HOURS * 3600
-    ]
-    for it in fresh:
-        del it["_dt"]
+    fresh = []
+    for it in all_items:
+        if not it["published_at_utc"]:
+            continue
+        published_at = datetime.fromisoformat(it["published_at_utc"])
+        if (now - published_at).total_seconds() <= MAX_NEWS_AGE_HOURS * 3600:
+            fresh.append(it)
     return fresh[:limit]
 
 
