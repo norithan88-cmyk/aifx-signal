@@ -12,10 +12,18 @@
         "dxy": 99.65,
         "usd_strength_score": 9.1
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T22:30:36.765180+00:00",
+          "price": 159.615,
+          "dxy": 99.64,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.031
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「本日のスケジュール」の報道後、USD/JPYは30分で+0.03%。DXYは99.65から99.64へ低下、USD強弱スコアも+9から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +38,18 @@
         "dxy": 99.64,
         "usd_strength_score": 8.3
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T22:30:36.765180+00:00",
+          "price": 159.615,
+          "dxy": 99.64,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": 0.008
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ニューヨーク外国為替市場概況・18日　ドル円、小幅続伸」の報道後、USD/JPYは30分で+0.01%。DXYは99.64から99.64へ横ばい、USD強弱スコアも+8から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -62,11 +78,18 @@
           "dxy": 99.64,
           "usd_strength_score": 8.3,
           "delta_price_pct": -0.033
+        },
+        "2h": {
+          "t": "2026-08-18T22:30:36.765180+00:00",
+          "price": 159.615,
+          "dxy": 99.64,
+          "usd_strength_score": 8.9,
+          "delta_price_pct": -0.024
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「米7月住宅市場は凍結、住宅ローン金利の上昇や価格高がひびく」の報道後、USD/JPYは1時間で-0.03%。DXYは99.68から99.64へ低下、USD強弱スコアも+9から+8へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「米7月住宅市場は凍結、住宅ローン金利の上昇や価格高がひびく」の報道後、USD/JPYは2時間で-0.02%。DXYは99.68から99.64へ低下、USD強弱スコアも+9から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -841,5 +864,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T21:56:03.893776+00:00"
+  "updated_at_utc": "2026-08-18T22:30:36.765180+00:00"
 }
