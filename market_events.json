@@ -30,10 +30,18 @@
         "dxy": 99.63,
         "usd_strength_score": 6.9
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-18T20:43:14.403988+00:00",
+          "price": 159.652,
+          "dxy": 99.67,
+          "usd_strength_score": 8.4,
+          "delta_price_pct": 0.024
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「8月18日のNY為替・原油概況」の報道後、USD/JPYは30分で+0.02%。DXYは99.63から99.67へ上昇、USD強弱スコアも+7から+8へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -55,11 +63,18 @@
           "dxy": 99.68,
           "usd_strength_score": 8.8,
           "delta_price_pct": 0.043
+        },
+        "1h": {
+          "t": "2026-08-18T20:43:14.403988+00:00",
+          "price": 159.652,
+          "dxy": 99.67,
+          "usd_strength_score": 8.4,
+          "delta_price_pct": 0.042
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・4時　ドル円、こう着」の報道後、USD/JPYは30分で+0.04%。DXYは99.64から99.68へ上昇、USD強弱スコアも+7から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・4時　ドル円、こう着」の報道後、USD/JPYは1時間で+0.04%。DXYは99.64から99.67へ上昇、USD強弱スコアも+7から+8へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -712,5 +727,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-18T20:13:54.860806+00:00"
+  "updated_at_utc": "2026-08-18T20:43:14.403988+00:00"
 }
