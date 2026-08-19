@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-19T11:36:30.540735+00:00",
+  "generated_at_utc": "2026-08-19T11:59:48.965890+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.11,
-  "day_change_pct": -0.29,
+  "latest_price": 159.133,
+  "day_change_pct": -0.28,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -27,59 +27,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": 1.7,
+      "position_sigma": 1.85,
       "trend": "FLAT",
       "momentum": "UP",
-      "mid": 159.027,
-      "upper": 159.125,
-      "lower": 158.928
+      "mid": 159.036,
+      "upper": 159.141,
+      "lower": 158.93
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.14,
-      "trend": "DOWN",
+      "position_sigma": 0.11,
+      "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 159.126,
-      "upper": 159.286,
-      "lower": 158.967
+      "mid": 159.122,
+      "upper": 159.281,
+      "lower": 158.963
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": -1.66,
+      "position_sigma": -1.56,
       "trend": "DOWN",
       "momentum": "DOWN",
-      "mid": 159.438,
+      "mid": 159.44,
       "upper": 159.828,
-      "lower": 159.049
+      "lower": 159.052
     }
   ],
   "technical": {
     "macd": {
-      "macd": -0.1137,
-      "signal": -0.0774,
-      "histogram": -0.0363,
+      "macd": -0.1106,
+      "signal": -0.0765,
+      "histogram": -0.0341,
       "state": "BEARISH",
       "cross": null
     },
     "rsi": {
-      "value": 29.0,
-      "state": "OVERSOLD"
+      "value": 31.4,
+      "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.112,
-      "ma25": 159.415,
-      "ma75": 159.348,
+      "ma5": 159.121,
+      "ma25": 159.417,
+      "ma75": 159.349,
       "ma200": 159.129,
-      "price": 159.115,
+      "price": 159.137,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.371,
-      "upper": 159.764,
-      "lower": 158.979,
-      "price": 159.115,
+      "mid": 159.374,
+      "upper": 159.761,
+      "lower": 158.986,
+      "price": 159.137,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -96,10 +96,10 @@
     "dxy_trend": "flat",
     "dxy_latest": 99.41,
     "gold_trend": "up",
-    "gold_latest": 4426.8
+    "gold_latest": 4422.3
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.11円付近で推移（直近1時間比-0.29%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.13円付近で推移（直近1時間比-0.28%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
@@ -181,43 +181,43 @@
   "currency_strength": [
     {
       "code": "JPY",
-      "change_pct": 0.29,
-      "strength_score": 11.5
+      "change_pct": 0.27,
+      "strength_score": 10.9
     },
     {
       "code": "EUR",
-      "change_pct": 0.22,
-      "strength_score": 8.8
+      "change_pct": 0.2,
+      "strength_score": 7.9
     },
     {
       "code": "CHF",
       "change_pct": 0.19,
-      "strength_score": 7.7
+      "strength_score": 7.6
     },
     {
       "code": "GBP",
       "change_pct": 0.1,
-      "strength_score": 3.9
+      "strength_score": 3.8
     },
     {
       "code": "CAD",
-      "change_pct": -0.0,
-      "strength_score": -0.1
+      "change_pct": 0.01,
+      "strength_score": 0.3
     },
     {
       "code": "USD",
-      "change_pct": -0.02,
-      "strength_score": -0.7
+      "change_pct": -0.01,
+      "strength_score": -0.3
     },
     {
       "code": "NZD",
-      "change_pct": -0.11,
-      "strength_score": -4.2
+      "change_pct": -0.14,
+      "strength_score": -5.4
     },
     {
       "code": "AUD",
       "change_pct": -0.57,
-      "strength_score": -22.6
+      "strength_score": -22.9
     }
   ]
 }
