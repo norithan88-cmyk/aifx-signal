@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-19T15:06:27.242247+00:00",
+  "generated_at_utc": "2026-08-19T15:44:23.695573+00:00",
   "pair": "USD/JPY",
-  "latest_price": 158.452,
-  "day_change_pct": -0.72,
+  "latest_price": 158.409,
+  "day_change_pct": -0.75,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -27,59 +27,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": 0.45,
-      "trend": "DOWN",
+      "position_sigma": 0.64,
+      "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 158.361,
-      "upper": 158.732,
-      "lower": 157.99
+      "mid": 158.296,
+      "upper": 158.662,
+      "lower": 157.93
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -1.48,
+      "position_sigma": -1.33,
       "trend": "DOWN",
       "momentum": "DOWN",
-      "mid": 158.717,
-      "upper": 159.097,
-      "lower": 158.338
+      "mid": 158.659,
+      "upper": 159.035,
+      "lower": 158.283
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": -2.99,
+      "position_sigma": -3.07,
       "trend": "DOWN",
       "momentum": "DOWN",
-      "mid": 159.276,
-      "upper": 159.835,
-      "lower": 158.717
+      "mid": 159.273,
+      "upper": 159.837,
+      "lower": 158.71
     }
   ],
   "technical": {
     "macd": {
-      "macd": -0.2745,
-      "signal": -0.1824,
-      "histogram": -0.0921,
+      "macd": -0.2796,
+      "signal": -0.184,
+      "histogram": -0.0956,
       "state": "BEARISH",
       "cross": null
     },
     "rsi": {
-      "value": 20.7,
+      "value": 18.1,
       "state": "OVERSOLD"
     },
     "moving_averages": {
-      "ma5": 158.454,
-      "ma25": 159.207,
+      "ma5": 158.44,
+      "ma25": 159.204,
       "ma75": 159.306,
       "ma200": 159.127,
-      "price": 158.44,
+      "price": 158.409,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.109,
-      "upper": 159.925,
-      "lower": 158.293,
-      "price": 158.44,
+      "mid": 159.106,
+      "upper": 159.934,
+      "lower": 158.277,
+      "price": 158.409,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -94,13 +94,31 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.934,
     "dxy_trend": "down",
-    "dxy_latest": 98.9,
+    "dxy_latest": 98.92,
     "gold_trend": "up",
-    "gold_latest": 4547.1
+    "gold_latest": 4543.9
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在158.45円付近で推移（直近1時間比-0.72%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在158.41円付近で推移（直近1時間比-0.75%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
+    {
+      "source": "ザイFX！",
+      "title": "米エネルギー情報局(EIA)週報(週次石油在庫統計)",
+      "link": "https://zai.diamond.jp/articles/-/494223",
+      "published_at_utc": "2026-08-19T15:15:10+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "ユーロ圏の7月インフレ率は加速　ECBの利上げ警戒感深まる",
+      "link": "https://zai.diamond.jp/articles/-/494224",
+      "published_at_utc": "2026-08-19T15:15:00+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "ニューヨーク外国為替市場概況・24時　ユーロドル、しっかり",
+      "link": "https://zai.diamond.jp/articles/-/494222",
+      "published_at_utc": "2026-08-19T15:06:00+00:00"
+    },
     {
       "source": "ザイFX！",
       "title": "NY外為：カナダドル反発、米が加輸入品に対する追加関税賦課延期発表",
@@ -118,24 +136,6 @@
       "title": "【ＮＹ為替オープニング】米財務省の長期債流動性支援でドル反落、FOMC議事要旨に注目",
       "link": "https://zai.diamond.jp/articles/-/494219",
       "published_at_utc": "2026-08-19T14:13:05+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "ユーロドル、しっかり　一時1.1660ドルと6月1日以来の高値",
-      "link": "https://zai.diamond.jp/articles/-/494218",
-      "published_at_utc": "2026-08-19T14:10:00+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "NY外為：ドル売り加速、米財務省が長期債市場の流動性支援発表で",
-      "link": "https://zai.diamond.jp/articles/-/494217",
-      "published_at_utc": "2026-08-19T13:27:09+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "【速報】ドル売り、米株先物上昇、米財務省長期債市場支援",
-      "link": "https://zai.diamond.jp/articles/-/494216",
-      "published_at_utc": "2026-08-19T13:11:36+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
@@ -181,43 +181,43 @@
   "currency_strength": [
     {
       "code": "CHF",
-      "change_pct": 1.33,
-      "strength_score": 53.3
+      "change_pct": 1.56,
+      "strength_score": 62.4
     },
     {
       "code": "NZD",
-      "change_pct": 0.92,
-      "strength_score": 37.0
+      "change_pct": 0.99,
+      "strength_score": 39.6
     },
     {
       "code": "EUR",
-      "change_pct": 0.73,
-      "strength_score": 29.4
+      "change_pct": 0.77,
+      "strength_score": 30.8
     },
     {
       "code": "JPY",
-      "change_pct": 0.73,
-      "strength_score": 29.0
+      "change_pct": 0.75,
+      "strength_score": 29.8
     },
     {
       "code": "CAD",
-      "change_pct": 0.62,
-      "strength_score": 24.8
+      "change_pct": 0.61,
+      "strength_score": 24.3
     },
     {
       "code": "GBP",
-      "change_pct": 0.53,
-      "strength_score": 21.4
+      "change_pct": 0.55,
+      "strength_score": 22.0
     },
     {
       "code": "AUD",
-      "change_pct": 0.47,
-      "strength_score": 18.8
+      "change_pct": 0.54,
+      "strength_score": 21.7
     },
     {
       "code": "USD",
-      "change_pct": -0.76,
-      "strength_score": -30.5
+      "change_pct": -0.82,
+      "strength_score": -32.9
     }
   ]
 }
