@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "東京為替概況：ドル・円は軟調、午後もドル売り継続",
+      "link": "https://zai.diamond.jp/articles/-/494202",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-19T09:20:06+00:00",
+      "detected_at_utc": "2026-08-19T09:29:12.191121+00:00",
+      "baseline": {
+        "t": "2026-08-19T09:29:12.191121+00:00",
+        "price": 159.181,
+        "dxy": 99.45,
+        "usd_strength_score": -3.2
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "欧州主要株価指数一覧",
       "link": "https://zai.diamond.jp/articles/-/494201",
       "source": "ザイFX！",
@@ -12,10 +30,18 @@
         "dxy": 99.44,
         "usd_strength_score": -2.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-19T09:29:12.191121+00:00",
+          "price": 159.181,
+          "dxy": 99.45,
+          "usd_strength_score": -3.2,
+          "delta_price_pct": 0.05
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「欧州主要株価指数一覧」の報道後、USD/JPYは30分で+0.05%。DXYは99.44から99.45へ上昇、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +56,18 @@
         "dxy": 99.44,
         "usd_strength_score": -2.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-19T09:29:12.191121+00:00",
+          "price": 159.181,
+          "dxy": 99.45,
+          "usd_strength_score": -3.2,
+          "delta_price_pct": 0.05
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ドル・円は軟調、午後もドル売り継続」の報道後、USD/JPYは30分で+0.05%。DXYは99.44から99.45へ上昇、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -48,10 +82,18 @@
         "dxy": 99.44,
         "usd_strength_score": -2.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-19T09:29:12.191121+00:00",
+          "price": 159.181,
+          "dxy": 99.45,
+          "usd_strength_score": -3.2,
+          "delta_price_pct": 0.05
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「東京外国為替市場概況・17時　ドル円、上値が重い」の報道後、USD/JPYは30分で+0.05%。DXYは99.44から99.45へ上昇、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -80,11 +122,18 @@
           "dxy": 99.44,
           "usd_strength_score": -2.8,
           "delta_price_pct": -0.057
+        },
+        "2h": {
+          "t": "2026-08-19T09:29:12.191121+00:00",
+          "price": 159.181,
+          "dxy": 99.45,
+          "usd_strength_score": -3.2,
+          "delta_price_pct": -0.007
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は伸び悩みか、米引き締め姿勢継続も為替介入に警戒」の報道後、USD/JPYは1時間で-0.06%。DXYは99.49から99.44へ低下、USD強弱スコアも+1から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は伸び悩みか、米引き締め姿勢継続も為替介入に警戒」の報道後、USD/JPYは2時間で-0.01%。DXYは99.49から99.45へ低下、USD強弱スコアも+1から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2255,5 +2304,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-19T08:52:03.941893+00:00"
+  "updated_at_utc": "2026-08-19T09:29:12.191121+00:00"
 }
