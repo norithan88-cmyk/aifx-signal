@@ -12,10 +12,25 @@
         "dxy": 99.56,
         "usd_strength_score": 1.1
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-19T05:52:05.258345+00:00",
+          "price": 159.273,
+          "dxy": 99.54,
+          "usd_strength_score": 0.4,
+          "delta_price_pct": -0.033
+        },
+        "1h": {
+          "t": "2026-08-19T05:52:05.258345+00:00",
+          "price": 159.273,
+          "dxy": 99.54,
+          "usd_strength_score": 0.4,
+          "delta_price_pct": -0.033
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ドル円、戻り鈍い　159.25円まで下押し」の報道後、USD/JPYは1時間で-0.03%。DXYは99.56から99.54へ低下、USD強弱スコアも+1から+0へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -1780,5 +1795,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-19T05:17:37.470030+00:00"
+  "updated_at_utc": "2026-08-19T05:52:05.258345+00:00"
 }
