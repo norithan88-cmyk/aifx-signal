@@ -36,7 +36,7 @@ jobs:
           NOTIFY_EMAIL_TO: ${{ secrets.NOTIFY_EMAIL_TO }}
         run: python scripts/compute_signal.py
 
-      - name: Commit signal.json and trade_log.json
+      - name: Commit signal.json, trade_log.json and market_events.json
         run: |
           git config user.name "aifx-signal-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -58,6 +58,20 @@ jobs:
         run: |
           git add signal_eurusd.json
           git diff --cached --quiet && echo "変更なし。コミットをスキップします。" || git commit -m "chore: update signal_eurusd.json ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          git pull --rebase origin main || { echo "::warning::別の実行と競合したため、今回の更新はスキップします（次回の実行で自動的に解消されます）"; git rebase --abort; exit 0; }
+          git push
+        continue-on-error: true
+
+      # LOOKBACK=10・30の比較実験ログ。サイト表示には使わず、将来の実データで
+      # LOOKBACK=10の過剰適合疑惑を検証するための記録専用。失敗しても無関係。
+      - name: Compute LOOKBACK experiment log
+        run: python scripts/experiment_lookback.py
+        continue-on-error: true
+
+      - name: Commit experiment_lookback_log.json
+        run: |
+          git add experiment_lookback_log.json
+          git diff --cached --quiet && echo "変更なし。コミットをスキップします。" || git commit -m "chore: update experiment_lookback_log.json ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git pull --rebase origin main || { echo "::warning::別の実行と競合したため、今回の更新はスキップします（次回の実行で自動的に解消されます）"; git rebase --abort; exit 0; }
           git push
         continue-on-error: true
