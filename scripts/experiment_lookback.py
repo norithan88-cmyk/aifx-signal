@@ -7,14 +7,19 @@ AI FX研究所 - LOOKBACK比較実験ログ
 自己参照的な問題が疑われ、数値が不自然に良く見えている可能性が高いと判断した
 （本番はLOOKBACK=30を採用）。
 
-このスクリプトは、疑わしい領域であるLOOKBACK=10を、本番の30と並行して"これから"の
-実データ（未来のデータ）でリアルタイムに記録し、過去データへの過剰適合が実際に
-問題になるのかどうかを検証するための実験用ログ。本番のsignal.json/trade_log.jsonとは
-完全に別ファイル(experiment_lookback_log.json)に記録し、サイト表示には一切使わない。
+100〜50の範囲も、なだらかだが件数・勝率・PFとも改善傾向が見られたため、疑わしい
+10・現行の30に加えて、50・70・100も含めた5値を"これから"の実データ（未来のデータ）で
+リアルタイムに記録し、過去データへの過剰適合が実際に問題になるのかどうかを
+検証するための実験用ログ。本番のsignal.json/trade_log.jsonとは完全に別ファイル
+(experiment_lookback_log.json)に記録し、サイト表示には一切使わない。
 
-記録する内容: LOOKBACK=10・30それぞれで判定したbias(WAIT/SELL/BUY)と、
-シグナルが出た場合のentry/tp/slの決着(WIN/LOSS)。compute_signal.pyのtrade_log
-ロジックと同じ考え方だが、LOOKBACK値ごとに独立した仮想ポジション管理を行う。
+各lookback呼び出しには必ずlookback=を明示的に渡している（compute_signal.py本体の
+LOOKBACK定数を関数デフォルト値経由で暗黙参照すると、本体側の値を変更した時に
+挙動が変わってしまうバグを過去に踏んだため、このスクリプトでは踏襲しない設計）。
+
+記録する内容: 各LOOKBACK値で判定したbias(WAIT/SELL/BUY)と、シグナルが出た場合の
+entry/tp/slの決着(WIN/LOSS)。compute_signal.pyのtrade_logロジックと同じ考え方だが、
+LOOKBACK値ごとに独立した仮想ポジション管理を行う。
 """
 
 import json
@@ -25,7 +30,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(__file__))
 import compute_signal as cs
 
-EXPERIMENT_LOOKBACKS = [10, 30]
+EXPERIMENT_LOOKBACKS = [10, 30, 50, 70, 100]
 
 
 def compute_bias_for_lookback(m5, m15, h1, m1, lookback):
