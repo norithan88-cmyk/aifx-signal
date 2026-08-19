@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "NY外為：ドル下げ止まる、原油価格が上昇、UAEイラン関係悪化",
+      "link": "https://zai.diamond.jp/articles/-/494229",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-19T17:29:05+00:00",
+      "detected_at_utc": "2026-08-19T17:47:45.294241+00:00",
+      "baseline": {
+        "t": "2026-08-19T17:47:45.294241+00:00",
+        "price": 158.538,
+        "dxy": 98.94,
+        "usd_strength_score": -30.5
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ニューヨーク外国為替市場概況・2時　ドル円、売り一服",
       "link": "https://zai.diamond.jp/articles/-/494228",
       "source": "ザイFX！",
@@ -98,11 +116,18 @@
           "dxy": 98.87,
           "usd_strength_score": -34.5,
           "delta_price_pct": -0.035
+        },
+        "2h": {
+          "t": "2026-08-19T17:47:45.294241+00:00",
+          "price": 158.538,
+          "dxy": 98.94,
+          "usd_strength_score": -30.5,
+          "delta_price_pct": 0.081
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「米エネルギー情報局(EIA)週報(週次石油在庫統計)」の報道後、USD/JPYは1時間で-0.04%。DXYは98.92から98.87へ低下、USD強弱スコアも-33から-34へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「米エネルギー情報局(EIA)週報(週次石油在庫統計)」の報道後、USD/JPYは2時間で+0.08%。DXYは98.92から98.94へ上昇、USD強弱スコアも-33から-30へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -131,11 +156,18 @@
           "dxy": 98.87,
           "usd_strength_score": -34.5,
           "delta_price_pct": -0.035
+        },
+        "2h": {
+          "t": "2026-08-19T17:47:45.294241+00:00",
+          "price": 158.538,
+          "dxy": 98.94,
+          "usd_strength_score": -30.5,
+          "delta_price_pct": 0.081
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ユーロ圏の7月インフレ率は加速　ECBの利上げ警戒感深まる」の報道後、USD/JPYは1時間で-0.04%。DXYは98.92から98.87へ低下、USD強弱スコアも-33から-34へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ユーロ圏の7月インフレ率は加速　ECBの利上げ警戒感深まる」の報道後、USD/JPYは2時間で+0.08%。DXYは98.92から98.94へ上昇、USD強弱スコアも-33から-30へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -164,11 +196,18 @@
           "dxy": 98.87,
           "usd_strength_score": -34.5,
           "delta_price_pct": -0.035
+        },
+        "2h": {
+          "t": "2026-08-19T17:47:45.294241+00:00",
+          "price": 158.538,
+          "dxy": 98.94,
+          "usd_strength_score": -30.5,
+          "delta_price_pct": 0.081
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・24時　ユーロドル、しっかり」の報道後、USD/JPYは1時間で-0.04%。DXYは98.92から98.87へ低下、USD強弱スコアも-33から-34へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・24時　ユーロドル、しっかり」の報道後、USD/JPYは2時間で+0.08%。DXYは98.92から98.94へ上昇、USD強弱スコアも-33から-30へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2620,54 +2659,7 @@
       "relevance": "low",
       "summary": "「ニューヨーク外国為替市場概況・18日　ドル円、小幅続伸」の報道後、USD/JPYは4時間で-0.10%。DXYは99.64から99.63へ低下、USD強弱スコアも+8から+3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "米7月住宅市場は凍結、住宅ローン金利の上昇や価格高がひびく",
-      "link": "https://zai.diamond.jp/articles/-/494164",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-18T20:10:09+00:00",
-      "detected_at_utc": "2026-08-18T20:13:54.860806+00:00",
-      "baseline": {
-        "t": "2026-08-18T20:13:54.860806+00:00",
-        "price": 159.654,
-        "dxy": 99.68,
-        "usd_strength_score": 8.8
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-18T21:03:32.001964+00:00",
-          "price": 159.599,
-          "dxy": 99.67,
-          "usd_strength_score": 7.8,
-          "delta_price_pct": -0.034
-        },
-        "1h": {
-          "t": "2026-08-18T21:35:23.393749+00:00",
-          "price": 159.602,
-          "dxy": 99.64,
-          "usd_strength_score": 8.3,
-          "delta_price_pct": -0.033
-        },
-        "2h": {
-          "t": "2026-08-18T22:30:36.765180+00:00",
-          "price": 159.615,
-          "dxy": 99.64,
-          "usd_strength_score": 8.9,
-          "delta_price_pct": -0.024
-        },
-        "4h": {
-          "t": "2026-08-19T00:44:59.305857+00:00",
-          "price": 159.47,
-          "dxy": 99.64,
-          "usd_strength_score": 9.2,
-          "delta_price_pct": -0.115
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「米7月住宅市場は凍結、住宅ローン金利の上昇や価格高がひびく」の報道後、USD/JPYは4時間で-0.12%。DXYは99.68から99.64へ低下、USD強弱スコアも+9から+9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-19T17:20:19.940265+00:00"
+  "updated_at_utc": "2026-08-19T17:47:45.294241+00:00"
 }
