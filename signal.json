@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-19T18:13:36.696989+00:00",
+  "generated_at_utc": "2026-08-19T18:56:47.509767+00:00",
   "pair": "USD/JPY",
-  "latest_price": 158.365,
-  "day_change_pct": -0.77,
+  "latest_price": 158.284,
+  "day_change_pct": -0.82,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -27,59 +27,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": 0.69,
+      "position_sigma": 0.31,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 158.216,
-      "upper": 158.645,
-      "lower": 157.788
+      "mid": 158.219,
+      "upper": 158.653,
+      "lower": 157.784
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.41,
-      "trend": "DOWN",
+      "position_sigma": -0.51,
+      "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 158.435,
-      "upper": 158.777,
-      "lower": 158.093
+      "mid": 158.37,
+      "upper": 158.702,
+      "lower": 158.039
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": -2.57,
+      "position_sigma": -2.75,
       "trend": "DOWN",
       "momentum": "DOWN",
-      "mid": 159.166,
-      "upper": 159.788,
-      "lower": 158.544
+      "mid": 159.16,
+      "upper": 159.79,
+      "lower": 158.529
     }
   ],
   "technical": {
     "macd": {
-      "macd": -0.2905,
-      "signal": -0.2328,
-      "histogram": -0.0577,
+      "macd": -0.3016,
+      "signal": -0.2361,
+      "histogram": -0.0655,
       "state": "BEARISH",
       "cross": null
     },
     "rsi": {
-      "value": 26.8,
+      "value": 25.7,
       "state": "OVERSOLD"
     },
     "moving_averages": {
-      "ma5": 158.431,
-      "ma25": 159.067,
-      "ma75": 159.281,
-      "ma200": 159.128,
-      "price": 158.365,
+      "ma5": 158.399,
+      "ma25": 159.061,
+      "ma75": 159.279,
+      "ma200": 159.127,
+      "price": 158.291,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 158.936,
-      "upper": 159.778,
-      "lower": 158.094,
-      "price": 158.365,
+      "mid": 158.928,
+      "upper": 159.793,
+      "lower": 158.064,
+      "price": 158.291,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -94,13 +94,31 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.934,
     "dxy_trend": "down",
-    "dxy_latest": 98.9,
+    "dxy_latest": 98.85,
     "gold_trend": "up",
-    "gold_latest": 4552.5
+    "gold_latest": 4548.5
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在158.37円付近で推移（直近1時間比-0.77%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在158.28円付近で推移（直近1時間比-0.82%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
+    {
+      "source": "ザイFX！",
+      "title": "【FOMC議事録】「多くの参加者は、政策金利据え置きを支持」",
+      "link": "https://zai.diamond.jp/articles/-/494234",
+      "published_at_utc": "2026-08-19T18:14:39+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "【FOMC議事録】「参加者はインフレリスクが上方に傾斜したと判断」",
+      "link": "https://zai.diamond.jp/articles/-/494233",
+      "published_at_utc": "2026-08-19T18:14:17+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "【FOMC議事録】「ウォーシュFRB議長は年6回FOMC会合の案を提示」",
+      "link": "https://zai.diamond.jp/articles/-/494232",
+      "published_at_utc": "2026-08-19T18:11:01+00:00"
+    },
     {
       "source": "ザイFX！",
       "title": "ドル円、158.40円台まで伸び悩み　FOMC議事要旨を受けて",
@@ -118,106 +136,88 @@
       "title": "NY外為：ドル下げ止まる、原油価格が上昇、UAEイラン関係悪化",
       "link": "https://zai.diamond.jp/articles/-/494229",
       "published_at_utc": "2026-08-19T17:29:05+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "ニューヨーク外国為替市場概況・2時　ドル円、売り一服",
-      "link": "https://zai.diamond.jp/articles/-/494228",
-      "published_at_utc": "2026-08-19T17:09:00+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "欧州主要株式指数、まちまち",
-      "link": "https://zai.diamond.jp/articles/-/494227",
-      "published_at_utc": "2026-08-19T17:02:05+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "【速報】UAE「イランとの経済関係を断絶」",
-      "link": "https://zai.diamond.jp/articles/-/494226",
-      "published_at_utc": "2026-08-19T17:01:27+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-08-20",
-    "updated_at_jst": "2026-08-20 02:48",
-    "headline": "158円台半ばで推移、時間足で方向感が分かれるレンジ相場",
+    "updated_at_jst": "2026-08-20 03:20",
+    "headline": "ドル円は158円台半ばで推移、時間足ごとの方向感分かれる",
     "advice": [
-      "USD/JPYは158.538円付近で推移しており、直近1時間で0.69%下落しています。1時間足や15分足では下降トレンドを示す一方、5分足は横ばい傾向となっており、時間足ごとに方向性が分かれるレンジ相場が形成されています。",
-      "テクニカル面ではMACDが弱気（BEARISH）を示し、RSI（14）は29.6と売られすぎ水準に位置しています。サポートラインは158.038円、レジスタンスラインは159.779円に設定されています。",
-      "市場環境としては、ドル指数（DXY）が98.94へと低下基調にある一方、日本の10年債利回りは2.934%へ上昇基調となっています。通貨強弱では直近1日でJPYが+0.69%の上昇となるなか、USDは-0.76%の下落となっています。"
+      "ドル円は158.365円付近で推移しており、時間足によってトレンドが分かれるレンジ地合いとなっています。1時間足や15分足では下降傾向が示されている一方、5分足は横ばいとなっており、短期的な方向感は定まっていません。",
+      "テクニカル指標ではMACDが弱気（BEARISH）を示す一方、14日RSIは26.8と売られすぎ水準に位置しています。サポートラインは158.038円、レジスタンスラインは159.779円に確認されます。",
+      "市場環境としては、ドル指数（DXY）が低下基調、日本の10年債利回りが上昇基調となるなか、直近24時間の通貨強弱では円が+0.77%、ドルが-0.82%で推移しています。"
     ],
     "scenarios": [
       {
         "label": "本命シナリオ（レンジ推移）",
         "probability": 50,
         "color": "neutral",
-        "body": "サポートラインの158.038円から158円台後半のレンジ内で方向感を欠いた値動きが継続する展開。"
+        "body": "サポートラインの158.038円から158円台後半のレンジ内で推移し、もみ合いが続くパターンです。"
       },
       {
         "label": "上抜けシナリオ",
         "probability": 25,
         "color": "buy",
-        "body": "158円台後半の中心線を上回り反発した場合、レジスタンスラインの159.779円方向を試す展開。"
+        "body": "158円台後半を超えて上昇した場合、レジスタンスラインの159.779円方向を試す動きが想定されます。"
       },
       {
         "label": "下抜けシナリオ",
         "probability": 25,
         "color": "sell",
-        "body": "1時間足の下降基調が継続し、158.038円のサポートラインを下抜けた場合に下値を模索する展開。"
+        "body": "サポートラインの158.038円を下回った場合、下方向へのトレンド継続を意識する動きが想定されます。"
       }
     ],
-    "economic_events_note": "米国時間にはフィラデルフィア連銀製造業景況指数（予想24.1）および新規失業保険申請件数（予想210K）の発表が予定されています。",
+    "economic_events_note": "本日12:30pmに米フィラデルフィア連銀製造業景気指数（Philly Fed Manufacturing Index）および米新規失業保険申請件数（Unemployment Claims）の発表が予定されています。",
     "order_plan": {
-      "lead": "時間足ごとの方向性が一致していないため、レンジ上下限でのプライスアクションを確認しながらの対応が基本となります。",
+      "lead": "時間足ごとの方向性が分かれているため、レンジ上下限の攻防を見極めながら冷静に対応する方針が考えられます。",
       "entry": "様子見（新規エントリーなし）",
       "take_profit": "‒",
       "stop_loss": "‒",
-      "sub_note": "RSIが売られすぎ水準にある一方、上位足のトレンドが下向きであることを踏まえ、過度な追随を避けた慎重な判断が求められます。"
+      "sub_note": "売られすぎ水準からの自律反発と上位足の下落トレンドの双方に留意し、無理な追随を避けた運用が求められます。"
     },
-    "risk_note": "米経済指標の発表に伴うボラティリティの上昇や、米日金利差の動向による急な方向感の変化に留意が必要です。"
+    "risk_note": "時間足ごとのトレンドの不一致に加え、米経済指標発表前後のボラティリティ急変には注意が必要です。"
   },
   "currency_strength": [
     {
       "code": "CHF",
-      "change_pct": 1.67,
-      "strength_score": 66.8
+      "change_pct": 1.73,
+      "strength_score": 69.2
     },
     {
       "code": "NZD",
-      "change_pct": 0.93,
-      "strength_score": 37.3
+      "change_pct": 1.03,
+      "strength_score": 41.1
     },
     {
       "code": "EUR",
-      "change_pct": 0.81,
-      "strength_score": 32.2
+      "change_pct": 0.85,
+      "strength_score": 34.1
     },
     {
       "code": "JPY",
-      "change_pct": 0.77,
-      "strength_score": 30.9
+      "change_pct": 0.82,
+      "strength_score": 32.7
     },
     {
       "code": "CAD",
-      "change_pct": 0.6,
-      "strength_score": 24.2
+      "change_pct": 0.62,
+      "strength_score": 24.8
     },
     {
       "code": "GBP",
-      "change_pct": 0.51,
-      "strength_score": 20.5
+      "change_pct": 0.57,
+      "strength_score": 22.6
     },
     {
       "code": "AUD",
-      "change_pct": 0.44,
-      "strength_score": 17.7
+      "change_pct": 0.52,
+      "strength_score": 20.8
     },
     {
       "code": "USD",
-      "change_pct": -0.82,
-      "strength_score": -32.8
+      "change_pct": -0.88,
+      "strength_score": -35.0
     }
   ]
 }
