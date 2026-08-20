@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-20T14:46:25.587913+00:00",
+  "generated_at_utc": "2026-08-20T15:19:55.923887+00:00",
   "pair": "USD/JPY",
-  "latest_price": 158.746,
-  "day_change_pct": 0.23,
+  "latest_price": 158.764,
+  "day_change_pct": 0.11,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -27,59 +27,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -0.86,
+      "position_sigma": -0.56,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 158.808,
+      "mid": 158.805,
       "upper": 158.951,
-      "lower": 158.665
+      "lower": 158.659
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.5,
+      "position_sigma": -0.65,
       "trend": "UP",
       "momentum": "FLAT",
-      "mid": 158.795,
-      "upper": 158.991,
-      "lower": 158.599
+      "mid": 158.827,
+      "upper": 159.018,
+      "lower": 158.635
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.93,
-      "trend": "FLAT",
+      "position_sigma": 0.78,
+      "trend": "UP",
       "momentum": "FLAT",
-      "mid": 158.519,
-      "upper": 159.006,
-      "lower": 158.031
+      "mid": 158.596,
+      "upper": 159.024,
+      "lower": 158.167
     }
   ],
   "technical": {
     "macd": {
-      "macd": -0.0144,
-      "signal": -0.0866,
-      "histogram": 0.0722,
+      "macd": 0.0012,
+      "signal": -0.0688,
+      "histogram": 0.0699,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 54.5,
+      "value": 54.8,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 158.719,
-      "ma25": 158.449,
-      "ma75": 159.088,
-      "ma200": 159.179,
-      "price": 158.746,
+      "ma5": 158.746,
+      "ma25": 158.463,
+      "ma75": 159.082,
+      "ma200": 159.18,
+      "price": 158.764,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 158.468,
-      "upper": 158.864,
-      "lower": 158.071,
-      "price": 158.746,
+      "mid": 158.5,
+      "upper": 158.891,
+      "lower": 158.109,
+      "price": 158.764,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -94,48 +94,48 @@
     "jp10y_trend": "flat",
     "jp10y_latest": 2.894,
     "dxy_trend": "flat",
-    "dxy_latest": 98.82,
+    "dxy_latest": 98.83,
     "gold_trend": "up",
-    "gold_latest": 4554.4
+    "gold_latest": 4582.3
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在158.75円付近で推移（直近1時間比+0.23%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在158.76円付近で推移（直近1時間比+0.11%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
-      "title": "【市場反応】米7月景気先行指数は予想上回る、ドル買い優勢",
-      "link": "https://zai.diamond.jp/articles/-/494299",
-      "published_at_utc": "2026-08-20T14:35:06+00:00"
+      "title": "【 ベッセント米財務長官】 「米国市場には大きな道具箱がある」",
+      "link": "https://zai.diamond.jp/articles/-/494306",
+      "published_at_utc": "2026-08-20T15:11:27+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】158.86円、ドル一段高、米・7月景気先行指数予想上回る",
-      "link": "https://zai.diamond.jp/articles/-/494298",
-      "published_at_utc": "2026-08-20T14:11:18+00:00"
+      "title": "【ベッセント米財務長官】 「米連邦赤字はピークに達した可能性」",
+      "link": "https://zai.diamond.jp/articles/-/494305",
+      "published_at_utc": "2026-08-20T15:08:40+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【ＮＹ為替オープニング】米長期金利動向睨む、ドル指数は200DMA割り込む",
-      "link": "https://zai.diamond.jp/articles/-/494296",
-      "published_at_utc": "2026-08-20T14:07:09+00:00"
+      "title": "【ベッセント米財務長官】 「関税返還で一時的に米連邦赤字が悪化」",
+      "link": "https://zai.diamond.jp/articles/-/494304",
+      "published_at_utc": "2026-08-20T15:07:14+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "ドル円、底堅い　一時158.89円まで上昇",
-      "link": "https://zai.diamond.jp/articles/-/494297",
-      "published_at_utc": "2026-08-20T14:07:00+00:00"
+      "title": "【 ベッセント米財務長官】「買戻しは40億ドルを上回る可能性も」",
+      "link": "https://zai.diamond.jp/articles/-/494302",
+      "published_at_utc": "2026-08-20T15:05:15+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】米・7月景気先行指数は予想上回り＋0.2％",
-      "link": "https://zai.diamond.jp/articles/-/494295",
-      "published_at_utc": "2026-08-20T14:00:54+00:00"
+      "title": "ニューヨーク外国為替市場概況・24時　ドル円、小高い",
+      "link": "https://zai.diamond.jp/articles/-/494303",
+      "published_at_utc": "2026-08-20T15:05:00+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【まもなく】米・7月景気先行指数の発表です（日本時間23：00）",
-      "link": "https://zai.diamond.jp/articles/-/494294",
-      "published_at_utc": "2026-08-20T13:59:02+00:00"
+      "title": "【 ベッセント米財務長官】 「買戻しに関し、市場で取引が薄い領域」",
+      "link": "https://zai.diamond.jp/articles/-/494301",
+      "published_at_utc": "2026-08-20T15:03:53+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
@@ -180,43 +180,43 @@
   "currency_strength": [
     {
       "code": "NZD",
-      "change_pct": 0.35,
-      "strength_score": 14.1
-    },
-    {
-      "code": "CAD",
-      "change_pct": 0.21,
-      "strength_score": 8.3
+      "change_pct": 0.46,
+      "strength_score": 18.6
     },
     {
       "code": "GBP",
-      "change_pct": 0.16,
-      "strength_score": 6.5
+      "change_pct": 0.34,
+      "strength_score": 13.7
+    },
+    {
+      "code": "CAD",
+      "change_pct": 0.32,
+      "strength_score": 13.0
     },
     {
       "code": "EUR",
-      "change_pct": 0.11,
-      "strength_score": 4.2
+      "change_pct": 0.2,
+      "strength_score": 7.9
     },
     {
       "code": "CHF",
-      "change_pct": 0.08,
-      "strength_score": 3.2
+      "change_pct": 0.17,
+      "strength_score": 6.8
     },
     {
       "code": "AUD",
-      "change_pct": 0.0,
-      "strength_score": 0.0
-    },
-    {
-      "code": "USD",
-      "change_pct": -0.1,
-      "strength_score": -3.9
+      "change_pct": 0.14,
+      "strength_score": 5.7
     },
     {
       "code": "JPY",
-      "change_pct": -0.23,
-      "strength_score": -9.1
+      "change_pct": -0.11,
+      "strength_score": -4.6
+    },
+    {
+      "code": "USD",
+      "change_pct": -0.22,
+      "strength_score": -8.7
     }
   ]
 }
