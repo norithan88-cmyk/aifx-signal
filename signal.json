@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-08-20T16:41:24.520113+00:00",
+  "generated_at_utc": "2026-08-20T17:12:42.817146+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.039,
-  "day_change_pct": 0.45,
+  "latest_price": 159.012,
+  "day_change_pct": 0.55,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
     "stars": 2,
     "confidence": 50,
     "confidence_breakdown": {
-      "timeframes_note": "5分足:中央 / 15分足:中央 / 1時間足:上方向 → 3時間足の方向が一致していません",
+      "timeframes_note": "5分足:下方向 / 15分足:中央 / 1時間足:中央 → 3時間足の方向が一致していません",
       "calc_note": "3時間足の方向が揃っていないため、基本値50%のままです。"
     }
   },
@@ -27,60 +27,60 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": 0.03,
+      "position_sigma": -1.31,
       "trend": "UP",
-      "momentum": "FLAT",
-      "mid": 159.037,
-      "upper": 159.145,
-      "lower": 158.93
+      "momentum": "DOWN",
+      "mid": 159.081,
+      "upper": 159.186,
+      "lower": 158.976
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": 0.2,
+      "position_sigma": -0.46,
       "trend": "UP",
       "momentum": "FLAT",
-      "mid": 159.022,
-      "upper": 159.185,
-      "lower": 158.86
+      "mid": 159.05,
+      "upper": 159.212,
+      "lower": 158.887
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 1.62,
+      "position_sigma": 1.19,
       "trend": "UP",
-      "momentum": "UP",
-      "mid": 158.749,
-      "upper": 159.106,
-      "lower": 158.393
+      "momentum": "FLAT",
+      "mid": 158.815,
+      "upper": 159.144,
+      "lower": 158.486
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0531,
-      "signal": -0.0396,
-      "histogram": 0.0927,
+      "macd": 0.0676,
+      "signal": -0.0193,
+      "histogram": 0.0869,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 62.3,
+      "value": 61.6,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 158.893,
-      "ma25": 158.502,
-      "ma75": 159.083,
+      "ma5": 158.918,
+      "ma25": 158.517,
+      "ma75": 159.078,
       "ma200": 159.184,
-      "price": 159.039,
+      "price": 159.01,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 158.564,
-      "upper": 159.026,
-      "lower": 158.101,
-      "price": 159.039,
-      "state": "UPPER_TOUCH"
+      "mid": 158.602,
+      "upper": 159.056,
+      "lower": 158.149,
+      "price": 159.01,
+      "state": "INSIDE"
     },
     "support_resistance": {
       "resistance": 159.675,
@@ -94,13 +94,19 @@
     "jp10y_trend": "flat",
     "jp10y_latest": 2.894,
     "dxy_trend": "flat",
-    "dxy_latest": 98.91,
+    "dxy_latest": 98.88,
     "gold_trend": "up",
-    "gold_latest": 4564.1
+    "gold_latest": 4568.2
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.04円付近で推移（直近1時間比+0.45%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.01円付近で推移（直近1時間比+0.55%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
+    {
+      "source": "ザイFX！",
+      "title": "ニューヨーク外国為替市場概況・2時　ドル円、底堅い",
+      "link": "https://zai.diamond.jp/articles/-/494310",
+      "published_at_utc": "2026-08-20T17:06:00+00:00"
+    },
     {
       "source": "ザイFX！",
       "title": "ドル円、底堅い　一時159.10円まで上昇",
@@ -130,12 +136,6 @@
       "title": "【ベッセント米財務長官】 「米連邦赤字はピークに達した可能性」",
       "link": "https://zai.diamond.jp/articles/-/494305",
       "published_at_utc": "2026-08-20T15:08:40+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "【ベッセント米財務長官】 「関税返還で一時的に米連邦赤字が悪化」",
-      "link": "https://zai.diamond.jp/articles/-/494304",
-      "published_at_utc": "2026-08-20T15:07:14+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
@@ -180,44 +180,44 @@
   },
   "currency_strength": [
     {
-      "code": "GBP",
-      "change_pct": 0.15,
-      "strength_score": 6.0
+      "code": "USD",
+      "change_pct": 0.13,
+      "strength_score": 5.3
     },
     {
-      "code": "CAD",
+      "code": "GBP",
       "change_pct": 0.13,
       "strength_score": 5.2
     },
     {
-      "code": "NZD",
-      "change_pct": 0.12,
-      "strength_score": 4.8
+      "code": "CAD",
+      "change_pct": 0.1,
+      "strength_score": 4.2
     },
     {
-      "code": "USD",
+      "code": "NZD",
       "change_pct": 0.08,
-      "strength_score": 3.2
+      "strength_score": 3.3
     },
     {
       "code": "EUR",
-      "change_pct": -0.01,
-      "strength_score": -0.5
+      "change_pct": -0.06,
+      "strength_score": -2.3
     },
     {
       "code": "AUD",
-      "change_pct": -0.14,
-      "strength_score": -5.7
+      "change_pct": -0.19,
+      "strength_score": -7.7
     },
     {
       "code": "CHF",
-      "change_pct": -0.34,
-      "strength_score": -13.8
+      "change_pct": -0.44,
+      "strength_score": -17.5
     },
     {
       "code": "JPY",
-      "change_pct": -0.45,
-      "strength_score": -18.2
+      "change_pct": -0.55,
+      "strength_score": -22.0
     }
   ]
 }
