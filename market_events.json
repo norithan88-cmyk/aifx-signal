@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "ニューヨーク外国為替市場概況・2時　ドル円、小動き",
+      "link": "https://zai.diamond.jp/articles/-/494381",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T17:06:00+00:00",
+      "detected_at_utc": "2026-08-21T17:42:05.861809+00:00",
+      "baseline": {
+        "t": "2026-08-21T17:42:05.861809+00:00",
+        "price": 158.993,
+        "dxy": 98.82,
+        "usd_strength_score": -11.8
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "【速報】 ブラジルのルーラ大統領と米トランプ大統領は電話会議を実施",
       "link": "https://zai.diamond.jp/articles/-/494380",
       "source": "ザイFX！",
@@ -12,10 +30,18 @@
         "dxy": 98.81,
         "usd_strength_score": -10.5
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-21T17:42:05.861809+00:00",
+          "price": 158.993,
+          "dxy": 98.82,
+          "usd_strength_score": -11.8,
+          "delta_price_pct": 0.004
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【速報】 ブラジルのルーラ大統領と米トランプ大統領は電話会議を実施」の報道後、USD/JPYは30分で+0.00%。DXYは98.81から98.82へ上昇、USD強弱スコアも-10から-12へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +56,18 @@
         "dxy": 98.81,
         "usd_strength_score": -10.5
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-21T17:42:05.861809+00:00",
+          "price": 158.993,
+          "dxy": 98.82,
+          "usd_strength_score": -11.8,
+          "delta_price_pct": 0.004
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「[通貨オプション]まちまち」の報道後、USD/JPYは30分で+0.00%。DXYは98.81から98.82へ上昇、USD強弱スコアも-10から-12へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -128,11 +162,18 @@
           "dxy": 98.81,
           "usd_strength_score": -11.6,
           "delta_price_pct": -0.055
+        },
+        "2h": {
+          "t": "2026-08-21T17:42:05.861809+00:00",
+          "price": 158.993,
+          "dxy": 98.82,
+          "usd_strength_score": -11.8,
+          "delta_price_pct": -0.019
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・24時　ユーロドル、弱含み」の報道後、USD/JPYは1時間で-0.06%。DXYは98.87から98.81へ低下、USD強弱スコアも-7から-12へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・24時　ユーロドル、弱含み」の報道後、USD/JPYは2時間で-0.02%。DXYは98.87から98.82へ低下、USD強弱スコアも-7から-12へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -528,12 +569,19 @@
           "dxy": 98.87,
           "usd_strength_score": -7.0,
           "delta_price_pct": 0.152
+        },
+        "4h": {
+          "t": "2026-08-21T17:42:05.861809+00:00",
+          "price": 158.993,
+          "dxy": 98.82,
+          "usd_strength_score": -11.8,
+          "delta_price_pct": 0.133
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【速報】カナダ・6月小売売上高は予想上回り＋0.6％」の報道後、USD/JPYは2時間で+0.15%。DXYは98.75から98.87へ上昇、USD強弱スコアも-9から-7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【速報】カナダ・6月小売売上高は予想上回り＋0.6％」の報道後、USD/JPYは4時間で+0.13%。DXYは98.75から98.82へ上昇、USD強弱スコアも-9から-12へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "【NY市場の経済指標とイベ ン ト】",
@@ -568,12 +616,19 @@
           "dxy": 98.87,
           "usd_strength_score": -7.0,
           "delta_price_pct": 0.152
+        },
+        "4h": {
+          "t": "2026-08-21T17:42:05.861809+00:00",
+          "price": 158.993,
+          "dxy": 98.82,
+          "usd_strength_score": -11.8,
+          "delta_price_pct": 0.133
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【NY市場の経済指標とイベ ン ト】」の報道後、USD/JPYは2時間で+0.15%。DXYは98.75から98.87へ上昇、USD強弱スコアも-9から-7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【NY市場の経済指標とイベ ン ト】」の報道後、USD/JPYは4時間で+0.13%。DXYは98.75から98.82へ上昇、USD強弱スコアも-9から-12へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル・円は値を戻す展開、原油・米金利に追随",
@@ -2595,54 +2650,7 @@
       "relevance": "low",
       "summary": "「NY外為：ドル買戻し、原油高やベッセント米財務長官が強いドル政策再表明」の報道後、USD/JPYは4時間で-0.13%。DXYは98.89から98.80へ低下、USD強弱スコアも+4から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "ニューヨーク外国為替市場概況・4時　ドル円、じり高",
-      "link": "https://zai.diamond.jp/articles/-/494315",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T19:05:00+00:00",
-      "detected_at_utc": "2026-08-20T19:44:45.633309+00:00",
-      "baseline": {
-        "t": "2026-08-20T19:44:45.633309+00:00",
-        "price": 159.136,
-        "dxy": 98.89,
-        "usd_strength_score": 4.1
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T20:49:05.914607+00:00",
-          "price": 159.07,
-          "dxy": 98.87,
-          "usd_strength_score": 3.5,
-          "delta_price_pct": -0.041
-        },
-        "1h": {
-          "t": "2026-08-20T20:49:05.914607+00:00",
-          "price": 159.07,
-          "dxy": 98.87,
-          "usd_strength_score": 3.5,
-          "delta_price_pct": -0.041
-        },
-        "2h": {
-          "t": "2026-08-20T21:48:37.461452+00:00",
-          "price": 159.045,
-          "dxy": 98.87,
-          "usd_strength_score": 2.8,
-          "delta_price_pct": -0.057
-        },
-        "4h": {
-          "t": "2026-08-21T00:03:06.831381+00:00",
-          "price": 158.929,
-          "dxy": 98.8,
-          "usd_strength_score": -2.8,
-          "delta_price_pct": -0.13
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・4時　ドル円、じり高」の報道後、USD/JPYは4時間で-0.13%。DXYは98.89から98.80へ低下、USD強弱スコアも+4から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-21T17:04:45.564369+00:00"
+  "updated_at_utc": "2026-08-21T17:42:05.861809+00:00"
 }
