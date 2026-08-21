@@ -30,10 +30,18 @@
         "dxy": 98.84,
         "usd_strength_score": -6.9
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-21T22:03:28.762252+00:00",
+          "price": 158.862,
+          "dxy": 98.84,
+          "usd_strength_score": -6.9,
+          "delta_price_pct": 0.0
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ニューヨーク外国為替市場概況・21日　ドル円、小反落」の報道後、USD/JPYは30分で+0.00%。DXYは98.84から98.84へ横ばい、USD強弱スコアも-7から-7へ横ばい。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -62,11 +70,18 @@
           "dxy": 98.84,
           "usd_strength_score": -6.9,
           "delta_price_pct": -0.073
+        },
+        "2h": {
+          "t": "2026-08-21T22:03:28.762252+00:00",
+          "price": 158.862,
+          "dxy": 98.84,
+          "usd_strength_score": -6.9,
+          "delta_price_pct": -0.073
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「8月21日のNY為替・原油概況」の報道後、USD/JPYは1時間で-0.07%。DXYは98.82から98.84へ上昇、USD強弱スコアも-10から-7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「8月21日のNY為替・原油概況」の報道後、USD/JPYは2時間で-0.07%。DXYは98.82から98.84へ上昇、USD強弱スコアも-10から-7へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2721,5 +2736,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-21T21:44:49.748964+00:00"
+  "updated_at_utc": "2026-08-21T22:03:28.762252+00:00"
 }
