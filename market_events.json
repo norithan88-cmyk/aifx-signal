@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "8月21日のNY為替・原油概況",
+      "link": "https://zai.diamond.jp/articles/-/494386",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T19:31:05+00:00",
+      "detected_at_utc": "2026-08-21T19:53:41.192112+00:00",
+      "baseline": {
+        "t": "2026-08-21T19:53:41.192112+00:00",
+        "price": 158.978,
+        "dxy": 98.82,
+        "usd_strength_score": -10.1
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ニューヨーク外国為替市場概況・4時　ドル円、高値圏で推移",
       "link": "https://zai.diamond.jp/articles/-/494385",
       "source": "ザイFX！",
@@ -129,11 +147,18 @@
           "dxy": 98.82,
           "usd_strength_score": -10.6,
           "delta_price_pct": 0.02
+        },
+        "2h": {
+          "t": "2026-08-21T19:53:41.192112+00:00",
+          "price": 158.978,
+          "dxy": 98.82,
+          "usd_strength_score": -10.1,
+          "delta_price_pct": -0.009
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは1時間で+0.02%。DXYは98.82から98.82へ横ばい、USD強弱スコアも-12から-11へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・2時　ドル円、小動き」の報道後、USD/JPYは2時間で-0.01%。DXYは98.82から98.82へ横ばい、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2645,54 +2670,7 @@
       "relevance": "low",
       "summary": "「米財務省は介入で長期金利押し下げVSウォーシュFRB議長は市場に委ねる姿勢、米国債務格下げの可能性なども警戒される」の報道後、USD/JPYは4時間で+0.01%。DXYは98.84から98.70へ低下、USD強弱スコアも-1から-7へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "本日のスケジュール",
-      "link": "https://zai.diamond.jp/articles/-/494320",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T21:40:09+00:00",
-      "detected_at_utc": "2026-08-20T21:48:37.461452+00:00",
-      "baseline": {
-        "t": "2026-08-20T21:48:37.461452+00:00",
-        "price": 159.045,
-        "dxy": 98.87,
-        "usd_strength_score": 2.8
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T22:48:08.310879+00:00",
-          "price": 158.974,
-          "dxy": 98.84,
-          "usd_strength_score": -0.9,
-          "delta_price_pct": -0.045
-        },
-        "1h": {
-          "t": "2026-08-20T23:12:40.030997+00:00",
-          "price": 158.921,
-          "dxy": 98.84,
-          "usd_strength_score": -0.2,
-          "delta_price_pct": -0.078
-        },
-        "2h": {
-          "t": "2026-08-21T00:03:06.831381+00:00",
-          "price": 158.929,
-          "dxy": 98.8,
-          "usd_strength_score": -2.8,
-          "delta_price_pct": -0.073
-        },
-        "4h": {
-          "t": "2026-08-21T01:54:50.629193+00:00",
-          "price": 158.976,
-          "dxy": 98.78,
-          "usd_strength_score": -2.9,
-          "delta_price_pct": -0.043
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「本日のスケジュール」の報道後、USD/JPYは4時間で-0.04%。DXYは98.87から98.78へ低下、USD強弱スコアも+3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-21T19:33:13.681373+00:00"
+  "updated_at_utc": "2026-08-21T19:53:41.192112+00:00"
 }
