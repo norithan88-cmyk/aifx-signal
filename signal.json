@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-21T21:19:01.321682+00:00",
+  "generated_at_utc": "2026-08-21T21:44:49.748964+00:00",
   "pair": "USD/JPY",
   "latest_price": 158.862,
   "day_change_pct": -0.06,
@@ -27,58 +27,58 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -4.02,
+      "position_sigma": -2.89,
       "trend": "FLAT",
       "momentum": "DOWN",
-      "mid": 158.958,
+      "mid": 158.947,
       "upper": 159.006,
-      "lower": 158.91
+      "lower": 158.888
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -2.87,
+      "position_sigma": -2.41,
       "trend": "FLAT",
       "momentum": "DOWN",
-      "mid": 159.017,
-      "upper": 159.125,
-      "lower": 158.909
+      "mid": 159.005,
+      "upper": 159.124,
+      "lower": 158.886
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.26,
+      "position_sigma": 0.35,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 158.826,
-      "upper": 159.1,
-      "lower": 158.552
+      "mid": 158.815,
+      "upper": 159.084,
+      "lower": 158.545
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0366,
-      "signal": 0.028,
-      "histogram": 0.0086,
+      "macd": 0.0307,
+      "signal": 0.0257,
+      "histogram": 0.0051,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 49.7,
+      "value": 50.1,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 158.969,
-      "ma25": 158.883,
-      "ma75": 158.843,
-      "ma200": 159.151,
+      "ma5": 158.95,
+      "ma25": 158.88,
+      "ma75": 158.842,
+      "ma200": 159.15,
       "price": 158.862,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 158.859,
-      "upper": 159.145,
-      "lower": 158.573,
+      "mid": 158.854,
+      "upper": 159.137,
+      "lower": 158.571,
       "price": 158.862,
       "state": "INSIDE"
     },
@@ -101,6 +101,12 @@
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
   "market_context": "USD/JPYは現在158.86円付近で推移（直近1時間比-0.06%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
+    {
+      "source": "ザイFX！",
+      "title": "【速報】米連邦最高裁判所 「トランプ大統領が進めるホワイトハウスのボールルーム建設工事を巡り審議中の継続を承認」",
+      "link": "https://zai.diamond.jp/articles/-/494388",
+      "published_at_utc": "2026-08-21T21:35:45+00:00"
+    },
     {
       "source": "ザイFX！",
       "title": "ニューヨーク外国為替市場概況・21日　ドル円、小反落",
@@ -130,12 +136,6 @@
       "title": "NY市場動向（午後0時台）：ダウ428ドル高、原油先物0.49ドル高",
       "link": "https://zai.diamond.jp/articles/-/494383",
       "published_at_utc": "2026-08-21T18:22:09+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "欧州主要株式指数、上昇",
-      "link": "https://zai.diamond.jp/articles/-/494382",
-      "published_at_utc": "2026-08-21T18:02:06+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
