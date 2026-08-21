@@ -1,6 +1,96 @@
 {
   "events": [
     {
+      "title": "【ＮＹ為替オープニング】米財務省の介入効果限定的との見方も、金利上昇でドル下げ止まる",
+      "link": "https://zai.diamond.jp/articles/-/494371",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T13:53:05+00:00",
+      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
+      "baseline": {
+        "t": "2026-08-21T13:57:05.926634+00:00",
+        "price": 158.795,
+        "dxy": 98.8,
+        "usd_strength_score": -9.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "【速報】ドル・円158.85円、製造業PMIは予想外に下方修正もサービス業PMIは上方修正",
+      "link": "https://zai.diamond.jp/articles/-/494370",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T13:50:32+00:00",
+      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
+      "baseline": {
+        "t": "2026-08-21T13:57:05.926634+00:00",
+        "price": 158.795,
+        "dxy": 98.8,
+        "usd_strength_score": -9.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "【速報】米・8月製造業PMI速報値は53.2",
+      "link": "https://zai.diamond.jp/articles/-/494369",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T13:48:12+00:00",
+      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
+      "baseline": {
+        "t": "2026-08-21T13:57:05.926634+00:00",
+        "price": 158.795,
+        "dxy": 98.8,
+        "usd_strength_score": -9.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "【市場反応】カナダ6月小売売上高は予想上回る、カナダドル堅調",
+      "link": "https://zai.diamond.jp/articles/-/494368",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T13:12:05+00:00",
+      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
+      "baseline": {
+        "t": "2026-08-21T13:57:05.926634+00:00",
+        "price": 158.795,
+        "dxy": 98.8,
+        "usd_strength_score": -9.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "欧州外国為替市場概況・22時　ドル円、小幅に買い戻し",
+      "link": "https://zai.diamond.jp/articles/-/494367",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-21T13:06:00+00:00",
+      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
+      "baseline": {
+        "t": "2026-08-21T13:57:05.926634+00:00",
+        "price": 158.795,
+        "dxy": 98.8,
+        "usd_strength_score": -9.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "【速報】カナダ・6月小売売上高は予想上回り＋0.6％",
       "link": "https://zai.diamond.jp/articles/-/494366",
       "source": "ザイFX！",
@@ -12,10 +102,18 @@
         "dxy": 98.75,
         "usd_strength_score": -9.1
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.008
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【速報】カナダ・6月小売売上高は予想上回り＋0.6％」の報道後、USD/JPYは30分で+0.01%。DXYは98.75から98.80へ上昇、USD強弱スコアも-9から-10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +128,18 @@
         "dxy": 98.75,
         "usd_strength_score": -9.1
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.008
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【NY市場の経済指標とイベ ン ト】」の報道後、USD/JPYは30分で+0.01%。DXYは98.75から98.80へ上昇、USD強弱スコアも-9から-10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -62,11 +168,18 @@
           "dxy": 98.75,
           "usd_strength_score": -9.1,
           "delta_price_pct": 0.12
+        },
+        "2h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.129
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は値を戻す展開、原油・米金利に追随」の報道後、USD/JPYは1時間で+0.12%。DXYは98.61から98.75へ上昇、USD強弱スコアも-12から-9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は値を戻す展開、原油・米金利に追随」の報道後、USD/JPYは2時間で+0.13%。DXYは98.61から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -95,11 +208,18 @@
           "dxy": 98.75,
           "usd_strength_score": -9.1,
           "delta_price_pct": 0.12
+        },
+        "2h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.129
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州外国為替市場概況・20時　ドル円、下げ渋り」の報道後、USD/JPYは1時間で+0.12%。DXYは98.61から98.75へ上昇、USD強弱スコアも-12から-9へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「欧州外国為替市場概況・20時　ドル円、下げ渋り」の報道後、USD/JPYは2時間で+0.13%。DXYは98.61から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -255,12 +375,19 @@
           "dxy": 98.61,
           "usd_strength_score": -11.8,
           "delta_price_pct": 0.086
+        },
+        "4h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.215
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル円、158.36円まで下げ幅拡大　ポンドドルは6カ月超ぶりの高値水準」の報道後、USD/JPYは2時間で+0.09%。DXYは98.58から98.61へ上昇、USD強弱スコアも-12から-12へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル円、158.36円まで下げ幅拡大　ポンドドルは6カ月超ぶりの高値水準」の報道後、USD/JPYは4時間で+0.21%。DXYは98.58から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "欧州為替：ドル・円は弱含み、原油・米金利の下落で",
@@ -295,12 +422,19 @@
           "dxy": 98.61,
           "usd_strength_score": -11.8,
           "delta_price_pct": 0.086
+        },
+        "4h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.215
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州為替：ドル・円は弱含み、原油・米金利の下落で」の報道後、USD/JPYは2時間で+0.09%。DXYは98.58から98.61へ上昇、USD強弱スコアも-12から-12へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「欧州為替：ドル・円は弱含み、原油・米金利の下落で」の報道後、USD/JPYは4時間で+0.21%。DXYは98.58から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "欧州主要株価指数一覧",
@@ -335,12 +469,19 @@
           "dxy": 98.61,
           "usd_strength_score": -11.8,
           "delta_price_pct": 0.086
+        },
+        "4h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.215
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州主要株価指数一覧」の報道後、USD/JPYは2時間で+0.09%。DXYは98.58から98.61へ上昇、USD強弱スコアも-12から-12へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「欧州主要株価指数一覧」の報道後、USD/JPYは4時間で+0.21%。DXYは98.58から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル・円は軟調、夕方にかけて一段安",
@@ -375,12 +516,19 @@
           "dxy": 98.61,
           "usd_strength_score": -11.8,
           "delta_price_pct": 0.086
+        },
+        "4h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.215
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は軟調、夕方にかけて一段安」の報道後、USD/JPYは2時間で+0.09%。DXYは98.58から98.61へ上昇、USD強弱スコアも-12から-12へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル・円は軟調、夕方にかけて一段安」の報道後、USD/JPYは4時間で+0.21%。DXYは98.58から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル円、158.63円まで弱含み　米長期金利の低下に連れる",
@@ -415,12 +563,19 @@
           "dxy": 98.61,
           "usd_strength_score": -11.8,
           "delta_price_pct": 0.086
+        },
+        "4h": {
+          "t": "2026-08-21T13:57:05.926634+00:00",
+          "price": 158.795,
+          "dxy": 98.8,
+          "usd_strength_score": -9.6,
+          "delta_price_pct": 0.215
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル円、158.63円まで弱含み　米長期金利の低下に連れる」の報道後、USD/JPYは2時間で+0.09%。DXYは98.58から98.61へ上昇、USD強弱スコアも-12から-12へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル円、158.63円まで弱含み　米長期金利の低下に連れる」の報道後、USD/JPYは4時間で+0.21%。DXYは98.58から98.80へ上昇、USD強弱スコアも-12から-10へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "東京外国為替市場概況・17時　ドル円、上値が重い",
@@ -2442,242 +2597,7 @@
       "relevance": "low",
       "summary": "「【 ベッセント米財務長官】 「米国市場には大きな道具箱がある」」の報道後、USD/JPYは4時間で+0.23%。DXYは98.83から98.89へ上昇、USD強弱スコアも-9から+4へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "【ベッセント米財務長官】 「米連邦赤字はピークに達した可能性」",
-      "link": "https://zai.diamond.jp/articles/-/494305",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T15:08:40+00:00",
-      "detected_at_utc": "2026-08-20T15:19:55.923887+00:00",
-      "baseline": {
-        "t": "2026-08-20T15:19:55.923887+00:00",
-        "price": 158.764,
-        "dxy": 98.83,
-        "usd_strength_score": -8.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T15:55:58.115295+00:00",
-          "price": 158.905,
-          "dxy": 98.89,
-          "usd_strength_score": -6.3,
-          "delta_price_pct": 0.089
-        },
-        "1h": {
-          "t": "2026-08-20T16:41:24.520113+00:00",
-          "price": 159.039,
-          "dxy": 98.91,
-          "usd_strength_score": 3.2,
-          "delta_price_pct": 0.173
-        },
-        "2h": {
-          "t": "2026-08-20T17:48:30.859637+00:00",
-          "price": 159.058,
-          "dxy": 98.91,
-          "usd_strength_score": 4.6,
-          "delta_price_pct": 0.185
-        },
-        "4h": {
-          "t": "2026-08-20T19:44:45.633309+00:00",
-          "price": 159.136,
-          "dxy": 98.89,
-          "usd_strength_score": 4.1,
-          "delta_price_pct": 0.234
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【ベッセント米財務長官】 「米連邦赤字はピークに達した可能性」」の報道後、USD/JPYは4時間で+0.23%。DXYは98.83から98.89へ上昇、USD強弱スコアも-9から+4へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【ベッセント米財務長官】 「関税返還で一時的に米連邦赤字が悪化」",
-      "link": "https://zai.diamond.jp/articles/-/494304",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T15:07:14+00:00",
-      "detected_at_utc": "2026-08-20T15:19:55.923887+00:00",
-      "baseline": {
-        "t": "2026-08-20T15:19:55.923887+00:00",
-        "price": 158.764,
-        "dxy": 98.83,
-        "usd_strength_score": -8.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T15:55:58.115295+00:00",
-          "price": 158.905,
-          "dxy": 98.89,
-          "usd_strength_score": -6.3,
-          "delta_price_pct": 0.089
-        },
-        "1h": {
-          "t": "2026-08-20T16:41:24.520113+00:00",
-          "price": 159.039,
-          "dxy": 98.91,
-          "usd_strength_score": 3.2,
-          "delta_price_pct": 0.173
-        },
-        "2h": {
-          "t": "2026-08-20T17:48:30.859637+00:00",
-          "price": 159.058,
-          "dxy": 98.91,
-          "usd_strength_score": 4.6,
-          "delta_price_pct": 0.185
-        },
-        "4h": {
-          "t": "2026-08-20T19:44:45.633309+00:00",
-          "price": 159.136,
-          "dxy": 98.89,
-          "usd_strength_score": 4.1,
-          "delta_price_pct": 0.234
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【ベッセント米財務長官】 「関税返還で一時的に米連邦赤字が悪化」」の報道後、USD/JPYは4時間で+0.23%。DXYは98.83から98.89へ上昇、USD強弱スコアも-9から+4へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【 ベッセント米財務長官】「買戻しは40億ドルを上回る可能性も」",
-      "link": "https://zai.diamond.jp/articles/-/494302",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T15:05:15+00:00",
-      "detected_at_utc": "2026-08-20T15:19:55.923887+00:00",
-      "baseline": {
-        "t": "2026-08-20T15:19:55.923887+00:00",
-        "price": 158.764,
-        "dxy": 98.83,
-        "usd_strength_score": -8.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T15:55:58.115295+00:00",
-          "price": 158.905,
-          "dxy": 98.89,
-          "usd_strength_score": -6.3,
-          "delta_price_pct": 0.089
-        },
-        "1h": {
-          "t": "2026-08-20T16:41:24.520113+00:00",
-          "price": 159.039,
-          "dxy": 98.91,
-          "usd_strength_score": 3.2,
-          "delta_price_pct": 0.173
-        },
-        "2h": {
-          "t": "2026-08-20T17:48:30.859637+00:00",
-          "price": 159.058,
-          "dxy": 98.91,
-          "usd_strength_score": 4.6,
-          "delta_price_pct": 0.185
-        },
-        "4h": {
-          "t": "2026-08-20T19:44:45.633309+00:00",
-          "price": 159.136,
-          "dxy": 98.89,
-          "usd_strength_score": 4.1,
-          "delta_price_pct": 0.234
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【 ベッセント米財務長官】「買戻しは40億ドルを上回る可能性も」」の報道後、USD/JPYは4時間で+0.23%。DXYは98.83から98.89へ上昇、USD強弱スコアも-9から+4へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ニューヨーク外国為替市場概況・24時　ドル円、小高い",
-      "link": "https://zai.diamond.jp/articles/-/494303",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T15:05:00+00:00",
-      "detected_at_utc": "2026-08-20T15:19:55.923887+00:00",
-      "baseline": {
-        "t": "2026-08-20T15:19:55.923887+00:00",
-        "price": 158.764,
-        "dxy": 98.83,
-        "usd_strength_score": -8.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T15:55:58.115295+00:00",
-          "price": 158.905,
-          "dxy": 98.89,
-          "usd_strength_score": -6.3,
-          "delta_price_pct": 0.089
-        },
-        "1h": {
-          "t": "2026-08-20T16:41:24.520113+00:00",
-          "price": 159.039,
-          "dxy": 98.91,
-          "usd_strength_score": 3.2,
-          "delta_price_pct": 0.173
-        },
-        "2h": {
-          "t": "2026-08-20T17:48:30.859637+00:00",
-          "price": 159.058,
-          "dxy": 98.91,
-          "usd_strength_score": 4.6,
-          "delta_price_pct": 0.185
-        },
-        "4h": {
-          "t": "2026-08-20T19:44:45.633309+00:00",
-          "price": 159.136,
-          "dxy": 98.89,
-          "usd_strength_score": 4.1,
-          "delta_price_pct": 0.234
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・24時　ドル円、小高い」の報道後、USD/JPYは4時間で+0.23%。DXYは98.83から98.89へ上昇、USD強弱スコアも-9から+4へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【 ベッセント米財務長官】 「買戻しに関し、市場で取引が薄い領域」",
-      "link": "https://zai.diamond.jp/articles/-/494301",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T15:03:53+00:00",
-      "detected_at_utc": "2026-08-20T15:19:55.923887+00:00",
-      "baseline": {
-        "t": "2026-08-20T15:19:55.923887+00:00",
-        "price": 158.764,
-        "dxy": 98.83,
-        "usd_strength_score": -8.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T15:55:58.115295+00:00",
-          "price": 158.905,
-          "dxy": 98.89,
-          "usd_strength_score": -6.3,
-          "delta_price_pct": 0.089
-        },
-        "1h": {
-          "t": "2026-08-20T16:41:24.520113+00:00",
-          "price": 159.039,
-          "dxy": 98.91,
-          "usd_strength_score": 3.2,
-          "delta_price_pct": 0.173
-        },
-        "2h": {
-          "t": "2026-08-20T17:48:30.859637+00:00",
-          "price": 159.058,
-          "dxy": 98.91,
-          "usd_strength_score": 4.6,
-          "delta_price_pct": 0.185
-        },
-        "4h": {
-          "t": "2026-08-20T19:44:45.633309+00:00",
-          "price": 159.136,
-          "dxy": 98.89,
-          "usd_strength_score": 4.1,
-          "delta_price_pct": 0.234
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【 ベッセント米財務長官】 「買戻しに関し、市場で取引が薄い領域」」の報道後、USD/JPYは4時間で+0.23%。DXYは98.83から98.89へ上昇、USD強弱スコアも-9から+4へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-21T13:06:05.855117+00:00"
+  "updated_at_utc": "2026-08-21T13:57:05.926634+00:00"
 }
