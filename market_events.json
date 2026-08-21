@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "title": "NY金先物は続伸、FOMC議事要旨消化も金融政策の不透明感で買い優勢",
+      "link": "https://zai.diamond.jp/articles/-/494328",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-20T23:52:10+00:00",
+      "detected_at_utc": "2026-08-21T00:03:06.831381+00:00",
+      "baseline": {
+        "t": "2026-08-21T00:03:06.831381+00:00",
+        "price": 158.929,
+        "dxy": 98.8,
+        "usd_strength_score": -2.8
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "ドル・円は方向感を探る展開か、積極的な仕掛け的な売買は手控えられ、方向感の出にくい相場が続きそう",
+      "link": "https://zai.diamond.jp/articles/-/494327",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-20T23:45:06+00:00",
+      "detected_at_utc": "2026-08-21T00:03:06.831381+00:00",
+      "baseline": {
+        "t": "2026-08-21T00:03:06.831381+00:00",
+        "price": 158.929,
+        "dxy": 98.8,
+        "usd_strength_score": -2.8
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "世界各国通貨に対する円：対ドル0.03%高、対ユーロ0.02%高",
       "link": "https://zai.diamond.jp/articles/-/494326",
       "source": "ザイFX！",
@@ -107,11 +143,18 @@
           "dxy": 98.84,
           "usd_strength_score": -0.1,
           "delta_price_pct": -0.054
+        },
+        "1h": {
+          "t": "2026-08-21T00:03:06.831381+00:00",
+          "price": 158.929,
+          "dxy": 98.8,
+          "usd_strength_score": -2.8,
+          "delta_price_pct": -0.028
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「米財務省は介入で長期金利押し下げVSウォーシュFRB議長は市場に委ねる姿勢、米国債務格下げの可能性なども警戒される」の報道後、USD/JPYは30分で-0.05%。DXYは98.84から98.84へ横ばい、USD強弱スコアも-1から-0へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「米財務省は介入で長期金利押し下げVSウォーシュFRB議長は市場に委ねる姿勢、米国債務格下げの可能性なども警戒される」の報道後、USD/JPYは1時間で-0.03%。DXYは98.84から98.80へ低下、USD強弱スコアも-1から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -140,11 +183,18 @@
           "dxy": 98.84,
           "usd_strength_score": -0.2,
           "delta_price_pct": -0.078
+        },
+        "2h": {
+          "t": "2026-08-21T00:03:06.831381+00:00",
+          "price": 158.929,
+          "dxy": 98.8,
+          "usd_strength_score": -2.8,
+          "delta_price_pct": -0.073
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「本日のスケジュール」の報道後、USD/JPYは1時間で-0.08%。DXYは98.87から98.84へ低下、USD強弱スコアも+3から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「本日のスケジュール」の報道後、USD/JPYは2時間で-0.07%。DXYは98.87から98.80へ低下、USD強弱スコアも+3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -173,11 +223,18 @@
           "dxy": 98.84,
           "usd_strength_score": -0.2,
           "delta_price_pct": -0.078
+        },
+        "2h": {
+          "t": "2026-08-21T00:03:06.831381+00:00",
+          "price": 158.929,
+          "dxy": 98.8,
+          "usd_strength_score": -2.8,
+          "delta_price_pct": -0.073
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「円建てCME先物は20日の225先物比375円安の65540円で推移」の報道後、USD/JPYは1時間で-0.08%。DXYは98.87から98.84へ低下、USD強弱スコアも+3から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「円建てCME先物は20日の225先物比375円安の65540円で推移」の報道後、USD/JPYは2時間で-0.07%。DXYは98.87から98.80へ低下、USD強弱スコアも+3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -293,12 +350,19 @@
           "dxy": 98.87,
           "usd_strength_score": 2.8,
           "delta_price_pct": -0.057
+        },
+        "4h": {
+          "t": "2026-08-21T00:03:06.831381+00:00",
+          "price": 158.929,
+          "dxy": 98.8,
+          "usd_strength_score": -2.8,
+          "delta_price_pct": -0.13
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY外為：ドル買戻し、原油高やベッセント米財務長官が強いドル政策再表明」の報道後、USD/JPYは2時間で-0.06%。DXYは98.89から98.87へ低下、USD強弱スコアも+4から+3へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY外為：ドル買戻し、原油高やベッセント米財務長官が強いドル政策再表明」の報道後、USD/JPYは4時間で-0.13%。DXYは98.89から98.80へ低下、USD強弱スコアも+4から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ニューヨーク外国為替市場概況・4時　ドル円、じり高",
@@ -333,12 +397,19 @@
           "dxy": 98.87,
           "usd_strength_score": 2.8,
           "delta_price_pct": -0.057
+        },
+        "4h": {
+          "t": "2026-08-21T00:03:06.831381+00:00",
+          "price": 158.929,
+          "dxy": 98.8,
+          "usd_strength_score": -2.8,
+          "delta_price_pct": -0.13
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・4時　ドル円、じり高」の報道後、USD/JPYは2時間で-0.06%。DXYは98.89から98.87へ低下、USD強弱スコアも+4から+3へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ニューヨーク外国為替市場概況・4時　ドル円、じり高」の報道後、USD/JPYは4時間で-0.13%。DXYは98.89から98.80へ低下、USD強弱スコアも+4から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "[通貨オプション]まちまち、中長期物でOP買い継続",
@@ -2582,101 +2653,7 @@
       "relevance": "low",
       "summary": "「ドル・円はじり高、買戻し継続で」の報道後、USD/JPYは4時間で-0.21%。DXYは98.88から98.60へ低下、USD強弱スコアも-30から-28へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "ユーロ円リアルタイムオーダー＝185.00円　OP27日NYカット",
-      "link": "https://zai.diamond.jp/articles/-/494263",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T05:28:00+00:00",
-      "detected_at_utc": "2026-08-20T05:34:55.838952+00:00",
-      "baseline": {
-        "t": "2026-08-20T05:34:55.838952+00:00",
-        "price": 158.692,
-        "dxy": 98.85,
-        "usd_strength_score": -29.2
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T07:02:24.722447+00:00",
-          "price": 158.374,
-          "dxy": 98.77,
-          "usd_strength_score": -30.7,
-          "delta_price_pct": -0.2
-        },
-        "1h": {
-          "t": "2026-08-20T07:02:24.722447+00:00",
-          "price": 158.374,
-          "dxy": 98.77,
-          "usd_strength_score": -30.7,
-          "delta_price_pct": -0.2
-        },
-        "2h": {
-          "t": "2026-08-20T07:52:56.465472+00:00",
-          "price": 158.477,
-          "dxy": 98.71,
-          "usd_strength_score": -30.4,
-          "delta_price_pct": -0.135
-        },
-        "4h": {
-          "t": "2026-08-20T09:54:31.417381+00:00",
-          "price": 158.347,
-          "dxy": 98.61,
-          "usd_strength_score": -38.1,
-          "delta_price_pct": -0.217
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ユーロ円リアルタイムオーダー＝185.00円　OP27日NYカット」の報道後、USD/JPYは4時間で-0.22%。DXYは98.85から98.61へ低下、USD強弱スコアも-29から-38へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ドル円、再び上昇　158.63円まで本日高値更新",
-      "link": "https://zai.diamond.jp/articles/-/494262",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T04:58:00+00:00",
-      "detected_at_utc": "2026-08-20T05:34:55.838952+00:00",
-      "baseline": {
-        "t": "2026-08-20T05:34:55.838952+00:00",
-        "price": 158.692,
-        "dxy": 98.85,
-        "usd_strength_score": -29.2
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-20T07:02:24.722447+00:00",
-          "price": 158.374,
-          "dxy": 98.77,
-          "usd_strength_score": -30.7,
-          "delta_price_pct": -0.2
-        },
-        "1h": {
-          "t": "2026-08-20T07:02:24.722447+00:00",
-          "price": 158.374,
-          "dxy": 98.77,
-          "usd_strength_score": -30.7,
-          "delta_price_pct": -0.2
-        },
-        "2h": {
-          "t": "2026-08-20T07:52:56.465472+00:00",
-          "price": 158.477,
-          "dxy": 98.71,
-          "usd_strength_score": -30.4,
-          "delta_price_pct": -0.135
-        },
-        "4h": {
-          "t": "2026-08-20T09:54:31.417381+00:00",
-          "price": 158.347,
-          "dxy": 98.61,
-          "usd_strength_score": -38.1,
-          "delta_price_pct": -0.217
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル円、再び上昇　158.63円まで本日高値更新」の報道後、USD/JPYは4時間で-0.22%。DXYは98.85から98.61へ低下、USD強弱スコアも-29から-38へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-20T23:43:15.000365+00:00"
+  "updated_at_utc": "2026-08-21T00:03:06.831381+00:00"
 }
