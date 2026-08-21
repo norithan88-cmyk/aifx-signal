@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-08-21T19:53:41.192112+00:00",
+  "generated_at_utc": "2026-08-21T20:25:31.116036+00:00",
   "pair": "USD/JPY",
-  "latest_price": 158.978,
-  "day_change_pct": -0.03,
+  "latest_price": 158.991,
+  "day_change_pct": 0.02,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
     "stars": 2,
     "confidence": 50,
     "confidence_breakdown": {
-      "timeframes_note": "5分足:下方向 / 15分足:下方向 / 1時間足:中央 → 3時間足の方向が一致していません",
+      "timeframes_note": "5分足:中央 / 15分足:下方向 / 1時間足:中央 → 3時間足の方向が一致していません",
       "calc_note": "3時間足の方向が揃っていないため、基本値50%のままです。"
     }
   },
@@ -27,59 +27,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -1.49,
+      "position_sigma": -0.43,
       "trend": "FLAT",
-      "momentum": "DOWN",
-      "mid": 159.007,
-      "upper": 159.045,
-      "lower": 158.968
+      "momentum": "FLAT",
+      "mid": 158.991,
+      "upper": 159.024,
+      "lower": 158.958
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -1.72,
+      "position_sigma": -1.32,
       "trend": "FLAT",
       "momentum": "DOWN",
-      "mid": 159.059,
-      "upper": 159.153,
-      "lower": 158.965
+      "mid": 159.048,
+      "upper": 159.135,
+      "lower": 158.962
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 1.01,
+      "position_sigma": 0.98,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 158.837,
-      "upper": 159.116,
-      "lower": 158.558
+      "mid": 158.846,
+      "upper": 159.127,
+      "lower": 158.565
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0445,
-      "signal": 0.0258,
-      "histogram": 0.0187,
+      "macd": 0.0485,
+      "signal": 0.0309,
+      "histogram": 0.0177,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 56.0,
+      "value": 56.2,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 158.989,
+      "ma5": 159.0,
       "ma25": 158.89,
-      "ma75": 158.853,
-      "ma200": 159.153,
-      "price": 158.978,
+      "ma75": 158.845,
+      "ma200": 159.152,
+      "price": 158.984,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 158.863,
-      "upper": 159.152,
-      "lower": 158.574,
-      "price": 158.978,
+      "mid": 158.867,
+      "upper": 159.161,
+      "lower": 158.573,
+      "price": 158.984,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -94,12 +94,12 @@
     "jp10y_trend": "flat",
     "jp10y_latest": 2.894,
     "dxy_trend": "flat",
-    "dxy_latest": 98.82,
+    "dxy_latest": 98.83,
     "gold_trend": "up",
-    "gold_latest": 4676.3
+    "gold_latest": 4674.8
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在158.98円付近で推移（直近1時間比-0.03%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在158.99円付近で推移（直近1時間比+0.02%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
@@ -180,43 +180,43 @@
   "currency_strength": [
     {
       "code": "AUD",
-      "change_pct": 0.89,
-      "strength_score": 35.6
+      "change_pct": 0.8,
+      "strength_score": 32.1
     },
     {
       "code": "NZD",
-      "change_pct": 0.64,
-      "strength_score": 25.6
-    },
-    {
-      "code": "GBP",
-      "change_pct": 0.14,
-      "strength_score": 5.5
+      "change_pct": 0.55,
+      "strength_score": 22.0
     },
     {
       "code": "CAD",
-      "change_pct": 0.14,
-      "strength_score": 5.5
+      "change_pct": 0.13,
+      "strength_score": 5.2
+    },
+    {
+      "code": "GBP",
+      "change_pct": 0.08,
+      "strength_score": 3.2
     },
     {
       "code": "JPY",
-      "change_pct": 0.03,
-      "strength_score": 1.1
+      "change_pct": -0.02,
+      "strength_score": -0.7
     },
     {
       "code": "EUR",
-      "change_pct": 0.02,
-      "strength_score": 0.9
+      "change_pct": -0.05,
+      "strength_score": -1.9
     },
     {
       "code": "CHF",
-      "change_pct": -0.09,
-      "strength_score": -3.4
+      "change_pct": -0.14,
+      "strength_score": -5.6
     },
     {
       "code": "USD",
-      "change_pct": -0.25,
-      "strength_score": -10.1
+      "change_pct": -0.19,
+      "strength_score": -7.8
     }
   ]
 }
