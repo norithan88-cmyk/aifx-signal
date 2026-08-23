@@ -1,6 +1,60 @@
 {
   "events": [
     {
+      "title": "円建てCME先物は21日の225先物比330円高の65915円で推移",
+      "link": "https://zai.diamond.jp/articles/-/494396",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-23T21:46:39+00:00",
+      "detected_at_utc": "2026-08-23T21:54:20.907140+00:00",
+      "baseline": {
+        "t": "2026-08-23T21:54:20.907140+00:00",
+        "price": 158.94,
+        "dxy": 98.8,
+        "usd_strength_score": -7.2
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "本日のスケジュール",
+      "link": "https://zai.diamond.jp/articles/-/494395",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-23T21:40:06+00:00",
+      "detected_at_utc": "2026-08-23T21:54:20.907140+00:00",
+      "baseline": {
+        "t": "2026-08-23T21:54:20.907140+00:00",
+        "price": 158.94,
+        "dxy": 98.8,
+        "usd_strength_score": -7.2
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "ドル円、軟調　158.56円まで下押し",
+      "link": "https://zai.diamond.jp/articles/-/494394",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-23T21:38:00+00:00",
+      "detected_at_utc": "2026-08-23T21:54:20.907140+00:00",
+      "baseline": {
+        "t": "2026-08-23T21:54:20.907140+00:00",
+        "price": 158.94,
+        "dxy": 98.8,
+        "usd_strength_score": -7.2
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "世界各国通貨に対する円：対ドル0.03%高、対ユーロ0.02%高",
       "link": "https://zai.diamond.jp/articles/-/494392",
       "source": "ザイFX！",
@@ -2678,148 +2732,7 @@
       "relevance": "low",
       "summary": "「東京外国為替市場概況・10時　ドル円、買い戻し」の報道後、USD/JPYは4時間で-0.08%。DXYは98.78から98.72へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "ドル円、小高い　159.08円付近まで反発",
-      "link": "https://zai.diamond.jp/articles/-/494330",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-21T00:36:00+00:00",
-      "detected_at_utc": "2026-08-21T01:54:50.629193+00:00",
-      "baseline": {
-        "t": "2026-08-21T01:54:50.629193+00:00",
-        "price": 158.976,
-        "dxy": 98.78,
-        "usd_strength_score": -2.9
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-21T03:06:03.236343+00:00",
-          "price": 158.983,
-          "dxy": 98.7,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.004
-        },
-        "1h": {
-          "t": "2026-08-21T03:06:03.236343+00:00",
-          "price": 158.983,
-          "dxy": 98.7,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.004
-        },
-        "2h": {
-          "t": "2026-08-21T03:59:17.477581+00:00",
-          "price": 159.0,
-          "dxy": 98.76,
-          "usd_strength_score": -6.6,
-          "delta_price_pct": 0.015
-        },
-        "4h": {
-          "t": "2026-08-21T05:57:28.351910+00:00",
-          "price": 158.844,
-          "dxy": 98.72,
-          "usd_strength_score": -3.6,
-          "delta_price_pct": -0.083
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル円、小高い　159.08円付近まで反発」の報道後、USD/JPYは4時間で-0.08%。DXYは98.78から98.72へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "日経平均寄り付き：前日比789.10円安の65427.69円",
-      "link": "https://zai.diamond.jp/articles/-/494329",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-21T00:02:52+00:00",
-      "detected_at_utc": "2026-08-21T01:54:50.629193+00:00",
-      "baseline": {
-        "t": "2026-08-21T01:54:50.629193+00:00",
-        "price": 158.976,
-        "dxy": 98.78,
-        "usd_strength_score": -2.9
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-21T03:06:03.236343+00:00",
-          "price": 158.983,
-          "dxy": 98.7,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.004
-        },
-        "1h": {
-          "t": "2026-08-21T03:06:03.236343+00:00",
-          "price": 158.983,
-          "dxy": 98.7,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.004
-        },
-        "2h": {
-          "t": "2026-08-21T03:59:17.477581+00:00",
-          "price": 159.0,
-          "dxy": 98.76,
-          "usd_strength_score": -6.6,
-          "delta_price_pct": 0.015
-        },
-        "4h": {
-          "t": "2026-08-21T05:57:28.351910+00:00",
-          "price": 158.844,
-          "dxy": 98.72,
-          "usd_strength_score": -3.6,
-          "delta_price_pct": -0.083
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「日経平均寄り付き：前日比789.10円安の65427.69円」の報道後、USD/JPYは4時間で-0.08%。DXYは98.78から98.72へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "NY金先物は続伸、FOMC議事要旨消化も金融政策の不透明感で買い優勢",
-      "link": "https://zai.diamond.jp/articles/-/494328",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-20T23:52:10+00:00",
-      "detected_at_utc": "2026-08-21T00:03:06.831381+00:00",
-      "baseline": {
-        "t": "2026-08-21T00:03:06.831381+00:00",
-        "price": 158.929,
-        "dxy": 98.8,
-        "usd_strength_score": -2.8
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-21T01:54:50.629193+00:00",
-          "price": 158.976,
-          "dxy": 98.78,
-          "usd_strength_score": -2.9,
-          "delta_price_pct": 0.03
-        },
-        "1h": {
-          "t": "2026-08-21T01:54:50.629193+00:00",
-          "price": 158.976,
-          "dxy": 98.78,
-          "usd_strength_score": -2.9,
-          "delta_price_pct": 0.03
-        },
-        "2h": {
-          "t": "2026-08-21T03:06:03.236343+00:00",
-          "price": 158.983,
-          "dxy": 98.7,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.034
-        },
-        "4h": {
-          "t": "2026-08-21T04:49:08.624248+00:00",
-          "price": 159.049,
-          "dxy": 98.76,
-          "usd_strength_score": -1.5,
-          "delta_price_pct": 0.076
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「NY金先物は続伸、FOMC議事要旨消化も金融政策の不透明感で買い優勢」の報道後、USD/JPYは4時間で+0.08%。DXYは98.80から98.76へ低下、USD強弱スコアも-3から-2へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-23T21:32:42.020429+00:00"
+  "updated_at_utc": "2026-08-23T21:54:20.907140+00:00"
 }
