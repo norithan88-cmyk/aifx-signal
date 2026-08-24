@@ -7,17 +7,17 @@
         "entry": 158.862,
         "take_profit": 158.731,
         "stop_loss": 159.013,
-        "status": "OPEN",
-        "closed_at_utc": null,
-        "closed_price": null,
-        "pips": null
+        "status": "LOSS",
+        "closed_at_utc": "2026-08-24T07:16:42.350819+00:00",
+        "closed_price": 159.121,
+        "pips": -25.9
       }
     ],
     "stats": {
-      "total_closed": 0,
+      "total_closed": 1,
       "wins": 0,
-      "win_rate_pct": null,
-      "total_pips": 0.0
+      "win_rate_pct": 0.0,
+      "total_pips": -25.9
     }
   },
   "30": {
@@ -29,7 +29,7 @@
       "total_pips": 0.0
     }
   },
-  "updated_at_utc": "2026-08-24T06:03:25.057741+00:00",
+  "updated_at_utc": "2026-08-24T07:16:42.350819+00:00",
   "50": {
     "trades": [
       {
