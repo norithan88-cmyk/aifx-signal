@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "title": "【NY市場の経済指標とイベ ン ト】",
+      "link": "https://zai.diamond.jp/articles/-/494435",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-24T12:10:11+00:00",
+      "detected_at_utc": "2026-08-24T12:18:37.700870+00:00",
+      "baseline": {
+        "t": "2026-08-24T12:18:37.700870+00:00",
+        "price": 159.027,
+        "dxy": 98.99,
+        "usd_strength_score": 9.5
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "ドル円　159.00円前後まで弱含み、米国債バイバック資金に一般会計活用報道",
+      "link": "https://zai.diamond.jp/articles/-/494434",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-24T11:47:00+00:00",
+      "detected_at_utc": "2026-08-24T12:18:37.700870+00:00",
+      "baseline": {
+        "t": "2026-08-24T12:18:37.700870+00:00",
+        "price": 159.027,
+        "dxy": 98.99,
+        "usd_strength_score": 9.5
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ドル・円は底堅い、ドル売りは限定的",
       "link": "https://zai.diamond.jp/articles/-/494433",
       "source": "ザイFX！",
@@ -19,11 +55,18 @@
           "dxy": 98.94,
           "usd_strength_score": 10.4,
           "delta_price_pct": -0.119
+        },
+        "1h": {
+          "t": "2026-08-24T12:18:37.700870+00:00",
+          "price": 159.027,
+          "dxy": 98.99,
+          "usd_strength_score": 9.5,
+          "delta_price_pct": -0.118
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は底堅い、ドル売りは限定的」の報道後、USD/JPYは30分で-0.12%。DXYは99.01から98.94へ低下、USD強弱スコアも+13から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は底堅い、ドル売りは限定的」の報道後、USD/JPYは1時間で-0.12%。DXYは99.01から98.99へ低下、USD強弱スコアも+13から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -45,11 +88,18 @@
           "dxy": 98.94,
           "usd_strength_score": 10.4,
           "delta_price_pct": -0.119
+        },
+        "1h": {
+          "t": "2026-08-24T12:18:37.700870+00:00",
+          "price": 159.027,
+          "dxy": 98.99,
+          "usd_strength_score": 9.5,
+          "delta_price_pct": -0.118
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州外国為替市場概況・20時　ドル円、上昇一服」の報道後、USD/JPYは30分で-0.12%。DXYは99.01から98.94へ低下、USD強弱スコアも+13から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「欧州外国為替市場概況・20時　ドル円、上昇一服」の報道後、USD/JPYは1時間で-0.12%。DXYは99.01から98.99へ低下、USD強弱スコアも+13から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -71,11 +121,18 @@
           "dxy": 98.94,
           "usd_strength_score": 10.4,
           "delta_price_pct": -0.106
+        },
+        "1h": {
+          "t": "2026-08-24T12:18:37.700870+00:00",
+          "price": 159.027,
+          "dxy": 98.99,
+          "usd_strength_score": 9.5,
+          "delta_price_pct": -0.106
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY為替見通し＝ドル円、中東情勢や米国債券市場を睨みながらの展開か」の報道後、USD/JPYは30分で-0.11%。DXYは98.98から98.94へ低下、USD強弱スコアも+14から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「NY為替見通し＝ドル円、中東情勢や米国債券市場を睨みながらの展開か」の報道後、USD/JPYは1時間で-0.11%。DXYは98.98から98.99へ上昇、USD強弱スコアも+14から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -97,11 +154,18 @@
           "dxy": 98.94,
           "usd_strength_score": 10.4,
           "delta_price_pct": -0.106
+        },
+        "1h": {
+          "t": "2026-08-24T12:18:37.700870+00:00",
+          "price": 159.027,
+          "dxy": 98.99,
+          "usd_strength_score": 9.5,
+          "delta_price_pct": -0.106
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は伸び悩み、材料難で様子見」の報道後、USD/JPYは30分で-0.11%。DXYは98.98から98.94へ低下、USD強弱スコアも+14から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は伸び悩み、材料難で様子見」の報道後、USD/JPYは1時間で-0.11%。DXYは98.98から98.99へ上昇、USD強弱スコアも+14から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -130,11 +194,18 @@
           "dxy": 99.01,
           "usd_strength_score": 13.1,
           "delta_price_pct": 0.018
+        },
+        "2h": {
+          "t": "2026-08-24T12:18:37.700870+00:00",
+          "price": 159.027,
+          "dxy": 98.99,
+          "usd_strength_score": 9.5,
+          "delta_price_pct": -0.101
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は底堅い、上昇基調を維持」の報道後、USD/JPYは1時間で+0.02%。DXYは98.99から99.01へ上昇、USD強弱スコアも+11から+13へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は底堅い、上昇基調を維持」の報道後、USD/JPYは2時間で-0.10%。DXYは98.99から98.99へ横ばい、USD強弱スコアも+11から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -330,12 +401,19 @@
           "dxy": 98.98,
           "usd_strength_score": 13.8,
           "delta_price_pct": 0.002
+        },
+        "4h": {
+          "t": "2026-08-24T12:18:37.700870+00:00",
+          "price": 159.027,
+          "dxy": 98.99,
+          "usd_strength_score": 9.5,
+          "delta_price_pct": -0.104
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル円、一時159.14円まで上昇　先週末高値をわずかに上抜け」の報道後、USD/JPYは2時間で+0.00%。DXYは98.96から98.98へ上昇、USD強弱スコアも+11から+14へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル円、一時159.14円まで上昇　先週末高値をわずかに上抜け」の報道後、USD/JPYは4時間で-0.10%。DXYは98.96から98.99へ上昇、USD強弱スコアも+11から+10へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル・円は伸び悩みか、米財政再建に期待感も為替介入に警戒",
@@ -2592,101 +2670,7 @@
       "relevance": "low",
       "summary": "「【ＮＹ為替オープニング】米財務省の介入効果限定的との見方も、金利上昇でドル下げ止まる」の報道後、USD/JPYは4時間で+0.13%。DXYは98.80から98.79へ低下、USD強弱スコアも-10から-10へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "【速報】ドル・円158.85円、製造業PMIは予想外に下方修正もサービス業PMIは上方修正",
-      "link": "https://zai.diamond.jp/articles/-/494370",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-21T13:50:32+00:00",
-      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
-      "baseline": {
-        "t": "2026-08-21T13:57:05.926634+00:00",
-        "price": 158.795,
-        "dxy": 98.8,
-        "usd_strength_score": -9.6
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-21T14:44:21.471605+00:00",
-          "price": 158.94,
-          "dxy": 98.88,
-          "usd_strength_score": -7.2,
-          "delta_price_pct": 0.091
-        },
-        "1h": {
-          "t": "2026-08-21T15:17:26.993411+00:00",
-          "price": 159.023,
-          "dxy": 98.87,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.144
-        },
-        "2h": {
-          "t": "2026-08-21T16:34:17.979079+00:00",
-          "price": 158.936,
-          "dxy": 98.81,
-          "usd_strength_score": -11.6,
-          "delta_price_pct": 0.089
-        },
-        "4h": {
-          "t": "2026-08-21T18:14:08.324247+00:00",
-          "price": 159.0,
-          "dxy": 98.79,
-          "usd_strength_score": -10.4,
-          "delta_price_pct": 0.129
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【速報】ドル・円158.85円、製造業PMIは予想外に下方修正もサービス業PMIは上方修正」の報道後、USD/JPYは4時間で+0.13%。DXYは98.80から98.79へ低下、USD強弱スコアも-10から-10へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【速報】米・8月製造業PMI速報値は53.2",
-      "link": "https://zai.diamond.jp/articles/-/494369",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-21T13:48:12+00:00",
-      "detected_at_utc": "2026-08-21T13:57:05.926634+00:00",
-      "baseline": {
-        "t": "2026-08-21T13:57:05.926634+00:00",
-        "price": 158.795,
-        "dxy": 98.8,
-        "usd_strength_score": -9.6
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-21T14:44:21.471605+00:00",
-          "price": 158.94,
-          "dxy": 98.88,
-          "usd_strength_score": -7.2,
-          "delta_price_pct": 0.091
-        },
-        "1h": {
-          "t": "2026-08-21T15:17:26.993411+00:00",
-          "price": 159.023,
-          "dxy": 98.87,
-          "usd_strength_score": -7.0,
-          "delta_price_pct": 0.144
-        },
-        "2h": {
-          "t": "2026-08-21T16:34:17.979079+00:00",
-          "price": 158.936,
-          "dxy": 98.81,
-          "usd_strength_score": -11.6,
-          "delta_price_pct": 0.089
-        },
-        "4h": {
-          "t": "2026-08-21T18:14:08.324247+00:00",
-          "price": 159.0,
-          "dxy": 98.79,
-          "usd_strength_score": -10.4,
-          "delta_price_pct": 0.129
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【速報】米・8月製造業PMI速報値は53.2」の報道後、USD/JPYは4時間で+0.13%。DXYは98.80から98.79へ低下、USD強弱スコアも-10から-10へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-24T11:48:11.214182+00:00"
+  "updated_at_utc": "2026-08-24T12:18:37.700870+00:00"
 }
