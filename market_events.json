@@ -12,10 +12,18 @@
         "dxy": 98.91,
         "usd_strength_score": -3.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T22:47:35.431089+00:00",
+          "price": 159.193,
+          "dxy": 98.9,
+          "usd_strength_score": -3.9,
+          "delta_price_pct": -0.018
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「円建てCME先物は25日の225先物比695円高の66060円で推移」の報道後、USD/JPYは30分で-0.02%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +38,18 @@
         "dxy": 98.9,
         "usd_strength_score": -2.9
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T22:47:35.431089+00:00",
+          "price": 159.193,
+          "dxy": 98.9,
+          "usd_strength_score": -3.9,
+          "delta_price_pct": 0.014
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「本日のスケジュール」の報道後、USD/JPYは30分で+0.01%。DXYは98.90から98.90へ横ばい、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -55,11 +71,18 @@
           "dxy": 98.9,
           "usd_strength_score": -2.9,
           "delta_price_pct": -0.021
+        },
+        "1h": {
+          "t": "2026-08-25T22:47:35.431089+00:00",
+          "price": 159.193,
+          "dxy": 98.9,
+          "usd_strength_score": -3.9,
+          "delta_price_pct": -0.007
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「[通貨オプション]レンジ相場を受け、オプション売り」の報道後、USD/JPYは30分で-0.02%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「[通貨オプション]レンジ相場を受け、オプション売り」の報道後、USD/JPYは1時間で-0.01%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -81,11 +104,18 @@
           "dxy": 98.9,
           "usd_strength_score": -2.9,
           "delta_price_pct": -0.021
+        },
+        "1h": {
+          "t": "2026-08-25T22:47:35.431089+00:00",
+          "price": 159.193,
+          "dxy": 98.9,
+          "usd_strength_score": -3.9,
+          "delta_price_pct": -0.007
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「8月25日のNY為替・原油概況」の報道後、USD/JPYは30分で-0.02%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「8月25日のNY為替・原油概況」の報道後、USD/JPYは1時間で-0.01%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -107,11 +137,18 @@
           "dxy": 98.9,
           "usd_strength_score": -2.9,
           "delta_price_pct": -0.021
+        },
+        "1h": {
+          "t": "2026-08-25T22:47:35.431089+00:00",
+          "price": 159.193,
+          "dxy": 98.9,
+          "usd_strength_score": -3.9,
+          "delta_price_pct": -0.007
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況・25日　ユーロドル、小反発」の報道後、USD/JPYは30分で-0.02%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ニューヨーク外国為替市場概況・25日　ユーロドル、小反発」の報道後、USD/JPYは1時間で-0.01%。DXYは98.91から98.90へ低下、USD強弱スコアも-3から-4へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2665,5 +2702,5 @@
       "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-25T22:11:30.693143+00:00"
+  "updated_at_utc": "2026-08-25T22:47:35.431089+00:00"
 }
