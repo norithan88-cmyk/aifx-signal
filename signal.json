@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-08-25T07:13:48.716028+00:00",
+  "generated_at_utc": "2026-08-25T08:02:07.641996+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.363,
-  "day_change_pct": 0.1,
+  "latest_price": 159.426,
+  "day_change_pct": 0.14,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -27,63 +27,63 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -0.76,
+      "position_sigma": -0.41,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 159.372,
-      "upper": 159.409,
-      "lower": 159.335
+      "mid": 159.434,
+      "upper": 159.475,
+      "lower": 159.393
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.79,
+      "position_sigma": 0.01,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 159.397,
-      "upper": 159.497,
-      "lower": 159.298
+      "mid": 159.424,
+      "upper": 159.515,
+      "lower": 159.334
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.15,
+      "position_sigma": 0.54,
       "trend": "UP",
       "momentum": "FLAT",
-      "mid": 159.345,
-      "upper": 159.511,
-      "lower": 159.179
+      "mid": 159.379,
+      "upper": 159.551,
+      "lower": 159.207
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0938,
-      "signal": 0.0819,
-      "histogram": 0.0119,
+      "macd": 0.1051,
+      "signal": 0.0888,
+      "histogram": 0.0163,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 62.6,
+      "value": 67.0,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.354,
-      "ma25": 159.2,
-      "ma75": 158.959,
-      "ma200": 159.122,
-      "price": 159.358,
+      "ma5": 159.406,
+      "ma25": 159.214,
+      "ma75": 158.972,
+      "ma200": 159.123,
+      "price": 159.425,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.215,
-      "upper": 159.437,
-      "lower": 158.993,
-      "price": 159.358,
+      "mid": 159.238,
+      "upper": 159.49,
+      "lower": 158.987,
+      "price": 159.425,
       "state": "INSIDE"
     },
     "support_resistance": {
-      "resistance": 159.425,
+      "resistance": 159.456,
       "support": 158.347
     }
   },
@@ -96,10 +96,10 @@
     "dxy_trend": "flat",
     "dxy_latest": 99.07,
     "gold_trend": "up",
-    "gold_latest": 4695.0
+    "gold_latest": 4689.6
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.36円付近で推移（直近1時間比+0.10%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.43円付近で推移（直近1時間比+0.14%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
@@ -185,38 +185,38 @@
     },
     {
       "code": "GBP",
-      "change_pct": 0.06,
-      "strength_score": 2.3
+      "change_pct": 0.1,
+      "strength_score": 3.8
     },
     {
       "code": "EUR",
-      "change_pct": -0.05,
-      "strength_score": -1.9
-    },
-    {
-      "code": "JPY",
-      "change_pct": -0.1,
-      "strength_score": -4.0
+      "change_pct": -0.02,
+      "strength_score": -0.9
     },
     {
       "code": "CHF",
-      "change_pct": -0.15,
-      "strength_score": -5.9
+      "change_pct": -0.13,
+      "strength_score": -5.2
     },
     {
       "code": "CAD",
-      "change_pct": -0.16,
-      "strength_score": -6.3
+      "change_pct": -0.14,
+      "strength_score": -5.5
+    },
+    {
+      "code": "JPY",
+      "change_pct": -0.14,
+      "strength_score": -5.7
     },
     {
       "code": "AUD",
-      "change_pct": -0.24,
-      "strength_score": -9.7
+      "change_pct": -0.26,
+      "strength_score": -10.6
     },
     {
       "code": "NZD",
-      "change_pct": -0.25,
-      "strength_score": -10.0
+      "change_pct": -0.29,
+      "strength_score": -11.7
     }
   ]
 }
