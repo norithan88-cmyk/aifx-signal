@@ -1,6 +1,78 @@
 {
   "events": [
     {
+      "title": "【まもなく】米・8月リッチモンド連銀製造業指数の発表です（日本時間23：00）",
+      "link": "https://zai.diamond.jp/articles/-/494517",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-25T13:43:42+00:00",
+      "detected_at_utc": "2026-08-25T14:00:02.141451+00:00",
+      "baseline": {
+        "t": "2026-08-25T14:00:02.141451+00:00",
+        "price": 159.196,
+        "dxy": 98.95,
+        "usd_strength_score": -2.7
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "【まもなく】米・7月消費者信頼感指数の発表です（日本時間23：00）",
+      "link": "https://zai.diamond.jp/articles/-/494516",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-25T13:43:07+00:00",
+      "detected_at_utc": "2026-08-25T14:00:02.141451+00:00",
+      "baseline": {
+        "t": "2026-08-25T14:00:02.141451+00:00",
+        "price": 159.196,
+        "dxy": 98.95,
+        "usd_strength_score": -2.7
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "【市場反応】米6月FHFA住宅価格指数/20都市住宅価格指数/8月フィラデルフィア連銀非製造業活動など、ドル軟調",
+      "link": "https://zai.diamond.jp/articles/-/494515",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-25T13:40:10+00:00",
+      "detected_at_utc": "2026-08-25T14:00:02.141451+00:00",
+      "baseline": {
+        "t": "2026-08-25T14:00:02.141451+00:00",
+        "price": 159.196,
+        "dxy": 98.95,
+        "usd_strength_score": -2.7
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "欧州外国為替市場概況・22時　ドル円、もみ合い",
+      "link": "https://zai.diamond.jp/articles/-/494514",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-25T13:05:00+00:00",
+      "detected_at_utc": "2026-08-25T14:00:02.141451+00:00",
+      "baseline": {
+        "t": "2026-08-25T14:00:02.141451+00:00",
+        "price": 159.196,
+        "dxy": 98.95,
+        "usd_strength_score": -2.7
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "【速報】米・6月S&PコアロジックCS20都市住宅価格指数は＋2.1％",
       "link": "https://zai.diamond.jp/articles/-/494513",
       "source": "ザイFX！",
@@ -12,10 +84,18 @@
         "dxy": 99.01,
         "usd_strength_score": -0.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.055
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【速報】米・6月S&PコアロジックCS20都市住宅価格指数は＋2.1％」の報道後、USD/JPYは30分で-0.06%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +110,18 @@
         "dxy": 99.01,
         "usd_strength_score": -0.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.055
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【速報】米・6月FHFA住宅価格指数は0％」の報道後、USD/JPYは30分で-0.06%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -48,10 +136,18 @@
         "dxy": 99.01,
         "usd_strength_score": -0.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.055
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【まもなく】米・6月FHFA住宅価格指数の発表です（日本時間22：00）」の報道後、USD/JPYは30分で-0.06%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -66,10 +162,18 @@
         "dxy": 99.01,
         "usd_strength_score": -0.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.055
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【速報】ドル・円159.27円、ドル堅調、米・8月フィラデルフィア連銀非製造業活動は予想外のマイナス」の報道後、USD/JPYは30分で-0.06%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -84,10 +188,18 @@
         "dxy": 99.01,
         "usd_strength_score": -0.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.055
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「米・ADP週次雇用統計4週平均は＋1.175万人」の報道後、USD/JPYは30分で-0.06%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -102,10 +214,18 @@
         "dxy": 99.01,
         "usd_strength_score": -0.0
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.055
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「【速報】米・8月フィラデルフィア連銀非製造業活動は－10.6」の報道後、USD/JPYは30分で-0.06%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -134,11 +254,18 @@
           "dxy": 99.01,
           "usd_strength_score": -0.0,
           "delta_price_pct": -0.017
+        },
+        "2h": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.072
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は小動き、ドルの戻り一服」の報道後、USD/JPYは1時間で-0.02%。DXYは99.05から99.01へ低下、USD強弱スコアも+4から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は小動き、ドルの戻り一服」の報道後、USD/JPYは2時間で-0.07%。DXYは99.05から98.95へ低下、USD強弱スコアも+4から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -167,11 +294,18 @@
           "dxy": 99.01,
           "usd_strength_score": -0.0,
           "delta_price_pct": -0.017
+        },
+        "2h": {
+          "t": "2026-08-25T14:00:02.141451+00:00",
+          "price": 159.196,
+          "dxy": 98.95,
+          "usd_strength_score": -2.7,
+          "delta_price_pct": -0.072
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州外国為替市場概況・20時　ドル円、伸び悩み」の報道後、USD/JPYは1時間で-0.02%。DXYは99.05から99.01へ低下、USD強弱スコアも+4から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「欧州外国為替市場概況・20時　ドル円、伸び悩み」の報道後、USD/JPYは2時間で-0.07%。DXYは99.05から98.95へ低下、USD強弱スコアも+4から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2401,195 +2535,7 @@
       "relevance": "low",
       "summary": "「【ベッセント米財務長官】「米国は他国にも同様の行動を求める」」の報道後、USD/JPYは4時間で-0.07%。DXYは99.04から98.98へ低下、USD強弱スコアも+14から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "【ベッセント米財務長官 】「米国はイラン資金の洗浄に関与すればドルへのアクセスを遮断する」",
-      "link": "https://zai.diamond.jp/articles/-/494451",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-24T17:13:55+00:00",
-      "detected_at_utc": "2026-08-24T17:17:33.977519+00:00",
-      "baseline": {
-        "t": "2026-08-24T17:17:33.977519+00:00",
-        "price": 159.068,
-        "dxy": 99.0,
-        "usd_strength_score": 11.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-24T17:52:51.297290+00:00",
-          "price": 159.184,
-          "dxy": 99.04,
-          "usd_strength_score": 13.8,
-          "delta_price_pct": 0.073
-        },
-        "1h": {
-          "t": "2026-08-24T18:37:19.506879+00:00",
-          "price": 159.193,
-          "dxy": 99.0,
-          "usd_strength_score": 11.1,
-          "delta_price_pct": 0.079
-        },
-        "2h": {
-          "t": "2026-08-24T19:49:23.691033+00:00",
-          "price": 159.139,
-          "dxy": 99.03,
-          "usd_strength_score": 11.0,
-          "delta_price_pct": 0.045
-        },
-        "4h": {
-          "t": "2026-08-24T21:30:30.905529+00:00",
-          "price": 159.028,
-          "dxy": 98.99,
-          "usd_strength_score": 9.1,
-          "delta_price_pct": -0.025
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【ベッセント米財務長官 】「米国はイラン資金の洗浄に関与すればドルへのアクセスを遮断する」」の報道後、USD/JPYは4時間で-0.03%。DXYは99.00から98.99へ低下、USD強弱スコアも+11から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【ベッセント米財務長官 】「トランプ大統領が一部の諸国にイランとの取引停止を要請」",
-      "link": "https://zai.diamond.jp/articles/-/494450",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-24T17:09:59+00:00",
-      "detected_at_utc": "2026-08-24T17:17:33.977519+00:00",
-      "baseline": {
-        "t": "2026-08-24T17:17:33.977519+00:00",
-        "price": 159.068,
-        "dxy": 99.0,
-        "usd_strength_score": 11.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-24T17:52:51.297290+00:00",
-          "price": 159.184,
-          "dxy": 99.04,
-          "usd_strength_score": 13.8,
-          "delta_price_pct": 0.073
-        },
-        "1h": {
-          "t": "2026-08-24T18:37:19.506879+00:00",
-          "price": 159.193,
-          "dxy": 99.0,
-          "usd_strength_score": 11.1,
-          "delta_price_pct": 0.079
-        },
-        "2h": {
-          "t": "2026-08-24T19:49:23.691033+00:00",
-          "price": 159.139,
-          "dxy": 99.03,
-          "usd_strength_score": 11.0,
-          "delta_price_pct": 0.045
-        },
-        "4h": {
-          "t": "2026-08-24T21:30:30.905529+00:00",
-          "price": 159.028,
-          "dxy": 98.99,
-          "usd_strength_score": 9.1,
-          "delta_price_pct": -0.025
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【ベッセント米財務長官 】「トランプ大統領が一部の諸国にイランとの取引停止を要請」」の報道後、USD/JPYは4時間で-0.03%。DXYは99.00から98.99へ低下、USD強弱スコアも+11から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【ベッセント米財務長官】「米財務省は対イラン経済的猛攻を開始」",
-      "link": "https://zai.diamond.jp/articles/-/494449",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-24T17:08:26+00:00",
-      "detected_at_utc": "2026-08-24T17:17:33.977519+00:00",
-      "baseline": {
-        "t": "2026-08-24T17:17:33.977519+00:00",
-        "price": 159.068,
-        "dxy": 99.0,
-        "usd_strength_score": 11.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-24T17:52:51.297290+00:00",
-          "price": 159.184,
-          "dxy": 99.04,
-          "usd_strength_score": 13.8,
-          "delta_price_pct": 0.073
-        },
-        "1h": {
-          "t": "2026-08-24T18:37:19.506879+00:00",
-          "price": 159.193,
-          "dxy": 99.0,
-          "usd_strength_score": 11.1,
-          "delta_price_pct": 0.079
-        },
-        "2h": {
-          "t": "2026-08-24T19:49:23.691033+00:00",
-          "price": 159.139,
-          "dxy": 99.03,
-          "usd_strength_score": 11.0,
-          "delta_price_pct": 0.045
-        },
-        "4h": {
-          "t": "2026-08-24T21:30:30.905529+00:00",
-          "price": 159.028,
-          "dxy": 98.99,
-          "usd_strength_score": 9.1,
-          "delta_price_pct": -0.025
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【ベッセント米財務長官】「米財務省は対イラン経済的猛攻を開始」」の報道後、USD/JPYは4時間で-0.03%。DXYは99.00から98.99へ低下、USD強弱スコアも+11から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ニューヨーク外国為替市場概況･2時　ドル円　伸び悩む",
-      "link": "https://zai.diamond.jp/articles/-/494448",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-24T17:05:00+00:00",
-      "detected_at_utc": "2026-08-24T17:17:33.977519+00:00",
-      "baseline": {
-        "t": "2026-08-24T17:17:33.977519+00:00",
-        "price": 159.068,
-        "dxy": 99.0,
-        "usd_strength_score": 11.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-24T17:52:51.297290+00:00",
-          "price": 159.184,
-          "dxy": 99.04,
-          "usd_strength_score": 13.8,
-          "delta_price_pct": 0.073
-        },
-        "1h": {
-          "t": "2026-08-24T18:37:19.506879+00:00",
-          "price": 159.193,
-          "dxy": 99.0,
-          "usd_strength_score": 11.1,
-          "delta_price_pct": 0.079
-        },
-        "2h": {
-          "t": "2026-08-24T19:49:23.691033+00:00",
-          "price": 159.139,
-          "dxy": 99.03,
-          "usd_strength_score": 11.0,
-          "delta_price_pct": 0.045
-        },
-        "4h": {
-          "t": "2026-08-24T21:30:30.905529+00:00",
-          "price": 159.028,
-          "dxy": 98.99,
-          "usd_strength_score": 9.1,
-          "delta_price_pct": -0.025
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況･2時　ドル円　伸び悩む」の報道後、USD/JPYは4時間で-0.03%。DXYは99.00から98.99へ低下、USD強弱スコアも+11から+9へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-25T13:04:05.615927+00:00"
+  "updated_at_utc": "2026-08-25T14:00:02.141451+00:00"
 }
