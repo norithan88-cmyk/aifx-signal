@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "円建てCME先物は25日の225先物比695円高の66060円で推移",
+      "link": "https://zai.diamond.jp/articles/-/494540",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-25T21:55:20+00:00",
+      "detected_at_utc": "2026-08-25T22:11:30.693143+00:00",
+      "baseline": {
+        "t": "2026-08-25T22:11:30.693143+00:00",
+        "price": 159.222,
+        "dxy": 98.91,
+        "usd_strength_score": -3.0
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "本日のスケジュール",
       "link": "https://zai.diamond.jp/articles/-/494539",
       "source": "ザイFX！",
@@ -115,11 +133,18 @@
           "dxy": 98.9,
           "usd_strength_score": -2.9,
           "delta_price_pct": -0.014
+        },
+        "1h": {
+          "t": "2026-08-25T22:11:30.693143+00:00",
+          "price": 159.222,
+          "dxy": 98.91,
+          "usd_strength_score": -3.0,
+          "delta_price_pct": 0.018
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ユーロドル　1.1680ドルまで上昇、米長期金利低下幅拡大でドルが重い動き」の報道後、USD/JPYは30分で-0.01%。DXYは98.90から98.90へ横ばい、USD強弱スコアも-4から-3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ユーロドル　1.1680ドルまで上昇、米長期金利低下幅拡大でドルが重い動き」の報道後、USD/JPYは1時間で+0.02%。DXYは98.90から98.91へ上昇、USD強弱スコアも-4から-3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -275,12 +300,19 @@
           "dxy": 98.89,
           "usd_strength_score": -6.3,
           "delta_price_pct": -0.076
+        },
+        "4h": {
+          "t": "2026-08-25T22:11:30.693143+00:00",
+          "price": 159.222,
+          "dxy": 98.91,
+          "usd_strength_score": -3.0,
+          "delta_price_pct": -0.02
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY外為：ドル売り後退、コリンズ米ボストン連銀総裁は速やかな利上げ適切との見解、改善なければ」の報道後、USD/JPYは2時間で-0.08%。DXYは98.94から98.89へ低下、USD強弱スコアも-4から-6へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY外為：ドル売り後退、コリンズ米ボストン連銀総裁は速やかな利上げ適切との見解、改善なければ」の報道後、USD/JPYは4時間で-0.02%。DXYは98.94から98.91へ低下、USD強弱スコアも-4から-3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ニューヨーク外国為替市場概況･2時　ドル円　もみ合い",
@@ -2631,54 +2663,7 @@
       "relevance": "low",
       "summary": "「東京外国為替市場概況・10時　ドル円、小じっかり」の報道後、USD/JPYは4時間で+0.12%。DXYは98.98から99.07へ上昇、USD強弱スコアも+7から+6へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "ドル・円：159円16銭まで上昇後に伸び悩む",
-      "link": "https://zai.diamond.jp/articles/-/494474",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-25T00:49:05+00:00",
-      "detected_at_utc": "2026-08-25T01:10:55.302819+00:00",
-      "baseline": {
-        "t": "2026-08-25T01:10:55.302819+00:00",
-        "price": 159.142,
-        "dxy": 98.98,
-        "usd_strength_score": 7.4
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-25T02:31:47.626515+00:00",
-          "price": 159.264,
-          "dxy": 99.01,
-          "usd_strength_score": 9.5,
-          "delta_price_pct": 0.077
-        },
-        "1h": {
-          "t": "2026-08-25T02:31:47.626515+00:00",
-          "price": 159.264,
-          "dxy": 99.01,
-          "usd_strength_score": 9.5,
-          "delta_price_pct": 0.077
-        },
-        "2h": {
-          "t": "2026-08-25T03:28:43.398387+00:00",
-          "price": 159.366,
-          "dxy": 99.04,
-          "usd_strength_score": 10.0,
-          "delta_price_pct": 0.141
-        },
-        "4h": {
-          "t": "2026-08-25T05:41:37.566239+00:00",
-          "price": 159.335,
-          "dxy": 99.07,
-          "usd_strength_score": 6.3,
-          "delta_price_pct": 0.121
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル・円：159円16銭まで上昇後に伸び悩む」の報道後、USD/JPYは4時間で+0.12%。DXYは98.98から99.07へ上昇、USD強弱スコアも+7から+6へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-25T21:48:06.453385+00:00"
+  "updated_at_utc": "2026-08-25T22:11:30.693143+00:00"
 }
