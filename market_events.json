@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "title": "ドル・円は小高い、ドル買い継続",
+      "link": "https://zai.diamond.jp/articles/-/494582",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-26T11:10:07+00:00",
+      "detected_at_utc": "2026-08-26T11:37:28.989605+00:00",
+      "baseline": {
+        "t": "2026-08-26T11:37:28.989605+00:00",
+        "price": 159.13,
+        "dxy": 99.04,
+        "usd_strength_score": 2.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "欧州外国為替市場概況・20時　ドル円、引き続き小動き",
+      "link": "https://zai.diamond.jp/articles/-/494581",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-26T11:05:00+00:00",
+      "detected_at_utc": "2026-08-26T11:37:28.989605+00:00",
+      "baseline": {
+        "t": "2026-08-26T11:37:28.989605+00:00",
+        "price": 159.13,
+        "dxy": 99.04,
+        "usd_strength_score": 2.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "NY為替見通し＝ドル円、米7月PCEデフレーターとトリム平均PCEインフレ率に注目",
       "link": "https://zai.diamond.jp/articles/-/494580",
       "source": "ザイFX！",
@@ -12,10 +48,18 @@
         "dxy": 99.02,
         "usd_strength_score": 1.3
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.008
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「NY為替見通し＝ドル円、米7月PCEデフレーターとトリム平均PCEインフレ率に注目」の報道後、USD/JPYは30分で+0.01%。DXYは99.02から99.04へ上昇、USD強弱スコアも+1から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -37,11 +81,18 @@
           "dxy": 99.02,
           "usd_strength_score": 1.3,
           "delta_price_pct": 0.055
+        },
+        "1h": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.064
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は底堅い、米金利にらみ」の報道後、USD/JPYは30分で+0.06%。DXYは99.00から99.02へ上昇、USD強弱スコアも+1から+1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は底堅い、米金利にらみ」の報道後、USD/JPYは1時間で+0.06%。DXYは99.00から99.04へ上昇、USD強弱スコアも+1から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -63,11 +114,18 @@
           "dxy": 99.02,
           "usd_strength_score": 1.3,
           "delta_price_pct": 0.055
+        },
+        "1h": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.064
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は上げ渋り、原油安でドル買い後退」の報道後、USD/JPYは30分で+0.06%。DXYは99.00から99.02へ上昇、USD強弱スコアも+1から+1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は上げ渋り、原油安でドル買い後退」の報道後、USD/JPYは1時間で+0.06%。DXYは99.00から99.04へ上昇、USD強弱スコアも+1から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -289,12 +347,19 @@
           "dxy": 98.99,
           "usd_strength_score": -0.6,
           "delta_price_pct": 0.002
+        },
+        "4h": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.085
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円はもみ合いか、米インフレにらみも160円台の介入に警戒」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル・円はもみ合いか、米インフレにらみも160円台の介入に警戒」の報道後、USD/JPYは4時間で+0.09%。DXYは99.00から99.04へ上昇、USD強弱スコアも-0から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "日経平均大引け：前日比405.73円高の66262.16円",
@@ -329,12 +394,19 @@
           "dxy": 98.99,
           "usd_strength_score": -0.6,
           "delta_price_pct": 0.002
+        },
+        "4h": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.085
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「日経平均大引け：前日比405.73円高の66262.16円」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「日経平均大引け：前日比405.73円高の66262.16円」の報道後、USD/JPYは4時間で+0.09%。DXYは99.00から99.04へ上昇、USD強弱スコアも-0から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "東京外国為替市場概況・15時　ドル円、もみ合い",
@@ -369,12 +441,19 @@
           "dxy": 98.99,
           "usd_strength_score": -0.6,
           "delta_price_pct": 0.002
+        },
+        "4h": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.085
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「東京外国為替市場概況・15時　ドル円、もみ合い」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「東京外国為替市場概況・15時　ドル円、もみ合い」の報道後、USD/JPYは4時間で+0.09%。DXYは99.00から99.04へ上昇、USD強弱スコアも-0から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル・円は下げ渋り、ドルに買戻しも",
@@ -409,12 +488,19 @@
           "dxy": 98.99,
           "usd_strength_score": -0.6,
           "delta_price_pct": 0.002
+        },
+        "4h": {
+          "t": "2026-08-26T11:37:28.989605+00:00",
+          "price": 159.13,
+          "dxy": 99.04,
+          "usd_strength_score": 2.6,
+          "delta_price_pct": 0.085
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は下げ渋り、ドルに買戻しも」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ドル・円は下げ渋り、ドルに買戻しも」の報道後、USD/JPYは4時間で+0.09%。DXYは99.00から99.04へ上昇、USD強弱スコアも-0から+3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NZSX-50指数は14013.21で取引終了",
@@ -2577,101 +2663,7 @@
       "relevance": "low",
       "summary": "「【速報】米・7月新築住宅販売件数は予想下回り60.7万戸」の報道後、USD/JPYは4時間で-0.03%。DXYは98.93から98.92へ低下、USD強弱スコアも-1から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "【まもなく】米・8月リッチモンド連銀製造業指数の発表です（日本時間23：00）",
-      "link": "https://zai.diamond.jp/articles/-/494517",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-25T13:43:42+00:00",
-      "detected_at_utc": "2026-08-25T14:00:02.141451+00:00",
-      "baseline": {
-        "t": "2026-08-25T14:00:02.141451+00:00",
-        "price": 159.196,
-        "dxy": 98.95,
-        "usd_strength_score": -2.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-25T14:57:37.380536+00:00",
-          "price": 159.258,
-          "dxy": 98.93,
-          "usd_strength_score": -1.1,
-          "delta_price_pct": 0.039
-        },
-        "1h": {
-          "t": "2026-08-25T15:53:01.635485+00:00",
-          "price": 159.22,
-          "dxy": 98.94,
-          "usd_strength_score": -4.9,
-          "delta_price_pct": 0.015
-        },
-        "2h": {
-          "t": "2026-08-25T16:35:12.543128+00:00",
-          "price": 159.255,
-          "dxy": 98.97,
-          "usd_strength_score": -2.3,
-          "delta_price_pct": 0.037
-        },
-        "4h": {
-          "t": "2026-08-25T18:21:29.807347+00:00",
-          "price": 159.212,
-          "dxy": 98.91,
-          "usd_strength_score": -2.7,
-          "delta_price_pct": 0.01
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【まもなく】米・8月リッチモンド連銀製造業指数の発表です（日本時間23：00）」の報道後、USD/JPYは4時間で+0.01%。DXYは98.95から98.91へ低下、USD強弱スコアも-3から-3へ横ばい。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【まもなく】米・7月消費者信頼感指数の発表です（日本時間23：00）",
-      "link": "https://zai.diamond.jp/articles/-/494516",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-25T13:43:07+00:00",
-      "detected_at_utc": "2026-08-25T14:00:02.141451+00:00",
-      "baseline": {
-        "t": "2026-08-25T14:00:02.141451+00:00",
-        "price": 159.196,
-        "dxy": 98.95,
-        "usd_strength_score": -2.7
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-25T14:57:37.380536+00:00",
-          "price": 159.258,
-          "dxy": 98.93,
-          "usd_strength_score": -1.1,
-          "delta_price_pct": 0.039
-        },
-        "1h": {
-          "t": "2026-08-25T15:53:01.635485+00:00",
-          "price": 159.22,
-          "dxy": 98.94,
-          "usd_strength_score": -4.9,
-          "delta_price_pct": 0.015
-        },
-        "2h": {
-          "t": "2026-08-25T16:35:12.543128+00:00",
-          "price": 159.255,
-          "dxy": 98.97,
-          "usd_strength_score": -2.3,
-          "delta_price_pct": 0.037
-        },
-        "4h": {
-          "t": "2026-08-25T18:21:29.807347+00:00",
-          "price": 159.212,
-          "dxy": 98.91,
-          "usd_strength_score": -2.7,
-          "delta_price_pct": 0.01
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【まもなく】米・7月消費者信頼感指数の発表です（日本時間23：00）」の報道後、USD/JPYは4時間で+0.01%。DXYは98.95から98.91へ低下、USD強弱スコアも-3から-3へ横ばい。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-26T10:57:45.099397+00:00"
+  "updated_at_utc": "2026-08-26T11:37:28.989605+00:00"
 }
