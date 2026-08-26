@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "ドル・円は伸び悩みか、28日のウォーシュFRB議長講演を控え、積極的な売買は手控えられやすい",
+      "link": "https://zai.diamond.jp/articles/-/494547",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-25T23:49:06+00:00",
+      "detected_at_utc": "2026-08-26T00:01:40.175394+00:00",
+      "baseline": {
+        "t": "2026-08-26T00:01:40.175394+00:00",
+        "price": 159.231,
+        "dxy": 98.92,
+        "usd_strength_score": -2.4
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ドル円、159.24円付近、SGX日経225先物は65945円でスタート",
       "link": "https://zai.diamond.jp/articles/-/494546",
       "source": "ザイFX！",
@@ -66,10 +84,18 @@
         "dxy": 98.9,
         "usd_strength_score": -3.3
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-26T00:01:40.175394+00:00",
+          "price": 159.231,
+          "dxy": 98.92,
+          "usd_strength_score": -2.4,
+          "delta_price_pct": 0.006
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「東京外国為替市場概況・8時　ドル円、小動き」の報道後、USD/JPYは30分で+0.01%。DXYは98.90から98.92へ上昇、USD強弱スコアも-3から-2へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -84,10 +110,18 @@
         "dxy": 98.9,
         "usd_strength_score": -3.3
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-26T00:01:40.175394+00:00",
+          "price": 159.231,
+          "dxy": 98.92,
+          "usd_strength_score": -2.4,
+          "delta_price_pct": 0.006
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「東京為替見通し＝ドル円、週後半のイベントを前に様子見か　豪では月次CPIも」の報道後、USD/JPYは30分で+0.01%。DXYは98.90から98.92へ上昇、USD強弱スコアも-3から-2へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -149,11 +183,18 @@
           "dxy": 98.9,
           "usd_strength_score": -3.3,
           "delta_price_pct": 0.032
+        },
+        "2h": {
+          "t": "2026-08-26T00:01:40.175394+00:00",
+          "price": 159.231,
+          "dxy": 98.92,
+          "usd_strength_score": -2.4,
+          "delta_price_pct": 0.038
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「本日のスケジュール」の報道後、USD/JPYは1時間で+0.03%。DXYは98.90から98.90へ横ばい、USD強弱スコアも-3から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「本日のスケジュール」の報道後、USD/JPYは2時間で+0.04%。DXYは98.90から98.92へ上昇、USD強弱スコアも-3から-2へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -349,12 +390,19 @@
           "dxy": 98.9,
           "usd_strength_score": -2.9,
           "delta_price_pct": -0.009
+        },
+        "4h": {
+          "t": "2026-08-26T00:01:40.175394+00:00",
+          "price": 159.231,
+          "dxy": 98.92,
+          "usd_strength_score": -2.4,
+          "delta_price_pct": 0.028
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「米8月消費者信頼感指数は1月来で最低、インフレや雇用への懸念」の報道後、USD/JPYは2時間で-0.01%。DXYは98.93から98.90へ低下、USD強弱スコアも-4から-3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「米8月消費者信頼感指数は1月来で最低、インフレや雇用への懸念」の報道後、USD/JPYは4時間で+0.03%。DXYは98.93から98.92へ低下、USD強弱スコアも-4から-2へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ニューヨーク外国為替市場概況･4時　ドル円　動意薄",
@@ -389,12 +437,19 @@
           "dxy": 98.9,
           "usd_strength_score": -2.9,
           "delta_price_pct": -0.009
+        },
+        "4h": {
+          "t": "2026-08-26T00:01:40.175394+00:00",
+          "price": 159.231,
+          "dxy": 98.92,
+          "usd_strength_score": -2.4,
+          "delta_price_pct": 0.028
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況･4時　ドル円　動意薄」の報道後、USD/JPYは2時間で-0.01%。DXYは98.93から98.90へ低下、USD強弱スコアも-4から-3へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ニューヨーク外国為替市場概況･4時　ドル円　動意薄」の報道後、USD/JPYは4時間で+0.03%。DXYは98.93から98.92へ低下、USD強弱スコアも-4から-2へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NY市場動向（午後2時台）：ダウ93ドル高、原油先物2.88ドル安",
@@ -2557,54 +2612,7 @@
       "relevance": "low",
       "summary": "「ドル・円は小じっかり、ドル売り後退」の報道後、USD/JPYは4時間で+0.04%。DXYは99.04から99.07へ上昇、USD強弱スコアも+10から+5へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "東京外国為替市場概況・12時　ドル円、強含み",
-      "link": "https://zai.diamond.jp/articles/-/494481",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-25T03:06:00+00:00",
-      "detected_at_utc": "2026-08-25T03:28:43.398387+00:00",
-      "baseline": {
-        "t": "2026-08-25T03:28:43.398387+00:00",
-        "price": 159.366,
-        "dxy": 99.04,
-        "usd_strength_score": 10.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-25T04:18:51.976116+00:00",
-          "price": 159.358,
-          "dxy": 99.06,
-          "usd_strength_score": 9.4,
-          "delta_price_pct": -0.005
-        },
-        "1h": {
-          "t": "2026-08-25T05:00:32.045313+00:00",
-          "price": 159.295,
-          "dxy": 99.07,
-          "usd_strength_score": 9.6,
-          "delta_price_pct": -0.045
-        },
-        "2h": {
-          "t": "2026-08-25T05:41:37.566239+00:00",
-          "price": 159.335,
-          "dxy": 99.07,
-          "usd_strength_score": 6.3,
-          "delta_price_pct": -0.019
-        },
-        "4h": {
-          "t": "2026-08-25T08:02:07.641996+00:00",
-          "price": 159.426,
-          "dxy": 99.07,
-          "usd_strength_score": 5.1,
-          "delta_price_pct": 0.038
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「東京外国為替市場概況・12時　ドル円、強含み」の報道後、USD/JPYは4時間で+0.04%。DXYは99.04から99.07へ上昇、USD強弱スコアも+10から+5へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-25T23:41:50.676672+00:00"
+  "updated_at_utc": "2026-08-26T00:01:40.175394+00:00"
 }
