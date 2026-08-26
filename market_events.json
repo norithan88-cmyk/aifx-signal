@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "title": "ドル円リアルタイムオーダー＝159.25円　OP2日NYカット大きめ",
+      "link": "https://zai.diamond.jp/articles/-/494577",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-26T09:18:00+00:00",
+      "detected_at_utc": "2026-08-26T09:42:18.212324+00:00",
+      "baseline": {
+        "t": "2026-08-26T09:42:18.212324+00:00",
+        "price": 158.998,
+        "dxy": 98.99,
+        "usd_strength_score": -0.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "東京為替概況：ドル・円は下げ渋り、戻りは鈍い",
+      "link": "https://zai.diamond.jp/articles/-/494576",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-08-26T09:03:09+00:00",
+      "detected_at_utc": "2026-08-26T09:42:18.212324+00:00",
+      "baseline": {
+        "t": "2026-08-26T09:42:18.212324+00:00",
+        "price": 158.998,
+        "dxy": 98.99,
+        "usd_strength_score": -0.6
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "欧州主要株価指数一覧",
       "link": "https://zai.diamond.jp/articles/-/494575",
       "source": "ザイFX！",
@@ -12,10 +48,18 @@
         "dxy": 98.96,
         "usd_strength_score": -2.6
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.014
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「欧州主要株価指数一覧」の報道後、USD/JPYは30分で+0.01%。DXYは98.96から98.99へ上昇、USD強弱スコアも-3から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +74,18 @@
         "dxy": 98.96,
         "usd_strength_score": -2.6
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.014
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ドル・円は下げ渋り、戻りは鈍い」の報道後、USD/JPYは30分で+0.01%。DXYは98.96から98.99へ上昇、USD強弱スコアも-3から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -48,10 +100,18 @@
         "dxy": 98.96,
         "usd_strength_score": -2.6
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.014
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「東京外国為替市場概況・17時　ドル円、小動き」の報道後、USD/JPYは30分で+0.01%。DXYは98.96から98.99へ上昇、USD強弱スコアも-3から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -80,11 +140,18 @@
           "dxy": 98.96,
           "usd_strength_score": -2.6,
           "delta_price_pct": -0.012
+        },
+        "2h": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.002
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円はもみ合いか、米インフレにらみも160円台の介入に警戒」の報道後、USD/JPYは1時間で-0.01%。DXYは99.00から98.96へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円はもみ合いか、米インフレにらみも160円台の介入に警戒」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -113,11 +180,18 @@
           "dxy": 98.96,
           "usd_strength_score": -2.6,
           "delta_price_pct": -0.012
+        },
+        "2h": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.002
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「日経平均大引け：前日比405.73円高の66262.16円」の報道後、USD/JPYは1時間で-0.01%。DXYは99.00から98.96へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「日経平均大引け：前日比405.73円高の66262.16円」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -146,11 +220,18 @@
           "dxy": 98.96,
           "usd_strength_score": -2.6,
           "delta_price_pct": -0.012
+        },
+        "2h": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.002
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「東京外国為替市場概況・15時　ドル円、もみ合い」の報道後、USD/JPYは1時間で-0.01%。DXYは99.00から98.96へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「東京外国為替市場概況・15時　ドル円、もみ合い」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -179,11 +260,18 @@
           "dxy": 98.96,
           "usd_strength_score": -2.6,
           "delta_price_pct": -0.012
+        },
+        "2h": {
+          "t": "2026-08-26T09:42:18.212324+00:00",
+          "price": 158.998,
+          "dxy": 98.99,
+          "usd_strength_score": -0.6,
+          "delta_price_pct": 0.002
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ドル・円は下げ渋り、ドルに買戻しも」の報道後、USD/JPYは1時間で-0.01%。DXYは99.00から98.96へ低下、USD強弱スコアも-0から-3へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "summary": "「ドル・円は下げ渋り、ドルに買戻しも」の報道後、USD/JPYは2時間で+0.00%。DXYは99.00から98.99へ低下、USD強弱スコアも-0から-1へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -2561,101 +2649,7 @@
       "relevance": "low",
       "summary": "「【速報】米・6月S&PコアロジックCS20都市住宅価格指数は＋2.1％」の報道後、USD/JPYは4時間で+0.01%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "【速報】米・6月FHFA住宅価格指数は0％",
-      "link": "https://zai.diamond.jp/articles/-/494512",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-25T13:01:12+00:00",
-      "detected_at_utc": "2026-08-25T13:04:05.615927+00:00",
-      "baseline": {
-        "t": "2026-08-25T13:04:05.615927+00:00",
-        "price": 159.283,
-        "dxy": 99.01,
-        "usd_strength_score": -0.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-25T14:00:02.141451+00:00",
-          "price": 159.196,
-          "dxy": 98.95,
-          "usd_strength_score": -2.7,
-          "delta_price_pct": -0.055
-        },
-        "1h": {
-          "t": "2026-08-25T14:57:37.380536+00:00",
-          "price": 159.258,
-          "dxy": 98.93,
-          "usd_strength_score": -1.1,
-          "delta_price_pct": -0.016
-        },
-        "2h": {
-          "t": "2026-08-25T15:53:01.635485+00:00",
-          "price": 159.22,
-          "dxy": 98.94,
-          "usd_strength_score": -4.9,
-          "delta_price_pct": -0.04
-        },
-        "4h": {
-          "t": "2026-08-25T17:14:38.221768+00:00",
-          "price": 159.303,
-          "dxy": 98.95,
-          "usd_strength_score": -2.1,
-          "delta_price_pct": 0.013
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【速報】米・6月FHFA住宅価格指数は0％」の報道後、USD/JPYは4時間で+0.01%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【まもなく】米・6月FHFA住宅価格指数の発表です（日本時間22：00）",
-      "link": "https://zai.diamond.jp/articles/-/494511",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-08-25T12:45:06+00:00",
-      "detected_at_utc": "2026-08-25T13:04:05.615927+00:00",
-      "baseline": {
-        "t": "2026-08-25T13:04:05.615927+00:00",
-        "price": 159.283,
-        "dxy": 99.01,
-        "usd_strength_score": -0.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-08-25T14:00:02.141451+00:00",
-          "price": 159.196,
-          "dxy": 98.95,
-          "usd_strength_score": -2.7,
-          "delta_price_pct": -0.055
-        },
-        "1h": {
-          "t": "2026-08-25T14:57:37.380536+00:00",
-          "price": 159.258,
-          "dxy": 98.93,
-          "usd_strength_score": -1.1,
-          "delta_price_pct": -0.016
-        },
-        "2h": {
-          "t": "2026-08-25T15:53:01.635485+00:00",
-          "price": 159.22,
-          "dxy": 98.94,
-          "usd_strength_score": -4.9,
-          "delta_price_pct": -0.04
-        },
-        "4h": {
-          "t": "2026-08-25T17:14:38.221768+00:00",
-          "price": 159.303,
-          "dxy": 98.95,
-          "usd_strength_score": -2.1,
-          "delta_price_pct": 0.013
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【まもなく】米・6月FHFA住宅価格指数の発表です（日本時間22：00）」の報道後、USD/JPYは4時間で+0.01%。DXYは99.01から98.95へ低下、USD強弱スコアも-0から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-08-26T08:54:05.218301+00:00"
+  "updated_at_utc": "2026-08-26T09:42:18.212324+00:00"
 }
