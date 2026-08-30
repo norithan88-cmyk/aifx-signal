@@ -390,10 +390,16 @@ def main():
             "order_plan": build_order_plan(llm_obj, signal),
             "risk_note": llm_obj["risk_note"],
         }
-    except Exception as e:  # noqa: BLE001
+     except Exception as e:  # noqa: BLE001
         # 失敗時は既存のdaily_analysis.jsonに一切触れない
         # （直前の分析が残るだけで、サイトが空欄や壊れた状態になることはない）。
         print(f"[WARN] daily_analysis生成に失敗したため、既存ファイルを維持します: {e}", file=sys.stderr)
+        if isinstance(e, urllib.error.HTTPError):
+            try:
+                body = e.read().decode("utf-8", errors="replace")
+            except Exception:
+                body = "(本文の読み取りにも失敗)"
+            print(f"[DEBUG] Gemini APIのエラー本文: {body}", file=sys.stderr)
         if "404" in str(e):
             print("[DEBUG] このAPIキーで実際に使えるモデル一覧:", file=sys.stderr)
             for name in list_available_models():
