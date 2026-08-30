@@ -230,31 +230,41 @@ def build_data_block(signal, events):
 RETRYABLE_HTTP_CODES = (429, 500, 502, 503, 504)
 
 
+class ModelUnavailable(Exception):
+    """このモデル/エンドポイント候補では応答が得られなかった(404・不正な引数・タイムアウト等)。
+    呼び出し側で次の候補へ切り替えるための合図として使う。"""
+
+
 def _post_generate_content(url, body):
-    """指定したURLにgenerateContentリクエストを送る。503系は数回まで自動リトライする。
-    404(モデル/エンドポイントが見つからない)はリトライせずそのまま例外を返す
-    （呼び出し側でエンドポイント候補の切り替えに使うため）。"""
+    """指定したURLにgenerateContentリクエストを送る。503系(混雑)は数回まで自動リトライする。
+    404・400(モデルが存在しない/対応していない)やタイムアウトはModelUnavailableに変換し、
+    リトライせず呼び出し側へ返す（呼び出し側で次の候補に切り替えるため）。"""
     req = urllib.request.Request(
         f"{url}?key={GEMINI_API_KEY}",
         data=body,
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    attempts = 4
-    delays = [5, 15, 30]
+    attempts = 3
+    delays = [5, 15]
     last_error = None
     for attempt in range(attempts):
         try:
-            with urllib.request.urlopen(req, timeout=60) as res:
+            with urllib.request.urlopen(req, timeout=25) as res:
                 return json.loads(res.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
             last_error = e
+            if e.code in (404, 400):
+                raise ModelUnavailable(f"{url} が{e.code}を返しました") from e
             if e.code not in RETRYABLE_HTTP_CODES:
                 raise
-            if attempt < attempts - 1:
-                print(f"[WARN] Gemini APIがHTTP {e.code}を返したため、{delays[attempt]}秒後に再試行します（{attempt + 1}/{attempts}回目、{url}）", file=sys.stderr)
-                time.sleep(delays[attempt])
-    raise last_error
+        except (TimeoutError, urllib.error.URLError) as e:
+            last_error = e
+        if attempt < attempts - 1:
+            print(f"[WARN] Gemini APIへの接続に問題({last_error})。{delays[attempt]}秒後に再試行します（{attempt + 1}/{attempts}回目、{url}）", file=sys.stderr)
+            time.sleep(delays[attempt])
+    # リトライを使い切ってもダメだった場合、次の候補に切り替えられるようModelUnavailableにする
+    raise ModelUnavailable(f"{url} が繰り返しタイムアウト/エラーになりました: {last_error}") from last_error
 
 
 def _candidate_urls():
@@ -305,19 +315,18 @@ def call_gemini(data_block):
     payload = None
     last_error = None
     used_url = None
-    for url, model_name in _candidate_urls():
+    max_candidates = 8  # 候補を試し続けて実行時間が際限なく伸びないよう上限を設ける
+    for i, (url, model_name) in enumerate(_candidate_urls()):
+        if i >= max_candidates:
+            break
         try:
             payload = _post_generate_content(url, body)
             used_url = url
             break
-        except urllib.error.HTTPError as e:
+        except ModelUnavailable as e:
             last_error = e
-            if e.code in (404, 400):
-                # 404=モデル/エンドポイントが存在しない、400=このモデルではTEXT応答に
-                # 対応していない等、候補として不適切だった場合。次の候補を試す。
-                print(f"[WARN] {url} が{e.code}のため、次の候補を試します", file=sys.stderr)
-                continue
-            raise
+            print(f"[WARN] 候補{i + 1}を試しましたが失敗、次の候補を試します: {e}", file=sys.stderr)
+            continue
     if payload is None:
         raise last_error or RuntimeError("Gemini APIの候補エンドポイントを全て試しましたが失敗しました")
     if used_url and used_url != f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent":
@@ -444,9 +453,10 @@ def main():
         # 失敗時は既存のdaily_analysis.jsonに一切触れない
         # （直前の分析が残るだけで、サイトが空欄や壊れた状態になることはない）。
         print(f"[WARN] daily_analysis生成に失敗したため、既存ファイルを維持します: {e}", file=sys.stderr)
-        if isinstance(e, urllib.error.HTTPError):
+        http_cause = e if isinstance(e, urllib.error.HTTPError) else getattr(e, "__cause__", None)
+        if isinstance(http_cause, urllib.error.HTTPError):
             try:
-                body = e.read().decode("utf-8", errors="replace")
+                body = http_cause.read().decode("utf-8", errors="replace")
             except Exception:  # noqa: BLE001
                 body = "(本文の読み取りにも失敗)"
             print(f"[DEBUG] Gemini APIのエラー本文: {body}", file=sys.stderr)
