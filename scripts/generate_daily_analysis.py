@@ -1,1315 +1,410 @@
-<style>
-  .afl-top {
-    --afl-ink: #171310;
-    --afl-navy: #0c1526;
-    --afl-navy-2: #16294a;
-    --afl-paper: #f6f2e7;
-    --afl-paper-line: #e6dfc9;
-    --afl-surface: #fffdf8;
-    --afl-line: #e3ddc9;
-    --afl-muted: #74695a;
-    --afl-cyan: #49b6e6;
-    --afl-cyan-ink: #0d5d7a;
-    --afl-brass: #a97a2f;
-    --afl-good: #2f8f5b;
-    --afl-good-bg: #e7f3ea;
-    --afl-warn: #a97a2f;
-    --afl-warn-bg: #f6ecd9;
-    --afl-bad: #b8503f;
-    --afl-bad-bg: #f8e9e5;
-    --afl-shadow: 0 18px 40px rgba(12, 21, 38, .10);
-
-    background: var(--afl-paper);
-    color: var(--afl-ink);
-    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Yu Gothic", Meiryo, sans-serif;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  @media (prefers-color-scheme: dark) {
-    .afl-top {
-      --afl-ink: #eee9e0;
-      --afl-paper: #0b0f16;
-      --afl-paper-line: #1a2130;
-      --afl-surface: #121a26;
-      --afl-line: #253044;
-      --afl-muted: #93a0b4;
-      --afl-cyan: #6cd0ff;
-      --afl-cyan-ink: #bdeeff;
-      --afl-brass: #d7ab5f;
-      --afl-good: #58c98a;
-      --afl-good-bg: #123322;
-      --afl-warn: #d7ab5f;
-      --afl-warn-bg: #332711;
-      --afl-bad: #e08674;
-      --afl-bad-bg: #3a1c17;
-      --afl-shadow: 0 18px 40px rgba(0, 0, 0, .35);
-    }
-  }
-
-  .afl-top, .afl-top *, .afl-top *::before, .afl-top *::after { box-sizing: border-box; }
-  .afl-top .afl-shell { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
-  .afl-top .afl-mono { font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-variant-numeric: tabular-nums; }
-  .afl-top .afl-serif { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; }
-  .afl-top a { color: var(--afl-cyan-ink); }
-
-  /* ---------- HERO ---------- */
-  .afl-top .afl-hero {
-    position: relative;
-    background: linear-gradient(160deg, var(--afl-navy), var(--afl-navy-2) 78%);
-    color: #eef4fb;
-    border-radius: 18px;
-    padding: 22px 40px 18px;
-    margin-top: 24px;
-    overflow: hidden;
-    box-shadow: var(--afl-shadow);
-  }
-  .afl-top .afl-hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(120,190,230,.10) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(120,190,230,.10) 1px, transparent 1px);
-    background-size: 34px 34px;
-    mask-image: radial-gradient(ellipse 70% 70% at 78% 15%, #000 0%, transparent 72%);
-    pointer-events: none;
-  }
-  .afl-top .afl-hero-head {
-    position: relative;
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-  }
-  .afl-top .afl-mark { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; }
-  .afl-top .afl-mark svg { width: 40px; height: 40px; display: block; }
-  .afl-top .afl-mark-word { font-size: 13px; letter-spacing: .16em; font-weight: 700; color: #cfe6f7; }
-  .afl-top .afl-mark-word small { display: block; font-size: 10px; letter-spacing: .22em; color: #7fa3c2; font-weight: 500; margin-top: 2px; }
-  .afl-top .afl-live {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-size: 11px; letter-spacing: .08em; color: #a9c4dc;
-    border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 5px 11px 5px 9px;
-  }
-  .afl-top .afl-dot { width: 6px; height: 6px; border-radius: 50%; background: #58e0a8; box-shadow: 0 0 0 0 rgba(88,224,168,.6); animation: afl-pulse 2.4s ease-out infinite; }
-  @keyframes afl-pulse { 0% { box-shadow: 0 0 0 0 rgba(88,224,168,.55); } 70% { box-shadow: 0 0 0 7px rgba(88,224,168,0); } 100% { box-shadow: 0 0 0 0 rgba(88,224,168,0); } }
-  @media (prefers-reduced-motion: reduce) { .afl-top .afl-dot { animation: none; } }
-
-  .afl-top .afl-headline {
-    position: relative;
-    margin: 12px 0 8px;
-    font-size: clamp(20px, 3vw, 28px);
-    line-height: 1.3;
-    font-weight: 700;
-    text-wrap: balance;
-  }
-  .afl-top .afl-headline em { font-style: normal; color: var(--afl-cyan); }
-  .afl-top .afl-sub { position: relative; margin: 0; max-width: 640px; color: #b9cade; font-size: 14.5px; }
-  .afl-top .afl-ticker-wrap {
-    background: linear-gradient(160deg, var(--afl-navy), var(--afl-navy-2) 85%);
-    border-radius: 12px; margin-top: 12px; padding: 2px 4px 0;
-    box-shadow: var(--afl-shadow); overflow: hidden;
-  }
-  .afl-top .tradingview-widget-copyright { padding: 2px 10px 6px; }
-  .afl-top .tradingview-widget-copyright .blue-text { color: #7fa3c2; font-size: 11px; text-decoration: none; }
-
-  /* ---------- GRID ---------- */
-  .afl-top .afl-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
-  .afl-top .afl-card {
-    background: var(--afl-surface); border: 1px solid var(--afl-line); border-radius: 12px;
-    padding: 20px; box-shadow: var(--afl-shadow);
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .afl-top .afl-card:hover { transform: translateY(-2px); }
-  @media (prefers-reduced-motion: reduce) { .afl-top .afl-card { transition: none; } .afl-top .afl-card:hover { transform: none; } }
-  .afl-top .afl-kpi { grid-column: span 4; min-width: 0; }
-  .afl-top .afl-half { grid-column: span 6; min-width: 0; }
-  .afl-top .afl-col-7 { grid-column: span 7; min-width: 0; }
-  .afl-top .afl-col-5 { grid-column: span 5; min-width: 0; }
-  .afl-top .afl-trade { grid-column: span 8; min-width: 0; }
-  .afl-top .afl-full { grid-column: span 12; min-width: 0; }
-
-  .afl-top .afl-label {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--afl-muted); font-weight: 700;
-  }
-  .afl-top .afl-label svg { width: 14px; height: 14px; flex: 0 0 auto; color: var(--afl-cyan-ink); }
-
-  /* KPI cards */
-  .afl-top .afl-stars { font-size: 20px; letter-spacing: 2px; color: var(--afl-brass); margin: 10px 0 2px; }
-  .afl-top .afl-stars .afl-off { color: var(--afl-line); }
-  .afl-top .afl-kpi-big { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-variant-numeric: tabular-nums; font-size: 34px; font-weight: 700; margin: 8px 0 2px; }
-  .afl-top .afl-pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
-  .afl-top .afl-pill.afl-go { background: var(--afl-good-bg); color: var(--afl-good); }
-  .afl-top .afl-pill.afl-sell { background: var(--afl-bad-bg); color: var(--afl-bad); }
-  .afl-top .afl-pill.afl-caution { background: var(--afl-warn-bg); color: var(--afl-warn); }
-  .afl-top .afl-pill.afl-high { background: var(--afl-bad-bg); color: var(--afl-bad); }
-  .afl-top .afl-kpi-note { font-size: 12.5px; color: var(--afl-muted); margin: 8px 0 0; }
-  .afl-top .afl-gauge { height: 5px; border-radius: 3px; background: var(--afl-paper-line); margin-top: 10px; overflow: hidden; }
-  .afl-top .afl-gauge > i { display: block; height: 100%; background: linear-gradient(90deg, var(--afl-cyan), var(--afl-brass)); border-radius: 3px; }
-
-  /* Judgment card（総合判定・強調表示） */
-  .afl-top .afl-judgment { border: 2px solid var(--afl-brass); background: linear-gradient(140deg, var(--afl-surface), var(--afl-warn-bg)); }
-  .afl-top .afl-signal-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
-  .afl-top .afl-signal-big { padding: 8px 18px; border-radius: 40px; color: #fff; font-size: 19px; font-weight: 900; }
-  .afl-top .afl-signal-big.afl-go { background: var(--afl-good); }
-  .afl-top .afl-signal-big.afl-sell { background: var(--afl-bad); }
-  .afl-top .afl-signal-big.afl-caution { background: var(--afl-warn); }
-  .afl-top .afl-summary-strategy { margin-top: 15px; padding: 13px 15px; border-left: 4px solid var(--afl-brass); border-radius: 9px; background: var(--afl-warn-bg); font-size: 13px; }
-  .afl-top .afl-summary-advice { margin-top: 14px; padding: 17px; border: 1px solid var(--afl-brass); border-radius: 11px; background: var(--afl-surface); }
-  .afl-top .afl-summary-advice h3 { margin: 0 0 6px; color: var(--afl-brass); font-size: 18px; }
-  .afl-top .afl-summary-advice p { margin: 0; font-size: 13.5px; }
-
-  /* Trade ticket */
-  .afl-top .afl-trade, .afl-top .afl-one { position: relative; }
-  .afl-top .afl-trade { border-left: 3px solid var(--afl-brass); }
-  .afl-top .afl-one {
-    text-align: center; color: #eef4fb;
-    background: linear-gradient(150deg, var(--afl-navy-2), var(--afl-navy));
-  }
-  .afl-top .afl-one .afl-label { color: #9bb4c7; justify-content: center; }
-  .afl-top .afl-one .afl-h2 { color: #f3d888; }
-  .afl-top .afl-one .afl-pair { font-size: 24px; font-weight: 900; margin-top: 4px; }
-  .afl-top .afl-ticket-no { font-size: 11px; color: var(--afl-muted); }
-  .afl-top .afl-trade h2 { font-size: 22px; margin: 6px 0 4px; }
-  .afl-top .afl-trade-lead { font-size: 15px; font-weight: 700; margin: 0 0 16px; }
-  .afl-top .afl-trade-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-  .afl-top .afl-trade-box { border-radius: 10px; padding: 12px 14px; background: var(--afl-paper); border-left: 3px solid var(--afl-line); }
-  .afl-top .afl-trade-box.afl-entry { border-left-color: var(--afl-cyan-ink); }
-  .afl-top .afl-trade-box.afl-tp { border-left-color: var(--afl-good); }
-  .afl-top .afl-trade-box.afl-sl { border-left-color: var(--afl-bad); }
-  .afl-top .afl-trade-box span { display: block; font-size: 10.5px; letter-spacing: .08em; color: var(--afl-muted); text-transform: uppercase; }
-  .afl-top .afl-trade-box b { display: block; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 21px; margin-top: 3px; font-variant-numeric: tabular-nums; }
-  .afl-top .afl-summary-detail-btn {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    margin-top: 16px; padding: 13px 16px; border: 1px solid rgba(255,255,255,.28); border-radius: 10px;
-    background: #f1d98b; color: #18202a; text-decoration: none; font-weight: 800; transition: .18s;
-  }
-  .afl-top .afl-summary-detail-btn:hover { transform: translateY(-2px); background: #ffe8a2; }
-  .afl-top .afl-summary-manual-note { margin: 8px 0 0; color: #9bb4c7; font-size: 10px; text-align: center; }
-  .afl-top .afl-live-chart-btn {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    margin-top: 10px; padding: 11px 16px; border: 1px solid rgba(255,255,255,.28); border-radius: 10px;
-    background: rgba(255,255,255,.06); color: #eef4fb; text-decoration: none; font-weight: 700; font-size: 13.5px;
-    transition: .18s;
-  }
-  .afl-top .afl-live-chart-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.14); }
-
-  /* Macro monitor（周辺市場のライブチャート） */
-  .afl-top .afl-macro-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
-  .afl-top .afl-macro-chart { min-width: 0; min-height: 455px; padding: 13px; background: var(--afl-paper); border: 1px solid var(--afl-line); border-radius: 11px; overflow: hidden; }
-  .afl-top .afl-macro-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
-  .afl-top .afl-macro-head strong { font-size: 15px; }
-  .afl-top .afl-macro-head span { color: var(--afl-muted); font-size: 10px; letter-spacing: .05em; }
-  .afl-top .afl-macro-chart iframe,
-  .afl-top .afl-macro-chart .tradingview-widget-container,
-  .afl-top .afl-macro-chart .tradingview-widget-container__widget {
-    display: block; width: 100% !important; height: 400px !important; min-height: 400px !important;
-    border: 0; border-radius: 8px; background: var(--afl-surface);
-  }
-  .afl-top .afl-macro-toggle { margin-top: 16px; }
-  .afl-top .afl-macro-toggle > summary {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 14px 18px; color: #fff; font-weight: 800; cursor: pointer; list-style: none;
-    background: linear-gradient(135deg, var(--afl-navy), var(--afl-navy-2));
-    border: 1px solid var(--afl-brass); border-radius: 10px; transition: filter .2s ease;
-  }
-  .afl-top .afl-macro-toggle > summary::-webkit-details-marker { display: none; }
-  .afl-top .afl-macro-toggle > summary:hover { filter: brightness(1.12); }
-  .afl-top .afl-macro-toggle > summary::before {
-    content: "＋"; width: 24px; height: 24px; line-height: 22px; text-align: center;
-    color: var(--afl-navy); background: var(--afl-brass); border-radius: 50%;
-  }
-  .afl-top .afl-macro-toggle[open] > summary::before { content: "−"; }
-  .afl-top .afl-macro-toggle[open] > summary { margin-bottom: 14px; }
-
-  /* Quick-glance grid（今日の結論カードをひとまとまりで見せる） */
-  .afl-top .afl-glance-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
-  .afl-top .afl-glance-item { padding: 10px 8px; text-align: center; background: rgba(255,255,255,.55); border: 1px solid var(--afl-line); border-radius: 9px; min-width: 0; }
-  @media (prefers-color-scheme: dark) { .afl-top .afl-glance-item { background: rgba(255,255,255,.04); } }
-  .afl-top .afl-glance-label { display: block; font-size: 10px; color: var(--afl-muted); letter-spacing: .04em; margin-bottom: 4px; }
-  .afl-top .afl-glance-value { display: block; font-size: 12.5px; font-weight: 800; color: var(--afl-ink); overflow-wrap: break-word; line-height: 1.35; }
-  @media (max-width: 720px) { .afl-top .afl-glance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-
-  /* AIの読み（3行要約） ‒ AIアバター発言型。左のアクセント色はJSがシグナル方向で切り替える
-     （--afl-avatar-accent: SELL=--afl-bad(赤) / BUY=--afl-good(緑) / WAIT=--afl-brass(中立)）。 */
-  .afl-top .afl-ai-avatar-card {
-    --afl-avatar-accent: var(--afl-brass);
-    display: flex; gap: 14px; margin-top: 14px;
-    background: linear-gradient(155deg, var(--afl-navy), var(--afl-navy-2) 88%);
-    border-radius: 14px; padding: 18px 20px 18px 22px; color: #eef4fb;
-    border-left: 5px solid var(--afl-avatar-accent);
-    box-shadow: var(--afl-shadow), 0 0 0 1px rgba(255,255,255,.06);
-    position: relative; overflow: hidden;
-    transition: border-color .3s ease;
-  }
-  .afl-top .afl-ai-avatar-card::after {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 88% 0%, rgba(108,208,255,.16), transparent 55%),
-      radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--afl-avatar-accent) 22%, transparent), transparent 60%);
-    pointer-events: none;
-  }
-  .afl-top .afl-ai-avatar {
-    flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--afl-cyan), var(--afl-avatar-accent));
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 12px; color: var(--afl-navy);
-    box-shadow: 0 0 0 3px rgba(255,255,255,.16), 0 0 14px 1px color-mix(in srgb, var(--afl-avatar-accent) 55%, transparent);
-    position: relative; z-index: 1;
-    transition: background .3s ease, box-shadow .3s ease;
-  }
-  .afl-top .afl-ai-avatar-body { flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; }
-  .afl-top .afl-ai-avatar-kicker {
-    display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap;
-    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: #8fb3d1; font-weight: 700;
-  }
-  .afl-top .afl-ai-avatar-pill {
-    display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 10.5px; font-weight: 800;
-    background: var(--afl-warn-bg); color: #7a5a1f; letter-spacing: 0; text-transform: none;
-  }
-  .afl-top .afl-ai-avatar-lines { margin: 0; padding: 0; list-style: none; }
-  .afl-top .afl-ai-avatar-lines li {
-    position: relative; padding-left: 16px; margin: 7px 0; font-size: 13.5px; line-height: 1.6; color: #e4ebf2;
-  }
-  .afl-top .afl-ai-avatar-lines li::before {
-    content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--afl-cyan);
-  }
-  .afl-top .afl-ai-avatar-lines li:first-child { font-weight: 700; color: #fff; }
-
-  /* Inline daily analysis toggle（AI総合判定カード内で「今日の詳しい分析」をその場展開） */
-  .afl-top .afl-analysis-toggle { margin-top: 16px; }
-  .afl-top .afl-analysis-toggle > summary {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 12px 16px; color: var(--afl-navy); font-weight: 800; cursor: pointer; list-style: none;
-    background: var(--afl-brass); border-radius: 10px; transition: filter .2s ease;
-  }
-  .afl-top .afl-analysis-toggle > summary::-webkit-details-marker { display: none; }
-  .afl-top .afl-analysis-toggle > summary:hover { filter: brightness(1.08); }
-  .afl-top .afl-analysis-toggle > summary::before {
-    content: "＋"; width: 22px; height: 22px; line-height: 21px; text-align: center; font-size: 13px;
-    color: #fff; background: var(--afl-navy); border-radius: 50%;
-  }
-  .afl-top .afl-analysis-toggle[open] > summary::before { content: "−"; }
-  .afl-top .afl-analysis-toggle[open] > summary { margin-bottom: 14px; }
-  .afl-top .afl-analysis-body { font-size: 13.5px; }
-  .afl-top .afl-analysis-empty { margin: 0; color: var(--afl-muted); font-size: 13px; }
-  .afl-top .afl-analysis-updated { margin: 0 0 8px; color: var(--afl-muted); font-size: 11.5px; }
-  .afl-top .afl-analysis-headline { margin: 0 0 10px; font-size: 17px; color: var(--afl-ink); }
-  .afl-top .afl-analysis-advice p { margin: 0 0 10px; line-height: 1.7; color: var(--afl-ink); }
-  .afl-top .afl-analysis-advice p:last-child { margin-bottom: 0; }
-  .afl-top .afl-analysis-scenarios { display: grid; gap: 10px; margin: 14px 0; }
-  .afl-top .afl-scenario { padding: 12px 14px; border-radius: 10px; border-left: 4px solid var(--afl-line); background: var(--afl-paper); }
-  .afl-top .afl-scenario.afl-buy { border-left-color: var(--afl-good); }
-  .afl-top .afl-scenario.afl-sell { border-left-color: var(--afl-bad); }
-  .afl-top .afl-scenario.afl-neutral { border-left-color: var(--afl-warn); }
-  .afl-top .afl-scenario-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
-  .afl-top .afl-scenario-label { font-weight: 800; font-size: 13.5px; }
-  .afl-top .afl-scenario-prob { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-weight: 700; color: var(--afl-muted); }
-  .afl-top .afl-scenario-body { margin: 0; font-size: 12.5px; color: var(--afl-muted); line-height: 1.6; }
-  .afl-top .afl-analysis-order { margin: 14px 0; padding: 14px; border: 1px solid var(--afl-brass); border-radius: 10px; background: var(--afl-warn-bg); }
-  .afl-top .afl-analysis-order-lead { margin: 0 0 10px; font-size: 13px; font-weight: 700; color: var(--afl-ink); }
-  .afl-top .afl-analysis-order-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-  .afl-top .afl-analysis-order-box { border-radius: 8px; padding: 8px 10px; background: var(--afl-surface); border-left: 3px solid var(--afl-line); }
-  .afl-top .afl-analysis-order-box.afl-entry { border-left-color: var(--afl-cyan-ink); }
-  .afl-top .afl-analysis-order-box.afl-tp { border-left-color: var(--afl-good); }
-  .afl-top .afl-analysis-order-box.afl-sl { border-left-color: var(--afl-bad); }
-  .afl-top .afl-analysis-order-box span { display: block; font-size: 9.5px; letter-spacing: .06em; color: var(--afl-muted); text-transform: uppercase; }
-  .afl-top .afl-analysis-order-box b { display: block; font-size: 13px; margin-top: 2px; color: var(--afl-ink); }
-  .afl-top .afl-analysis-order-sub { margin: 10px 0 0; font-size: 12px; color: var(--afl-muted); line-height: 1.5; }
-  .afl-top .afl-analysis-risk { margin: 4px 0 0; padding: 12px 14px; border-left: 4px solid var(--afl-bad); border-radius: 9px; background: var(--afl-bad-bg); font-size: 12.5px; color: var(--afl-ink); line-height: 1.6; }
-  @media (max-width: 720px) { .afl-top .afl-analysis-order-row { grid-template-columns: 1fr; } }
-
-  /* Regression strip */
-  .afl-top .afl-reg-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
-  .afl-top .afl-reg { position: relative; background: var(--afl-paper); border-radius: 10px; padding: 12px 12px 10px; }
-  .afl-top .afl-reg.afl-reg-important { border: 2px solid var(--afl-brass); box-shadow: 0 0 0 4px rgba(169, 122, 47, .12); }
-  .afl-top .afl-reg-badge {
-    position: absolute; right: 8px; top: 8px; padding: 2px 9px; border-radius: 20px;
-    background: var(--afl-brass); color: #fff; font-size: 10px; font-weight: 700;
-  }
-  .afl-top .afl-reg .afl-tf { font-size: 11px; color: var(--afl-muted); }
-  .afl-top .afl-reg .afl-tf-state { display: block; font-size: 14px; font-weight: 700; margin: 3px 0 6px; }
-  .afl-top .afl-reg canvas { width: 100%; height: 150px; display: block; border-radius: 8px; background: var(--afl-surface); }
-  .afl-top .afl-up-c { color: var(--afl-good); } .afl-top .afl-down-c { color: var(--afl-bad); } .afl-top .afl-flat-c { color: var(--afl-muted); }
-
-  /* Currency strength meter（簡易版） */
-  .afl-top .afl-cs-list { margin-top: 12px; }
-  .afl-top .afl-cs-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; }
-  .afl-top .afl-cs-code { width: 42px; flex: 0 0 auto; font-weight: 800; font-size: 13px; }
-  .afl-top .afl-cs-bar-track { position: relative; flex: 1 1 auto; height: 8px; border-radius: 4px; background: var(--afl-paper-line); overflow: hidden; }
-  .afl-top .afl-cs-bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
-  .afl-top .afl-cs-bar.afl-up { background: var(--afl-good); left: 50%; }
-  .afl-top .afl-cs-bar.afl-down { background: var(--afl-bad); right: 50%; }
-  .afl-top .afl-cs-mid-line { position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--afl-muted); opacity: .4; }
-  .afl-top .afl-cs-value { width: 58px; flex: 0 0 auto; text-align: right; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 700; }
-
-  /* Global market read-out ‒ 表ではなく折り返し可能な行にして、文字数に関わらず絶対に欠けないようにする */
-  .afl-top .afl-mr-list { margin-top: 12px; }
-  .afl-top .afl-mr-row {
-    display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap;
-    gap: 2px 12px; padding: 9px 0; border-bottom: 1px solid var(--afl-line); font-size: 13.5px;
-  }
-  .afl-top .afl-mr-row:last-child { border-bottom: none; }
-  .afl-top .afl-mr-label { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .afl-top .afl-mr-value { font-weight: 700; font-family: ui-monospace, "SF Mono", Consolas, monospace; }
-  .afl-top .afl-mkt-dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
-  .afl-top .afl-mkt-dot.afl-up { background: var(--afl-good); } .afl-top .afl-mkt-dot.afl-down { background: var(--afl-bad); } .afl-top .afl-mkt-dot.afl-flat { background: var(--afl-muted); }
-
-  /* Technical dashboard（MACD/RSI/ボリンジャー/サポレジ） */
-  .afl-top .afl-tech-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
-  .afl-top .afl-mini { padding: 14px; border: 1px solid var(--afl-line); border-radius: 10px; background: var(--afl-paper); }
-  .afl-top .afl-mini span { display: block; color: var(--afl-muted); font-size: 11px; letter-spacing: .04em; }
-  .afl-top .afl-mini b { display: block; margin-top: 5px; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 17px; font-variant-numeric: tabular-nums; }
-  .afl-top .afl-mini small { display: block; margin-top: 3px; font-size: 11.5px; color: var(--afl-muted); }
-
-  /* Moving averages table */
-  .afl-top .afl-ma-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px; }
-  .afl-top .afl-ma-table th, .afl-top .afl-ma-table td { padding: 9px 6px; border-bottom: 1px solid var(--afl-line); text-align: left; }
-  .afl-top .afl-ma-table th { color: var(--afl-muted); font-size: 11px; font-weight: 700; letter-spacing: .05em; }
-  .afl-top .afl-ma-table td.afl-mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-variant-numeric: tabular-nums; }
-
-  /* Key event */
-  .afl-top .afl-event { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 12px; }
-  .afl-top .afl-event-time { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .afl-top .afl-event-body { flex: 1 1 240px; }
-  .afl-top .afl-event-name { font-weight: 700; font-size: 15px; }
-  .afl-top .afl-event-stars { color: var(--afl-brass); letter-spacing: 2px; margin-top: 2px; }
-  .afl-top .afl-event-note { font-size: 13px; color: var(--afl-muted); margin-top: 6px; }
-
-  /* Logbook note */
-  .afl-top .afl-note {
-    background: linear-gradient(160deg, var(--afl-navy), var(--afl-navy-2) 85%);
-    color: #eef4fb; border-radius: 14px; padding: 30px 34px; position: relative; overflow: hidden;
-  }
-  .afl-top .afl-note-quote { position: absolute; top: 6px; left: 20px; font-size: 90px; color: rgba(255,255,255,.08); font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; line-height: 1; }
-  .afl-top .afl-note-label { display: block; font-size: 11px; letter-spacing: .14em; color: #8fb3d1; margin-bottom: 10px; }
-  .afl-top .afl-note p { position: relative; font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size: clamp(17px, 2.2vw, 21px); line-height: 1.95; margin: 0; max-width: 760px; border-left: 2px solid var(--afl-brass); padding-left: 18px; }
-
-  .afl-top h2.afl-h2 { font-size: 19px; margin: 8px 0 0; font-weight: 700; }
-
-  /* Section divider（①結論 ②理由 ③戦略 ④注意点の見出し帯） */
-  .afl-top .afl-section-divider { display: flex; align-items: center; gap: 12px; margin: 10px 4px -2px; }
-  .afl-top .afl-section-num {
-    width: 28px; height: 28px; border-radius: 50%; background: var(--afl-brass); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; flex: 0 0 auto;
-  }
-  .afl-top .afl-section-title { font-size: 15.5px; font-weight: 800; color: var(--afl-ink); letter-spacing: .02em; white-space: nowrap; }
-  .afl-top .afl-section-sub { font-size: 11.5px; color: var(--afl-muted); font-weight: 500; margin-left: 2px; }
-  .afl-top .afl-section-divider::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--afl-line); }
-
-  .afl-top .afl-disclaimer { font-size: 11.5px; color: var(--afl-muted); margin: 22px 4px 0; line-height: 1.8; }
-
-  @media (max-width: 880px) {
-    .afl-top .afl-shell { padding: 0 14px 30px; }
-    .afl-top .afl-hero { padding: 18px 18px 14px; border-radius: 16px; }
-    .afl-top .afl-kpi, .afl-top .afl-half, .afl-top .afl-col-7, .afl-top .afl-col-5, .afl-top .afl-trade, .afl-top .afl-full { grid-column: span 12; }
-    .afl-top .afl-reg-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .afl-top .afl-reg { width: 100%; min-width: 0; padding: 14px; }
-    .afl-top .afl-reg .afl-tf { display: block; font-size: 12px; margin-bottom: 2px; }
-    .afl-top .afl-reg .afl-tf-state { display: block; font-size: 15px; font-weight: 800; margin-bottom: 8px; }
-    .afl-top .afl-reg canvas { display: block; width: 100%; max-width: 100%; height: 190px; border-radius: 8px; }
-    .afl-top .afl-trade-row { grid-template-columns: minmax(0, 1fr); }
-    .afl-top .afl-tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .afl-top .afl-summary-detail-btn { align-items: flex-start; }
-    .afl-top .afl-summary-advice { padding: 14px; }
-    .afl-top .afl-macro-grid { grid-template-columns: 1fr; }
-    .afl-top .afl-macro-chart { min-height: 395px; }
-    .afl-top .afl-macro-chart iframe,
-    .afl-top .afl-macro-chart .tradingview-widget-container,
-    .afl-top .afl-macro-chart .tradingview-widget-container__widget { height: 340px !important; min-height: 340px !important; }
-  }
-  @media (max-width: 480px) {
-    .afl-top .afl-reg-row { grid-template-columns: 1fr; gap: 12px; }
-    .afl-top .afl-reg { padding: 12px; }
-    .afl-top .afl-reg canvas { width: 100%; height: 180px; }
-  }
-</style>
-
-<div class="afl-top">
-  <div class="afl-shell">
-
-    <section class="afl-hero">
-      <div class="afl-hero-grid"></div>
-      <div class="afl-hero-head">
-        <div class="afl-mark">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M24 2 44 13.5V34.5L24 46 4 34.5V13.5Z" stroke="#6cc4ea" stroke-width="2"></path>
-            <line x1="15" y1="30" x2="15" y2="20" stroke="#6cc4ea" stroke-width="2"></line>
-            <rect x="12" y="21" width="6" height="10" fill="#6cc4ea"></rect>
-            <line x1="24" y1="34" x2="24" y2="16" stroke="#9fdcff" stroke-width="2"></line>
-            <rect x="21" y="19" width="6" height="12" fill="#9fdcff"></rect>
-            <line x1="33" y1="27" x2="33" y2="14" stroke="#eaf7ff" stroke-width="2"></line>
-            <rect x="30" y="16" width="6" height="8" fill="#eaf7ff"></rect>
-            <path d="M8 33 Q22 24 40 11" stroke="#49b6e6" stroke-width="2" fill="none" stroke-linecap="round"></path>
-          </svg>
-          <span class="afl-mark-word">AI FX 研究所<small>AI FX LABO ‒ MARKET RESEARCH</small></span>
-        </div>
-        <span class="afl-live"><i class="afl-dot"></i>TradingView ライブ連携</span>
-      </div>
-
-      <h1 class="afl-headline">AIが読む。<em>あなたが判断する。</em></h1>
-      <p class="afl-sub">休むも相場。攻める日は、AIが教える。線形回帰・テクニカル・金利差・重要指標を横断して「今日はどうするか」を30秒で把握するための研究ダッシュボード。</p>
-    </section>
-
-    <div class="afl-grid">
-
-      <div class="afl-full">
-        <div class="afl-ticker-wrap">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async="">
-            {
-              "symbols": [
-                { "proName": "FX_IDC:USDJPY", "title": "USD/JPY" },
-                { "proName": "TVC:USOIL", "title": "WTI原油" },
-                { "proName": "TVC:GOLD", "title": "GOLD" },
-                { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
-                { "proName": "FX_IDC:GBPUSD", "title": "GBP/USD" }
-              ],
-              "colorTheme": "dark",
-              "isTransparent": true,
-              "showSymbolLogo": false,
-              "displayMode": "adaptive",
-              "locale": "ja"
-            }
-            </script>
-          </div>
-        </div>
-      </div>
-
-      <div class="afl-full afl-section-divider">
-        <span class="afl-section-num">1</span>
-        <span class="afl-section-title">今日の結論</span>
-        <span class="afl-section-sub">AIの総合判断</span>
-      </div>
-
-      <section class="afl-card afl-judgment afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>TODAY'S AI SIGNAL</div>
-        <h2 class="afl-h2">今日のAI総合判定</h2>
-        <div class="afl-signal-line">
-          <strong class="afl-signal-big afl-sell" id="afl-sig-pill">戻り売り優勢</strong>
-          <span class="afl-stars" id="afl-sig-stars">★★★★<span class="afl-off">★</span></span>
-        </div>
-        <p class="afl-kpi-note" id="afl-sig-note">信頼度 84% ‒ 慎重にGO</p>
-        <div class="afl-gauge"><i id="afl-sig-gauge" style="width:84%"></i></div>
-
-        <div class="afl-glance-grid" id="afl-glance-grid">
-          <div class="afl-glance-item"><span class="afl-glance-label">方向性</span><b class="afl-glance-value" id="afl-glance-bias">‒</b></div>
-          <div class="afl-glance-item"><span class="afl-glance-label">信頼度</span><b class="afl-glance-value" id="afl-glance-confidence">‒</b></div>
-          <div class="afl-glance-item"><span class="afl-glance-label">地合い</span><b class="afl-glance-value" id="afl-glance-mode">‒</b></div>
-          <div class="afl-glance-item"><span class="afl-glance-label">戦略</span><b class="afl-glance-value" id="afl-glance-strategy">‒</b></div>
-          <div class="afl-glance-item"><span class="afl-glance-label">注目点</span><b class="afl-glance-value" id="afl-glance-focus">‒</b></div>
-        </div>
-
-        <div class="afl-ai-avatar-card">
-          <div class="afl-ai-avatar">AI</div>
-          <div class="afl-ai-avatar-body">
-            <div class="afl-ai-avatar-kicker">AIの読み<span class="afl-ai-avatar-pill" id="afl-ai-avatar-confidence">信頼度 ‒</span></div>
-            <ul class="afl-ai-avatar-lines" id="afl-ai-summary-list">
-              <li>データ取得中…</li>
-            </ul>
-          </div>
-        </div>
-
-        <details class="afl-analysis-toggle" id="afl-analysis-toggle">
-          <summary><span>今日の詳しい分析を見る／閉じる</span></summary>
-          <div class="afl-analysis-body">
-            <p class="afl-analysis-empty" id="afl-analysis-empty" style="display:none">本日の詳しい分析はまだ準備中です。</p>
-            <div id="afl-analysis-content">
-              <p class="afl-analysis-updated" id="afl-analysis-updated"></p>
-              <h3 class="afl-analysis-headline" id="afl-analysis-headline"></h3>
-              <div class="afl-analysis-advice" id="afl-analysis-advice"></div>
-              <div class="afl-analysis-scenarios" id="afl-analysis-scenarios"></div>
-              <div class="afl-analysis-order" id="afl-analysis-order"></div>
-              <p class="afl-analysis-risk" id="afl-analysis-risk"></p>
-            </div>
-          </div>
-        </details>
-      </section>
-
-      <section class="afl-note afl-full">
-        <span class="afl-note-quote" aria-hidden="true">"</span>
-        <span class="afl-note-label">AI所長のひとこと</span>
-        <p id="afl-note-text">強い相場ほど、飛び乗らない。<br>158円突破そのものより、突破後にその水準を維持できるかを見る。</p>
-      </section>
-
-      <div class="afl-full afl-section-divider">
-        <span class="afl-section-num">2</span>
-        <span class="afl-section-title">理由（材料）</span>
-        <span class="afl-section-sub">なぜその判断なのか</span>
-      </div>
-
-      <section class="afl-card afl-full" id="afl-macro-monitor">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>USD/JPY MARKET DRIVERS</div>
-        <h2 class="afl-h2">ドル円・市場環境モニター</h2>
-        <p class="afl-kpi-note" style="margin:2px 0 10px">2つのドルストレート、安全資産、原油価格を同時監視。すべてTradingViewの1時間足です。</p>
-        <details class="afl-macro-toggle">
-          <summary><span>関連市場チャート4画面を開く／閉じる</span></summary>
-          <div class="afl-macro-grid">
-            <div class="afl-macro-chart">
-              <div class="afl-macro-head"><strong>USD/JPY</strong><span>リアルタイムのローソク足（本家TradingView）</span></div>
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async="">{"autosize":true,"symbol":"FX_IDC:USDJPY","interval":"5","timezone":"Asia/Tokyo","theme":"light","style":"1","locale":"ja","hide_side_toolbar":true,"allow_symbol_change":false,"save_image":false,"calendar":false,"support_host":"https://www.tradingview.com"}</script>
-              </div>
-            </div>
-            <div class="afl-macro-chart">
-              <div class="afl-macro-head"><strong>EUR/USD</strong><span>ドル強弱</span></div>
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async="">{"autosize":true,"symbol":"FX_IDC:EURUSD","interval":"60","timezone":"Asia/Tokyo","theme":"light","style":"1","locale":"ja","hide_side_toolbar":true,"allow_symbol_change":false,"save_image":false,"calendar":false,"support_host":"https://www.tradingview.com"}</script>
-              </div>
-            </div>
-            <div class="afl-macro-chart">
-              <div class="afl-macro-head"><strong>GBP/USD</strong><span>ドル強弱の再確認</span></div>
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async="">{"autosize":true,"symbol":"FX_IDC:GBPUSD","interval":"60","timezone":"Asia/Tokyo","theme":"light","style":"1","locale":"ja","hide_side_toolbar":true,"allow_symbol_change":false,"save_image":false,"calendar":false,"support_host":"https://www.tradingview.com"}</script>
-              </div>
-            </div>
-            <div class="afl-macro-chart">
-              <div class="afl-macro-head"><strong>GOLD</strong><span>安全資産・実質金利</span></div>
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async="">{"autosize":true,"symbol":"TVC:GOLD","interval":"60","timezone":"Asia/Tokyo","theme":"light","style":"1","locale":"ja","hide_side_toolbar":true,"allow_symbol_change":false,"save_image":false,"calendar":false,"support_host":"https://www.tradingview.com"}</script>
-              </div>
-            </div>
-            <div class="afl-macro-chart">
-              <div class="afl-macro-head"><strong>WTI原油</strong><span>インフレ・資源価格</span></div>
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async="">{"autosize":true,"symbol":"TVC:USOIL","interval":"60","timezone":"Asia/Tokyo","theme":"light","style":"1","locale":"ja","hide_side_toolbar":true,"allow_symbol_change":false,"save_image":false,"calendar":false,"support_host":"https://www.tradingview.com"}</script>
-              </div>
-            </div>
-          </div>
-        </details>
-      </section>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"></path><path d="M20 19V5"></path><path d="M4 12h16"></path></svg>CURRENCY STRENGTH</div>
-        <h2 class="afl-h2">通貨強弱（簡易版）</h2>
-        <p class="afl-kpi-note" style="margin:2px 0 10px">主要7通貨ペアの直近1時間足24本（約1日）の騰落率から算出。USDは7ペア平均のため比較的安定した指標ですが、それ以外の通貨は1ペアのみからの簡易算出です。</p>
-        <details class="afl-macro-toggle">
-          <summary><span>通貨強弱バーを開く／閉じる</span></summary>
-          <div class="afl-cs-list" id="afl-cs-list">
-            <div class="afl-cs-row"><span class="afl-cs-code">‒</span><div class="afl-cs-bar-track"><div class="afl-cs-mid-line"></div></div><span class="afl-cs-value">読み込み中</span></div>
-          </div>
-        </details>
-      </section>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"></path><path d="M4 15l5-5 4 3 7-8"></path></svg>REGRESSION CHANNEL</div>
-        <h2 class="afl-h2">線形回帰チャネル（実チャート）</h2>
-        <p class="afl-kpi-note" style="margin:2px 0 10px">直近の実際のローソク足に、その時点の線形回帰チャネル（中心線・上下2σバンド）を重ねて表示しています。1時間足はEntry/TP/SLの算出基準にしている最重要時間足です。<br>※このチャートはGitHub Actionsによる自動計算結果を描画しており、リアルタイムのティック更新ではありません。最大15分程度、実際の相場からの遅延があります。</p>
-        <details class="afl-macro-toggle" id="afl-reg-toggle">
-          <summary><span>4本の時間足チャートを開く／閉じる</span></summary>
-          <div class="afl-reg-row" id="afl-reg-row">
-            <div class="afl-reg" data-reg-index="0">
-              <span class="afl-tf">5分足</span><span class="afl-tf-state afl-down-c" data-reg-state="">SELL</span>
-              <canvas data-reg-canvas=""></canvas>
-            </div>
-            <div class="afl-reg" data-reg-index="1">
-              <span class="afl-tf">15分足</span><span class="afl-tf-state afl-flat-c" data-reg-state="">WAIT</span>
-              <canvas data-reg-canvas=""></canvas>
-            </div>
-            <div class="afl-reg afl-reg-important" data-reg-index="2">
-              <span class="afl-reg-badge">★最重要</span>
-              <span class="afl-tf">1時間足</span><span class="afl-tf-state afl-down-c" data-reg-state="">SELL</span>
-              <canvas data-reg-canvas=""></canvas>
-            </div>
-            <div class="afl-reg" data-reg-index="3">
-              <span class="afl-tf">4時間足</span><span class="afl-tf-state" data-reg-state="" style="color:var(--afl-warn)">GATE</span>
-              <canvas data-reg-canvas=""></canvas>
-            </div>
-          </div>
-        </details>
-      </section>
-
-      <section class="afl-card afl-half">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 21h20L12 2Z"></path><line x1="12" y1="9" x2="12" y2="14"></line><circle cx="12" cy="17.5" r=".8" fill="currentColor"></circle></svg>INTERVENTION RISK</div>
-        <div class="afl-kpi-big" id="afl-ir-big" style="font-size:28px">HIGH</div>
-        <span class="afl-pill afl-high" id="afl-ir-pill">警戒レベル高</span>
-        <p class="afl-kpi-note">価格だけでなく、上昇速度・要人発言・雇用統計後の値動きを重視。</p>
-      </section>
-
-      <section class="afl-card afl-half">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg>MARKET MODE</div>
-        <div class="afl-kpi-big" id="afl-mm-big" style="font-size:22px">EVENT DRIVEN</div>
-        <p class="afl-kpi-note" id="afl-mm-note">重要指標の結果待ちで振れやすく、方向感よりイベント後の反応を優先する局面。</p>
-      </section>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"></path><path d="M7 14l3-3 3 3 5-6"></path></svg>TECHNICAL DASHBOARD</div>
-        <h2 class="afl-h2">MACD・RSI・ボリンジャーバンド・サポート/レジスタンス（1時間足基準）</h2>
-        <p class="afl-kpi-note" style="margin:2px 0 10px">売買判定には使用していない参考指標です。線形回帰チャネルの判定を補足する目的で表示しています。</p>
-        <details class="afl-macro-toggle">
-          <summary><span>MACD・RSI・BB・サポレジを開く／閉じる</span></summary>
-          <div class="afl-tech-grid">
-            <div class="afl-mini">
-              <span>MACD</span>
-              <b id="afl-macd-value">‒</b>
-              <small id="afl-macd-state">データ取得中</small>
-            </div>
-            <div class="afl-mini">
-              <span>RSI（14）</span>
-              <b id="afl-rsi-value">‒</b>
-              <small id="afl-rsi-state">データ取得中</small>
-            </div>
-            <div class="afl-mini">
-              <span>ボリンジャーバンド（20・±2σ）</span>
-              <b id="afl-bb-value">‒</b>
-              <small id="afl-bb-state">データ取得中</small>
-            </div>
-            <div class="afl-mini">
-              <span>サポート/レジスタンス</span>
-              <b id="afl-sr-value">‒</b>
-              <small id="afl-sr-state">直近50本の高安値</small>
-            </div>
-          </div>
-        </details>
-      </section>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16"></path><path d="M8 15v-6M12 15V9M16 15v-3"></path></svg>MOVING AVERAGES</div>
-        <h2 class="afl-h2">移動平均線（MA5/25/75/200）・パーフェクトオーダー</h2>
-        <details class="afl-macro-toggle">
-          <summary><span>移動平均線の詳細を開く／閉じる</span></summary>
-          <table class="afl-ma-table">
-            <thead><tr><th>指標</th><th>値</th><th>現在値との関係</th></tr></thead>
-            <tbody id="afl-ma-body">
-              <tr><td>データ取得中</td><td>‒</td><td>‒</td></tr>
-            </tbody>
-          </table>
-          <p class="afl-kpi-note" style="margin:10px 0 0" id="afl-perfect-order-note">パーフェクトオーダー判定：データ取得中</p>
-        </details>
-      </section>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 1 0 18M3 12h18"></path></svg>AI'S MARKET READ</div>
-        <h2 class="afl-h2">この5項目、円安と円高どちらの材料？</h2>
-        <p class="afl-kpi-note" style="margin:2px 0 10px">USD/JPY・WTI・GOLDの生数値は上部のライブティッカーを参照。米10年債・日本10年債・ドル指数（DXY）はGitHub Actions側で取得した実データを表示しています（TradingViewのチャート埋め込みには対応していない銘柄のため）。</p>
-        <div class="afl-mr-list">
-          <div class="afl-mr-row"><span class="afl-mr-label"><i class="afl-mkt-dot afl-up" id="afl-us10y-dot"></i>米10年債利回り<b id="afl-us10y-value" class="afl-mono" style="margin-left:6px;font-weight:700"></b>が<span id="afl-us10y-dir">上昇</span>中</span><span class="afl-mr-value" id="afl-us10y-note" style="color:var(--afl-bad)">→ 円安圧力（日米金利差拡大）</span></div>
-          <div class="afl-mr-row"><span class="afl-mr-label"><i class="afl-mkt-dot afl-down" id="afl-jp10y-dot"></i>日本10年債利回り<b id="afl-jp10y-value" class="afl-mono" style="margin-left:6px;font-weight:700"></b>が<span id="afl-jp10y-dir">低下</span>中</span><span class="afl-mr-value" id="afl-jp10y-note" style="color:var(--afl-bad)">→ 円安圧力（円の魅力低下）</span></div>
-          <div class="afl-mr-row"><span class="afl-mr-label"><i class="afl-mkt-dot afl-up" id="afl-dxy-dot"></i>ドル指数（DXY）<b id="afl-dxy-value" class="afl-mono" style="margin-left:6px;font-weight:700"></b>が<span id="afl-dxy-dir">上昇</span>中</span><span class="afl-mr-value" id="afl-dxy-note" style="color:var(--afl-bad)">→ 円安圧力（ドルが全面的に強い）</span></div>
-          <div class="afl-mr-row"><span class="afl-mr-label"><i class="afl-mkt-dot afl-up" id="afl-wti-dot"></i>WTI原油が<span id="afl-wti-dir">上昇</span>中</span><span class="afl-mr-value" id="afl-wti-note" style="color:var(--afl-bad)">→ 円安圧力（資源高で日本の貿易収支が悪化）</span></div>
-          <div class="afl-mr-row"><span class="afl-mr-label"><i class="afl-mkt-dot afl-flat" id="afl-gold-dot"></i>金（GOLD）<b id="afl-gold-value" class="afl-mono" style="margin-left:6px;font-weight:700"></b>が<span id="afl-gold-dir">横ばい</span>中</span><span class="afl-mr-value" id="afl-gold-note" style="color:var(--afl-muted)">→ 中立（横ばい）</span></div>
-        </div>
-        <p class="afl-kpi-note" id="afl-market-read-summary" style="margin:10px 0 0">※ 5項目中集計中です。ただし個別材料であり、AIシグナルの結論（上部カード）とは別集計です。</p>
-		</section> 
-		
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16"></path><path d="M4 19V9l4-4 4 6 4-8 4 5v11"></path></svg>MARKET CONTEXT</div>
-        <h2 class="afl-h2">今の相場環境（シグナルに連動して自動更新）</h2>
-        <p class="afl-event-note" id="afl-market-context">USD/JPYは現在157.75円付近で推移（直近1時間比-0.44%）。3個の時間足が上値の重さを示しており、戻り売りが優勢な地合い。米10年債利回りは低下基調、WTI原油は上昇基調で推移している。目先は上値の重い展開が想定され、高値を追わず戻りを待つスタンスが機能しやすい局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。</p>
-      </section>
-
-      <div class="afl-full afl-section-divider">
-        <span class="afl-section-num">3</span>
-        <span class="afl-section-title">戦略</span>
-        <span class="afl-section-sub">エントリー／利確／損切り</span>
-      </div>
-
-      <section class="afl-card afl-one afl-full">
-        <p class="afl-ticket-no afl-mono" id="afl-ticket-no" style="color:#9bb4c7">TICKET No. 2026-0808-01</p>
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path></svg>PRIORITY TRADE</div>
-        <h2 class="afl-h2">今日勝負するなら、この一本</h2>
-        <div class="afl-pair">USD / JPY</div>
-        <p class="afl-trade-lead" id="afl-trade-lead" style="color:#eef4fb">戻り売り ‒ ただし押し目を深追いしない</p>
-        <div class="afl-trade-row">
-          <div class="afl-trade-box afl-entry"><span>ENTRY</span><b id="afl-trade-entry">157.xx</b></div>
-          <div class="afl-trade-box afl-tp"><span>TAKE PROFIT</span><b id="afl-trade-tp">156.xx</b></div>
-          <div class="afl-trade-box afl-sl"><span>STOP LOSS</span><b id="afl-trade-sl">158.xx</b></div>
-        </div>
-        <a class="afl-summary-detail-btn" href="/fx_daily_analysis_trial/">今日の詳しい分析を見る <span>→</span></a>
-        <a class="afl-live-chart-btn" href="/live-chart/">USD/JPY ライブチャートを見る <span>→</span></a>
-        <a class="afl-live-chart-btn" href="/eurusd_daily_analysis/">EUR/USD の分析を見る <span>→</span></a>
-        <p class="afl-summary-manual-note">詳細記事は手動更新｜TOPのシグナルはGitHubから自動更新</p>
-      </section>
-
-      <div class="afl-full afl-section-divider">
-        <span class="afl-section-num">4</span>
-        <span class="afl-section-title">注意点</span>
-        <span class="afl-section-sub">今夜・直近のイベント</span>
-      </div>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 9h18"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M12 9v5M12 17h.01"></path></svg>PPI RESULT</div>
-        <h2 class="afl-h2">⚠️ 結果：米7月PPI、総合は鈍化もコアは予想上回る</h2>
-        <div class="afl-event">
-          <div class="afl-event-time" style="font-size:22px;color:var(--afl-muted)">4.7%/4.2%</div>
-          <div class="afl-event-body">
-            <div class="afl-event-name">米生産者物価指数（PPI）7月分・8/13 21:30発表・結果</div>
-            <div class="afl-event-stars">★★★★☆</div>
-            <p class="afl-event-note">総合PPIは前年比+4.7%（予想+4.9%・前回+5.5%）、前月比0.0%（予想+0.2%・前回-0.1%）といずれも予想を下回り、インフレ鈍化を示す内容。一方コアPPIは前年比+4.2%で予想+4.1%をわずかに上回り、前月比も+0.2%（予想+0.3%は下回るが前回+0.4%からは鈍化）。総合とコアで方向感が分かれる「まちまち」の結果で、CPIに続きインフレ全体の鈍化基調自体は概ね維持されたとの見方が優勢。</p>
-          </div>
-        </div>
-        <p class="afl-kpi-note" style="margin-top:10px">※この欄はWeb検索で確認した実際の発表結果（株探）をもとに手動で記載しています。速報段階の数値のため、後日の改定に注意してください。</p>
-      </section>
-
-      <section class="afl-card afl-full">
-        <div class="afl-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 9h18"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M9 16l2 2 4-4"></path></svg>CPI RESULT</div>
-        <h2 class="afl-h2">🔥 結果：米7月CPI、予想通り3.4%（コア2.5%）で伸び鈍化</h2>
-        <div class="afl-event">
-          <div class="afl-event-time" style="font-size:26px;color:var(--afl-muted)">+3.4%</div>
-          <div class="afl-event-body">
-            <div class="afl-event-name">米消費者物価指数（CPI）7月分・8/12 21:30発表・結果</div>
-            <div class="afl-event-stars">★★★★★</div>
-            <p class="afl-event-note">総合CPIは前年比+3.4%（予想+3.4%・前回+3.5%）、前月比+0.1%（予想+0.1%・前回-0.4%）。コアCPIも前年比+2.5%（予想+2.5%・前回+2.6%、2021年3月以来の低水準）、前月比+0.2%（予想+0.2%・前回0.0%）と、いずれも市場予想通りでサプライズなし。ガソリン等燃料価格の伸び鈍化が主因（ガソリンは前年比+24.6%高いが上昇ペースは鈍化）。発表直後のドル円は158円台後半で上値の重い反応にとどまり、サプライズがなかったことと符合する。</p>
-          </div>
-        </div>
-        <p class="afl-kpi-note" style="margin-top:10px">※この欄はWeb検索で確認した実際の発表結果（日本経済新聞・ザイFX!・株探）をもとに手動で記載しています。</p>
-      </section>
-
-    </div>
-
-    <p class="afl-disclaimer" id="afl-disclaimer">本サイトは投資判断の参考情報を提供する研究サイトです。将来の成果を保証するものではありません。最終的な投資判断はご自身の責任で行ってください。<br>USD/JPY・WTI・GOLD等はTradingViewのウィジェットによりリアルタイムに近い形で自動表示されます（米10年債・日本10年債・DXYはTradingViewのチャート埋め込みに対応していない銘柄のため、GitHub Actions側で取得した実データを数値として表示しています）。AIシグナル（本カード群）は15分おきに、線形回帰チャネルに基づき自動計算されます（米10年債・日本10年債・WTIは元データが日足のため1日1回のみ更新。DXYはレート制限が無いため毎回取得）。MACD・RSI・移動平均線・ボリンジャーバンド・サポート/レジスタンスは参考情報であり、売買判定ロジックには使用していません。このページを開いたまま滞在中も、5分おきに最新の計算結果を自動で取得し直します。</p>
-  </div>
-
-
-<script>
-/* ==== AIシグナル自動反映（Phase 2） ====
-   GitHub Actionsが15分おきに計算して書き出す signal.json を、GitHub本体
-   （raw.githubusercontent.com。CORS対応・キー不要）から直接取得し、
-   下記のカード群にそのまま反映する。取得のたびにURL末尾へタイムスタンプを
-   付けて、GitHub側のCDNキャッシュ（約5分）を毎回バイパスする。
-   （以前はjsDelivr経由だったが、jsDelivrはキャッシュ更新に手動パージが
-   必要な上パージ自体に頻度制限があり、反映が遅れる/止まる問題があったため
-   raw.githubusercontent.comへ切り替えた）
-   取得に失敗した場合は、静的に書かれている現在の表示のまま何も変えない
-  （サイトが壊れることはない）。
-
-   ▼設定必須▼
-   GitHubリポジトリを作成したら、下の SIGNAL_JSON_URL を
-   「あなたのGitHubユーザー名」「リポジトリ名」に書き換えてください。
-   例）ユーザー名が anjo-fx、リポジトリ名が aifx-signal の場合：
-   "https://raw.githubusercontent.com/anjo-fx/aifx-signal/main/signal.json"
-
-   ▼WordPress側の仕様上の注意▼
-   このスクリプト内では、JavaScriptの論理AND演算子（アンパサンド2つを
-   連続で書く記法）を一切使っていません。WordPressのコンテンツフィルタ
-   （wptexturize等）が、生のアンパサンド2連続をHTML実体参照に自動変換し、
-   構文エラーでスクリプト全体が停止する事故が過去に発生したためです
-  （ネストしたif文や != null で代替しています）。
-   今後この中に条件式を追加する場合も、アンパサンド2連続の使用は避けること。
-
-   ▼チャート部分について▼
-   線形回帰チャネルの4枚のミニチャートは<canvas>にJSで自前描画している。
-   TradingViewの埋め込みiframe等に差し替えないこと。差し替えると、
-   SELL/BUY/WAIT/GATEのラベルは自動更新されたままなのに、チャートの中身は
-   無関係な汎用インジケーターになり、ラベルとチャートが矛盾する事故になる
-  （実際に一度発生し、復旧した経緯がある）。 */
-;(function () {
-  var SIGNAL_JSON_URL = "https://raw.githubusercontent.com/norithan88-cmyk/aifx-signal/main/signal.json";
-
-  var STATE_COLOR = { SELL: "afl-down-c", BUY: "afl-up-c", WAIT: "afl-flat-c", GATE: null };
-  var STATE_WARN_COLOR = "var(--afl-warn)";
-  var lastCharts = null; // 折りたたみが閉じている間はcanvas幅が0のため、開いた瞬間に再描画するためのキャッシュ
-
-  function setText(id, text) {
-    var el = document.getElementById(id);
-    if (el) { if (text != null) el.textContent = text; }
-  }
-
-  function fmtPrice(v) {
-    return (v === null || v === undefined) ? "‒" : Number(v).toFixed(2);
-  }
-
-  function applyPillClass(el, variant) {
-    if (!el) return;
-    el.classList.remove("afl-go", "afl-sell", "afl-caution", "afl-high");
-    el.classList.add(variant);
-  }
-
-  // AI'S MARKET READの各行（米10年債・日本10年債・DXY）共通の描画処理。
-  // goodTrendには、その指標がその向きに動いたとき円高（good）になる方向を渡す
-  // （米10年債・DXYは"down"、日本10年債は"up"）。
-
-  function themeColor(varName, fallback) {
-    var root = document.querySelector(".afl-top");
-    var v = root ? getComputedStyle(root).getPropertyValue(varName).trim() : "";
-    return v || fallback;
-  }  // 戻り値: そのままdirection（"good"=円高圧力 / "bad"=円安圧力 / "flat"=中立）を返す。
-  // updateMarketReadSummaryで各行の判定結果を集計するために使う。
-  function renderMacroRow(prefix, latest, decimals, unit, trend, goodTrend, goodLabel, badLabel) {
-    var valueEl = document.getElementById("afl-" + prefix + "-value");
-    if (valueEl) { if (latest != null) valueEl.textContent = latest.toFixed(decimals) + unit; }
-    var dotEl = document.getElementById("afl-" + prefix + "-dot");
-    var dirEl = document.getElementById("afl-" + prefix + "-dir");
-    var noteEl = document.getElementById("afl-" + prefix + "-note");
-    var dirLabel = { up: "上昇", down: "低下" }[trend] || "横ばい";
-    if (dirEl) dirEl.textContent = dirLabel;
-    if (dotEl) dotEl.className = "afl-mkt-dot afl-" + (trend === "up" || trend === "down" ? trend : "flat");
-    if (trend === "up" || trend === "down") {
-      if (trend === goodTrend) {
-        if (noteEl) { noteEl.textContent = goodLabel; noteEl.style.color = "var(--afl-good)"; }
-        return "good";
-      }
-      if (noteEl) { noteEl.textContent = badLabel; noteEl.style.color = "var(--afl-bad)"; }
-      return "bad";
-    }
-    if (noteEl) { noteEl.textContent = "→ 中立（横ばい）"; noteEl.style.color = "var(--afl-muted)"; }
-    return "flat";
-  }
-
-  // AI'S MARKET READ下部の「◯項目中◯項目が円安方向」を、実際の判定結果から動的に組み立てる。
-  function updateMarketReadSummary(results) {
-    var el = document.getElementById("afl-market-read-summary");
-    if (!el) return;
-    var total = results.length;
-    var bad = results.filter(function (r) { return r === "bad"; }).length;
-    el.textContent = "※ " + total + "項目中" + bad + "項目が円安方向。ただし個別材料であり、AIシグナルの結論（上部カード）とは別集計です。";
-  }
-
-
-  var REG_STATE_VAR = { SELL: "--afl-bad", BUY: "--afl-good", WAIT: "--afl-muted", GATE: "--afl-warn" };
-
-  function drawRegChart(canvas, chart) {
-    var bars = (chart ? chart.bars : null) || [];
-    var n = bars.length;
-    var ch = chart ? chart.channel : null;
-    if (!n) return;
-    if (!ch) return;
-
-    var cssW = canvas.parentElement.clientWidth || 260;
-    var cssH = 150;
-    var dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.round(cssW * dpr);
-    canvas.height = Math.round(cssH * dpr);
-    var ctx = canvas.getContext("2d");
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, cssW, cssH);
-
-    var mids = [], uppers = [], lowers = [];
-    for (var i = 0; i < n; i++) {
-      var mid = ch.intercept + ch.slope * i;
-      mids.push(mid);
-      uppers.push(mid + 2 * ch.sigma);
-      lowers.push(mid - 2 * ch.sigma);
+#!/usr/bin/env python3
+"""
+AI FX研究所 - 「今日の詳しい分析」自動生成スクリプト
+
+背景:
+  従来は「声掛け制」（ユーザーが「今日の分析書いて」と頼むたびにClaude Codeが
+  signal.jsonの実データを見て手で書き、GitHub Contents APIでコミットする）
+  だった。本スクリプトはこれを置き換え、GitHub Actionsから1日2回（東京時間
+  8:00・22:00）自動実行し、LLM（Gemini API）に実データを渡して文章化させる
+  「完全自動」方式。2026-08-14、ユーザーの明示的な合意により導入。
+
+設計方針（ハルシネーション対策）:
+  - LLMは「渡した事実データを言語化するだけの翻訳機」として使う。
+    LLM自身の事前学習知識や推測でニュース・数値を補わせない
+   （システムプロンプトで明示的に禁止）。
+  - 断定・予測を避けた客観的な文体を指示する。
+  - 売買に直結する数値（entry/take_profit/stop_loss）はLLMに生成させず、
+    compute_signal.pyがルールベースで計算した priority_trade の値を
+    Python側でそのまま差し込む（価格のハルシネーションを構造的に排除）。
+  - LLMの出力はJSON Schema（Gemini APIのresponseSchema）で構造を強制した上、
+    断定的な表現（「確実」「保証」等）が含まれていないかPython側で正規表現
+    チェックする。どちらかに引っかかった場合は書き込みを行わず、
+    直前のdaily_analysis.jsonをそのまま残す（サイトが古い情報のまま
+    壊れずに動き続けることを優先する）。
+
+経済指標カレンダー:
+  ForexFactoryの週間XMLフィード（無料・キー不要・スクレイピング規約上も
+  問題ない配布用フィード）から、JPY/USDの中〜高重要度イベントのみを
+  抽出してLLMへの入力に含める。
+"""
+
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.request
+import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta, timezone
+
+JST = timezone(timedelta(hours=9))
+
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
+GEMINI_MODEL = "gemini-2.5-flash"  # Google管理のエイリアス。常時その時点のflash系最新モデルを指す
+GEMINI_URL = f"https://generativelanguage.googleapis.com/v1/models/{GEMINI_MODEL}:generateContent"
+
+FF_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"
+
+# 「断定」「保証」の類を検出するための簡易チェック（完璧な検知ではないが、
+# 明らかにアウトな表現が混入した場合に自動反映を止める最後の砦として機能する）
+BANNED_PATTERNS = [
+    "確実", "保証", "絶対に", "間違いない", "必ず", "断言", "太鼓判",
+    "投資助言", "買うべき", "売るべき",
+]
+
+TREND_JA = {"up": "上昇", "down": "低下", "flat": "横ばい"}
+CHANNEL_TREND_JA = {"UP": "上昇", "DOWN": "下降", "FLAT": "横ばい"}
+
+RESPONSE_SCHEMA = {
+    "type": "OBJECT",
+    "properties": {
+        "headline": {"type": "STRING"},
+        "advice": {"type": "ARRAY", "items": {"type": "STRING"}, "minItems": 2, "maxItems": 3},
+        "scenarios": {
+            "type": "ARRAY",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+                "type": "OBJECT",
+                "properties": {
+                    "label": {"type": "STRING"},
+                    "probability": {"type": "INTEGER"},
+                    "color": {"type": "STRING", "enum": ["buy", "sell", "neutral"]},
+                    "body": {"type": "STRING"},
+                },
+                "required": ["label", "probability", "color", "body"],
+            },
+        },
+        "economic_events_note": {"type": "STRING"},
+        "order_plan_lead": {"type": "STRING"},
+        "order_plan_sub_note": {"type": "STRING"},
+        "risk_note": {"type": "STRING"},
+    },
+    "required": [
+        "headline", "advice", "scenarios", "economic_events_note",
+        "order_plan_lead", "order_plan_sub_note", "risk_note",
+    ],
+}
+
+SYSTEM_PROMPT = """あなたはUSD/JPY(ドル円)を専門とする、冷静で客観的な市場解説者です。
+これから渡す【提供データ】だけを根拠に、当サイト「AI FX研究所」の「今日の詳しい分析」欄の
+文章をJSON形式で生成してください。
+
+【厳守するルール】
+1. 事実のみを使うこと。【提供データ】に無い数値・ニュース・出来事を、あなた自身の
+   知識や推測で補ったり創作したりしないでください。分からないことは書かない。
+2. 断定の禁止。「AだからBになった」のような一方的な因果の断定を避け、
+   「Aとなるなか、Bが推移している」のように事象を並べる客観的な書き方にしてください。
+3. 将来予測・投資助言の禁止。「今後は〜になるだろう」「〜すべきだ」等は書かないでください。
+   ただし scenarios（本命／上抜け／下抜けの3パターン）は、あくまで「もし〜円を超えたら
+   どちらに動きやすいか」という条件付きの構造的な整理であり、断定的な将来予測ではないので、
+   この項目に限り「〜円を試す」「〜円方向へ反落」のような条件付きの記述は許可します。
+4. 「確実」「保証」「絶対」等の強い断定語は一切使わないでください。
+5. 簡潔でプロフェッショナルな文体。日本語。絵文字は使わない。
+6. order_plan_lead / order_plan_sub_note には、具体的な価格の逆指値・利確・損切り数値を
+   自分で計算して書かないでください（数値は別のルールベースの計算結果を機械的に
+   使うため、あなたは方針・注意点の文章だけを書けば十分です）。
+
+【出力するJSONの各キーについて】
+- headline: 見出し（30文字程度）
+- advice: 分析本文の段落（2〜3個の配列）。地合い・テクニカル・通貨強弱等を客観的に整理する。
+- scenarios: 本命/上抜け/上抜け以外の3パターン（label, probability(0-100の整数,
+  合計100目安), color("buy"/"sell"/"neutral"), body）
+- economic_events_note: 当日の経済指標に関する客観的な注記（無ければ「特筆すべき
+  重要指標はありません」等）
+- order_plan_lead: 戦略の要点（1〜2文、価格の具体数値は書かない）
+- order_plan_sub_note: 補足（1〜2文、価格の具体数値は書かない）
+- risk_note: リスク・注意点（1〜2文）
+"""
+
+
+def fetch_calendar_events():
+    """
+    ForexFactoryの週間XMLフィードから、JPY/USDの中〜高重要度イベントのうち
+    「今日（JST）」に該当するものだけを抽出する。取得・パースに失敗した場合は
+    空リストを返す（経済指標欄が「特になし」相当になるだけで、本体の生成は止めない）。
+    """
+    try:
+        req = urllib.request.Request(FF_CALENDAR_URL, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=20) as res:
+            raw = res.read()
+        root = ET.fromstring(raw)
+    except (urllib.error.URLError, TimeoutError, ET.ParseError):
+        return []
+
+    today_jst = datetime.now(JST).date()
+    events = []
+    for e in root.findall("event"):
+        country = e.findtext("country") or ""
+        impact = e.findtext("impact") or ""
+        if country not in ("JPY", "USD"):
+            continue
+        if impact not in ("High", "Medium"):
+            continue
+        date_str = (e.findtext("date") or "").strip()
+        try:
+            event_date = datetime.strptime(date_str, "%m-%d-%Y").date()
+        except ValueError:
+            continue
+        if event_date != today_jst:
+            continue
+        events.append({
+            "title": (e.findtext("title") or "").strip(),
+            "country": country,
+            "impact": impact,
+            "time": (e.findtext("time") or "").strip(),
+            "forecast": (e.findtext("forecast") or "").strip(),
+            "previous": (e.findtext("previous") or "").strip(),
+        })
+    return events
+
+
+def build_data_block(signal, events):
+    sig = signal.get("signal", {})
+    channels = signal.get("regression_channels", [])
+    technical = signal.get("technical", {})
+    macro = signal.get("macro", {})
+    cs = signal.get("currency_strength", [])
+    sr = technical.get("support_resistance") or {}
+    macd = technical.get("macd") or {}
+    rsi = technical.get("rsi") or {}
+
+    lines = []
+    lines.append(f"現在時刻(JST): {datetime.now(JST).strftime('%Y-%m-%d %H:%M')}")
+    lines.append(f"USD/JPY 現在値: {signal.get('latest_price')}円（直近1時間比 {signal.get('day_change_pct')}%）")
+    lines.append(f"AI総合シグナル: {sig.get('bias_label')}（信頼度{sig.get('confidence')}%）")
+    lines.append(f"相場モード: {signal.get('market_mode')}（{signal.get('market_mode_note')}）")
+
+    for ch in channels:
+        trend_ja = CHANNEL_TREND_JA.get(ch.get("trend"), ch.get("trend"))
+        lines.append(
+            f"- {ch.get('label')}: 中心線からの位置 {ch.get('position_sigma')}σ、トレンド{trend_ja}、"
+            f"中心{ch.get('mid')}円/上限{ch.get('upper')}円/下限{ch.get('lower')}円"
+        )
+
+    reversal = signal.get("reversal_setup")
+    if reversal:
+        lines.append(
+            f"1分足の反発トリガー: 直近の谷/山{reversal.get('extreme')}円から"
+            f"{reversal.get('reverted_pips')}pips反発したタイミングでシグナル発動"
+        )
+
+    if sr:
+        lines.append(f"サポート: {sr.get('support')}円 / レジスタンス: {sr.get('resistance')}円")
+    if macd:
+        lines.append(f"MACD: {macd.get('state')}（ヒストグラム{macd.get('histogram')}）")
+    if rsi:
+        lines.append(f"RSI(14): {rsi.get('value')}（{rsi.get('state')}）")
+
+    if macro:
+        lines.append(
+            "米10年債利回り: {}%（{}基調） / 日本10年債利回り: {}%（{}基調） / "
+            "DXY: {}（{}基調） / WTI原油: {}基調".format(
+                macro.get("us10y_latest"), TREND_JA.get(macro.get("us10y_trend"), "横ばい"),
+                macro.get("jp10y_latest"), TREND_JA.get(macro.get("jp10y_trend"), "横ばい"),
+                macro.get("dxy_latest"), TREND_JA.get(macro.get("dxy_trend"), "横ばい"),
+                TREND_JA.get(macro.get("wti_trend"), "横ばい"),
+            )
+        )
+
+    if cs:
+        cs_txt = "、".join(f"{c['code']} {c['change_pct']:+.2f}%" for c in cs)
+        lines.append(f"通貨強弱（直近1日）: {cs_txt}")
+
+    if events:
+        lines.append("本日の経済指標（JPY・USD、中〜高重要度）:")
+        for ev in events:
+            fc = f"予想{ev['forecast']}" if ev["forecast"] else "予想非公表"
+            pv = f"前回{ev['previous']}" if ev["previous"] else "前回非公表"
+            lines.append(f"- {ev['time']} [{ev['country']}/{ev['impact']}] {ev['title']}（{fc}・{pv}）")
+    else:
+        lines.append("本日の経済指標（JPY・USD、中〜高重要度）: 該当なし")
+
+    return "\n".join(lines)
+
+
+RETRYABLE_HTTP_CODES = (429, 500, 502, 503, 504)
+
+
+def call_gemini(data_block):
+    if not GEMINI_API_KEY:
+        raise RuntimeError("環境変数 GEMINI_API_KEY が設定されていません")
+
+    body = json.dumps({
+        "system_instruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+        "contents": [{"parts": [{"text": "【提供データ】\n" + data_block}]}],
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "responseSchema": RESPONSE_SCHEMA,
+            "temperature": 0.4,
+        },
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        f"{GEMINI_URL}?key={GEMINI_API_KEY}",
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    # Gemini APIは無料枠の混雑時に503(Service Unavailable)を返すことがある
+    # (Google公式にも一時的なエラーとして再試行が推奨されている)。1回失敗しただけで
+    # 諦めず、数秒待って数回まで再試行することで、混雑のタイミングに毎回引っかかって
+    # 何日も更新が止まる、という事態を避ける。
+    attempts = 4
+    delays = [5, 15, 30]  # 各リトライ前の待機秒数
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as res:
+                payload = json.loads(res.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as e:
+            last_error = e
+            if e.code not in RETRYABLE_HTTP_CODES:
+                raise
+            if attempt < attempts - 1:
+                print(f"[WARN] Gemini APIがHTTP {e.code}を返したため、{delays[attempt]}秒後に再試行します（{attempt + 1}/{attempts}回目）", file=sys.stderr)
+                time.sleep(delays[attempt])
+            else:
+                raise
+    else:
+        raise last_error  # 実際にはbreakかraiseで抜けるため到達しないが、念のため
+
+    candidates = payload.get("candidates") or []
+    if not candidates:
+        raise RuntimeError(f"Gemini APIから候補が返りませんでした: {payload}")
+    parts = candidates[0].get("content", {}).get("parts") or []
+    if not parts:
+        raise RuntimeError(f"Gemini APIのレスポンスにpartsがありません: {candidates[0]}")
+    text = parts[0].get("text", "")
+    return json.loads(text)
+
+
+def list_available_models():
+    """
+    診断用: このAPIキーで実際に使えるモデル名の一覧をGemini APIから取得する。
+    call_geminiが404を返した場合（モデル名が存在しない等）に、次回実行時の
+    ログへ手がかりを残すために使う。取得に失敗しても例外は投げない。
+    """
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1/models?key={GEMINI_API_KEY}"
+        with urllib.request.urlopen(url, timeout=30) as res:
+            payload = json.loads(res.read().decode("utf-8"))
+        names = [
+            m.get("name") for m in payload.get("models", [])
+            if "generateContent" in (m.get("supportedGenerationMethods") or [])
+        ]
+        return names
+    except Exception as e:  # noqa: BLE001
+        return [f"(モデル一覧の取得にも失敗: {e})"]
+
+
+def find_banned_word(obj):
+    """objの中の全文字列を再帰的に走査し、禁止語を含む文字列があれば返す。無ければNone。"""
+    if isinstance(obj, str):
+        for w in BANNED_PATTERNS:
+            if w in obj:
+                return w
+        return None
+    if isinstance(obj, dict):
+        for v in obj.values():
+            hit = find_banned_word(v)
+            if hit:
+                return hit
+        return None
+    if isinstance(obj, list):
+        for v in obj:
+            hit = find_banned_word(v)
+            if hit:
+                return hit
+        return None
+    return None
+
+
+def validate_llm_output(obj):
+    for key in RESPONSE_SCHEMA["required"]:
+        if key not in obj:
+            raise ValueError(f"必須キー'{key}'がLLM出力にありません")
+    if not isinstance(obj["advice"], list) or not obj["advice"]:
+        raise ValueError("adviceが空、または配列ではありません")
+    if not isinstance(obj["scenarios"], list) or len(obj["scenarios"]) != 3:
+        raise ValueError("scenariosは3件である必要があります")
+    for sc in obj["scenarios"]:
+        if sc.get("color") not in ("buy", "sell", "neutral"):
+            raise ValueError(f"scenarios.colorが不正です: {sc.get('color')}")
+        prob = sc.get("probability")
+        if not isinstance(prob, int) or not (0 <= prob <= 100):
+            raise ValueError(f"scenarios.probabilityが不正です: {prob}")
+    banned = find_banned_word(obj)
+    if banned:
+        raise ValueError(f"禁止語'{banned}'がLLM出力に含まれています")
+
+
+def build_order_plan(llm_obj, signal):
+    """
+    価格に関わる数値（entry/take_profit/stop_loss）はLLMに生成させず、
+    compute_signal.pyがルールベースで計算したpriority_tradeの値をそのまま使う。
+    lead/sub_noteの文章部分だけLLM出力を採用する。
+    """
+    trade = signal.get("priority_trade", {})
+    entry = trade.get("entry")
+    tp = trade.get("take_profit")
+    sl = trade.get("stop_loss")
+    return {
+        "lead": llm_obj["order_plan_lead"],
+        "entry": f"{entry}円付近（現在値）" if entry is not None else "様子見（新規エントリーなし）",
+        "take_profit": f"{tp}円" if tp is not None else "‒",
+        "stop_loss": f"{sl}円" if sl is not None else "‒",
+        "sub_note": llm_obj["order_plan_sub_note"],
     }
 
-    var lo = Math.min.apply(null, bars.map(function (b) { return b.l; }).concat(lowers));
-    var hi = Math.max.apply(null, bars.map(function (b) { return b.h; }).concat(uppers));
-    var pad = (hi - lo) * 0.08 || 0.01;
-    lo -= pad; hi += pad;
 
-    // 右側に価格ラベル分の余白を確保する
-    var priceLabelW = 52;
-    var padL = 3, padR = priceLabelW, padT = 8, padB = 6;
-    var plotW = cssW - padL - padR;
-    var plotH = cssH - padT - padB;
-    function xAt(idx) { return padL + (plotW * (idx + 0.5) / n); }
-    function yAt(v) { return padT + plotH * (1 - (v - lo) / (hi - lo)); }
+def load_signal(signal_path):
+    with open(signal_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-    var lineColor = themeColor(REG_STATE_VAR[chart.state] || "--afl-muted", "#9198a1");
-    var textColor = themeColor("--afl-muted", "#74695a");
-    var lineTokColor = themeColor("--afl-line", "#e3ddc9");
 
-    // 価格の目盛り線とラベル（上端・中央・下端の3本）
-    ctx.font = "10px ui-monospace, 'SF Mono', Consolas, monospace";
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "left";
-    [hi - pad, (hi + lo) / 2, lo + pad].forEach(function (v) {
-      var y = yAt(v);
-      ctx.strokeStyle = lineTokColor;
-      ctx.lineWidth = 1;
-      ctx.setLineDash([2, 2]);
-      ctx.beginPath();
-      ctx.moveTo(padL, y);
-      ctx.lineTo(cssW - padR, y);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle = textColor;
-      ctx.fillText(v.toFixed(2), cssW - padR + 4, y);
-    });
+def main():
+    base_dir = os.path.join(os.path.dirname(__file__), "..")
+    signal_path = os.path.abspath(os.path.join(base_dir, "signal.json"))
+    out_path = os.path.abspath(os.path.join(base_dir, "daily_analysis.json"))
 
-    // チャネル帯（塗り）
-    ctx.beginPath();
-    ctx.moveTo(xAt(0), yAt(uppers[0]));
-    for (i = 1; i < n; i++) ctx.lineTo(xAt(i), yAt(uppers[i]));
-    for (i = n - 1; i >= 0; i--) ctx.lineTo(xAt(i), yAt(lowers[i]));
-    ctx.closePath();
-    ctx.fillStyle = /^#[0-9a-fA-F]{6}$/.test(lineColor) ? lineColor + "22" : lineColor;
-    ctx.fill();
+    try:
+        signal = load_signal(signal_path)
+        events = fetch_calendar_events()
+        data_block = build_data_block(signal, events)
+        llm_obj = call_gemini(data_block)
+        validate_llm_output(llm_obj)
 
-    function strokeLine(vals, dash) {
-      ctx.beginPath();
-      ctx.moveTo(xAt(0), yAt(vals[0]));
-      for (var j = 1; j < n; j++) ctx.lineTo(xAt(j), yAt(vals[j]));
-      ctx.strokeStyle = lineColor;
-      ctx.lineWidth = 1.2;
-      ctx.setLineDash(dash || []);
-      ctx.stroke();
-      ctx.setLineDash([]);
-    }
-    strokeLine(uppers);
-    strokeLine(lowers);
-    strokeLine(mids, [3, 3]);
-
-    // ローソク足
-    var upColor = themeColor("--afl-good", "#2f8f5b");
-    var downColor = themeColor("--afl-bad", "#b8503f");
-    var bw = Math.max(1.5, (plotW / n) * 0.55);
-    for (i = 0; i < n; i++) {
-      var b = bars[i];
-      var x = xAt(i);
-      var isUp = b.c >= b.o;
-      var col = isUp ? upColor : downColor;
-      ctx.strokeStyle = col;
-      ctx.fillStyle = col;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(x, yAt(b.h));
-      ctx.lineTo(x, yAt(b.l));
-      ctx.stroke();
-      var yO = yAt(b.o), yC = yAt(b.c);
-      var top = Math.min(yO, yC), boxH = Math.max(1, Math.abs(yC - yO));
-      ctx.fillRect(x - bw / 2, top, bw, boxH);
-    }
-
-    // 現在値（直近終値）のラベル ‒ 右端に強調表示
-    var lastBar = bars[n - 1];
-    var lastY = yAt(lastBar.c);
-    var lastCol = lastBar.c >= lastBar.o ? upColor : downColor;
-    ctx.strokeStyle = lastCol;
-    ctx.setLineDash([2, 2]);
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(padL, lastY);
-    ctx.lineTo(cssW - padR, lastY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    var lastText = lastBar.c.toFixed(3);
-    ctx.font = "bold 10px ui-monospace, 'SF Mono', Consolas, monospace";
-    var labelW = ctx.measureText(lastText).width + 8;
-    ctx.fillStyle = lastCol;
-    ctx.fillRect(cssW - padR, lastY - 8, Math.max(labelW, priceLabelW - 2), 16);
-    ctx.fillStyle = "#fff";
-    ctx.textAlign = "left";
-    ctx.textBaseline = "middle";
-    ctx.fillText(lastText, cssW - padR + 4, lastY + 1);
-  }
-
-  function renderTechnical(technical) {
-    if (!technical) return;
-
-    var STATE_TEXT_COLOR = { good: "var(--afl-good)", bad: "var(--afl-bad)", muted: "var(--afl-muted)" };
-    function paintState(id, tone) {
-      var el = document.getElementById(id);
-      if (el) { el.style.color = STATE_TEXT_COLOR[tone] || ""; }
-    }
-
-    var macd = technical.macd;
-    if (macd) {
-      var macdLabel = { BULLISH: "強気（MACD＞シグナル）", BEARISH: "弱気（MACD＜シグナル）", NEUTRAL: "中立" }[macd.state] || macd.state;
-      var macdTone = { BULLISH: "good", BEARISH: "bad", NEUTRAL: "muted" }[macd.state] || "muted";
-      if (macd.cross === "GOLDEN_CROSS") macdLabel = "ゴールデンクロス直後";
-      if (macd.cross === "DEAD_CROSS") macdLabel = "デッドクロス直後";
-      setText("afl-macd-value", macd.histogram);
-      setText("afl-macd-state", macdLabel);
-      paintState("afl-macd-state", macdTone);
-    }
-
-    var rsi = technical.rsi;
-    if (rsi) {
-      var rsiLabel = { OVERBOUGHT: "買われすぎ圏", OVERSOLD: "売られすぎ圏", NEUTRAL: "中立圏" }[rsi.state] || rsi.state;
-      var rsiTone = { OVERSOLD: "good", OVERBOUGHT: "bad", NEUTRAL: "muted" }[rsi.state] || "muted";
-      setText("afl-rsi-value", rsi.value);
-      setText("afl-rsi-state", rsiLabel);
-      paintState("afl-rsi-state", rsiTone);
-    }
-
-    var bb = technical.bollinger;
-    if (bb) {
-      var bbLabel = { UPPER_TOUCH: "上限バンドにタッチ", LOWER_TOUCH: "下限バンドにタッチ", INSIDE: "バンド内で推移" }[bb.state] || bb.state;
-      var bbTone = { LOWER_TOUCH: "good", UPPER_TOUCH: "bad", INSIDE: "muted" }[bb.state] || "muted";
-      setText("afl-bb-value", bb.lower + " 〜 " + bb.upper);
-      setText("afl-bb-state", bbLabel + "（中心線 " + bb.mid + "）");
-      paintState("afl-bb-state", bbTone);
-    }
-
-    var sr = technical.support_resistance;
-    if (sr) {
-      setText("afl-sr-value", sr.support + " 〜 " + sr.resistance);
-    }
-
-    var ma = technical.moving_averages;
-    var maBody = document.getElementById("afl-ma-body");
-    if (ma) {
-      if (maBody) {
-        var rows = [5, 25, 75, 200].map(function (p) {
-          var v = ma["ma" + p];
-          var rel = ma.price >= v ? "価格が上" : "価格が下";
-          return "<tr><td>MA " + p + "</td><td class=\"afl-mono\">" + v + "</td><td>" + rel + "</td></tr>";
-        });
-        maBody.innerHTML = rows.join("");
-      }
-      var poLabel = { BULLISH: "強気の並び（短期＞中期＞長期＞超長期）", BEARISH: "弱気の並び（短期＜中期＜長期＜超長期）" }[ma.perfect_order] || "並びが交錯（明確なトレンドなし）";
-      setText("afl-perfect-order-note", "パーフェクトオーダー判定：" + poLabel);
-    }
-  }
-
-  function renderCurrencyStrength(list) {
-    var wrap = document.getElementById("afl-cs-list");
-    if (!wrap) return;
-    if (!list) return;
-    if (!list.length) return;
-    var maxAbs = 0;
-    list.forEach(function (item) {
-      var a = Math.abs(item.change_pct);
-      if (a > maxAbs) maxAbs = a;
-    });
-    if (maxAbs <= 0) maxAbs = 1;
-    var html = list.map(function (item) {
-      var pct = item.change_pct;
-      var widthPct = Math.min(50, (Math.abs(pct) / maxAbs) * 50);
-      var barClass = pct >= 0 ? "afl-up" : "afl-down";
-      var barStyle = pct >= 0 ? ("width:" + widthPct + "%") : ("width:" + widthPct + "%");
-      var valueColor = pct > 0 ? "var(--afl-good)" : (pct < 0 ? "var(--afl-bad)" : "var(--afl-muted)");
-      return '<div class="afl-cs-row">' +
-        '<span class="afl-cs-code">' + item.code + '</span>' +
-        '<div class="afl-cs-bar-track"><div class="afl-cs-mid-line"></div><div class="afl-cs-bar ' + barClass + '" style="' + barStyle + '"></div></div>' +
-        '<span class="afl-cs-value" style="color:' + valueColor + '">' + (pct > 0 ? "+" : "") + pct.toFixed(2) + "%</span>" +
-        '</div>';
-    }).join("");
-    wrap.innerHTML = html;
-  }
-
-  function render(data) {
-    var sig = data.signal || {};
-    var starsFull = Math.max(0, Math.min(5, sig.stars || 0));
-    var starsEl = document.getElementById("afl-sig-stars");
-    if (starsEl) {
-      var filled = "★".repeat(starsFull);
-      var empty = "★".repeat(5 - starsFull);
-      starsEl.innerHTML = filled + (empty ? '<span class="afl-off">' + empty + "</span>" : "");
-    }
-    setText("afl-sig-pill", sig.bias_label);
-    applyPillClass(document.getElementById("afl-sig-pill"),
-      sig.bias === "SELL" ? "afl-sell" : sig.bias === "BUY" ? "afl-go" : "afl-caution");
-    setText("afl-sig-note", "信頼度 " + (sig.confidence || "‒") + "% ‒ " + (sig.confidence >= 75 ? "慎重にGO" : sig.confidence >= 60 ? "小さくGO" : "見送り推奨"));
-    var gaugeEl = document.getElementById("afl-sig-gauge");
-    if (gaugeEl) { if (sig.confidence) gaugeEl.style.width = sig.confidence + "%"; }
-
-    setText("afl-ir-big", data.intervention_risk);
-    var irLabel = { HIGH: "警戒レベル高", MID: "やや警戒", LOW: "平常" }[data.intervention_risk] || data.intervention_risk;
-    setText("afl-ir-pill", irLabel);
-    applyPillClass(document.getElementById("afl-ir-pill"),
-      data.intervention_risk === "HIGH" ? "afl-high" : data.intervention_risk === "MID" ? "afl-caution" : "afl-go");
-
-    setText("afl-mm-big", data.market_mode);
-    setText("afl-mm-note", data.market_mode_note);
-
-    var trade = data.priority_trade || {};
-    setText("afl-trade-lead", trade.lead);
-    setText("afl-trade-entry", fmtPrice(trade.entry));
-    setText("afl-trade-tp", fmtPrice(trade.take_profit));
-    setText("afl-trade-sl", fmtPrice(trade.stop_loss));
-
-    if (data.generated_at_utc) {
-      var d = new Date(data.generated_at_utc);
-      if (!isNaN(d.getTime())) {
-        setText("afl-ticket-no", "TICKET No. " + d.getUTCFullYear() + String(d.getUTCMonth() + 1).padStart(2, "0") + String(d.getUTCDate()).padStart(2, "0") + "-AI");
-      }
-    }
-
-    var channels = data.regression_channels || [];
-    var charts = data.charts || [];
-    lastCharts = charts;
-    var rows2 = document.querySelectorAll("#afl-reg-row [data-reg-index]");
-    rows2.forEach(function (row, i) {
-      var ch = channels[i];
-      if (ch) {
-        var stateEl = row.querySelector("[data-reg-state]");
-        if (stateEl) {
-          stateEl.textContent = ch.state;
-          stateEl.className = "afl-tf-state";
-          var cls = STATE_COLOR[ch.state];
-          if (cls) { stateEl.classList.add(cls); stateEl.style.color = ""; }
-          else { stateEl.style.color = STATE_WARN_COLOR; }
+        now_jst = datetime.now(JST)
+        result = {
+            "date": now_jst.strftime("%Y-%m-%d"),
+            "updated_at_jst": now_jst.strftime("%Y-%m-%d %H:%M"),
+            "headline": llm_obj["headline"],
+            "advice": llm_obj["advice"],
+            "scenarios": llm_obj["scenarios"],
+            "economic_events_note": llm_obj["economic_events_note"],
+            "order_plan": build_order_plan(llm_obj, signal),
+            "risk_note": llm_obj["risk_note"],
         }
-      }
-      var regToggleEl = document.getElementById("afl-reg-toggle");
-      var canvas = row.querySelector("[data-reg-canvas]");
-      if (canvas) {
-        if (charts[i]) {
-          if (!regToggleEl || regToggleEl.open) drawRegChart(canvas, charts[i]);
-        }
-      }
-    });
+    except Exception as e:  # noqa: BLE001
+        # 失敗時は既存のdaily_analysis.jsonに一切触れない
+        # （直前の分析が残るだけで、サイトが空欄や壊れた状態になることはない）。
+        print(f"[WARN] daily_analysis生成に失敗したため、既存ファイルを維持します: {e}", file=sys.stderr)
+        if "404" in str(e):
+            print("[DEBUG] このAPIキーで実際に使えるモデル一覧:", file=sys.stderr)
+            for name in list_available_models():
+                print(f"  - {name}", file=sys.stderr)
+        sys.exit(0)
 
-    setText("afl-note-text", data.commentary);
-    setText("afl-market-context", data.market_context);
-    var macro = data.macro || {};
-    var marketReadResults = [
-      renderMacroRow("us10y", macro.us10y_latest, 2, "%", macro.us10y_trend, "down",
-        "→ 円高圧力（日米金利差縮小）", "→ 円安圧力（日米金利差拡大）"),
-      renderMacroRow("jp10y", macro.jp10y_latest, 3, "%", macro.jp10y_trend, "up",
-        "→ 円高圧力（円の魅力上昇）", "→ 円安圧力（円の魅力低下）"),
-      renderMacroRow("dxy", macro.dxy_latest, 2, "", macro.dxy_trend, "down",
-        "→ 円高圧力（ドルが全面的に弱い）", "→ 円安圧力（ドルが全面的に強い）"),
-      renderMacroRow("wti", null, 2, "", macro.wti_trend, "down",
-        "→ 円高圧力（資源安で日本の貿易収支が改善）", "→ 円安圧力（資源高で日本の貿易収支が悪化）"),
-      renderMacroRow("gold", macro.gold_latest, 2, "", macro.gold_trend, "up",
-        "→ 円高圧力（安全資産需要で円も買われやすい）", "→ 円安圧力（リスク選好で質への逃避後退）"),
-    ];
-    updateMarketReadSummary(marketReadResults);
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+    print(f"書き出し完了: {out_path}")
+    print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
-    renderTechnical(data.technical);
-    renderCurrencyStrength(data.currency_strength);
-    renderGlance(data);
-    renderDailyAnalysis(data.daily_analysis);
-  }
-
-  // 「今日の結論」カードのひとまとまり表示（5項目の一覧＋3行要約）。
-  // 新たな手動入力は増やさず、既存のsignal.jsonフィールドから組み立てる。
-  var BIAS_ARROW = { SELL: "↓ 戻り売り優勢", BUY: "↑ 押し目買い優勢", WAIT: "→ 方向感なし" };
-  var MODE_JA = { RANGE: "レンジ", TREND: "トレンド", "EVENT DRIVEN": "イベント待ち" };
-
-  function renderGlance(data) {
-    var sig = data.signal || {};
-    var trade = data.priority_trade || {};
-    var da = data.daily_analysis;
-
-    setText("afl-glance-bias", BIAS_ARROW[sig.bias] || sig.bias_label || "‒");
-    setText("afl-glance-confidence", (sig.confidence != null ? sig.confidence : "‒") + "%");
-    setText("afl-glance-mode", MODE_JA[data.market_mode] || data.market_mode || "‒");
-    setText("afl-glance-strategy", trade.lead || "‒");
-    setText("afl-glance-focus", da ? (da.headline || "‒") : "本日の詳しい分析はまだ準備中です");
-    setText("afl-ai-avatar-confidence", "信頼度 " + (sig.confidence != null ? sig.confidence : "‒") + "%");
-
-    var avatarCardEl = document.querySelector(".afl-ai-avatar-card");
-    if (avatarCardEl) {
-      var accentVar = { SELL: "--afl-bad", BUY: "--afl-good", WAIT: "--afl-brass" }[sig.bias] || "--afl-brass";
-      avatarCardEl.style.setProperty("--afl-avatar-accent", "var(" + accentVar + ")");
-    }
-
-    var lines = [];
-    lines.push(sig.bias_label || "方向感なし");
-    if (data.market_mode_note) lines.push(data.market_mode_note);
-    if (da) {
-      if (da.headline) lines.push(da.headline);
-    } else if (data.market_context) {
-      var ctx = data.market_context;
-      lines.push(ctx.length > 70 ? ctx.slice(0, 70) + "…" : ctx);
-    }
-
-    var listEl = document.getElementById("afl-ai-summary-list");
-    if (listEl) {
-      listEl.innerHTML = "";
-      lines.slice(0, 3).forEach(function (t) {
-        var li = document.createElement("li");
-        li.textContent = t;
-        listEl.appendChild(li);
-      });
-    }
-  }
-
-  // 「今日のAI総合判定」カード内の開閉トグルに、daily_analysis.jsonの内容をその場で展開表示する。
-  // 別ページ(/fx_daily_analysis_trial/)はチャート付きの詳細版として引き続き併存させる。
-  function renderDailyAnalysis(da) {
-    var emptyEl = document.getElementById("afl-analysis-empty");
-    var contentEl = document.getElementById("afl-analysis-content");
-    if (!da) {
-      if (emptyEl) emptyEl.style.display = "";
-      if (contentEl) contentEl.style.display = "none";
-      return;
-    }
-    if (emptyEl) emptyEl.style.display = "none";
-    if (contentEl) contentEl.style.display = "";
-
-    setText("afl-analysis-updated", "更新: " + (da.updated_at_jst || "‒"));
-    setText("afl-analysis-headline", da.headline || "");
-
-    var adviceEl = document.getElementById("afl-analysis-advice");
-    if (adviceEl) {
-      adviceEl.innerHTML = "";
-      (da.advice || []).forEach(function (para) {
-        var p = document.createElement("p");
-        p.textContent = para;
-        adviceEl.appendChild(p);
-      });
-    }
-
-    var scEl = document.getElementById("afl-analysis-scenarios");
-    if (scEl) {
-      scEl.innerHTML = "";
-      (da.scenarios || []).forEach(function (sc) {
-        var card = document.createElement("div");
-        var colorClass = sc.color === "buy" ? "afl-buy" : sc.color === "sell" ? "afl-sell" : "afl-neutral";
-        card.className = "afl-scenario " + colorClass;
-        var head = document.createElement("div");
-        head.className = "afl-scenario-head";
-        var label = document.createElement("span");
-        label.className = "afl-scenario-label";
-        label.textContent = sc.label || "";
-        var prob = document.createElement("span");
-        prob.className = "afl-scenario-prob";
-        prob.textContent = sc.probability != null ? sc.probability + "%" : "";
-        head.appendChild(label);
-        head.appendChild(prob);
-        var body = document.createElement("p");
-        body.className = "afl-scenario-body";
-        body.textContent = sc.body || "";
-        card.appendChild(head);
-        card.appendChild(body);
-        scEl.appendChild(card);
-      });
-    }
-
-    var order = da.order_plan || {};
-    var orderEl = document.getElementById("afl-analysis-order");
-    if (orderEl) {
-      orderEl.innerHTML =
-        '<p class="afl-analysis-order-lead"></p>' +
-        '<div class="afl-analysis-order-row">' +
-          '<div class="afl-analysis-order-box afl-entry"><span>ENTRY</span><b></b></div>' +
-          '<div class="afl-analysis-order-box afl-tp"><span>TAKE PROFIT</span><b></b></div>' +
-          '<div class="afl-analysis-order-box afl-sl"><span>STOP LOSS</span><b></b></div>' +
-        '</div>' +
-        '<p class="afl-analysis-order-sub"></p>';
-      orderEl.querySelector(".afl-analysis-order-lead").textContent = order.lead || "";
-      var boxes = orderEl.querySelectorAll(".afl-analysis-order-box b");
-      boxes[0].textContent = order.entry != null ? order.entry : "‒";
-      boxes[1].textContent = order.take_profit != null ? order.take_profit : "‒";
-      boxes[2].textContent = order.stop_loss != null ? order.stop_loss : "‒";
-      orderEl.querySelector(".afl-analysis-order-sub").textContent = order.sub_note || "";
-    }
-
-    setText("afl-analysis-risk", da.risk_note || "");
-  }
-
-  var AUTO_REFRESH_MS = 5 * 60 * 1000; // 5分おきに自動で再取得する
-
-  function loadSignal() {
-    var bustedUrl = SIGNAL_JSON_URL + "?t=" + Date.now();
-    fetch(bustedUrl, { cache: "no-store" })
-      .then(function (res) { if (!res.ok) throw new Error("signal.json fetch failed: " + res.status); return res.json(); })
-      .then(render)
-      .catch(function () {
-        /* 取得失敗時は何もしない。直前まで表示していた内容がそのまま残る。 */
-      });
-  }
-
-  loadSignal();
-  setInterval(loadSignal, AUTO_REFRESH_MS);
-
-  // タブが非表示（他のタブに切り替え等）から復帰した瞬間にも、念のため即座に再取得する
-  document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "visible") loadSignal();
-  });
-
-  // 線形回帰チャネルの折りたたみは閉じている間canvas幅が0のため、
-  // 開いた瞬間にキャッシュ済みの最新データで再描画する
-  var regToggle = document.getElementById("afl-reg-toggle");
-  if (regToggle) {
-    regToggle.addEventListener("toggle", function () {
-      if (!regToggle.open) return;
-      if (!lastCharts) return;
-      var rows = document.querySelectorAll("#afl-reg-row [data-reg-index]");
-      rows.forEach(function (row, i) {
-        var canvas = row.querySelector("[data-reg-canvas]");
-        if (canvas) { if (lastCharts[i]) drawRegChart(canvas, lastCharts[i]); }
-      });
-    });
-  }
-})();
-</script>
+if __name__ == "__main__":
+    main()
