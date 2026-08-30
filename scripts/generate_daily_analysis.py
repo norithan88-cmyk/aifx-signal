@@ -266,7 +266,13 @@ def _candidate_urls():
     for version in ("v1beta", "v1"):
         yield f"https://generativelanguage.googleapis.com/{version}/models/{GEMINI_MODEL}:generateContent", GEMINI_MODEL
 
-    fallback_names = [n for n in list_available_models() if n and n.startswith("models/")]
+    # tts/image/audio等、テキスト以外の入出力専用モデルは除外する
+    # (例: gemini-2.5-flash-preview-tts はTEXT応答を受け付けずINVALID_ARGUMENTになる)。
+    EXCLUDE_KEYWORDS = ("tts", "audio", "image", "embed", "aqa", "vision")
+    fallback_names = [
+        n for n in list_available_models()
+        if n and n.startswith("models/") and not any(k in n.lower() for k in EXCLUDE_KEYWORDS)
+    ]
     # GEMINI_MODELの短縮名(例: "2.5-flash")を含むものを優先。無ければ"flash"を含む先頭の1件。
     keyword = GEMINI_MODEL.replace("gemini-", "")
     ordered = sorted(
@@ -306,8 +312,10 @@ def call_gemini(data_block):
             break
         except urllib.error.HTTPError as e:
             last_error = e
-            if e.code == 404:
-                print(f"[WARN] {url} が404のため、次の候補を試します", file=sys.stderr)
+            if e.code in (404, 400):
+                # 404=モデル/エンドポイントが存在しない、400=このモデルではTEXT応答に
+                # 対応していない等、候補として不適切だった場合。次の候補を試す。
+                print(f"[WARN] {url} が{e.code}のため、次の候補を試します", file=sys.stderr)
                 continue
             raise
     if payload is None:
