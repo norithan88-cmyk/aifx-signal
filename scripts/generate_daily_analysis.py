@@ -290,7 +290,7 @@ def list_available_models():
     ログへ手がかりを残すために使う。取得に失敗しても例外は投げない。
     """
     try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={GEMINI_API_KEY}"
+        url = f"https://generativelanguage.googleapis.com/v1/models?key={GEMINI_API_KEY}"
         with urllib.request.urlopen(url, timeout=30) as res:
             payload = json.loads(res.read().decode("utf-8"))
         names = [
