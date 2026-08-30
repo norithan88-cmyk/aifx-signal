@@ -42,8 +42,10 @@ from datetime import datetime, timedelta, timezone
 JST = timezone(timedelta(hours=9))
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-GEMINI_MODEL = "gemini-2.5-flash"  # Google管理のエイリアス。常時その時点のflash系最新モデルを指す
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1/models/{GEMINI_MODEL}:generateContent"
+GEMINI_MODEL = "gemini-2.5-flash"  # 安定版に固定。"gemini-flash-latest"は新モデルリリース直後の
+# 数週間、輸送過多で503が続くことがある(2026-08-30に実際に数日間発生・確認済み)ため、
+# 追従を諦めて安定運用を優先する。将来モデルが廃止された場合のみ手動で更新する。
+GEMINI_URL = f"https://generativelanguage.googleapis.com/v1/models/{GEMINI_MODEL}:generateContent"  # gemini-2.5-flashはv1beta非対応(404)のためv1を使う
 
 FF_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"
 
@@ -228,6 +230,58 @@ def build_data_block(signal, events):
 RETRYABLE_HTTP_CODES = (429, 500, 502, 503, 504)
 
 
+def _post_generate_content(url, body):
+    """指定したURLにgenerateContentリクエストを送る。503系は数回まで自動リトライする。
+    404(モデル/エンドポイントが見つからない)はリトライせずそのまま例外を返す
+    （呼び出し側でエンドポイント候補の切り替えに使うため）。"""
+    req = urllib.request.Request(
+        f"{url}?key={GEMINI_API_KEY}",
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    attempts = 4
+    delays = [5, 15, 30]
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as res:
+                return json.loads(res.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            last_error = e
+            if e.code not in RETRYABLE_HTTP_CODES:
+                raise
+            if attempt < attempts - 1:
+                print(f"[WARN] Gemini APIがHTTP {e.code}を返したため、{delays[attempt]}秒後に再試行します（{attempt + 1}/{attempts}回目、{url}）", file=sys.stderr)
+                time.sleep(delays[attempt])
+    raise last_error
+
+
+def _candidate_urls():
+    """試すエンドポイント候補を順番に返す。まず設定済みのモデル名でv1beta/v1の両方を試し、
+    どちらも404なら、実際にこのAPIキーで使える(generateContentに対応した)モデル一覧を
+    取得して、名前にモデル名の一部が含まれる最初の候補にフォールバックする
+    （API側のバージョニング変更やモデル名変更を推測で追いかけ続けずに済むようにするため）。"""
+    tried_models = [GEMINI_MODEL]
+    for version in ("v1beta", "v1"):
+        yield f"https://generativelanguage.googleapis.com/{version}/models/{GEMINI_MODEL}:generateContent", GEMINI_MODEL
+
+    fallback_names = [n for n in list_available_models() if n and n.startswith("models/")]
+    # GEMINI_MODELの短縮名(例: "2.5-flash")を含むものを優先。無ければ"flash"を含む先頭の1件。
+    keyword = GEMINI_MODEL.replace("gemini-", "")
+    ordered = sorted(
+        fallback_names,
+        key=lambda n: (keyword not in n, "flash" not in n),
+    )
+    for name in ordered:
+        short_name = name.replace("models/", "", 1)
+        if short_name in tried_models:
+            continue
+        tried_models.append(short_name)
+        for version in ("v1beta", "v1"):
+            yield f"https://generativelanguage.googleapis.com/{version}/models/{short_name}:generateContent", short_name
+
+
 def call_gemini(data_block):
     if not GEMINI_API_KEY:
         raise RuntimeError("環境変数 GEMINI_API_KEY が設定されていません")
@@ -242,36 +296,24 @@ def call_gemini(data_block):
         },
     }).encode("utf-8")
 
-    req = urllib.request.Request(
-        f"{GEMINI_URL}?key={GEMINI_API_KEY}",
-        data=body,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
-
-    # Gemini APIは無料枠の混雑時に503(Service Unavailable)を返すことがある
-    # (Google公式にも一時的なエラーとして再試行が推奨されている)。1回失敗しただけで
-    # 諦めず、数秒待って数回まで再試行することで、混雑のタイミングに毎回引っかかって
-    # 何日も更新が止まる、という事態を避ける。
-    attempts = 4
-    delays = [5, 15, 30]  # 各リトライ前の待機秒数
+    payload = None
     last_error = None
-    for attempt in range(attempts):
+    used_url = None
+    for url, model_name in _candidate_urls():
         try:
-            with urllib.request.urlopen(req, timeout=60) as res:
-                payload = json.loads(res.read().decode("utf-8"))
+            payload = _post_generate_content(url, body)
+            used_url = url
             break
         except urllib.error.HTTPError as e:
             last_error = e
-            if e.code not in RETRYABLE_HTTP_CODES:
-                raise
-            if attempt < attempts - 1:
-                print(f"[WARN] Gemini APIがHTTP {e.code}を返したため、{delays[attempt]}秒後に再試行します（{attempt + 1}/{attempts}回目）", file=sys.stderr)
-                time.sleep(delays[attempt])
-            else:
-                raise
-    else:
-        raise last_error  # 実際にはbreakかraiseで抜けるため到達しないが、念のため
+            if e.code == 404:
+                print(f"[WARN] {url} が404のため、次の候補を試します", file=sys.stderr)
+                continue
+            raise
+    if payload is None:
+        raise last_error or RuntimeError("Gemini APIの候補エンドポイントを全て試しましたが失敗しました")
+    if used_url and used_url != f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent":
+        print(f"[INFO] 設定と異なるエンドポイントで成功しました。次回以降のためにコードの更新を検討してください: {used_url}", file=sys.stderr)
 
     candidates = payload.get("candidates") or []
     if not candidates:
@@ -290,7 +332,7 @@ def list_available_models():
     ログへ手がかりを残すために使う。取得に失敗しても例外は投げない。
     """
     try:
-        url = f"https://generativelanguage.googleapis.com/v1/models?key={GEMINI_API_KEY}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={GEMINI_API_KEY}"
         with urllib.request.urlopen(url, timeout=30) as res:
             payload = json.loads(res.read().decode("utf-8"))
         names = [
@@ -390,14 +432,14 @@ def main():
             "order_plan": build_order_plan(llm_obj, signal),
             "risk_note": llm_obj["risk_note"],
         }
-     except Exception as e:  # noqa: BLE001
+    except Exception as e:  # noqa: BLE001
         # 失敗時は既存のdaily_analysis.jsonに一切触れない
         # （直前の分析が残るだけで、サイトが空欄や壊れた状態になることはない）。
         print(f"[WARN] daily_analysis生成に失敗したため、既存ファイルを維持します: {e}", file=sys.stderr)
         if isinstance(e, urllib.error.HTTPError):
             try:
                 body = e.read().decode("utf-8", errors="replace")
-            except Exception:
+            except Exception:  # noqa: BLE001
                 body = "(本文の読み取りにも失敗)"
             print(f"[DEBUG] Gemini APIのエラー本文: {body}", file=sys.stderr)
         if "404" in str(e):
