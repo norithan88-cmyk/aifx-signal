@@ -33,6 +33,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -224,6 +225,9 @@ def build_data_block(signal, events):
     return "\n".join(lines)
 
 
+RETRYABLE_HTTP_CODES = (429, 500, 502, 503, 504)
+
+
 def call_gemini(data_block):
     if not GEMINI_API_KEY:
         raise RuntimeError("環境変数 GEMINI_API_KEY が設定されていません")
@@ -244,8 +248,30 @@ def call_gemini(data_block):
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=60) as res:
-        payload = json.loads(res.read().decode("utf-8"))
+
+    # Gemini APIは無料枠の混雑時に503(Service Unavailable)を返すことがある
+    # (Google公式にも一時的なエラーとして再試行が推奨されている)。1回失敗しただけで
+    # 諦めず、数秒待って数回まで再試行することで、混雑のタイミングに毎回引っかかって
+    # 何日も更新が止まる、という事態を避ける。
+    attempts = 4
+    delays = [5, 15, 30]  # 各リトライ前の待機秒数
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as res:
+                payload = json.loads(res.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as e:
+            last_error = e
+            if e.code not in RETRYABLE_HTTP_CODES:
+                raise
+            if attempt < attempts - 1:
+                print(f"[WARN] Gemini APIがHTTP {e.code}を返したため、{delays[attempt]}秒後に再試行します（{attempt + 1}/{attempts}回目）", file=sys.stderr)
+                time.sleep(delays[attempt])
+            else:
+                raise
+    else:
+        raise last_error  # 実際にはbreakかraiseで抜けるため到達しないが、念のため
 
     candidates = payload.get("candidates") or []
     if not candidates:
