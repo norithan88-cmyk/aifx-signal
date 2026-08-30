@@ -42,10 +42,11 @@ from datetime import datetime, timedelta, timezone
 JST = timezone(timedelta(hours=9))
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-GEMINI_MODEL = "gemini-2.5-flash"  # 安定版に固定。"gemini-flash-latest"は新モデルリリース直後の
-# 数週間、輸送過多で503が続くことがある(2026-08-30に実際に数日間発生・確認済み)ため、
-# 追従を諦めて安定運用を優先する。将来モデルが廃止された場合のみ手動で更新する。
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1/models/{GEMINI_MODEL}:generateContent"  # gemini-2.5-flashはv1beta非対応(404)のためv1を使う
+GEMINI_MODEL = "gemini-flash-lite-latest"  # 2026-08-31時点でこのAPIキーから実際に
+# 呼び出せることを確認済み(gemini-2.5-flash/gemini-flash-latest等は404、他の多くは
+# タイムアウトだった)。軽量モデルのため比較的空いていて繋がりやすいと見られる。
+# _candidate_urls()のフォールバックが引き続き保険として効くので、将来またこの
+# モデルが使えなくなっても自動で他候補に切り替わる。
 
 FF_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"
 
