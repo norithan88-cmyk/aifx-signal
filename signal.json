@@ -1,23 +1,23 @@
 {
-  "generated_at_utc": "2026-09-01T21:16:42.668559+00:00",
+  "generated_at_utc": "2026-09-01T23:24:17.327421+00:00",
   "pair": "USD/JPY",
-  "latest_price": 160.133,
-  "day_change_pct": 0.24,
+  "latest_price": 160.2,
+  "day_change_pct": 0.28,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
     "stars": 2,
     "confidence": 50,
     "confidence_breakdown": {
-      "timeframes_note": "5分足:下方向 / 15分足:下方向 / 1時間足:下方向 → 3時間足は一致していますが、1分足の反発シグナルはまだ点灯していません",
-      "calc_note": "3時間足の方向一致のみでは確信度は上がらず、1分足の反発確認まで基本値50%のままです。"
+      "timeframes_note": "5分足:中央 / 15分足:中央 / 1時間足:中央 → 3時間足の方向が一致していません",
+      "calc_note": "3時間足の方向が揃っていないため、基本値50%のままです。"
     }
   },
   "intervention_risk": "MID",
-  "market_mode": "TREND",
-  "market_mode_note": "5分・15分・1時間足の方向が揃っており、方向感のある地合い。",
+  "market_mode": "RANGE",
+  "market_mode_note": "時間足ごとに方向が割れており、方向感に乏しいレンジ地合い。",
   "priority_trade": {
-    "lead": "様子見 ― 上位足は戻り売り方向で一致、1分足の反落シグナル待ち",
+    "lead": "様子見 ― 5分・15分・1時間足の方向が一致していない",
     "entry": null,
     "take_profit": null,
     "stop_loss": null
@@ -27,59 +27,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -1.36,
+      "position_sigma": -0.49,
       "trend": "FLAT",
-      "momentum": "DOWN",
-      "mid": 160.166,
-      "upper": 160.215,
-      "lower": 160.117
+      "momentum": "FLAT",
+      "mid": 160.207,
+      "upper": 160.234,
+      "lower": 160.18
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -1.86,
+      "position_sigma": 0.42,
       "trend": "FLAT",
-      "momentum": "DOWN",
-      "mid": 160.241,
-      "upper": 160.357,
-      "lower": 160.125
+      "momentum": "FLAT",
+      "mid": 160.185,
+      "upper": 160.255,
+      "lower": 160.115
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": -1.45,
+      "position_sigma": -1.26,
       "trend": "UP",
-      "momentum": "DOWN",
-      "mid": 160.233,
-      "upper": 160.345,
-      "lower": 160.121
+      "momentum": "FLAT",
+      "mid": 160.268,
+      "upper": 160.375,
+      "lower": 160.16
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0951,
-      "signal": 0.0927,
-      "histogram": 0.0024,
+      "macd": 0.0944,
+      "signal": 0.0939,
+      "histogram": 0.0005,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 60.1,
+      "value": 62.5,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 160.176,
-      "ma25": 159.998,
-      "ma75": 159.798,
-      "ma200": 159.372,
-      "price": 160.152,
-      "perfect_order": null
+      "ma5": 160.179,
+      "ma25": 160.034,
+      "ma75": 159.819,
+      "ma200": 159.387,
+      "price": 160.2,
+      "perfect_order": "BULLISH"
     },
     "bollinger": {
-      "mid": 160.055,
-      "upper": 160.301,
-      "lower": 159.809,
-      "price": 160.152,
+      "mid": 160.093,
+      "upper": 160.304,
+      "lower": 159.882,
+      "price": 160.2,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -94,129 +94,129 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.943,
     "dxy_trend": "flat",
-    "dxy_latest": 99.67,
+    "dxy_latest": 99.65,
     "gold_trend": "down",
-    "gold_latest": 4375.7
+    "gold_latest": 4377.3
   },
-  "commentary": "上位足は下向き。焦らず、1分足の戻りからの反落を待つ。",
-  "market_context": "USD/JPYは現在160.13円付近で推移（直近1時間比+0.24%）。5分・15分・1時間足は戻り売り方向で揃っているが、1分足の反落シグナルはまだ点灯していない。米10年債利回りは横ばい基調、WTI原油は低下基調で推移している。上位足の方向感は出ているため、1分足が戻り高値から反落するタイミングを待ちたい局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
+  "market_context": "USD/JPYは現在160.20円付近で推移（直近1時間比+0.28%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は低下基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
+    {
+      "source": "ザイFX！",
+      "title": "東京外国為替市場概況・8時　ドル円、小動き",
+      "link": "https://zai.diamond.jp/articles/-/494915",
+      "published_at_utc": "2026-09-01T23:06:00+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "東京為替見通し＝ドル円、原油価格と米長期金利上昇で堅調推移も円買い介入に警戒か",
+      "link": "https://zai.diamond.jp/articles/-/494914",
+      "published_at_utc": "2026-09-01T23:00:00+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "円建てCME先物は1日の225先物比1020円安の64870円で推移",
+      "link": "https://zai.diamond.jp/articles/-/494913",
+      "published_at_utc": "2026-09-01T21:56:00+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "本日のスケジュール",
+      "link": "https://zai.diamond.jp/articles/-/494911",
+      "published_at_utc": "2026-09-01T21:40:06+00:00"
+    },
+    {
+      "source": "ザイFX！",
+      "title": "米7月JOLT求人件数：6月は大幅下方修正、雇用者の労働市場への自信弱まる、8月雇用統計で2カ月連続の雇用減少リスクも",
+      "link": "https://zai.diamond.jp/articles/-/494910",
+      "published_at_utc": "2026-09-01T21:29:08+00:00"
+    },
     {
       "source": "ザイFX！",
       "title": "ニューヨーク外国為替市場概況・1日　ドル円、反発",
       "link": "https://zai.diamond.jp/articles/-/494909",
       "published_at_utc": "2026-09-01T21:03:00+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "9月1日のNY為替・原油概況",
-      "link": "https://zai.diamond.jp/articles/-/494908",
-      "published_at_utc": "2026-09-01T19:49:06+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "【速報】 米議会「政府閉鎖回避するつなぎ予算案を可決」",
-      "link": "https://zai.diamond.jp/articles/-/494907",
-      "published_at_utc": "2026-09-01T19:12:23+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "ニューヨーク外国為替市場概況・4時　ドル円、底堅い",
-      "link": "https://zai.diamond.jp/articles/-/494906",
-      "published_at_utc": "2026-09-01T19:05:00+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "[通貨オプション]短中期物でOP売り、レンジ相場観測",
-      "link": "https://zai.diamond.jp/articles/-/494905",
-      "published_at_utc": "2026-09-01T18:40:06+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "NY市場動向（午後2時台）：ダウ417ドル安、原油先物4.17ドル高",
-      "link": "https://zai.diamond.jp/articles/-/494904",
-      "published_at_utc": "2026-09-01T18:22:09+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-09-02",
-    "updated_at_jst": "2026-09-02 04:41",
-    "headline": "ドル円は方向感に乏しいレンジ相場が継続か",
+    "updated_at_jst": "2026-09-02 07:02",
+    "headline": "ドル円は160円台前半で推移、各時間足のテクニカル状況",
     "advice": [
-      "現在のUSD/JPYは160.237円付近で推移しており、時間足ごとに方向が割れるレンジ地合いとなっています。15分足や1時間足では上昇トレンドの形状を示す一方で、5分足では中心線を下回るなど短期的な強弱が入り交じる状況です。",
-      "テクニカル面ではMACDがBULLISHを維持し、RSIは67.8のニュートラル水準で推移しています。米10年債利回りは4.73%付近で横ばい基調となり、ドルが相対的に強く推移するなかで上下のバンド幅を意識した値動きとなっています。"
+      "USD/JPYは160.133円付近で推移しています。各時間足のボリンジャーバンドにおいて、5分足は中心線から-1.36σ、15分足は-1.86σ、1時間足は-1.45σの位置にあります。",
+      "テクニカル面ではMACDがBULLISH（ヒストグラム0.0024）を示し、RSI（14）は60.1のニュートラル水準となっています。また、米10年債利回りは4.73%で横ばい基調、日本10年債利回りは2.943%で上昇基調となっています。"
     ],
     "scenarios": [
       {
-        "label": "本命レンジ推移",
+        "label": "本命シナリオ",
         "probability": 50,
         "color": "neutral",
-        "body": "上下のレジスタンスやサポートに挟まれ、明確な方向感を欠いたまま推移するシナリオです。"
+        "body": "レジスタンス160.272円とサポート159.47円の間で、現在の水準を維持しながら推移する展開が想定されます。"
       },
       {
-        "label": "上抜け上昇",
+        "label": "上抜けシナリオ",
         "probability": 25,
         "color": "buy",
-        "body": "レジスタンス水準を超えて買い圧力が強まった場合、さらなる上値を試す展開が想定されます。"
+        "body": "レジスタンスである160.272円を上抜けた場合、160円台後半の上値トライを試す動きにつながる可能性があります。"
       },
       {
-        "label": "下抜け下落",
+        "label": "下抜けシナリオ",
         "probability": 25,
         "color": "sell",
-        "body": "売り圧力が優勢となり、下値サポート方向へ反落する動きが視野に入ります。"
+        "body": "下値のサポート水準である159.47円を下回った場合、下方向への推移が強まる可能性があります。"
       }
     ],
-    "economic_events_note": "本日は12:15pmに米国のADP雇用統計の発表が予定されており、指標結果に伴う値動きに注意が必要です。",
+    "economic_events_note": "本日は12:15に米国のADP雇用統計（ADP Non-Farm Employment Change）の発表が予定されています。",
     "order_plan": {
-      "lead": "各時間足のインジケーターやバンド上限・下限を意識し、過度な偏りを避けた柔軟な姿勢が求められます。",
+      "lead": "各時間足のトレンドやテクニカル指標の状況を確認しながら、慎重な値動きの観察が求められます。",
       "entry": "様子見（新規エントリーなし）",
       "take_profit": "‒",
       "stop_loss": "‒",
-      "sub_note": "レンジ内での細かな値動きに対応しつつ、突発的なトレンド発生には警戒が必要です。"
+      "sub_note": "指標発表前後は突発的な価格変動に注意し、ポジション管理を徹底する方針となります。"
     },
-    "risk_note": "方向感が定まらないレンジ地合いのため、突発的な値動きや指標発表前後のボラティリティ拡大に注意してください。"
+    "risk_note": "市場の流動性や重要指標の結果によっては、想定以上の価格変動が生じるリスクがあります。"
   },
   "currency_strength": [
     {
       "code": "USD",
-      "change_pct": 0.32,
-      "strength_score": 12.6
+      "change_pct": 0.27,
+      "strength_score": 10.8
     },
     {
       "code": "EUR",
-      "change_pct": -0.23,
-      "strength_score": -9.3
+      "change_pct": -0.15,
+      "strength_score": -6.0
     },
     {
       "code": "GBP",
-      "change_pct": -0.25,
-      "strength_score": -10.1
-    },
-    {
-      "code": "JPY",
-      "change_pct": -0.25,
-      "strength_score": -10.1
-    },
-    {
-      "code": "AUD",
-      "change_pct": -0.31,
-      "strength_score": -12.3
+      "change_pct": -0.23,
+      "strength_score": -9.2
     },
     {
       "code": "CAD",
-      "change_pct": -0.32,
-      "strength_score": -12.8
+      "change_pct": -0.24,
+      "strength_score": -9.7
+    },
+    {
+      "code": "JPY",
+      "change_pct": -0.28,
+      "strength_score": -11.2
     },
     {
       "code": "CHF",
-      "change_pct": -0.36,
-      "strength_score": -14.5
+      "change_pct": -0.29,
+      "strength_score": -11.8
     },
     {
       "code": "NZD",
-      "change_pct": -0.48,
-      "strength_score": -19.3
+      "change_pct": -0.33,
+      "strength_score": -13.2
+    },
+    {
+      "code": "AUD",
+      "change_pct": -0.37,
+      "strength_score": -14.9
     }
   ]
 }
