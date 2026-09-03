@@ -110,6 +110,18 @@ REVERT_WINDOW = 10       # 直近何本(分)以内に逆行の谷/山を探す�
 REVERT_MIN_PIPS = 3.0    # 「戻り出した」とみなす最低反発幅(pips、ノイズ除去用)
 SL_BUFFER_PIPS = 2.0     # 逆行の谷/山からSLまでの余白(pips)
 
+# トレンド継続型（順張り）シグナルのパラメータ。既存の反発型シグナル（レンジ・押し目/戻り
+# のある相場が得意）とは別に、なだらかな一直線トレンド（押し目・戻りがほぼ無い日）を
+# 取りこぼさないための補完シグナルとして2026-09-03に追加。反発を待たず、1時間足が
+# GATE_THRESHOLDを突破した瞬間に順張りでエントリーし、固定pipsの損切りと、勢いが
+# 弱まったら手仕舞う(weaken)の早い方で決済する。19ヶ月・USD/JPY実データのバックテストで
+# 345件・勝率43.5%・PF1.63・月18件ペース（BUY157件PF1.66／SELL188件PF1.60、両方向とも
+# プラス）。反発型（勝率70%台・PF2.5以上）より優位性は弱いが、反発型が苦手とする
+# なだらかなトレンド相場を狙い撃ちできる相互補完的な設計。
+GATE_THRESHOLD = 2.2         # この値(σ)を1時間足が超えたら順張りでエントリー
+TREND_SL_PIPS = 30.0         # 順張りエントリーの固定損切り幅(pips)
+TREND_WEAKEN_THRESHOLD = 0.3  # 1時間足のσがこれを下回ったら「勢いが弱まった」として手仕舞う
+
 
 def http_get_json(params, retries=3, wait_sec=15):
     """Alpha Vantage APIを呼び出してJSONを返す。レート制限時は少し待って再試行する。"""
@@ -724,6 +736,23 @@ def load_daily_analysis(base_dir):
         return None
 
 
+def load_chatgpt_analysis(base_dir):
+    """
+    chatgpt_analysis.json（リポジトリ直下、signal.jsonと同じ階層）を読み込む。
+    2026-09-03導入。AIシグナル（ルールベース・自動計算）とは別に、ユーザーが
+    ChatGPTに書かせた為替分析コメントを手動で貼り付けて表示するための枠。
+    自動生成ではなく、ユーザーがGitHub上でこのファイルを都度書き換える運用。
+    存在しない/壊れている場合はNoneを返し、signal.json側では
+    "chatgpt_analysis" キー自体を省略する（TOPページ側でカード自体を隠す）。
+    """
+    path = os.path.join(base_dir, "chatgpt_analysis.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return None
+
+
 def load_trade_log(base_dir):
     """
     trade_log.json（リポジトリ直下、signal.jsonと同じ階層）を読み込む。
@@ -793,6 +822,48 @@ def update_trade_log(trade_log, bias, priority_trade, latest_price, confidence, 
 
     trade_log["trades"] = trades
     return trade_log, newly_opened
+
+
+def update_trend_trade_log(trade_log, trend_bias, trend_entry, trend_sl, latest_price, trend_position, confidence, now_iso):
+    """
+    トレンド継続型（順張り）シグナル専用の建玉管理。反発型のupdate_trade_logとは別に、
+    trade_log.jsonの"trend_trades"キーへ独立して記録する。
+    決済条件は「固定pipsの損切りに到達」または「1時間足のσがTREND_WEAKEN_THRESHOLDを
+    下回り、勢いが弱まったと判断できる」の早い方。後者の場合、その時点の含み損益の
+    符号でWIN/LOSSを判定する。
+    """
+    trades = trade_log.get("trend_trades", [])
+    open_trade = trades[-1] if trades and trades[-1].get("status") == "OPEN" else None
+
+    if open_trade is not None:
+        ob = open_trade["bias"]
+        sl = open_trade["stop_loss"]
+        hit_sl = (latest_price <= sl) if ob == "BUY" else (latest_price >= sl)
+        weakened = (trend_position < TREND_WEAKEN_THRESHOLD) if ob == "BUY" else (trend_position > -TREND_WEAKEN_THRESHOLD)
+        if hit_sl or weakened:
+            pips = pips_for(ob, open_trade["entry"], latest_price)
+            open_trade["status"] = "LOSS" if hit_sl else ("WIN" if pips > 0 else "LOSS")
+            open_trade["closed_at_utc"] = now_iso
+            open_trade["closed_price"] = round(latest_price, 3)
+            open_trade["pips"] = pips
+            open_trade = None
+
+    if open_trade is None and trend_bias in ("BUY", "SELL") and trend_entry is not None and trend_sl is not None:
+        trades.append({
+            "id": now_iso,
+            "opened_at_utc": now_iso,
+            "bias": trend_bias,
+            "entry": round(trend_entry, 3),
+            "stop_loss": round(trend_sl, 3),
+            "confidence": confidence,
+            "status": "OPEN",
+            "closed_at_utc": None,
+            "closed_price": None,
+            "pips": None,
+        })
+
+    trade_log["trend_trades"] = trades
+    return trade_log
 
 
 def compute_trade_stats(trades):
@@ -1149,6 +1220,28 @@ def build_signal(out_path=None):
     extreme = detect_reversal_setup(m1, ch_1m, candidate) if candidate else None
     bias = candidate if (candidate and extreme is not None) else "WAIT"
 
+    # --- トレンド継続型（順張り）シグナル: 反発を待たず、1時間足の勢い(σ)だけで判定 ---
+    trend_position = ch_1h["position"]
+    if trend_position >= GATE_THRESHOLD:
+        trend_bias = "BUY"
+    elif trend_position <= -GATE_THRESHOLD:
+        trend_bias = "SELL"
+    else:
+        trend_bias = "WAIT"
+
+    trend_latest_price = m1[-1]["c"] if m1 else ch_1h["latest"]
+    if trend_bias == "BUY":
+        trend_entry = trend_latest_price
+        trend_sl = trend_entry - TREND_SL_PIPS / 100
+        trend_lead = f"順張り買い ― 1時間足が強い上昇トレンド（+{trend_position:.2f}σ）、反発を待たず即エントリー"
+    elif trend_bias == "SELL":
+        trend_entry = trend_latest_price
+        trend_sl = trend_entry + TREND_SL_PIPS / 100
+        trend_lead = f"順張り売り ― 1時間足が強い下降トレンド（{trend_position:.2f}σ）、反発を待たず即エントリー"
+    else:
+        trend_entry = trend_sl = None
+        trend_lead = f"様子見 ― 1時間足はトレンド確定基準(±{GATE_THRESHOLD}σ)に届いていない（現在{trend_position:.2f}σ）"
+
     if bias in ("SELL", "BUY"):
         # 5分・15分・1時間足が全て一致している時しかbiasは確定しないため、
         # 一致度合いは常に3/3固定。代わりに、3時間足のチャネル際からの
@@ -1235,8 +1328,10 @@ def build_signal(out_path=None):
     )
 
     daily_analysis = None
+    chatgpt_analysis = None
     if out_path:
         daily_analysis = load_daily_analysis(os.path.dirname(out_path))
+        chatgpt_analysis = load_chatgpt_analysis(os.path.dirname(out_path))
 
     result = {
         "generated_at_utc": now.isoformat(),
@@ -1260,6 +1355,16 @@ def build_signal(out_path=None):
             "stop_loss": round(sl, 3) if sl is not None else None,
         },
         "reversal_setup": reversal_setup,
+        "trend_signal": {
+            "bias": trend_bias,
+            "bias_label": {"SELL": "順張り売り", "BUY": "順張り買い", "WAIT": "様子見"}[trend_bias],
+            "position_sigma": round(trend_position, 2),
+            "gate_threshold": GATE_THRESHOLD,
+            "lead": trend_lead,
+            "entry": round(trend_entry, 3) if trend_entry is not None else None,
+            "stop_loss": round(trend_sl, 3) if trend_sl is not None else None,
+            "note": "反発型（上のシグナル）とは別ロジックの補完シグナルです。なだらかな一直線トレンドを狙い撃ちする代わりに、勝率・PFは反発型より低めです（19ヶ月検証: 勝率43.5%・PF1.63）。",
+        },
         "regression_channels": [
             {
                 "key": tf["key"],
@@ -1292,6 +1397,8 @@ def build_signal(out_path=None):
     }
     if daily_analysis is not None:
         result["daily_analysis"] = daily_analysis
+    if chatgpt_analysis is not None:
+        result["chatgpt_analysis"] = chatgpt_analysis
     if currency_strength:
         result["currency_strength"] = currency_strength
 
@@ -1305,6 +1412,10 @@ def build_signal(out_path=None):
                 trade_log, bias, result["priority_trade"], latest_price, confidence, now.isoformat(),
             )
             trade_log["stats"] = compute_trade_stats(trade_log["trades"])
+            trade_log = update_trend_trade_log(
+                trade_log, trend_bias, trend_entry, trend_sl, trend_latest_price, trend_position, confidence, now.isoformat(),
+            )
+            trade_log["trend_stats"] = compute_trade_stats(trade_log["trend_trades"])
             trade_log["updated_at_utc"] = now.isoformat()
             with open(os.path.join(base_dir, "trade_log.json"), "w", encoding="utf-8") as f:
                 json.dump(trade_log, f, ensure_ascii=False, indent=2)
