@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "ニューヨーク外国為替市場概況・24時　ドル円、さえない",
+      "link": "https://zai.diamond.jp/articles/-/495071",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-09-03T15:07:00+00:00",
+      "detected_at_utc": "2026-09-03T15:13:36.571258+00:00",
+      "baseline": {
+        "t": "2026-09-03T15:13:36.571258+00:00",
+        "price": 155.655,
+        "dxy": 99.0,
+        "usd_strength_score": -27.2
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "NY市場動向（午前10時台）：ダウ298ドル高、原油先物1.12ドル高",
       "link": "https://zai.diamond.jp/articles/-/495070",
       "source": "ザイFX！",
@@ -2697,54 +2715,7 @@
       "relevance": "low",
       "summary": "「ユーロ円、186.00円で売買交錯　下サイドは185.40円に損切り売り」の報道後、USD/JPYは4時間で+0.04%。DXYは99.74から99.86へ上昇、USD強弱スコアも+12から+18へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "東京外国為替市場概況・10時　ドル円、堅調",
-      "link": "https://zai.diamond.jp/articles/-/494924",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-09-02T01:09:00+00:00",
-      "detected_at_utc": "2026-09-02T01:14:47.429120+00:00",
-      "baseline": {
-        "t": "2026-09-02T01:14:47.429120+00:00",
-        "price": 160.284,
-        "dxy": 99.75,
-        "usd_strength_score": 11.3
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-09-02T05:55:22.154369+00:00",
-          "price": 159.838,
-          "dxy": 99.74,
-          "usd_strength_score": 12.0,
-          "delta_price_pct": -0.278
-        },
-        "1h": {
-          "t": "2026-09-02T05:55:22.154369+00:00",
-          "price": 159.838,
-          "dxy": 99.74,
-          "usd_strength_score": 12.0,
-          "delta_price_pct": -0.278
-        },
-        "2h": {
-          "t": "2026-09-02T05:55:22.154369+00:00",
-          "price": 159.838,
-          "dxy": 99.74,
-          "usd_strength_score": 12.0,
-          "delta_price_pct": -0.278
-        },
-        "4h": {
-          "t": "2026-09-02T05:55:22.154369+00:00",
-          "price": 159.838,
-          "dxy": 99.74,
-          "usd_strength_score": 12.0,
-          "delta_price_pct": -0.278
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「東京外国為替市場概況・10時　ドル円、堅調」の報道後、USD/JPYは4時間で-0.28%。DXYは99.75から99.74へ低下、USD強弱スコアも+11から+12へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-09-03T15:06:04.176682+00:00"
+  "updated_at_utc": "2026-09-03T15:13:36.571258+00:00"
 }
