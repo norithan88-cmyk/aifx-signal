@@ -1,0 +1,211 @@
+name: Generate ChatGPT Analysis
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 日本時間 08:05 / 15:05 / 20:05
+    - cron: "5 23 * * *"
+    - cron: "5 6 * * *"
+    - cron: "5 11 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-chatgpt-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install OpenAI
+        run: pip install --upgrade openai
+
+      - name: Generate chatgpt_analysis.json
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timedelta, timezone
+          from openai import OpenAI
+
+          JST = timezone(timedelta(hours=9))
+
+          with open("signal.json", "r", encoding="utf-8") as f:
+              signal_data = json.load(f)
+
+          # 15分足を最重要として抽出
+          regression_15m = None
+          for ch in signal_data.get("regression_channels", []):
+              label = str(ch.get("label", ""))
+              timeframe = str(ch.get("timeframe", ""))
+              if "15" in label or timeframe.lower() == "15m":
+                  regression_15m = ch
+                  break
+
+          priority = signal_data.get("priority_trade", {}) or {}
+
+          source_data = {
+              "latest_price": signal_data.get("latest_price"),
+              "signal": signal_data.get("signal"),
+              "market_mode": signal_data.get("market_mode"),
+              "market_mode_note": signal_data.get("market_mode_note"),
+              "regression_15m": regression_15m,
+              "technical": signal_data.get("technical"),
+              "macro": signal_data.get("macro"),
+              "currency_strength": signal_data.get("currency_strength"),
+              "priority_trade": priority,
+          }
+
+          prompt = """
+          あなたはAI FX研究所のChatGPTアナリストです。
+          USD/JPYについて、下記の提供データだけを根拠に分析してください。
+
+          【重要ルール】
+          ・15分足の線形回帰チャネルを最重要視する
+          ・提供データにない数値、ニュース、出来事を創作しない
+          ・ENTRY、TP、SLを自分で計算しない
+          ・断定的な投資助言や成果保証をしない
+          ・ブレイク直後を追わず、押し戻し・戻りを待つ考え方を重視する
+          ・日本語で簡潔に
+          ・JSONだけを返す
+
+          JSON形式:
+          {
+            "rating": 1から5,
+            "signal": "BUY または SELL または WAIT",
+            "confidence": 0から100,
+            "strategy": "おすすめ戦略",
+            "regression_15m": "15分足線形回帰チャネルの評価",
+            "best_trade": "今日勝負するなら、この1本",
+            "commentary": "ChatGPTアナリストコメント"
+          }
+
+          提供データ:
+          """ + json.dumps(source_data, ensure_ascii=False)
+
+          client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+          response = client.responses.create(
+              model="gpt-5.6-terra",
+              input=prompt
+          )
+
+          text = response.output_text.strip()
+
+          # ```json ... ``` が付いた場合に除去
+          if text.startswith("```"):
+              text = text.replace("```json", "").replace("```", "").strip()
+
+          result = json.loads(text)
+
+          now = datetime.now(JST)
+          weekday = "月火水木金土日"[now.weekday()]
+
+          def get_first(obj, keys, default="―"):
+              for key in keys:
+                  if key in obj and obj[key] not in (None, ""):
+                      return obj[key]
+              return default
+
+          output = {
+              "date_label":
+                  f"{now.year}年{now.month}月{now.day}日（{weekday}）",
+
+              "updated_at_jst":
+                  now.strftime("%Y-%m-%d %H:%M JST"),
+
+              "rating":
+                  result.get("rating", 3),
+
+              "signal":
+                  result.get("signal", "WAIT"),
+
+              "confidence":
+                  result.get("confidence", 0),
+
+              "strategy":
+                  result.get("strategy", ""),
+
+              "regression_15m":
+                  result.get("regression_15m", ""),
+
+              # 売買価格はsignal.jsonの値をそのまま使用
+              "entry_zone":
+                  str(get_first(priority,
+                      ["entry_zone", "entry", "price"])),
+
+              "tp1":
+                  str(get_first(priority,
+                      ["tp1", "take_profit_1"])),
+
+              "tp2":
+                  str(get_first(priority,
+                      ["tp2", "take_profit_2"])),
+
+              "tp3":
+                  str(get_first(priority,
+                      ["tp3", "take_profit_3"])),
+
+              "sl":
+                  str(get_first(priority,
+                      ["sl", "stop_loss"])),
+
+              "best_trade":
+                  result.get("best_trade", ""),
+
+              "invalidation_note":
+                  str(get_first(priority,
+                      ["invalidation_note",
+                       "cancel_condition",
+                       "note"], "")),
+
+              "commentary":
+                  result.get("commentary", "")
+          }
+
+          with open(
+              "chatgpt_analysis.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print(
+              json.dumps(
+                  output,
+                  ensure_ascii=False,
+                  indent=2
+              )
+          )
+          PY
+
+      - name: Commit chatgpt_analysis.json
+        run: |
+          git config user.name "aifx-chatgpt-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add chatgpt_analysis.json
+
+          if git diff --cached --quiet; then
+            echo "変更なし"
+            exit 0
+          fi
+
+          git commit -m "chore: update ChatGPT analyst comment"
+
+          git pull --rebase origin main
+          git push
