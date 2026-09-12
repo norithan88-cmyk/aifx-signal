@@ -1,6 +1,78 @@
 {
   "events": [
     {
+      "title": "世界各国通貨に対する円：対ドル0.57%高、対ユーロ0.71%高",
+      "link": "https://zai.diamond.jp/articles/-/495538",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-09-11T23:59:08+00:00",
+      "detected_at_utc": "2026-09-12T00:33:38.760777+00:00",
+      "baseline": {
+        "t": "2026-09-12T00:33:38.760777+00:00",
+        "price": 153.554,
+        "dxy": 99.1,
+        "usd_strength_score": -1.1
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "NY市場動向（取引終了）:ダウ509.19ドル高（速報）、原油先物2.49ドル安",
+      "link": "https://zai.diamond.jp/articles/-/495537",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-09-11T23:58:09+00:00",
+      "detected_at_utc": "2026-09-12T00:33:38.760777+00:00",
+      "baseline": {
+        "t": "2026-09-12T00:33:38.760777+00:00",
+        "price": 153.554,
+        "dxy": 99.1,
+        "usd_strength_score": -1.1
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "【来週の注目イベント】FOMCや英中銀は据え置き、日銀は利上げ予想、米小売、日英CPIなど",
+      "link": "https://zai.diamond.jp/articles/-/495536",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-09-11T23:07:08+00:00",
+      "detected_at_utc": "2026-09-12T00:33:38.760777+00:00",
+      "baseline": {
+        "t": "2026-09-12T00:33:38.760777+00:00",
+        "price": 153.554,
+        "dxy": 99.1,
+        "usd_strength_score": -1.1
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "NY金先物は続落、米8月CPIの上振れで9月FOMCの利上げ観測が強まる",
+      "link": "https://zai.diamond.jp/articles/-/495535",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-09-11T23:01:05+00:00",
+      "detected_at_utc": "2026-09-12T00:33:38.760777+00:00",
+      "baseline": {
+        "t": "2026-09-12T00:33:38.760777+00:00",
+        "price": 153.554,
+        "dxy": 99.1,
+        "usd_strength_score": -1.1
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "ニューヨーク外国為替市場概況・11日　ドル円、反落",
       "link": "https://zai.diamond.jp/articles/-/495534",
       "source": "ザイFX！",
@@ -12,10 +84,32 @@
         "dxy": 99.1,
         "usd_strength_score": -1.7
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": 0.0
+        },
+        "1h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": 0.0
+        },
+        "2h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": 0.0
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「ニューヨーク外国為替市場概況・11日　ドル円、反落」の報道後、USD/JPYは2時間で+0.00%。DXYは99.10から99.10へ横ばい、USD強弱スコアも-2から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -30,10 +124,32 @@
         "dxy": 99.1,
         "usd_strength_score": -1.7
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": 0.0
+        },
+        "1h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": 0.0
+        },
+        "2h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": 0.0
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
+      "relevance": "low",
+      "summary": "「9月11日のNY為替・原油概況」の報道後、USD/JPYは2時間で+0.00%。DXYは99.10から99.10へ横ばい、USD強弱スコアも-2から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": false
     },
     {
@@ -69,12 +185,19 @@
           "dxy": 99.1,
           "usd_strength_score": -1.7,
           "delta_price_pct": -0.083
+        },
+        "4h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": -0.083
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「ニューヨーク外国為替市場概況･4時　ユーロドル、上値が重い」の報道後、USD/JPYは2時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「ニューヨーク外国為替市場概況･4時　ユーロドル、上値が重い」の報道後、USD/JPYは4時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NY外為：ドル再び上昇、NY原油再び100ドル台に戻す、サウジが東西パイプライン停止、フーシ派の複数攻撃受け予防措置",
@@ -109,12 +232,19 @@
           "dxy": 99.1,
           "usd_strength_score": -1.7,
           "delta_price_pct": -0.083
+        },
+        "4h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": -0.083
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY外為：ドル再び上昇、NY原油再び100ドル台に戻す、サウジが東西パイプライン停止、フーシ派の複数攻撃受け予防措置」の報道後、USD/JPYは2時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY外為：ドル再び上昇、NY原油再び100ドル台に戻す、サウジが東西パイプライン停止、フーシ派の複数攻撃受け予防措置」の報道後、USD/JPYは4時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NY市場動向（午後2時台）：ダウ547ドル高、原油先物2.12ドル安",
@@ -149,12 +279,19 @@
           "dxy": 99.1,
           "usd_strength_score": -1.7,
           "delta_price_pct": -0.083
+        },
+        "4h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": -0.083
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「NY市場動向（午後2時台）：ダウ547ドル高、原油先物2.12ドル安」の報道後、USD/JPYは2時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「NY市場動向（午後2時台）：ダウ547ドル高、原油先物2.12ドル安」の報道後、USD/JPYは4時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "欧州主要株式指数、反発",
@@ -189,12 +326,19 @@
           "dxy": 99.1,
           "usd_strength_score": -1.7,
           "delta_price_pct": -0.083
+        },
+        "4h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": -0.083
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「欧州主要株式指数、反発」の報道後、USD/JPYは2時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「欧州主要株式指数、反発」の報道後、USD/JPYは4時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "【速報】米・8月財政収支は－1668億ドル",
@@ -229,12 +373,19 @@
           "dxy": 99.1,
           "usd_strength_score": -1.7,
           "delta_price_pct": -0.083
+        },
+        "4h": {
+          "t": "2026-09-12T00:33:38.760777+00:00",
+          "price": 153.554,
+          "dxy": 99.1,
+          "usd_strength_score": -1.1,
+          "delta_price_pct": -0.083
         }
       },
       "flags": [],
       "relevance": "low",
-      "summary": "「【速報】米・8月財政収支は－1668億ドル」の報道後、USD/JPYは2時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-2へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": false
+      "summary": "「【速報】米・8月財政収支は－1668億ドル」の報道後、USD/JPYは4時間で-0.08%。DXYは99.13から99.10へ低下、USD強弱スコアも-1から-1へ上昇。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ニューヨーク外国為替市場概況･2時　ドル円、小高い",
@@ -2562,201 +2713,7 @@
       "relevance": "high",
       "summary": "「【市場反応】米8月生産者物価指数（PPI）は根強いインフレ示す、ドル堅調」の報道後、USD/JPYは4時間で+0.33%。DXYは99.00から99.06へ上昇、USD強弱スコアも+13から+20へ上昇。価格急変（+0.32%）、価格急変（+0.33%）の兆候が見られます。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "欧州外国為替市場概況・22時　ドル円、強含み",
-      "link": "https://zai.diamond.jp/articles/-/495430",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-09-10T13:09:00+00:00",
-      "detected_at_utc": "2026-09-10T14:10:30.806005+00:00",
-      "baseline": {
-        "t": "2026-09-10T14:10:30.806005+00:00",
-        "price": 153.848,
-        "dxy": 99.0,
-        "usd_strength_score": 13.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-09-10T17:43:10.820204+00:00",
-          "price": 154.333,
-          "dxy": 98.97,
-          "usd_strength_score": 13.7,
-          "delta_price_pct": 0.315
-        },
-        "1h": {
-          "t": "2026-09-10T17:43:10.820204+00:00",
-          "price": 154.333,
-          "dxy": 98.97,
-          "usd_strength_score": 13.7,
-          "delta_price_pct": 0.315
-        },
-        "2h": {
-          "t": "2026-09-10T17:43:10.820204+00:00",
-          "price": 154.333,
-          "dxy": 98.97,
-          "usd_strength_score": 13.7,
-          "delta_price_pct": 0.315
-        },
-        "4h": {
-          "t": "2026-09-10T20:04:57.936363+00:00",
-          "price": 154.349,
-          "dxy": 99.06,
-          "usd_strength_score": 20.3,
-          "delta_price_pct": 0.326
-        }
-      },
-      "flags": [
-        "価格急変（+0.32%）",
-        "価格急変（+0.33%）"
-      ],
-      "relevance": "high",
-      "summary": "「欧州外国為替市場概況・22時　ドル円、強含み」の報道後、USD/JPYは4時間で+0.33%。DXYは99.00から99.06へ上昇、USD強弱スコアも+13から+20へ上昇。価格急変（+0.32%）、価格急変（+0.33%）の兆候が見られます。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【ＮＹ為替オープニング】米PPIや米30年債入札に注目、トランプ米大統領は国民に配当支給を表明",
-      "link": "https://zai.diamond.jp/articles/-/495429",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-09-10T12:38:05+00:00",
-      "detected_at_utc": "2026-09-10T14:10:30.806005+00:00",
-      "baseline": {
-        "t": "2026-09-10T14:10:30.806005+00:00",
-        "price": 153.848,
-        "dxy": 99.0,
-        "usd_strength_score": 13.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-09-10T17:43:10.820204+00:00",
-          "price": 154.333,
-          "dxy": 98.97,
-          "usd_strength_score": 13.7,
-          "delta_price_pct": 0.315
-        },
-        "1h": {
-          "t": "2026-09-10T17:43:10.820204+00:00",
-          "price": 154.333,
-          "dxy": 98.97,
-          "usd_strength_score": 13.7,
-          "delta_price_pct": 0.315
-        },
-        "2h": {
-          "t": "2026-09-10T17:43:10.820204+00:00",
-          "price": 154.333,
-          "dxy": 98.97,
-          "usd_strength_score": 13.7,
-          "delta_price_pct": 0.315
-        },
-        "4h": {
-          "t": "2026-09-10T20:04:57.936363+00:00",
-          "price": 154.349,
-          "dxy": 99.06,
-          "usd_strength_score": 20.3,
-          "delta_price_pct": 0.326
-        }
-      },
-      "flags": [
-        "価格急変（+0.32%）",
-        "価格急変（+0.33%）"
-      ],
-      "relevance": "high",
-      "summary": "「【ＮＹ為替オープニング】米PPIや米30年債入札に注目、トランプ米大統領は国民に配当支給を表明」の報道後、USD/JPYは4時間で+0.33%。DXYは99.00から99.06へ上昇、USD強弱スコアも+13から+20へ上昇。価格急変（+0.32%）、価格急変（+0.33%）の兆候が見られます。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ドル・円は小じっかり、米金利高で",
-      "link": "https://zai.diamond.jp/articles/-/495410",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-09-10T09:42:05+00:00",
-      "detected_at_utc": "2026-09-10T09:55:24.496861+00:00",
-      "baseline": {
-        "t": "2026-09-10T09:55:24.496861+00:00",
-        "price": 153.683,
-        "dxy": 98.81,
-        "usd_strength_score": 8.2
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        },
-        "1h": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        },
-        "2h": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        },
-        "4h": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル・円は小じっかり、米金利高で」の報道後、USD/JPYは4時間で+0.11%。DXYは98.81から99.00へ上昇、USD強弱スコアも+8から+13へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ドル円、153.78円まで上値を伸ばす　米10年債利回りが4.86％台へ上昇",
-      "link": "https://zai.diamond.jp/articles/-/495409",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-09-10T09:36:00+00:00",
-      "detected_at_utc": "2026-09-10T09:55:24.496861+00:00",
-      "baseline": {
-        "t": "2026-09-10T09:55:24.496861+00:00",
-        "price": 153.683,
-        "dxy": 98.81,
-        "usd_strength_score": 8.2
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        },
-        "1h": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        },
-        "2h": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        },
-        "4h": {
-          "t": "2026-09-10T14:10:30.806005+00:00",
-          "price": 153.848,
-          "dxy": 99.0,
-          "usd_strength_score": 13.0,
-          "delta_price_pct": 0.107
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル円、153.78円まで上値を伸ばす　米10年債利回りが4.86％台へ上昇」の報道後、USD/JPYは4時間で+0.11%。DXYは98.81から99.00へ上昇、USD強弱スコアも+8から+13へ上昇。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-09-11T22:28:26.783232+00:00"
+  "updated_at_utc": "2026-09-12T00:33:38.760777+00:00"
 }
