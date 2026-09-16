@@ -38,6 +38,19 @@
       "closed_at_utc": "2026-09-02T15:02:50.673337+00:00",
       "closed_price": 158.729,
       "pips": 110.9
+    },
+    {
+      "id": "2026-09-16T18:39:31.532219+00:00",
+      "opened_at_utc": "2026-09-16T18:39:31.532219+00:00",
+      "bias": "BUY",
+      "entry": 155.733,
+      "take_profit": 155.913,
+      "stop_loss": 155.533,
+      "confidence": 91,
+      "status": "OPEN",
+      "closed_at_utc": null,
+      "closed_price": null,
+      "pips": null
     }
   ],
   "stats": {
@@ -50,7 +63,7 @@
     "profit_factor": 11.98,
     "total_pips": 117.5
   },
-  "updated_at_utc": "2026-09-16T14:53:12.217225+00:00",
+  "updated_at_utc": "2026-09-16T18:39:31.532219+00:00",
   "trend_trades": [
     {
       "id": "2026-09-03T23:20:32.012291+00:00",
@@ -75,6 +88,18 @@
       "closed_at_utc": "2026-09-07T19:17:29.383855+00:00",
       "closed_price": 154.363,
       "pips": 3.6
+    },
+    {
+      "id": "2026-09-16T18:39:31.532219+00:00",
+      "opened_at_utc": "2026-09-16T18:39:31.532219+00:00",
+      "bias": "BUY",
+      "entry": 155.733,
+      "stop_loss": 155.433,
+      "confidence": 91,
+      "status": "OPEN",
+      "closed_at_utc": null,
+      "closed_price": null,
+      "pips": null
     }
   ],
   "trend_stats": {
