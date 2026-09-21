@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-09-21T13:16:33.813625+00:00",
+  "generated_at_utc": "2026-09-21T18:47:20.752320+00:00",
   "pair": "USD/JPY",
-  "latest_price": 157.322,
-  "day_change_pct": -0.08,
+  "latest_price": 157.491,
+  "day_change_pct": 0.49,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
@@ -26,9 +26,9 @@
   "trend_signal": {
     "bias": "WAIT",
     "bias_label": "様子見",
-    "position_sigma": 0.93,
+    "position_sigma": 0.28,
     "gate_threshold": 2.2,
-    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在0.93σ）",
+    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在0.28σ）",
     "entry": null,
     "stop_loss": null,
     "note": "反発型（上のシグナル）とは別ロジックの補完シグナルです。なだらかな一直線トレンドを狙い撃ちする代わりに、勝率・PFは反発型より低めです（19ヶ月検証: 勝率43.5%・PF1.63）。"
@@ -37,64 +37,64 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -0.03,
+      "position_sigma": -0.34,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 157.33,
-      "upper": 157.413,
-      "lower": 157.247
+      "mid": 157.497,
+      "upper": 157.532,
+      "lower": 157.462
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": 0.04,
+      "position_sigma": -0.36,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 157.327,
-      "upper": 157.438,
-      "lower": 157.216
+      "mid": 157.508,
+      "upper": 157.6,
+      "lower": 157.415
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.93,
-      "trend": "FLAT",
+      "position_sigma": 0.28,
+      "trend": "UP",
       "momentum": "FLAT",
-      "mid": 156.986,
-      "upper": 157.71,
-      "lower": 156.262
+      "mid": 157.42,
+      "upper": 157.933,
+      "lower": 156.908
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.1274,
-      "signal": 0.1136,
-      "histogram": 0.0138,
+      "macd": 0.1568,
+      "signal": 0.1432,
+      "histogram": 0.0136,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 60.3,
+      "value": 63.7,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 157.292,
-      "ma25": 157.059,
-      "ma75": 156.459,
-      "ma200": 155.07,
-      "price": 157.322,
+      "ma5": 157.471,
+      "ma25": 157.137,
+      "ma75": 156.618,
+      "ma200": 155.173,
+      "price": 157.491,
       "perfect_order": "BULLISH"
     },
     "bollinger": {
-      "mid": 157.042,
-      "upper": 157.477,
-      "lower": 156.608,
-      "price": 157.322,
+      "mid": 157.217,
+      "upper": 157.687,
+      "lower": 156.747,
+      "price": 157.491,
       "state": "INSIDE"
     },
     "support_resistance": {
       "resistance": 158.054,
-      "support": 155.291
+      "support": 155.864
     }
   },
   "macro": {
@@ -104,146 +104,146 @@
     "jp10y_trend": "flat",
     "jp10y_latest": 2.993,
     "dxy_trend": "flat",
-    "dxy_latest": 100.27,
+    "dxy_latest": 100.44,
     "gold_trend": "up",
-    "gold_latest": 4397.7
+    "gold_latest": 4386.2
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在157.32円付近で推移（直近1時間比-0.08%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在157.49円付近で推移（直近1時間比+0.49%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
-      "title": "欧州外国為替市場概況・22時　ユーロドル、買い一服",
-      "link": "https://zai.diamond.jp/articles/-/495965",
-      "published_at_utc": "2026-09-21T13:06:00+00:00"
+      "title": "[通貨オプション]OP売り、日本の連休でレンジ相場観測",
+      "link": "https://zai.diamond.jp/articles/-/495982",
+      "published_at_utc": "2026-09-21T18:40:06+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】米・8月シカゴ連銀全米活動指数は―0.04。",
-      "link": "https://zai.diamond.jp/articles/-/495964",
-      "published_at_utc": "2026-09-21T12:48:26+00:00"
+      "title": "NY市場動向（午後2時台）：ダウ338ドル高、原油先物4.55ドル安",
+      "link": "https://zai.diamond.jp/articles/-/495981",
+      "published_at_utc": "2026-09-21T18:33:04+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【ＮＹ市場の経済指標とイベ ン ト】",
-      "link": "https://zai.diamond.jp/articles/-/495963",
-      "published_at_utc": "2026-09-21T12:25:06+00:00"
+      "title": "【速報】日米韓声明「台湾海峡での平和維持必要」",
+      "link": "https://zai.diamond.jp/articles/-/495980",
+      "published_at_utc": "2026-09-21T18:02:26+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "ユーロドル、小高い　1.1496ドルまで上昇",
-      "link": "https://zai.diamond.jp/articles/-/495962",
-      "published_at_utc": "2026-09-21T12:06:00+00:00"
+      "title": "【速報】日米韓声明 「北朝鮮の非核化に向けた取り組み確認」",
+      "link": "https://zai.diamond.jp/articles/-/495979",
+      "published_at_utc": "2026-09-21T18:01:56+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "欧州外国為替市場概況・20時　ドル円、底堅い",
-      "link": "https://zai.diamond.jp/articles/-/495961",
-      "published_at_utc": "2026-09-21T11:06:00+00:00"
+      "title": "NY外為：ドル買い一段落、NY原油100ドル割れ、米イラン紛争、外交的解決期待",
+      "link": "https://zai.diamond.jp/articles/-/495978",
+      "published_at_utc": "2026-09-21T17:19:04+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "NY為替見通し＝ドル円、堅調か　介入警戒と押し目買いが交錯",
-      "link": "https://zai.diamond.jp/articles/-/495960",
-      "published_at_utc": "2026-09-21T10:41:00+00:00"
+      "title": "ニューヨーク外国為替市場概況･2時　ドル円　上昇一服",
+      "link": "https://zai.diamond.jp/articles/-/495977",
+      "published_at_utc": "2026-09-21T17:03:00+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
-    "date": "2026-09-21",
-    "updated_at_jst": "2026-09-21 22:04",
-    "headline": "ドル円は方向感に乏しいレンジ相場、各時間足でシグナルが交錯",
+    "date": "2026-09-22",
+    "updated_at_jst": "2026-09-22 03:39",
+    "headline": "ドル円は方向感を欠く展開、各時間足でレンジ推移が継続",
     "advice": [
-      "現在のドル円は157.00円付近で推移しており、直近1時間比で小幅な下落がみられる。AI総合シグナルは方向感なしとなっており、相場モードはレンジを示している。",
-      "短期の各時間足を確認すると、5分足は下限付近、15分足は中心線付近、1時間足は中心線よりやや上で推移するなどトレンドが割れている。RSIは53.6の中立圏に位置し、MACDはベア傾向を示すなか、米10年債利回りやDXYは横ばい基調で推移している。"
+      "米ドル円は157.30円前後での推移となっており、各時間足のトレンドが横ばいを示す中で方向感に乏しいレンジ地合いとなっています。短期的なボラティリティは限定的です。",
+      "テクニカル面では、RSIが中立圏に位置し、MACDは買い優位を示すもののヒストグラムの勢いは限定的です。米10年債利回りやドルインデックスが横ばい基調で推移する中、主要な通貨強弱においてもドルが弱含み、円が小幅に買われる展開となっています。"
     ],
     "scenarios": [
       {
-        "label": "本命レンジ推移",
-        "probability": 50,
+        "label": "本命：レンジ内推移",
+        "probability": 60,
         "color": "neutral",
-        "body": "各時間足のトレンドが割れている状態を背景に、上下のサポートとレジスタンスの間で推移し方向感を欠く展開を想定。"
+        "body": "明確な方向性を示す材料が乏しい中、各時間足の中心線周辺での値動きが継続し、上下のバンド内で推移しやすい地合いとなります。"
       },
       {
-        "label": "上抜けトレンド",
-        "probability": 25,
+        "label": "上抜け：レジスタンス試算",
+        "probability": 20,
         "color": "buy",
-        "body": "上値抵抗帯を試す動きとなり、買い圧力が強まった場合はレジスタンス方向へ推移する可能性。"
+        "body": "買い圧力が強まり、1時間足の上限や主要レジスタンス方向へ上値を試す動きが意識される局面です。"
       },
       {
-        "label": "下抜けトレンド",
-        "probability": 25,
+        "label": "下抜け：サポート試算",
+        "probability": 20,
         "color": "sell",
-        "body": "下値支持線を試す展開となり、売り圧力が優勢となった場合はサポート方向へ反落する可能性。"
+        "body": "売り圧力が優勢となった場合、各時間足の下限や主要サポート水準へ向けた下落を模索する展開となります。"
       }
     ],
-    "economic_events_note": "本日のJPYおよびUSDに関する中〜高重要度の経済指標の発表はありません。",
+    "economic_events_note": "本日は日米ともに中〜高重要度の経済指標の発表は予定されていません。",
     "order_plan": {
-      "lead": "方向感が定まらないレンジ地合いのため、各時間足のインジケーターやバンド幅に合わせた慎重な判断が求められます。",
+      "lead": "方向感が定まらないレンジ相場のため、各時間足の上下限を意識した慎重な立ち回りが求められます。",
       "entry": "様子見（新規エントリーなし）",
       "take_profit": "‒",
       "stop_loss": "‒",
-      "sub_note": "突発的な変動に対する過度なポジションの傾けを避け、リスク管理を優先した対応を想定します。"
+      "sub_note": "テクニカル指標のシグナルが交錯しているため、突発的なトレンド発生に対する備えが必要です。"
     },
-    "risk_note": "時間足ごとにトレンドが割れておりシグナルの信頼度が限定的なため、突発的な値動きやレンジブレイクに対する注意が必要です。"
+    "risk_note": "時間足ごとに方向性が異なっており、突発的な値動きやレンジブレイクに伴うダマシに注意が必要です。"
   },
   "chatgpt_analysis": {
-    "date_label": "2026年9月21日（月）",
-    "updated_at_jst": "2026-09-21 21:22 JST",
+    "date_label": "2026年9月22日（火）",
+    "updated_at_jst": "2026-09-22 01:58 JST",
     "rating": 2,
     "signal": "WAIT",
     "confidence": 50,
-    "strategy": "15分足回帰チャネルの中央線付近で方向感が乏しいため、ブレイクを追わず、チャネル下限付近への押し戻し後に反発確認、または上限付近への戻り後に失速確認を待つ。",
-    "regression_15m": "15分足チャネルは上向きですが、モメンタムはFLATです。価格157.004は中央線157.022近辺かつ-0.08σで、明確な優位性は限定的です。上限157.229・下限156.816の間で推移しており、現状はチャネル中央での見送りが妥当です。",
+    "strategy": "15分足のフラットな回帰チャネル内で推移しているため、ブレイク直後は追わず、上限・下限付近への押し戻しや戻りと短期足の反応を待つ。中央付近では見送りを優先する。",
+    "regression_15m": "15分足回帰チャネルはFLATで、価格157.322は中心線157.327付近、position_sigmaも0.04とほぼ中央にある。方向優位性は乏しく、上限157.438・下限157.216の間ではレンジ対応が妥当。",
     "entry_zone": "―",
     "tp1": "―",
     "tp2": "―",
     "tp3": "―",
     "sl": "―",
-    "best_trade": "見送り。今日勝負するなら、15分足チャネル下限付近への押し戻し後の反発確認を待つ逆張り寄りの買い検討が候補ですが、現時点では条件未成立です。",
+    "best_trade": "今日は見送り。取引する場合でも、15分足チャネル上限・下限への到達後に押し戻し・戻りが確認できるまで待機する。",
     "invalidation_note": "",
-    "commentary": "市場はレンジ地合いで、5分・15分・1時間足の方向が一致していません。15分足は緩やかな上向きでも勢いは平坦で、MACDは弱気、RSIは中立です。JPYが相対的に強くUSDは弱いため上値追いにも慎重さが必要です。チャネル中央付近での新規エントリーは避け、押し戻し・戻りを待つ局面です。"
+    "commentary": "15分足で最重要の回帰チャネルが横ばいかつ価格は中央圏であり、エントリー優位性は限定的です。MACDと移動平均は強めですが、RSIは中立で、時間足間の方向も不一致です。USDは相対的に弱くJPYは小幅に強い一方、現時点では15分足のレンジ構造を優先し、中央圏での売買やブレイク直後の追随は避ける姿勢が適切です。"
   },
   "currency_strength": [
     {
+      "code": "USD",
+      "change_pct": 0.2,
+      "strength_score": 8.1
+    },
+    {
       "code": "CHF",
-      "change_pct": 0.42,
-      "strength_score": 16.7
+      "change_pct": 0.07,
+      "strength_score": 2.9
     },
     {
       "code": "AUD",
-      "change_pct": 0.37,
-      "strength_score": 14.8
+      "change_pct": -0.09,
+      "strength_score": -3.4
     },
     {
       "code": "NZD",
-      "change_pct": 0.33,
-      "strength_score": 13.3
-    },
-    {
-      "code": "GBP",
-      "change_pct": 0.24,
-      "strength_score": 9.5
+      "change_pct": -0.19,
+      "strength_score": -7.5
     },
     {
       "code": "EUR",
-      "change_pct": 0.18,
-      "strength_score": 7.4
+      "change_pct": -0.21,
+      "strength_score": -8.3
     },
     {
-      "code": "JPY",
-      "change_pct": 0.08,
-      "strength_score": 3.1
+      "code": "GBP",
+      "change_pct": -0.21,
+      "strength_score": -8.4
     },
     {
       "code": "CAD",
-      "change_pct": 0.05,
-      "strength_score": 2.1
+      "change_pct": -0.31,
+      "strength_score": -12.6
     },
     {
-      "code": "USD",
-      "change_pct": -0.24,
-      "strength_score": -9.5
+      "code": "JPY",
+      "change_pct": -0.49,
+      "strength_score": -19.4
     }
   ]
 }
