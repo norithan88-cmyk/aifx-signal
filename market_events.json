@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "title": "円建てCME先物は25日の225先物比780円高の66455円で推移",
+      "link": "https://zai.diamond.jp/articles/-/496269",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-09-27T21:31:43+00:00",
+      "detected_at_utc": "2026-09-27T21:33:35.244503+00:00",
+      "baseline": {
+        "t": "2026-09-27T21:33:35.244503+00:00",
+        "price": 157.185,
+        "dxy": 100.97,
+        "usd_strength_score": -7.4
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "世界各国通貨に対する円：対ドル0.03%高、対ユーロ0.02%高",
       "link": "https://zai.diamond.jp/articles/-/496266",
       "source": "ザイFX！",
@@ -2806,56 +2824,7 @@
       "relevance": "medium",
       "summary": "「ドル・円：ドル・円は軟調、円安牽制で」の報道後、USD/JPYは4時間で+0.51%。DXYは101.07から101.24へ上昇、USD強弱スコアも+13から+16へ上昇。価格急変（+0.51%）の兆候が見られます。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "日経平均後場寄り付き：前日比841.27円高の65860.22円",
-      "link": "https://zai.diamond.jp/articles/-/496129",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-09-24T03:33:54+00:00",
-      "detected_at_utc": "2026-09-24T05:19:52.030538+00:00",
-      "baseline": {
-        "t": "2026-09-24T05:19:52.030538+00:00",
-        "price": 157.968,
-        "dxy": 101.07,
-        "usd_strength_score": 13.4
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-09-24T10:16:01.584497+00:00",
-          "price": 158.768,
-          "dxy": 101.24,
-          "usd_strength_score": 16.3,
-          "delta_price_pct": 0.506
-        },
-        "1h": {
-          "t": "2026-09-24T10:16:01.584497+00:00",
-          "price": 158.768,
-          "dxy": 101.24,
-          "usd_strength_score": 16.3,
-          "delta_price_pct": 0.506
-        },
-        "2h": {
-          "t": "2026-09-24T10:16:01.584497+00:00",
-          "price": 158.768,
-          "dxy": 101.24,
-          "usd_strength_score": 16.3,
-          "delta_price_pct": 0.506
-        },
-        "4h": {
-          "t": "2026-09-24T10:16:01.584497+00:00",
-          "price": 158.768,
-          "dxy": 101.24,
-          "usd_strength_score": 16.3,
-          "delta_price_pct": 0.506
-        }
-      },
-      "flags": [
-        "価格急変（+0.51%）"
-      ],
-      "relevance": "medium",
-      "summary": "「日経平均後場寄り付き：前日比841.27円高の65860.22円」の報道後、USD/JPYは4時間で+0.51%。DXYは101.07から101.24へ上昇、USD強弱スコアも+13から+16へ上昇。価格急変（+0.51%）の兆候が見られます。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-09-27T18:30:40.156258+00:00"
+  "updated_at_utc": "2026-09-27T21:33:35.244503+00:00"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-27T18:30:40.156258+00:00",
+  "generated_at_utc": "2026-09-27T21:33:35.244503+00:00",
   "pair": "USD/JPY",
   "latest_price": 157.185,
   "day_change_pct": -0.99,
@@ -110,7 +110,14 @@
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
   "market_context": "USD/JPYは現在157.18円付近で推移（直近1時間比-0.99%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは上昇基調、WTI原油は低下基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
-  "news": [],
+  "news": [
+    {
+      "source": "ザイFX！",
+      "title": "円建てCME先物は25日の225先物比780円高の66455円で推移",
+      "link": "https://zai.diamond.jp/articles/-/496269",
+      "published_at_utc": "2026-09-27T21:31:43+00:00"
+    }
+  ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-09-27",
@@ -179,14 +186,14 @@
       "strength_score": 8.9
     },
     {
-      "code": "EUR",
-      "change_pct": 0.22,
-      "strength_score": 8.7
-    },
-    {
       "code": "AUD",
       "change_pct": 0.18,
       "strength_score": 7.3
+    },
+    {
+      "code": "EUR",
+      "change_pct": 0.09,
+      "strength_score": 3.6
     },
     {
       "code": "CAD",
@@ -205,8 +212,8 @@
     },
     {
       "code": "USD",
-      "change_pct": -0.2,
-      "strength_score": -8.1
+      "change_pct": -0.18,
+      "strength_score": -7.4
     }
   ]
 }
