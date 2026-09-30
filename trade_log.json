@@ -76,7 +76,7 @@
     "profit_factor": 2.57,
     "total_pips": 107.1
   },
-  "updated_at_utc": "2026-09-29T23:47:18.346961+00:00",
+  "updated_at_utc": "2026-09-30T02:28:37.601861+00:00",
   "trend_trades": [
     {
       "id": "2026-09-03T23:20:32.012291+00:00",
@@ -137,6 +137,18 @@
       "closed_at_utc": "2026-09-28T11:42:58.769316+00:00",
       "closed_price": 156.937,
       "pips": -53.2
+    },
+    {
+      "id": "2026-09-30T02:28:37.601861+00:00",
+      "opened_at_utc": "2026-09-30T02:28:37.601861+00:00",
+      "bias": "SELL",
+      "entry": 156.388,
+      "stop_loss": 156.688,
+      "confidence": 50,
+      "status": "OPEN",
+      "closed_at_utc": null,
+      "closed_price": null,
+      "pips": null
     }
   ],
   "trend_stats": {
