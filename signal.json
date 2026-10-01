@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-09-30T20:24:31.985737+00:00",
+  "generated_at_utc": "2026-10-01T00:04:49.102854+00:00",
   "pair": "USD/JPY",
-  "latest_price": 157.451,
-  "day_change_pct": 0.06,
+  "latest_price": 157.601,
+  "day_change_pct": 0.11,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
     "stars": 2,
     "confidence": 50,
     "confidence_breakdown": {
-      "timeframes_note": "5分足:中央 / 15分足:中央 / 1時間足:上方向 → 3時間足の方向が一致していません",
+      "timeframes_note": "5分足:上方向 / 15分足:中央 / 1時間足:上方向 → 3時間足の方向が一致していません",
       "calc_note": "3時間足の方向が揃っていないため、基本値50%のままです。"
     }
   },
@@ -26,9 +26,9 @@
   "trend_signal": {
     "bias": "WAIT",
     "bias_label": "様子見",
-    "position_sigma": 1.31,
+    "position_sigma": 1.41,
     "gate_threshold": 2.2,
-    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在1.31σ）",
+    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在1.41σ）",
     "entry": null,
     "stop_loss": null,
     "note": "反発型（上のシグナル）とは別ロジックの補完シグナルです。なだらかな一直線トレンドを狙い撃ちする代わりに、勝率・PFは反発型より低めです（19ヶ月検証: 勝率43.5%・PF1.63）。"
@@ -37,59 +37,59 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": 0.57,
-      "trend": "FLAT",
-      "momentum": "FLAT",
-      "mid": 157.432,
-      "upper": 157.499,
-      "lower": 157.366
+      "position_sigma": 2.29,
+      "trend": "UP",
+      "momentum": "UP",
+      "mid": 157.506,
+      "upper": 157.6,
+      "lower": 157.412
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.67,
+      "position_sigma": 0.58,
       "trend": "UP",
       "momentum": "FLAT",
-      "mid": 157.506,
-      "upper": 157.667,
-      "lower": 157.344
+      "mid": 157.568,
+      "upper": 157.727,
+      "lower": 157.41
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 1.31,
+      "position_sigma": 1.41,
       "trend": "UP",
       "momentum": "UP",
-      "mid": 157.137,
-      "upper": 157.617,
-      "lower": 156.658
+      "mid": 157.244,
+      "upper": 157.75,
+      "lower": 156.738
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0562,
-      "signal": -0.0105,
-      "histogram": 0.0667,
+      "macd": 0.0928,
+      "signal": 0.0135,
+      "histogram": 0.0792,
       "state": "BULLISH",
       "cross": null
     },
     "rsi": {
-      "value": 59.8,
+      "value": 63.8,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 157.385,
-      "ma25": 157.099,
-      "ma75": 157.284,
-      "ma200": 157.564,
-      "price": 157.451,
+      "ma5": 157.491,
+      "ma25": 157.121,
+      "ma75": 157.293,
+      "ma200": 157.565,
+      "price": 157.601,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 157.078,
-      "upper": 157.539,
-      "lower": 156.616,
-      "price": 157.451,
+      "mid": 157.136,
+      "upper": 157.647,
+      "lower": 156.625,
+      "price": 157.601,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -99,53 +99,53 @@
   },
   "macro": {
     "us10y_trend": "up",
-    "us10y_latest": 5.24,
-    "wti_trend": "down",
+    "us10y_latest": 5.26,
+    "wti_trend": "up",
     "jp10y_trend": "up",
     "jp10y_latest": 3.082,
     "dxy_trend": "flat",
-    "dxy_latest": 101.51,
+    "dxy_latest": 101.5,
     "gold_trend": "down",
-    "gold_latest": 4187.5
+    "gold_latest": 4185.9
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在157.45円付近で推移（直近1時間比+0.06%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは上昇基調、WTI原油は低下基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在157.60円付近で推移（直近1時間比+0.11%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは上昇基調、WTI原油は上昇基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
-      "title": "【トランプ米大統領】 「パウエルFRB理事は辞任を」",
-      "link": "https://zai.diamond.jp/articles/-/496505",
-      "published_at_utc": "2026-09-30T20:05:07+00:00"
+      "title": "ドル円は157.40円、SGX日経225先物は67250円で開始",
+      "link": "https://zai.diamond.jp/articles/-/496516",
+      "published_at_utc": "2026-09-30T23:46:00+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "9月30日のNY為替・原油概況",
-      "link": "https://zai.diamond.jp/articles/-/496504",
-      "published_at_utc": "2026-09-30T19:40:05+00:00"
+      "title": "ドル・円は上値の重い展開か、157円台を中心とした神経質なこう着が続きそう",
+      "link": "https://zai.diamond.jp/articles/-/496515",
+      "published_at_utc": "2026-09-30T23:38:04+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "ニューヨーク外国為替市場概況･4時　ドル円、底堅い",
-      "link": "https://zai.diamond.jp/articles/-/496503",
-      "published_at_utc": "2026-09-30T19:03:00+00:00"
+      "title": "世界各国通貨に対する円：対ドル0.03%高、対ユーロ0.02%高",
+      "link": "https://zai.diamond.jp/articles/-/496514",
+      "published_at_utc": "2026-09-30T23:27:05+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "[通貨オプション]まちまち",
-      "link": "https://zai.diamond.jp/articles/-/496502",
-      "published_at_utc": "2026-09-30T18:40:05+00:00"
+      "title": "NY市場動向（取引終了）:ダウ443.87ドル安（速報）、原油先物0.96ドル高",
+      "link": "https://zai.diamond.jp/articles/-/496513",
+      "published_at_utc": "2026-09-30T23:26:05+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "NY市場動向（午後2時台）：ダウ92ドル安、原油先物1.59ドル高",
-      "link": "https://zai.diamond.jp/articles/-/496501",
-      "published_at_utc": "2026-09-30T18:20:05+00:00"
+      "title": "東京外国為替市場概況・8時　ドル円、小動き",
+      "link": "https://zai.diamond.jp/articles/-/496512",
+      "published_at_utc": "2026-09-30T23:06:00+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "ドル円、157.33円付近で小動き　米10年債利回りは5.30％台に",
-      "link": "https://zai.diamond.jp/articles/-/496500",
-      "published_at_utc": "2026-09-30T17:59:00+00:00"
+      "title": "東京為替見通し＝日銀短観と「主な意見」に注目、原油相場も波乱要因か",
+      "link": "https://zai.diamond.jp/articles/-/496511",
+      "published_at_utc": "2026-09-30T23:00:00+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
@@ -207,43 +207,43 @@
   "currency_strength": [
     {
       "code": "GBP",
-      "change_pct": 0.27,
-      "strength_score": 10.8
+      "change_pct": 0.26,
+      "strength_score": 10.3
     },
     {
       "code": "USD",
-      "change_pct": 0.14,
-      "strength_score": 5.6
-    },
-    {
-      "code": "NZD",
-      "change_pct": -0.05,
-      "strength_score": -2.0
-    },
-    {
-      "code": "JPY",
-      "change_pct": -0.06,
-      "strength_score": -2.3
+      "change_pct": 0.16,
+      "strength_score": 6.5
     },
     {
       "code": "EUR",
-      "change_pct": -0.09,
-      "strength_score": -3.6
+      "change_pct": -0.1,
+      "strength_score": -4.1
+    },
+    {
+      "code": "NZD",
+      "change_pct": -0.11,
+      "strength_score": -4.3
+    },
+    {
+      "code": "JPY",
+      "change_pct": -0.11,
+      "strength_score": -4.6
     },
     {
       "code": "CHF",
-      "change_pct": -0.2,
-      "strength_score": -7.9
+      "change_pct": -0.16,
+      "strength_score": -6.4
     },
     {
       "code": "CAD",
-      "change_pct": -0.27,
-      "strength_score": -10.9
+      "change_pct": -0.31,
+      "strength_score": -12.2
     },
     {
       "code": "AUD",
-      "change_pct": -0.58,
-      "strength_score": -23.3
+      "change_pct": -0.6,
+      "strength_score": -23.9
     }
   ]
 }
