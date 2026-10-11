@@ -111,13 +111,18 @@ jobs:
               if not key:
                   raise RuntimeError("GEMINI_API_KEY が未設定です")
               body = json.dumps({
-                  "contents": [{"parts": [{"text": prompt}]}],
+                  "contents": [{"role": "user", "parts": [{"text": prompt}]}],
                   "generationConfig": {"responseMimeType": "application/json"},
               }).encode("utf-8")
               # 古いモデルはAQ.形式のキーで401/404になることがあるため、新しい順に試す
               last = None
+              endpoints = []
               for model in ["gemini-3.6-flash", "gemini-flash-latest", "gemini-flash-lite-latest"]:
-                  url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+                  endpoints.append((model, f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"))
+              # AQ.形式のキーはVertex AI側の窓口でしか通らない場合があるため、そちらも試す
+              for model in ["gemini-3.6-flash", "gemini-2.5-flash"]:
+                  endpoints.append((f"vertex:{model}", f"https://aiplatform.googleapis.com/v1/publishers/google/models/{model}:generateContent"))
+              for model, url in endpoints:
                   req = urllib.request.Request(
                       url, data=body,
                       headers={"Content-Type": "application/json",
