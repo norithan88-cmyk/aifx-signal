@@ -117,9 +117,8 @@ jobs:
                   "generationConfig": {"responseMimeType": "application/json"},
               }).encode("utf-8")
               req = urllib.request.Request(
-                  url, data=body,
-                  headers={"Content-Type": "application/json",
-                           "x-goog-api-key": key})
+                  f"{url}?key={key}", data=body,
+                  headers={"Content-Type": "application/json"})
               with urllib.request.urlopen(req, timeout=60) as res:
                   data = json.load(res)
               return data["candidates"][0]["content"]["parts"][0]["text"].strip()
