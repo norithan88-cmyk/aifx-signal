@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,6 +30,7 @@ jobs:
       - name: Generate chatgpt_analysis.json
         env:
           OPENAI_API_KEY: ${{ secrets.AIFX }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python - <<'PY'
           import json
@@ -92,14 +93,45 @@ jobs:
           提供データ:
           """ + json.dumps(source_data, ensure_ascii=False)
 
-          client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+          def ask_openai():
+              key = os.environ.get("OPENAI_API_KEY", "").strip()
+              if not key:
+                  raise RuntimeError("OPENAI_API_KEY が未設定です")
+              client = OpenAI(api_key=key)
+              response = client.responses.create(
+                  model="gpt-5.6-terra",
+                  input=prompt
+              )
+              return response.output_text.strip()
 
-          response = client.responses.create(
-              model="gpt-5.6-terra",
-              input=prompt
-          )
+          # OpenAIが使えないとき（キー無効・残高不足など）はGeminiで代わりに生成する
+          def ask_gemini():
+              import urllib.request
+              key = os.environ.get("GEMINI_API_KEY", "").strip()
+              if not key:
+                  raise RuntimeError("GEMINI_API_KEY が未設定です")
+              url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                     "gemini-flash-lite-latest:generateContent")
+              body = json.dumps({
+                  "contents": [{"parts": [{"text": prompt}]}],
+                  "generationConfig": {"responseMimeType": "application/json"},
+              }).encode("utf-8")
+              req = urllib.request.Request(
+                  url, data=body,
+                  headers={"Content-Type": "application/json",
+                           "x-goog-api-key": key})
+              with urllib.request.urlopen(req, timeout=60) as res:
+                  data = json.load(res)
+              return data["candidates"][0]["content"]["parts"][0]["text"].strip()
 
-          text = response.output_text.strip()
+          try:
+              text = ask_openai()
+              engine = "openai"
+          except Exception as e:
+              print(f"OpenAIで生成できなかったためGeminiに切り替えます: {type(e).__name__}: {str(e)[:200]}")
+              text = ask_gemini()
+              engine = "gemini"
+          print(f"使用したAI: {engine}")
 
           # ```json ... ``` が付いた場合に除去
           if text.startswith("```"):
@@ -169,7 +201,9 @@ jobs:
                        "note"], "")),
 
               "commentary":
-                  result.get("commentary", "")
+                  result.get("commentary", ""),
+
+              "engine": engine
           }
 
           with open(
