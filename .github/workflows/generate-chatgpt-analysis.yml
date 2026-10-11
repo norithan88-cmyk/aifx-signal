@@ -124,12 +124,25 @@ jobs:
                   data = json.load(res)
               return data["candidates"][0]["content"]["parts"][0]["text"].strip()
 
+          def err_text(e):
+              detail = f"{type(e).__name__}: {e}"
+              if hasattr(e, "read"):
+                  try:
+                      detail += " " + e.read().decode("utf-8", "replace")
+                  except Exception:
+                      pass
+              return detail.replace("\n", " ")[:400]
+
           try:
               text = ask_openai()
               engine = "openai"
           except Exception as e:
-              print(f"OpenAIで生成できなかったためGeminiに切り替えます: {type(e).__name__}: {str(e)[:200]}")
-              text = ask_gemini()
+              print(f"::warning::OpenAIで生成できなかったためGeminiに切り替えます: {err_text(e)[:200]}")
+              try:
+                  text = ask_gemini()
+              except Exception as e2:
+                  print(f"::error::Geminiでも生成できませんでした: {err_text(e2)}")
+                  raise
               engine = "gemini"
           print(f"使用したAI: {engine}")
 
@@ -137,7 +150,11 @@ jobs:
           if text.startswith("```"):
               text = text.replace("```json", "").replace("```", "").strip()
 
-          result = json.loads(text)
+          try:
+              result = json.loads(text)
+          except Exception as e:
+              print(f"::error::AIの返答をJSONとして読めませんでした: {text[:300]!r}")
+              raise
 
           now = datetime.now(JST)
           weekday = "月火水木金土日"[now.weekday()]
