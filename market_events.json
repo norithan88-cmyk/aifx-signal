@@ -1,6 +1,114 @@
 {
   "events": [
     {
+      "title": "ドル・円は戻りが鈍い、ドル売り継続",
+      "link": "https://zai.diamond.jp/articles/-/497328",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-10-15T09:31:05+00:00",
+      "detected_at_utc": "2026-10-15T09:51:09.173168+00:00",
+      "baseline": {
+        "t": "2026-10-15T09:51:09.173168+00:00",
+        "price": 157.683,
+        "dxy": 101.95,
+        "usd_strength_score": -0.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "東京為替概況：ドル・円は下げ渋り、戻りは鈍い",
+      "link": "https://zai.diamond.jp/articles/-/497327",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-10-15T09:14:04+00:00",
+      "detected_at_utc": "2026-10-15T09:51:09.173168+00:00",
+      "baseline": {
+        "t": "2026-10-15T09:51:09.173168+00:00",
+        "price": 157.683,
+        "dxy": 101.95,
+        "usd_strength_score": -0.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "ドル・円は下げ渋り、戻りは鈍い",
+      "link": "https://zai.diamond.jp/articles/-/497326",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-10-15T08:40:04+00:00",
+      "detected_at_utc": "2026-10-15T09:51:09.173168+00:00",
+      "baseline": {
+        "t": "2026-10-15T09:51:09.173168+00:00",
+        "price": 157.683,
+        "dxy": 101.95,
+        "usd_strength_score": -0.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "東京外国為替市場概況・17時　ユーロドル、もみ合い",
+      "link": "https://zai.diamond.jp/articles/-/497325",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-10-15T08:06:00+00:00",
+      "detected_at_utc": "2026-10-15T09:51:09.173168+00:00",
+      "baseline": {
+        "t": "2026-10-15T09:51:09.173168+00:00",
+        "price": 157.683,
+        "dxy": 101.95,
+        "usd_strength_score": -0.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "クロス円、堅調　欧州株は横ばいで利食いの買い戻しが目立つ",
+      "link": "https://zai.diamond.jp/articles/-/497324",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-10-15T07:47:00+00:00",
+      "detected_at_utc": "2026-10-15T09:51:09.173168+00:00",
+      "baseline": {
+        "t": "2026-10-15T09:51:09.173168+00:00",
+        "price": 157.683,
+        "dxy": 101.95,
+        "usd_strength_score": -0.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
+      "title": "ドル・円は底堅い値動きか、米国経済に不透明感もクロス円が下支え",
+      "link": "https://zai.diamond.jp/articles/-/497323",
+      "source": "ザイFX！",
+      "published_at_utc": "2026-10-15T06:50:04+00:00",
+      "detected_at_utc": "2026-10-15T09:51:09.173168+00:00",
+      "baseline": {
+        "t": "2026-10-15T09:51:09.173168+00:00",
+        "price": 157.683,
+        "dxy": 101.95,
+        "usd_strength_score": -0.3
+      },
+      "checkpoints": {},
+      "flags": [],
+      "relevance": "unknown",
+      "summary": null,
+      "finalized": false
+    },
+    {
       "title": "NZSX-50指数は13832.80で取引終了",
       "link": "https://zai.diamond.jp/articles/-/497315",
       "source": "ザイFX！",
@@ -12,11 +120,40 @@
         "dxy": 102.07,
         "usd_strength_score": 0.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "1h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "2h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "4h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
-      "finalized": false
+      "relevance": "low",
+      "summary": "「NZSX-50指数は13832.80で取引終了」の報道後、USD/JPYは4時間で-0.16%。DXYは102.07から101.95へ低下、USD強弱スコアも+1から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NZドル10年債利回りは上昇、4.97％近辺で推移",
@@ -30,11 +167,40 @@
         "dxy": 102.07,
         "usd_strength_score": 0.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "1h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "2h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "4h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
-      "finalized": false
+      "relevance": "low",
+      "summary": "「NZドル10年債利回りは上昇、4.97％近辺で推移」の報道後、USD/JPYは4時間で-0.16%。DXYは102.07から101.95へ低下、USD強弱スコアも+1から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "NZドルTWI＝63.9",
@@ -48,11 +214,40 @@
         "dxy": 102.07,
         "usd_strength_score": 0.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "1h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "2h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "4h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
-      "finalized": false
+      "relevance": "low",
+      "summary": "「NZドルTWI＝63.9」の報道後、USD/JPYは4時間で-0.16%。DXYは102.07から101.95へ低下、USD強弱スコアも+1から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル・円：ドル・円は軟調、欧州通貨は強含み",
@@ -66,11 +261,40 @@
         "dxy": 102.07,
         "usd_strength_score": 0.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "1h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "2h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "4h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
-      "finalized": false
+      "relevance": "low",
+      "summary": "「ドル・円：ドル・円は軟調、欧州通貨は強含み」の報道後、USD/JPYは4時間で-0.16%。DXYは102.07から101.95へ低下、USD強弱スコアも+1から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル・円は軟調、欧州通貨は強含み",
@@ -84,11 +308,40 @@
         "dxy": 102.07,
         "usd_strength_score": 0.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "1h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "2h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "4h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
-      "finalized": false
+      "relevance": "low",
+      "summary": "「ドル・円は軟調、欧州通貨は強含み」の報道後、USD/JPYは4時間で-0.16%。DXYは102.07から101.95へ低下、USD強弱スコアも+1から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "日経平均後場寄り付き：前日比3385.56円安の64358.73円",
@@ -102,11 +355,40 @@
         "dxy": 102.07,
         "usd_strength_score": 0.8
       },
-      "checkpoints": {},
+      "checkpoints": {
+        "30m": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "1h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "2h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        },
+        "4h": {
+          "t": "2026-10-15T09:51:09.173168+00:00",
+          "price": 157.683,
+          "dxy": 101.95,
+          "usd_strength_score": -0.3,
+          "delta_price_pct": -0.161
+        }
+      },
       "flags": [],
-      "relevance": "unknown",
-      "summary": null,
-      "finalized": false
+      "relevance": "low",
+      "summary": "「日経平均後場寄り付き：前日比3385.56円安の64358.73円」の報道後、USD/JPYは4時間で-0.16%。DXYは102.07から101.95へ低下、USD強弱スコアも+1から-0へ低下。ただし相関の一致であり、因果関係は確定できません。",
+      "finalized": true
     },
     {
       "title": "ドル円、さえない　米金利低下を受けて157.89円まで下げ幅拡大",
@@ -2413,289 +2695,7 @@
       "relevance": "low",
       "summary": "「【市場反応】米9月中古住宅販売件数は予想上回る、ドル売り後退」の報道後、USD/JPYは4時間で-0.08%。DXYは102.26から102.21へ低下、USD強弱スコアも-13から-14へ低下。ただし相関の一致であり、因果関係は確定できません。",
       "finalized": true
-    },
-    {
-      "title": "【ＮＹ為替オープニング】原油や中東情勢睨む、米9月中古住宅販売件数に注目",
-      "link": "https://zai.diamond.jp/articles/-/497187",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-10-13T14:08:04+00:00",
-      "detected_at_utc": "2026-10-13T15:01:40.272766+00:00",
-      "baseline": {
-        "t": "2026-10-13T15:01:40.272766+00:00",
-        "price": 158.45,
-        "dxy": 102.26,
-        "usd_strength_score": -13.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "1h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "2h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "4h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【ＮＹ為替オープニング】原油や中東情勢睨む、米9月中古住宅販売件数に注目」の報道後、USD/JPYは4時間で-0.08%。DXYは102.26から102.21へ低下、USD強弱スコアも-13から-14へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ドル円、158.43円付近まで持ち直し　米長期金利の低下幅縮小や良好な米住宅指標も支え",
-      "link": "https://zai.diamond.jp/articles/-/497186",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-10-13T14:06:00+00:00",
-      "detected_at_utc": "2026-10-13T15:01:40.272766+00:00",
-      "baseline": {
-        "t": "2026-10-13T15:01:40.272766+00:00",
-        "price": 158.45,
-        "dxy": 102.26,
-        "usd_strength_score": -13.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "1h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "2h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "4h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル円、158.43円付近まで持ち直し　米長期金利の低下幅縮小や良好な米住宅指標も支え」の報道後、USD/JPYは4時間で-0.08%。DXYは102.26から102.21へ低下、USD強弱スコアも-13から-14へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【速報】ドル・円158.40円、ドル売り後退、米9月中古住宅販売件数は予想上回る",
-      "link": "https://zai.diamond.jp/articles/-/497185",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-10-13T14:03:07+00:00",
-      "detected_at_utc": "2026-10-13T15:01:40.272766+00:00",
-      "baseline": {
-        "t": "2026-10-13T15:01:40.272766+00:00",
-        "price": 158.45,
-        "dxy": 102.26,
-        "usd_strength_score": -13.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "1h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "2h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "4h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【速報】ドル・円158.40円、ドル売り後退、米9月中古住宅販売件数は予想上回る」の報道後、USD/JPYは4時間で-0.08%。DXYは102.26から102.21へ低下、USD強弱スコアも-13から-14へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "【速報】米・9月中古住宅販売件数は予想上回り399万戸",
-      "link": "https://zai.diamond.jp/articles/-/497184",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-10-13T14:00:56+00:00",
-      "detected_at_utc": "2026-10-13T15:01:40.272766+00:00",
-      "baseline": {
-        "t": "2026-10-13T15:01:40.272766+00:00",
-        "price": 158.45,
-        "dxy": 102.26,
-        "usd_strength_score": -13.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "1h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "2h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        },
-        "4h": {
-          "t": "2026-10-13T20:37:08.549038+00:00",
-          "price": 158.329,
-          "dxy": 102.21,
-          "usd_strength_score": -13.8,
-          "delta_price_pct": -0.076
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「【速報】米・9月中古住宅販売件数は予想上回り399万戸」の報道後、USD/JPYは4時間で-0.08%。DXYは102.26から102.21へ低下、USD強弱スコアも-13から-14へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ドル円、158.11円まで弱含み　他通貨もドル安が進む",
-      "link": "https://zai.diamond.jp/articles/-/497166",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-10-13T06:52:00+00:00",
-      "detected_at_utc": "2026-10-13T07:06:48.905683+00:00",
-      "baseline": {
-        "t": "2026-10-13T07:06:48.905683+00:00",
-        "price": 158.16,
-        "dxy": 102.37,
-        "usd_strength_score": -1.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        },
-        "1h": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        },
-        "2h": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        },
-        "4h": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル円、158.11円まで弱含み　他通貨もドル安が進む」の報道後、USD/JPYは4時間で+0.18%。DXYは102.37から102.26へ低下、USD強弱スコアも-1から-13へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
-    },
-    {
-      "title": "ドル・円は伸び悩みか、ドル買い継続もクロス円を注視",
-      "link": "https://zai.diamond.jp/articles/-/497165",
-      "source": "ザイFX！",
-      "published_at_utc": "2026-10-13T06:50:10+00:00",
-      "detected_at_utc": "2026-10-13T07:06:48.905683+00:00",
-      "baseline": {
-        "t": "2026-10-13T07:06:48.905683+00:00",
-        "price": 158.16,
-        "dxy": 102.37,
-        "usd_strength_score": -1.0
-      },
-      "checkpoints": {
-        "30m": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        },
-        "1h": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        },
-        "2h": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        },
-        "4h": {
-          "t": "2026-10-13T15:01:40.272766+00:00",
-          "price": 158.45,
-          "dxy": 102.26,
-          "usd_strength_score": -13.0,
-          "delta_price_pct": 0.183
-        }
-      },
-      "flags": [],
-      "relevance": "low",
-      "summary": "「ドル・円は伸び悩みか、ドル買い継続もクロス円を注視」の報道後、USD/JPYは4時間で+0.18%。DXYは102.37から102.26へ低下、USD強弱スコアも-1から-13へ低下。ただし相関の一致であり、因果関係は確定できません。",
-      "finalized": true
     }
   ],
-  "updated_at_utc": "2026-10-15T05:04:42.261383+00:00"
+  "updated_at_utc": "2026-10-15T09:51:09.173168+00:00"
 }
