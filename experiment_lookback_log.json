@@ -107,7 +107,7 @@
       "total_pips": 138.7
     }
   },
-  "updated_at_utc": "2026-10-14T22:01:35.996468+00:00",
+  "updated_at_utc": "2026-10-15T00:28:52.465384+00:00",
   "50": {
     "trades": [
       {
@@ -152,7 +152,19 @@
     }
   },
   "70": {
-    "trades": [],
+    "trades": [
+      {
+        "opened_at_utc": "2026-10-15T00:28:52.465384+00:00",
+        "bias": "SELL",
+        "entry": 157.846,
+        "take_profit": 157.795,
+        "stop_loss": 157.917,
+        "status": "OPEN",
+        "closed_at_utc": null,
+        "closed_price": null,
+        "pips": null
+      }
+    ],
     "stats": {
       "total_closed": 0,
       "wins": 0,
