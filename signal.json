@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-24T19:40:14.151422+00:00",
+  "generated_at_utc": "2026-10-24T21:55:35.775006+00:00",
   "pair": "USD/JPY",
   "latest_price": 156.814,
   "day_change_pct": 0.03,
@@ -26,9 +26,9 @@
   "trend_signal": {
     "bias": "WAIT",
     "bias_label": "様子見",
-    "position_sigma": 0.08,
+    "position_sigma": 0.09,
     "gate_threshold": 2.2,
-    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在0.08σ）",
+    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在0.09σ）",
     "entry": null,
     "stop_loss": null,
     "note": "反発型（上のシグナル）とは別ロジックの補完シグナルです。なだらかな一直線トレンドを狙い撃ちする代わりに、勝率・PFは反発型より低めです（19ヶ月検証: 勝率43.5%・PF1.63）。"
@@ -47,17 +47,17 @@
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.84,
+      "position_sigma": -0.85,
       "trend": "FLAT",
       "momentum": "FLAT",
       "mid": 156.877,
-      "upper": 157.026,
+      "upper": 157.027,
       "lower": 156.728
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.08,
+      "position_sigma": 0.09,
       "trend": "FLAT",
       "momentum": "FLAT",
       "mid": 156.801,
@@ -67,7 +67,7 @@
   ],
   "technical": {
     "macd": {
-      "macd": -0.0644,
+      "macd": -0.0645,
       "signal": -0.0975,
       "histogram": 0.033,
       "state": "BULLISH",
@@ -134,12 +134,6 @@
       "title": "NY金先物は続落、米長期金利の5％台回復とドル高で7月以来の安値",
       "link": "https://zai.diamond.jp/articles/-/497861",
       "published_at_utc": "2026-10-23T22:48:05+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "ニューヨーク外国為替市場概況・23日　ユーロドル、3日続落",
-      "link": "https://zai.diamond.jp/articles/-/497860",
-      "published_at_utc": "2026-10-23T21:03:00+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
