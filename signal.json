@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-24T05:53:30.481336+00:00",
+  "generated_at_utc": "2026-10-24T10:23:19.189856+00:00",
   "pair": "USD/JPY",
   "latest_price": 156.814,
   "day_change_pct": 0.03,
@@ -26,9 +26,9 @@
   "trend_signal": {
     "bias": "WAIT",
     "bias_label": "様子見",
-    "position_sigma": 0.09,
+    "position_sigma": 0.08,
     "gate_threshold": 2.2,
-    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在0.09σ）",
+    "lead": "様子見 ― 1時間足はトレンド確定基準(±2.2σ)に届いていない（現在0.08σ）",
     "entry": null,
     "stop_loss": null,
     "note": "反発型（上のシグナル）とは別ロジックの補完シグナルです。なだらかな一直線トレンドを狙い撃ちする代わりに、勝率・PFは反発型より低めです（19ヶ月検証: 勝率43.5%・PF1.63）。"
@@ -47,17 +47,17 @@
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -0.85,
+      "position_sigma": -0.84,
       "trend": "FLAT",
       "momentum": "FLAT",
       "mid": 156.877,
-      "upper": 157.027,
+      "upper": 157.026,
       "lower": 156.728
     },
     {
       "key": "h1",
       "label": "1時間足",
-      "position_sigma": 0.09,
+      "position_sigma": 0.08,
       "trend": "FLAT",
       "momentum": "FLAT",
       "mid": 156.801,
@@ -67,7 +67,7 @@
   ],
   "technical": {
     "macd": {
-      "macd": -0.0645,
+      "macd": -0.0644,
       "signal": -0.0975,
       "histogram": 0.033,
       "state": "BULLISH",
