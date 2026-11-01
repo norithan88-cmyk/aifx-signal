@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-31T21:50:34.573880+00:00",
+  "generated_at_utc": "2026-11-01T00:34:40.288866+00:00",
   "pair": "USD/JPY",
   "latest_price": 157.519,
   "day_change_pct": -0.11,
@@ -110,32 +110,7 @@
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
   "market_context": "USD/JPYは現在157.52円付近で推移（直近1時間比-0.11%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは横ばい基調、WTI原油は横ばい基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
-  "news": [
-    {
-      "source": "ザイFX！",
-      "title": "世界各国通貨に対する円：対ドル0.03%高、対ユーロ0.02%高",
-      "link": "https://zai.diamond.jp/articles/-/498293",
-      "published_at_utc": "2026-10-31T00:14:04+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "NY市場動向（取引終了）:ダウ572.25ドル安（速報）、原油先物0.89ドル高",
-      "link": "https://zai.diamond.jp/articles/-/498292",
-      "published_at_utc": "2026-10-31T00:13:04+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "【来週の注目イベント】米中間選挙、米10月雇用統計、英中銀、豪準備銀",
-      "link": "https://zai.diamond.jp/articles/-/498291",
-      "published_at_utc": "2026-10-30T23:05:05+00:00"
-    },
-    {
-      "source": "ザイFX！",
-      "title": "NY金先物は大幅続落、AI関連株安で現金確保の売りが波及",
-      "link": "https://zai.diamond.jp/articles/-/498290",
-      "published_at_utc": "2026-10-30T22:50:05+00:00"
-    }
-  ],
+  "news": [],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
   "daily_analysis": {
     "date": "2026-09-27",
@@ -206,33 +181,33 @@
     },
     {
       "code": "USD",
-      "change_pct": 0.03,
-      "strength_score": 1.3
-    },
-    {
-      "code": "GBP",
-      "change_pct": 0.0,
-      "strength_score": 0.1
+      "change_pct": 0.07,
+      "strength_score": 2.8
     },
     {
       "code": "NZD",
-      "change_pct": 0.0,
-      "strength_score": 0.0
+      "change_pct": 0.05,
+      "strength_score": 1.8
+    },
+    {
+      "code": "GBP",
+      "change_pct": 0.01,
+      "strength_score": 0.4
     },
     {
       "code": "CAD",
-      "change_pct": -0.02,
-      "strength_score": -0.9
-    },
-    {
-      "code": "CHF",
-      "change_pct": -0.15,
-      "strength_score": -5.9
+      "change_pct": -0.04,
+      "strength_score": -1.7
     },
     {
       "code": "EUR",
       "change_pct": -0.26,
       "strength_score": -10.3
+    },
+    {
+      "code": "CHF",
+      "change_pct": -0.44,
+      "strength_score": -17.7
     }
   ]
 }
