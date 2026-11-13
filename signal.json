@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-11-13T15:26:25.260161+00:00",
+  "generated_at_utc": "2026-11-13T21:31:25.075248+00:00",
   "pair": "USD/JPY",
-  "latest_price": 159.781,
-  "day_change_pct": 0.01,
+  "latest_price": 159.697,
+  "day_change_pct": -0.1,
   "signal": {
     "bias": "WAIT",
     "bias_label": "方向感なし",
     "stars": 2,
     "confidence": 50,
     "confidence_breakdown": {
-      "timeframes_note": "5分足:中央 / 15分足:下方向 / 1時間足:下方向 → 3時間足の方向が一致していません",
+      "timeframes_note": "5分足:中央 / 15分足:中央 / 1時間足:下方向 → 3時間足の方向が一致していません",
       "calc_note": "3時間足の方向が揃っていないため、基本値50%のままです。"
     }
   },
@@ -37,22 +37,22 @@
     {
       "key": "m5",
       "label": "5分足",
-      "position_sigma": -0.46,
+      "position_sigma": -1.1,
       "trend": "FLAT",
       "momentum": "FLAT",
-      "mid": 159.802,
-      "upper": 159.896,
-      "lower": 159.709
+      "mid": 159.742,
+      "upper": 159.824,
+      "lower": 159.66
     },
     {
       "key": "m15",
       "label": "15分足",
-      "position_sigma": -1.66,
+      "position_sigma": -0.33,
       "trend": "FLAT",
-      "momentum": "DOWN",
-      "mid": 159.88,
-      "upper": 160.001,
-      "lower": 159.758
+      "momentum": "FLAT",
+      "mid": 159.717,
+      "upper": 159.873,
+      "lower": 159.562
     },
     {
       "key": "h1",
@@ -60,36 +60,36 @@
       "position_sigma": -1.77,
       "trend": "FLAT",
       "momentum": "DOWN",
-      "mid": 159.921,
-      "upper": 160.082,
-      "lower": 159.76
+      "mid": 159.83,
+      "upper": 159.979,
+      "lower": 159.68
     }
   ],
   "technical": {
     "macd": {
-      "macd": 0.0313,
-      "signal": 0.0561,
-      "histogram": -0.0248,
+      "macd": -0.0101,
+      "signal": 0.0223,
+      "histogram": -0.0325,
       "state": "BEARISH",
       "cross": null
     },
     "rsi": {
-      "value": 47.1,
+      "value": 43.3,
       "state": "NEUTRAL"
     },
     "moving_averages": {
-      "ma5": 159.864,
-      "ma25": 159.857,
-      "ma75": 159.504,
-      "ma200": 158.657,
-      "price": 159.779,
+      "ma5": 159.734,
+      "ma25": 159.861,
+      "ma75": 159.588,
+      "ma200": 158.707,
+      "price": 159.697,
       "perfect_order": null
     },
     "bollinger": {
-      "mid": 159.876,
-      "upper": 159.997,
-      "lower": 159.756,
-      "price": 159.779,
+      "mid": 159.857,
+      "upper": 160.036,
+      "lower": 159.679,
+      "price": 159.697,
       "state": "INSIDE"
     },
     "support_resistance": {
@@ -104,48 +104,48 @@
     "jp10y_trend": "up",
     "jp10y_latest": 2.841,
     "dxy_trend": "up",
-    "dxy_latest": 103.19,
+    "dxy_latest": 103.38,
     "gold_trend": "down",
-    "gold_latest": 3891.7
+    "gold_latest": 3880.2
   },
   "commentary": "方向感のない日は、休むも相場。無理に取りにいかない。",
-  "market_context": "USD/JPYは現在159.78円付近で推移（直近1時間比+0.01%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは上昇基調、WTI原油は低下基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
+  "market_context": "USD/JPYは現在159.70円付近で推移（直近1時間比-0.10%）。5分・15分・1時間足の方向が揃っておらず、方向感に乏しいレンジ地合い。米10年債利回りは上昇基調、WTI原油は低下基調で推移している。明確な方向一致が出るまでは、無理に取りにいかず様子見が無難な局面。※このまとめは実データから自動生成された定型解説です。個別の経済指標発表やニュース速報の内容までは反映していません。",
   "news": [
     {
       "source": "ザイFX！",
-      "title": "【ＮＹ為替オープニング】市場はあと4回の米利上げ織り込み始め長期金利上昇、米10月PPIはインフレ鎮静化",
-      "link": "https://zai.diamond.jp/articles/-/499031",
-      "published_at_utc": "2026-11-13T15:10:04+00:00"
+      "title": "【速報】FRB報告「AIが一部けん引した資産市場の高騰にリスクが見られる」",
+      "link": "https://zai.diamond.jp/articles/-/499046",
+      "published_at_utc": "2026-11-13T21:06:08+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "ニューヨーク外国為替市場概況・24時　ドル円、神経質",
-      "link": "https://zai.diamond.jp/articles/-/499032",
-      "published_at_utc": "2026-11-13T15:08:00+00:00"
+      "title": "11月13日のNY為替・原油概況",
+      "link": "https://zai.diamond.jp/articles/-/499045",
+      "published_at_utc": "2026-11-13T20:40:04+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【市場反応】米10月PPI受け利上げ観測は緩和、ドル伸び悩む",
-      "link": "https://zai.diamond.jp/articles/-/499030",
-      "published_at_utc": "2026-11-13T14:33:04+00:00"
+      "title": "NY外為：円一段高、当局の円安是正介入警戒感がくすぶる",
+      "link": "https://zai.diamond.jp/articles/-/499044",
+      "published_at_utc": "2026-11-13T19:43:04+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】ドル・円159.86円、ドルもみ合い、米10月コアPPIは予想上回る",
-      "link": "https://zai.diamond.jp/articles/-/499029",
-      "published_at_utc": "2026-11-13T13:37:18+00:00"
+      "title": "NY市場動向（午後2時台）：ダウ0.66ドル高、原油先物横ばい",
+      "link": "https://zai.diamond.jp/articles/-/499043",
+      "published_at_utc": "2026-11-13T19:18:04+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "ドル円、弱含み　予想比下振れの10月米PPI受け",
-      "link": "https://zai.diamond.jp/articles/-/499028",
-      "published_at_utc": "2026-11-13T13:35:00+00:00"
+      "title": "ニューヨーク外国為替市場概況･4時　ドル円、弱含み",
+      "link": "https://zai.diamond.jp/articles/-/499042",
+      "published_at_utc": "2026-11-13T19:06:00+00:00"
     },
     {
       "source": "ザイFX！",
-      "title": "【速報】米・10月生産者物価指数は予想を下回り＋0.3％",
-      "link": "https://zai.diamond.jp/articles/-/499027",
-      "published_at_utc": "2026-11-13T13:30:40+00:00"
+      "title": "[通貨オプション]R/R、短中期物で円コール買い強まる",
+      "link": "https://zai.diamond.jp/articles/-/499041",
+      "published_at_utc": "2026-11-13T18:40:05+00:00"
     }
   ],
   "disclaimer": "本データはルールベースの参考情報であり、投資成果を保証するものではありません。",
@@ -207,44 +207,44 @@
   },
   "currency_strength": [
     {
-      "code": "CAD",
-      "change_pct": 0.11,
-      "strength_score": 4.4
-    },
-    {
-      "code": "GBP",
-      "change_pct": 0.08,
-      "strength_score": 3.0
-    },
-    {
       "code": "USD",
-      "change_pct": 0.05,
-      "strength_score": 2.2
-    },
-    {
-      "code": "EUR",
-      "change_pct": 0.0,
-      "strength_score": 0.0
+      "change_pct": 0.23,
+      "strength_score": 9.0
     },
     {
       "code": "JPY",
-      "change_pct": -0.01,
-      "strength_score": -0.4
+      "change_pct": 0.1,
+      "strength_score": 4.0
     },
     {
-      "code": "CHF",
-      "change_pct": -0.11,
-      "strength_score": -4.5
+      "code": "CAD",
+      "change_pct": -0.04,
+      "strength_score": -1.7
+    },
+    {
+      "code": "GBP",
+      "change_pct": -0.13,
+      "strength_score": -5.0
+    },
+    {
+      "code": "EUR",
+      "change_pct": -0.25,
+      "strength_score": -10.1
     },
     {
       "code": "NZD",
-      "change_pct": -0.13,
-      "strength_score": -5.3
+      "change_pct": -0.38,
+      "strength_score": -15.0
+    },
+    {
+      "code": "CHF",
+      "change_pct": -0.4,
+      "strength_score": -16.0
     },
     {
       "code": "AUD",
-      "change_pct": -0.31,
-      "strength_score": -12.5
+      "change_pct": -0.48,
+      "strength_score": -19.2
     }
   ]
 }
